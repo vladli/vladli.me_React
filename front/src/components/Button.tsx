@@ -1,4 +1,3 @@
-import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 interface ButtonProps {
@@ -18,8 +17,8 @@ const textSize = {
   large: tw`text-base`,
 };
 
-const Button = styled.button(
-  ({ variant = "contained", size = "medium" }: ButtonProps) => [
+const Button = styled.button<ButtonProps>(
+  ({ variant = "contained", size = "medium" }) => [
     tw`mx-2 my-2 transition duration-150 ease-in-out rounded px-6 py-2`,
     containerVariants[variant],
     textSize[size],

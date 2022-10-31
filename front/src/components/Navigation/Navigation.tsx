@@ -9,7 +9,7 @@ const Navigation: React.FC<NavigationProps> = () => {
   return (
     <>
       {/* Navigation */}
-      <ul className="flex list-none flex-col md:min-w-full md:flex-col">
+      <ul className="">
         <NavItem name="Dashboard" link="/" icon="bxs:user-account" />
         <NavItem name="Login" />
       </ul>

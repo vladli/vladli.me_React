@@ -12,8 +12,9 @@ type NavItemProps = {
 
 const styles = {
   container: (active: any) => [
-    tw`cursor-pointer pl-6 pb-4 pt-4 leading-3 tracking-normal bg-gray-600 rounded-[10px] 
+    tw`cursor-pointer pl-6 py-3 leading-3 tracking-normal bg-gray-700 rounded-[10px] 
     w-56 m-auto mb-1 mx-2
+    hover:opacity-80
     focus:text-black focus:outline-none`,
     active ? tw`text-sky-500` : tw`text-white`,
   ],

@@ -5,12 +5,12 @@ const MenuItems = [
     icon: undefined,
     submenu: [
       {
-        name: "Main22",
-        link: "/2",
+        name: "Main",
+        link: "/",
       },
       {
         name: "Main33",
-        link: "/",
+        link: "/3",
       },
     ],
   },
@@ -18,16 +18,6 @@ const MenuItems = [
     name: "Login",
     link: "/auth/login",
     icon: undefined,
-    submenu: [
-      {
-        name: "Main44",
-        link: "/3",
-      },
-      {
-        name: "Main55",
-        link: "/4",
-      },
-    ],
   },
 ];
 

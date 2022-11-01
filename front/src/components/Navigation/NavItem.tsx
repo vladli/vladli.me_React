@@ -38,11 +38,13 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
-    submenu.forEach((item: ItemsProps) => {
-      if (item.link === location) {
-        return setOpen(true);
-      }
-    });
+    if (submenu) {
+      submenu.forEach((item: ItemsProps) => {
+        if (item.link === location) {
+          return setOpen(true);
+        }
+      });
+    }
   }, [location, submenu]);
 
   return (

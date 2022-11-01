@@ -6,7 +6,6 @@ interface NavigationProps {}
 const Navigation: React.FC<NavigationProps> = () => {
   return (
     <>
-      {/* Navigation */}
       <ul>
         {MenuConfig.map<any>((menu) => (
           <NavItem key={menu.name} items={menu} />

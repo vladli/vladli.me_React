@@ -6,7 +6,7 @@ import Navigation from "../components/Navigation/Navigation";
 const MainLayout = () => {
   return (
     <>
-      <div className="flex h-16 w-full flex-wrap items-center bg-gray-800">
+      <div className="flex h-16 w-full flex-wrap items-center border border-gray-900 bg-gray-800">
         <div className="ml-4 sm:ml-14">
           <Logo />
         </div>
@@ -15,7 +15,7 @@ const MainLayout = () => {
         </div>
       </div>
       <div className="flex">
-        <div className="hidden h-[calc(100vh-64px)] bg-gray-800 pt-4 sm:flex ">
+        <div className="hidden h-[calc(100vh-64px)]  bg-gray-800 pt-1 sm:flex ">
           <Navigation />
         </div>
         <div className="flex shrink-0  grow bg-gray-700">

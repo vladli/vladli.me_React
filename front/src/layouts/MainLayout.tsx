@@ -1,9 +1,7 @@
-import { Icon } from "@iconify/react";
-import tw from "twin.macro";
+import { Outlet } from "react-router-dom";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 import Navigation from "../components/Navigation/Navigation";
-import HomeHeader from "../views/Home/HomeHeader";
 
 const MainLayout = () => {
   return (
@@ -21,7 +19,9 @@ const MainLayout = () => {
           <Navigation />
         </div>
         <div className="flex shrink-0  grow bg-gray-700">
-          <div className="">asd</div>
+          <div className="">
+            <Outlet />
+          </div>
         </div>
       </div>
     </>

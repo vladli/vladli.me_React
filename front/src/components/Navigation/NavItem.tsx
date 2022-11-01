@@ -34,7 +34,17 @@ const styles = {
 const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const { name, link, icon, submenu } = items;
   const isActive: boolean = useLocation().pathname === link;
+  const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    submenu.forEach((item: ItemsProps) => {
+      if (item.link === location) {
+        return setOpen(true);
+      }
+    });
+  }, [location, submenu]);
+
   return (
     <>
       {!submenu ? (
@@ -62,9 +72,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
           </div>
           {open && (
             <ul>
-              {submenu.map((item: any) => {
-                return <NavItemChild key={item.name} items={item} />;
-              })}
+              <NavItemChild items={submenu} />
             </ul>
           )}
         </>

@@ -6,13 +6,14 @@ import { Icon } from "@iconify/react";
 
 type NavItemChildProps = {
   items: ItemsProps;
+  open?: any;
 };
 
 type ItemsProps = {
   name: string;
   link?: string;
   icon?: string;
-};
+}[];
 
 const styles = {
   container: (isActive: boolean) => [
@@ -25,15 +26,28 @@ const styles = {
 };
 
 const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
-  const { name, link, icon } = items;
-  const isActive: boolean = useLocation().pathname === link;
+  const isActive = useLocation().pathname;
+  let active = false;
+  React.useEffect(() => {
+    if (active) {
+      console.log(active);
+    }
+  }, [active]);
+
   return (
-    <li css={styles.container(isActive)}>
-      <div css={styles.item}>
-        {icon && <Icon icon={icon} />}
-        <span className="ml-2">{name}</span>
-      </div>
-    </li>
+    <>
+      {items.map((item: any) => {
+        active = isActive === item.link;
+        return (
+          <li key={item.name} css={styles.container(active)}>
+            <div css={styles.item}>
+              {item.icon && <Icon icon={item.icon} />}
+              <span className="ml-2">{item.name}</span>
+            </div>
+          </li>
+        );
+      })}
+    </>
   );
 };
 

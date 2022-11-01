@@ -33,10 +33,12 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
         const active = isActive === item.link;
         return (
           <li key={item.name} css={styles.container(active)}>
-            <div css={styles.item}>
-              {item.icon && <Icon icon={item.icon} />}
-              <span className="ml-2">{item.name}</span>
-            </div>
+            <Link to={item.link}>
+              <div css={styles.item}>
+                {item.icon && <Icon icon={item.icon} />}
+                <span className="ml-2">{item.name}</span>
+              </div>
+            </Link>
           </li>
         );
       })}

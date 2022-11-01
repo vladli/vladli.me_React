@@ -4,7 +4,7 @@ function path(root: string, sublink: string) {
 
 const ROOT_AUTH = "/auth";
 const ROOT_DASHBOARD = "/dashboard";
-
+export const ROOT_PAGE = "/";
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {
@@ -15,4 +15,17 @@ export const PATH_AUTH = {
   registerUnprotected: path(ROOT_AUTH, "/register-unprotected"),
   verify: path(ROOT_AUTH, "/verify"),
   resetPassword: path(ROOT_AUTH, "/reset-password"),
+};
+
+export const PATH_PAGE = {
+  comingSoon: "/coming-soon",
+  maintenance: "/maintenance",
+  pricing: "/pricing",
+  payment: "/payment",
+  about: "/about-us",
+  contact: "/contact-us",
+  faqs: "/faqs",
+  page404: "/404",
+  page500: "/500",
+  components: "/components",
 };

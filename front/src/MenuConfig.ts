@@ -10,7 +10,7 @@ const MenuItems = [
       },
       {
         name: "Main33",
-        link: "/3",
+        link: "/2",
       },
     ],
   },

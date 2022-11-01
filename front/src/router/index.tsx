@@ -13,6 +13,10 @@ const router = createBrowserRouter([
         element: <div>Main as sad asd</div>,
         index: true,
       },
+      {
+        element: <div>asd</div>,
+        path: "/2",
+      },
     ],
   },
   {

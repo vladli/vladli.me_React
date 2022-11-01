@@ -50,14 +50,14 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   return (
     <>
       {!submenu ? (
-        <li css={styles.container(isActive)}>
-          <Link to={link}>
+        <Link to={link}>
+          <li css={styles.container(isActive)}>
             <div css={styles.item}>
               {icon && <Icon icon={icon} />}
               <span className="ml-2">{name}</span>
             </div>
-          </Link>
-        </li>
+          </li>
+        </Link>
       ) : (
         <>
           <div css={styles.subcontainer} onClick={() => setOpen(!open)}>

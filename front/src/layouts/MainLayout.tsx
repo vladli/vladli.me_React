@@ -1,9 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
 import Navigation from "../components/Navigation/Navigation";
+import { PATH_AUTH } from "../router/paths";
 
 const MainLayout = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="flex h-16 w-full flex-wrap items-center border border-gray-900 bg-gray-800">
@@ -11,7 +13,7 @@ const MainLayout = () => {
           <Logo />
         </div>
         <div className="absolute right-4">
-          <Button onClick={() => alert("CLICK")}>Log In</Button>
+          <Button onClick={() => navigate(PATH_AUTH.login)}>Log In</Button>
         </div>
       </div>
       <div className="flex">

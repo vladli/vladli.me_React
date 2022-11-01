@@ -1,16 +1,16 @@
 const MenuItems = [
   {
     name: "Main",
-    link: "/",
+    link: "",
     icon: undefined,
     submenu: [
       {
         name: "Main22",
-        link: "/",
+        link: "/2",
       },
       {
         name: "Main33",
-        link: "/2",
+        link: "/",
       },
     ],
   },

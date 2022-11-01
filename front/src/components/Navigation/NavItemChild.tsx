@@ -27,17 +27,10 @@ const styles = {
 
 const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
   const isActive = useLocation().pathname;
-  let active = false;
-  React.useEffect(() => {
-    if (active) {
-      console.log(active);
-    }
-  }, [active]);
-
   return (
     <>
       {items.map((item: any) => {
-        active = isActive === item.link;
+        const active = isActive === item.link;
         return (
           <li key={item.name} css={styles.container(active)}>
             <div css={styles.item}>

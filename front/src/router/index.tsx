@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        element: <div>Main</div>,
+        element: <div>Main as sad asd</div>,
         index: true,
       },
     ],

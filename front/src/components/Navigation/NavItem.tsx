@@ -3,12 +3,17 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import tw from "twin.macro";
 import { Icon } from "@iconify/react";
+import NavItemChild from "./NavItemChild";
 
 type NavItemProps = {
+  items: ItemsProps;
+};
+
+type ItemsProps = {
   name: string;
   link: string;
   icon?: string;
-  childrens?: any;
+  submenu?: any;
 };
 
 const styles = {
@@ -18,39 +23,54 @@ const styles = {
     hover:bg-gray-500`,
     isActive && tw`bg-gray-600`,
   ],
-  item: [tw`flex items-center text-base font-semibold`],
+  subcontainer: [
+    tw`text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
+    w-56 m-auto mb-1 mx-2  
+    hover:bg-gray-500`,
+  ],
+  item: [tw`flex items-center text-base font-semibold select-none`],
 };
 
-const NavItem: React.FC<NavItemProps> = ({ name, link, icon, childrens }) => {
+const NavItem: React.FC<NavItemProps> = ({ items }) => {
+  const { name, link, icon, submenu } = items;
   const isActive: boolean = useLocation().pathname === link;
-  console.log(childrens);
-  if (childrens !== undefined) {
-    return (
-      <li css={styles.container(isActive)}>
-        <Link to={link}>
-          <div>
+  const [open, setOpen] = React.useState(false);
+  return (
+    <>
+      {!submenu ? (
+        <li css={styles.container(isActive)}>
+          <Link to={link}>
             <div css={styles.item}>
               {icon && <Icon icon={icon} />}
               <span className="ml-2">{name}</span>
             </div>
-          </div>
-        </Link>
-      </li>
-    );
-  } else {
-    return (
-      <li css={styles.container(isActive)}>
-        <Link to={link}>
-          <div>
+          </Link>
+        </li>
+      ) : (
+        <>
+          <div css={styles.subcontainer} onClick={() => setOpen(!open)}>
             <div css={styles.item}>
-              {icon && <Icon icon={icon} />}
+              <Icon
+                icon={
+                  open
+                    ? "eva:arrow-ios-downward-fill"
+                    : "eva:arrow-ios-forward-fill"
+                }
+              />
               <span className="ml-2">{name}</span>
             </div>
           </div>
-        </Link>
-      </li>
-    );
-  }
+          {open && (
+            <ul>
+              {submenu.map((item: any) => {
+                return <NavItemChild key={item.name} items={item} />;
+              })}
+            </ul>
+          )}
+        </>
+      )}
+    </>
+  );
 };
 
 export default NavItem;

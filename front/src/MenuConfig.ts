@@ -3,9 +3,13 @@ const MenuItems = [
     name: "Main",
     link: "/",
     icon: undefined,
-    childrens: [
+    submenu: [
       {
-        name: "Main 2",
+        name: "Main22",
+        link: "/",
+      },
+      {
+        name: "Main33",
         link: "/2",
       },
     ],
@@ -14,6 +18,16 @@ const MenuItems = [
     name: "Login",
     link: "/auth/login",
     icon: undefined,
+    submenu: [
+      {
+        name: "Main44",
+        link: "/3",
+      },
+      {
+        name: "Main55",
+        link: "/4",
+      },
+    ],
   },
 ];
 

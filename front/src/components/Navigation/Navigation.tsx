@@ -2,6 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import React from "react";
 import NavItem from "./NavItem";
+import NavItemChild from "./NavItemChild";
 import { Link } from "react-router-dom";
 import { PATH_AUTH } from "../../router/paths";
 import MenuConfig from "../../MenuConfig";
@@ -13,15 +14,7 @@ const Navigation: React.FC<NavigationProps> = () => {
       {/* Navigation */}
       <ul>
         {MenuConfig.map<any>((menu) => {
-          return (
-            <NavItem
-              key={menu.name}
-              name={menu.name}
-              link={menu.link}
-              icon={menu.icon}
-              childrens={menu.childrens}
-            />
-          );
+          return <NavItem key={menu.name} items={menu} />;
         })}
       </ul>
     </>

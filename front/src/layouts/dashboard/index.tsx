@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
+import Button from "../../components/Buttons/Button";
 import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation/Navigation";
 import { PATH_AUTH } from "../../router/paths";

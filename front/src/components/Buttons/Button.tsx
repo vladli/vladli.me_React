@@ -10,6 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
   leftIcon?: string;
   rightIcon?: string;
+  disabled?: boolean;
   children: React.ReactNode;
   [key: string]: any;
 }
@@ -44,11 +45,13 @@ const ButtonStyled = styled.button<ButtonProps>(
   ({
     variant = "contained",
     size = "medium",
+    disabled = false,
     gradientMono = undefined,
     gradientDuo = undefined,
   }) => [
     tw`mx-2 my-2 transition duration-150 ease-in-out rounded px-4 py-2 text-white`,
     textSize[size],
+    disabled ? tw`cursor-not-allowed` : undefined,
     !gradientMono && !gradientDuo && containerVariants[variant],
     gradientMono && gradientMonoVariants[gradientMono],
     gradientDuo && gradientDuoVariants[gradientDuo],
@@ -59,12 +62,14 @@ const Button: React.FC<ButtonProps> = ({
   children,
   leftIcon,
   rightIcon,
+  disabled,
   ...rest
 }) => {
   return (
     <ButtonStyled
       {...rest}
       className="inline-flex select-none items-center font-semibold"
+      disabled={disabled}
     >
       {leftIcon && <Icon icon={leftIcon} width={16} />}
       <span className="px-2">{children}</span>

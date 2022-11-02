@@ -13,7 +13,13 @@ const MainLayout = () => {
           <Logo />
         </div>
         <div className="absolute right-4">
-          <Button onClick={() => navigate(PATH_AUTH.login)}>Log In</Button>
+          <Button
+            gradientDuo="purple"
+            icon="entypo:login"
+            onClick={() => navigate(PATH_AUTH.login)}
+          >
+            Log In
+          </Button>
         </div>
       </div>
       <div className="flex">

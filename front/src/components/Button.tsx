@@ -1,11 +1,17 @@
 import tw from "twin.macro";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
-interface ButtonProps {
+import React from "react";
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
   size?: "small" | "medium" | "large";
   gradientMono?: "blue" | "green" | "red" | "purple" | undefined;
   gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
+  leftIcon?: string;
+  rightIcon?: string;
+  children: React.ReactNode;
+  [key: string]: any;
 }
 
 const containerVariants = {
@@ -49,14 +55,20 @@ const ButtonStyled = styled.button<ButtonProps>(
   ]
 );
 
-const Button = ({ children, icon, ...rest }: any) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  leftIcon,
+  rightIcon,
+  ...rest
+}) => {
   return (
     <ButtonStyled
       {...rest}
       className="inline-flex select-none items-center font-semibold"
     >
-      {icon && <Icon icon={icon} width={16} />}
-      <span className="pl-2">{children}</span>
+      {leftIcon && <Icon icon={leftIcon} width={16} />}
+      <span className="px-2">{children}</span>
+      {rightIcon && <Icon icon={rightIcon} width={16} />}
     </ButtonStyled>
   );
 };

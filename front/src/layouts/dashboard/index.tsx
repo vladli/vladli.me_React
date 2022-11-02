@@ -15,7 +15,7 @@ const MainLayout = () => {
         <div className="absolute right-4">
           <Button
             gradientDuo="purple"
-            icon="entypo:login"
+            leftIcon="entypo:login"
             onClick={() => navigate(PATH_AUTH.login)}
           >
             Log In

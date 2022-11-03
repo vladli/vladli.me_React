@@ -25,8 +25,8 @@ const MainLayout = () => {
         <div className="hidden h-[calc(100vh-64px)]  bg-gray-800 pt-1 sm:flex ">
           <Navigation />
         </div>
-        <div className="flex h-[calc(100vh-64px)] shrink-0 grow bg-gray-700">
-          <div className="">
+        <div className="flex h-[calc(100vh-64px)] shrink-0 grow justify-center bg-gray-700 sm:justify-start">
+          <div className="mx-4 my-4 flex ">
             <Outlet />
           </div>
         </div>

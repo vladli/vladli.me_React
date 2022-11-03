@@ -5,7 +5,7 @@ interface ICardAction {
 }
 
 const CardAction: React.FC<ICardAction> = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className="inline-flex items-center px-4 pb-4">{children}</div>;
 };
 
 export default CardAction;

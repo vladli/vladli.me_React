@@ -17,8 +17,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const containerVariants = {
   // Named class sets
-  contained: tw`bg-indigo-700 hover:bg-indigo-600 `,
-  outlined: tw`hover:border-indigo-600 hover:text-indigo-600 border border-indigo-700 `,
+  contained: tw`bg-primary-600 hover:bg-primary-700 `,
+  outlined: tw`hover:border-primary-600 hover:text-primary-600 border border-primary-700 `,
 };
 
 const gradientMonoVariants = {

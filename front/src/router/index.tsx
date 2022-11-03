@@ -2,7 +2,8 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/dashboard";
 import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
-//const MainLayout = lazy(() => import("../layouts/MainLayout"));
+
+const Dashboard = lazy(() => import("../pages/Dashboard"));
 
 const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        element: <div>Main as sad asd</div>,
+        element: <Dashboard />,
         index: true,
       },
       {

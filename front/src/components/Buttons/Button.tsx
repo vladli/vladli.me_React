@@ -49,7 +49,7 @@ const ButtonStyled = styled.button<ButtonProps>(
     gradientMono = undefined,
     gradientDuo = undefined,
   }) => [
-    tw`mx-2 my-2 transition duration-150 ease-in-out rounded px-4 py-2 text-white`,
+    tw`transition duration-150 ease-in-out rounded px-4 py-2 text-white`,
     textSize[size],
     disabled ? tw`cursor-not-allowed` : undefined,
     !gradientMono && !gradientDuo && containerVariants[variant],

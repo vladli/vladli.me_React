@@ -17,7 +17,7 @@ const Image: React.FC<IImage> = ({
 }) => {
   const [loaded, setloaded] = React.useState(true);
   return (
-    <div style={{ height: height, width: width }}>
+    <div className="select-none" style={{ height: height, width: width }}>
       {loaded && blured && (
         <BlurhashCanvas
           hash={blured}

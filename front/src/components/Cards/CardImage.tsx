@@ -16,7 +16,7 @@ const CardImage: React.FC<ICardImage> = ({
 }) => {
   const [loaded, setloaded] = React.useState(false);
   return (
-    <div className="max-w-sm h-[220px]">
+    <div className="max-w-sm h-[220px] select-none">
       {!loaded && blured && (
         <BlurhashCanvas
           hash={blured}

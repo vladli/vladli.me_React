@@ -28,7 +28,7 @@ const styles = {
     w-56 m-auto mb-1 mx-2  
     hover:bg-gray-500`,
   ],
-  item: [tw`flex items-center text-base font-semibold select-none`],
+  item: [tw`flex items-center text-base font-semibold select-none `],
 };
 
 const NavItem: React.FC<NavItemProps> = ({ items }) => {
@@ -73,7 +73,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
             </div>
           </div>
           {open && (
-            <ul>
+            <ul className="animate-openmenu">
               <NavItemChild items={submenu} />
             </ul>
           )}

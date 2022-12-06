@@ -5,6 +5,7 @@ import CardBody from "../components/Cards/CardBody";
 import CardHeader from "../components/Cards/CardHeader";
 import CardImage from "../components/Cards/CardImage";
 import Divider from "../components/Divider";
+import Image from "../components/Image";
 
 const images = [
   {
@@ -17,11 +18,7 @@ const Dashboard = () => {
   return (
     <div>
       <Card>
-        <CardImage
-          image={images[0].scr}
-          blured={images[0].blurUrl}
-          width={350}
-        />
+        <CardImage image={images[0].scr} blured={images[0].blurUrl} />
         <CardHeader>Head</CardHeader>
         <CardBody>asd</CardBody>
         <Divider />

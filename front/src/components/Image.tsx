@@ -1,23 +1,24 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import { BlurhashCanvas } from "react-blurhash";
-import tw from "twin.macro";
-interface ICardImage extends React.ImgHTMLAttributes<HTMLImageElement> {
+
+interface IImage extends React.ImgHTMLAttributes<HTMLImageElement> {
   image: string;
   blured?: string;
   width?: number;
 }
 
-const CardImage: React.FC<ICardImage> = ({
+const Image: React.FC<IImage> = ({
   image,
   blured,
+  height,
+  width,
   loading = "lazy",
   ...rest
 }) => {
-  const [loaded, setloaded] = React.useState(false);
+  const [loaded, setloaded] = React.useState(true);
   return (
-    <div className="max-w-sm h-[220px]">
-      {!loaded && blured && (
+    <div style={{ height: height, width: width }}>
+      {loaded && blured && (
         <BlurhashCanvas
           hash={blured}
           className={`rounded-t-lg w-full h-full ${
@@ -32,10 +33,10 @@ const CardImage: React.FC<ICardImage> = ({
         }`}
         alt=""
         {...rest}
-        onLoad={() => setloaded(true)}
+        onLoad={() => setloaded(false)}
       />
     </div>
   );
 };
 
-export default CardImage;
+export default Image;

@@ -13,40 +13,40 @@ specifiers:
   '@types/styled-components': ^5.1.26
   autoprefixer: ^10.4.13
   blurhash: ^2.0.4
-  i18next: ^22.0.6
+  i18next: ^22.1.4
   i18next-browser-languagedetector: ^7.0.1
   i18next-http-backend: ^2.0.2
   postcss: ^8.4.19
-  prettier: ^2.8.0
+  prettier: ^2.8.1
   prettier-plugin-tailwindcss: ^0.2.0
   react: ^18.2.0
   react-blurhash: ^0.2.0
   react-dom: ^18.2.0
-  react-i18next: ^12.0.0
+  react-i18next: ^12.1.1
   react-router-dom: ^6.4.4
   react-scripts: 5.0.1
   styled-components: ^5
   tailwindcss: ^3.2.1
-  twin.macro: ^3.0.1
+  twin.macro: ^3.1.0
   typescript: ^4.9.3
-  zustand: ^4.1.4
+  zustand: ^4.1.5
 
 dependencies:
   '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
   blurhash: 2.0.4
-  i18next: 22.0.8
+  i18next: 22.1.4
   i18next-browser-languagedetector: 7.0.1
   i18next-http-backend: 2.0.2
   react: 18.2.0
   react-blurhash: 0.2.0_jn2mscwhzxibfzgdau2qdbmjna
   react-dom: 18.2.0_react@18.2.0
-  react-i18next: 12.0.0_xp3tcnypqfah7nlbdog3oni4pe
+  react-i18next: 12.1.1_uedexzmmdjaqapw3mm5hri2poi
   react-router-dom: 6.4.4_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_eetduzquwu67aqoq5644t6dxzu
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
-  twin.macro: 3.0.1_tailwindcss@3.2.4
+  twin.macro: 3.1.0_tailwindcss@3.2.4
   typescript: 4.9.3
-  zustand: 4.1.4_react@18.2.0
+  zustand: 4.1.5_react@18.2.0
 
 devDependencies:
   '@iconify/react': 4.0.1_react@18.2.0
@@ -57,8 +57,8 @@ devDependencies:
   '@types/styled-components': 5.1.26
   autoprefixer: 10.4.13_postcss@8.4.19
   postcss: 8.4.19
-  prettier: 2.8.0
-  prettier-plugin-tailwindcss: 0.2.0_prettier@2.8.0
+  prettier: 2.8.1
+  prettier-plugin-tailwindcss: 0.2.0_prettier@2.8.1
   tailwindcss: 3.2.4_postcss@8.4.19
 
 packages:
@@ -5555,8 +5555,8 @@ packages:
       - encoding
     dev: false
 
-  /i18next/22.0.8:
-    resolution: {integrity: sha512-cQUVZ3KUHtua4E9/9naB7oH5ymun0jAYKopXFgmSRXog0nrWFajAErz9eJ/A/dSj69YxmA8xOR4m5dY1OrKG5g==}
+  /i18next/22.1.4:
+    resolution: {integrity: sha512-MCDtNRyovLY22rgLoZdCzg2QIza1V1A/3Hxb99akJzTDjcqCRWEsglTpFUt0vUjOxSxz+WmxmFETLHORRS+n6Q==}
     dependencies:
       '@babel/runtime': 7.20.6
     dev: false
@@ -8064,17 +8064,17 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: false
 
-  /prettier-plugin-tailwindcss/0.2.0_prettier@2.8.0:
+  /prettier-plugin-tailwindcss/0.2.0_prettier@2.8.1:
     resolution: {integrity: sha512-Ruqig/mdWCSpqdq9WK44nrmqM4BFWTzBPhPGwC5NK3coV9eZntEQPB84MGZbjAg0XQU02jVRHXNRPREBzxvM+A==}
     engines: {node: '>=12.17.0'}
     peerDependencies:
       prettier: '>=2.2.0'
     dependencies:
-      prettier: 2.8.0
+      prettier: 2.8.1
     dev: true
 
-  /prettier/2.8.0:
-    resolution: {integrity: sha512-9Lmg8hTFZKG0Asr/kW9Bp8tJjRVluO8EJQVfY2T7FMw9T5jy4I/Uvx0Rca/XWf50QQ1/SS48+6IJWnrb+2yemA==}
+  /prettier/2.8.1:
+    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
@@ -8290,8 +8290,8 @@ packages:
     resolution: {integrity: sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==}
     dev: false
 
-  /react-i18next/12.0.0_xp3tcnypqfah7nlbdog3oni4pe:
-    resolution: {integrity: sha512-/O7N6aIEAl1FaWZBNvhdIo9itvF/MO/nRKr9pYqRc9LhuC1u21SlfwpiYQqvaeNSEW3g3qUXLREOWMt+gxrWbg==}
+  /react-i18next/12.1.1_uedexzmmdjaqapw3mm5hri2poi:
+    resolution: {integrity: sha512-mFdieOI0LDy84q3JuZU6Aou1DoWW2fhapcTGeBS8+vWSJuViuoCLQAMYSb0QoHhXS8B0WKUOPpx4cffAP7r/aA==}
     peerDependencies:
       i18next: '>= 19.0.0'
       react: '>= 16.8.0'
@@ -8305,7 +8305,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.6
       html-parse-stringify: 3.0.1
-      i18next: 22.0.8
+      i18next: 22.1.4
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
@@ -9475,8 +9475,8 @@ packages:
       typescript: 4.9.3
     dev: false
 
-  /twin.macro/3.0.1_tailwindcss@3.2.4:
-    resolution: {integrity: sha512-0mpdfQYpfCyPYa37MC/WKHCLQrwlqe6b2bM+uKaku5Iwe6bxHvEhcfXp8E8TyAdTupenYTvI6nHZvrh7msSFkQ==}
+  /twin.macro/3.1.0_tailwindcss@3.2.4:
+    resolution: {integrity: sha512-7DSR/xdvSaAqhTM4JptBgI+1IzXQR5v+2hp0CDMmHMjlm44IBEewU8MeqPlXmFgQI06zpLyJMaKRbJu96drAJw==}
     engines: {node: '>=16.14.0'}
     peerDependencies:
       tailwindcss: ^3.2.4
@@ -10209,8 +10209,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /zustand/4.1.4_react@18.2.0:
-    resolution: {integrity: sha512-k2jVOlWo8p4R83mQ+/uyB8ILPO2PCJOf+QVjcL+1PbMCk1w5OoPYpAIxy9zd93FSfmJqoH6lGdwzzjwqJIRU5A==}
+  /zustand/4.1.5_react@18.2.0:
+    resolution: {integrity: sha512-PsdRT8Bvq22Yyh1tvpgdHNE7OAeFKqJXUxtJvj1Ixw2B9O2YZ1M34ImQ+xyZah4wZrR4lENMoDUutKPpyXCQ/Q==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'

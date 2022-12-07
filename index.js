@@ -4,8 +4,10 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import { ApolloServer } from "apollo-server-express";
-import { ApolloServerPluginDrainHttpServer } from "apollo-server-core";
+import {
+  ApolloServer,
+  ApolloServerPluginDrainHttpServer,
+} from "@apollo/server";
 import express from "express";
 import http from "http";
 import typeDefs from "./schema/index.js";

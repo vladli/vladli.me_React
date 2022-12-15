@@ -21,12 +21,12 @@ const MainLayout = () => {
           </Button>
         </div>
       </div>
-      <div className="flex">
-        <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 pt-1 sm:flex ">
+      <div className="container flex">
+        <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 pt-1 sm:flex">
           <Navigation />
         </div>
-        <div className="container min-h-[calc(100vh-64px)] justify-center bg-gray-700 sm:mx-auto">
-          <div className="mx-4 my-4 ">
+        <div className="container mx-auto min-h-[calc(100vh-64px)] justify-center bg-gray-700">
+          <div className="mx-4 my-4">
             <Outlet />
           </div>
         </div>

@@ -19,13 +19,13 @@ type ItemsProps = {
 const styles = {
   container: (isActive: boolean) => [
     tw`text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
-    w-56 m-auto mb-1 mx-2
+    w-56 mb-1 mx-2
     hover:bg-gray-500`,
     isActive && tw`bg-gray-600`,
   ],
   subcontainer: [
     tw`text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
-    w-56 m-auto mb-1 mx-2  
+    w-56 m-2
     hover:bg-gray-500`,
   ],
   item: [tw`flex items-center text-base font-semibold select-none `],

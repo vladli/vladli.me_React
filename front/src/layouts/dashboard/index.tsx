@@ -4,7 +4,7 @@ import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation/Navigation";
 import { PATH_AUTH } from "../../router/paths";
 
-const MainLayout = () => {
+const DashboardLayout = () => {
   const navigate = useNavigate();
   return (
     <>
@@ -21,11 +21,11 @@ const MainLayout = () => {
           </Button>
         </div>
       </div>
-      <div className="container flex">
-        <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 pt-1 sm:flex">
+      <div className="flex bg-gray-700">
+        <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 sm:flex">
           <Navigation />
         </div>
-        <div className="container mx-auto min-h-[calc(100vh-64px)] justify-center bg-gray-700">
+        <div className="min-h-[calc(100vh-64px)]">
           <div className="mx-4 my-4">
             <Outlet />
           </div>
@@ -35,4 +35,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default DashboardLayout;

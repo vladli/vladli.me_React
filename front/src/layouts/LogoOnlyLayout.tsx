@@ -1,9 +1,8 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
 
 const LogoOnlyLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-bgDark">
       <Outlet />
     </div>
   );

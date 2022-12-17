@@ -8,7 +8,7 @@ const DashboardLayout = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex h-16 w-full flex-wrap items-center border border-gray-900 bg-gray-800">
+      <div className="flex h-16 w-full flex-wrap items-center border border-gray-700 bg-gray-800">
         <div className="ml-4 sm:ml-14">
           <Logo />
         </div>
@@ -21,7 +21,7 @@ const DashboardLayout = () => {
           </Button>
         </div>
       </div>
-      <div className="flex bg-gray-700">
+      <div className="flex bg-bgDark">
         <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 sm:flex">
           <Navigation />
         </div>

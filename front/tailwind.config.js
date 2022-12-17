@@ -19,8 +19,9 @@ module.exports = {
         },
       },
       colors: {
-        current: "currentcolor",
+        current: "currentColor",
         primary: colors.blue,
+        bgDark: colors.gray[700],
       },
     },
   },

@@ -1,7 +1,6 @@
 import Button from "../components/Buttons/Button";
 import Card from "../components/Cards/Card";
 import Divider from "../components/Divider";
-import Grid from "../components/Grid/Grid";
 
 const images = [
   {
@@ -12,23 +11,21 @@ const images = [
 
 const Dashboard = () => {
   return (
-    <Grid>
+    <div className="flex flex-wrap gap-4 justify-center md:justify-around">
       {Array.from(Array(15), (e, i) => {
         return (
-          <Grid.Item key={i}>
-            <Card>
-              <Card.Image image={images[0].scr} blured={images[0].blurUrl} />
-              <Card.Header>Head</Card.Header>
-              <Card.Body>asd</Card.Body>
-              <Divider />
-              <Card.Action>
-                <Button>Click</Button>
-              </Card.Action>
-            </Card>
-          </Grid.Item>
+          <Card key={i}>
+            <Card.Image image={images[0].scr} blured={images[0].blurUrl} />
+            <Card.Header>Head</Card.Header>
+            <Card.Body>asd</Card.Body>
+            <Divider />
+            <Card.Action>
+              <Button>Click</Button>
+            </Card.Action>
+          </Card>
         );
       })}
-    </Grid>
+    </div>
   );
 };
 

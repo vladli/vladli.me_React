@@ -14,15 +14,23 @@ const Dashboard = () => {
     <div className="flex flex-wrap gap-4 justify-center md:justify-around">
       {Array.from(Array(15), (e, i) => {
         return (
-          <Card key={i}>
-            <Card.Image image={images[0].scr} blured={images[0].blurUrl} />
-            <Card.Header>Head</Card.Header>
-            <Card.Body>asd</Card.Body>
-            <Divider />
-            <Card.Action>
-              <Button>Click</Button>
-            </Card.Action>
-          </Card>
+          <div key={i} className="max-w-xs">
+            <Card>
+              <Card.Image image={images[0].scr} blured={images[0].blurUrl} />
+              <Card.Header>Head</Card.Header>
+              <Card.Body>
+                The longest word in any of the major English language
+                dictionaries is pneumonoultramicroscopicsilicovolcanoconiosis, a
+                word that refers to a lung disease contracted from the
+                inhalation of very fine silica particles, specifically from a
+                volcano; medically, it is the same as silicosis.
+              </Card.Body>
+              <Divider />
+              <Card.Action>
+                <Button>Click</Button>
+              </Card.Action>
+            </Card>
+          </div>
         );
       })}
     </div>

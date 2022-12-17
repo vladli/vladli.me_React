@@ -25,7 +25,7 @@ const DashboardLayout = () => {
         <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 sm:flex">
           <Navigation />
         </div>
-        <div className="min-h-[calc(100vh-64px)]">
+        <div className="grow min-h-[calc(100vh-64px)]">
           <div className="mx-4 my-4">
             <Outlet />
           </div>

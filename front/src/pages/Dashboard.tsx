@@ -13,10 +13,9 @@ const images = [
 const Dashboard = () => {
   return (
     <Grid>
-      <Grid.Item>dsasad</Grid.Item>
-      {Array.from(Array(5), (e, i) => {
+      {Array.from(Array(15), (e, i) => {
         return (
-          <div key={i}>
+          <Grid.Item key={i}>
             <Card>
               <Card.Image image={images[0].scr} blured={images[0].blurUrl} />
               <Card.Header>Head</Card.Header>
@@ -26,7 +25,7 @@ const Dashboard = () => {
                 <Button>Click</Button>
               </Card.Action>
             </Card>
-          </div>
+          </Grid.Item>
         );
       })}
     </Grid>

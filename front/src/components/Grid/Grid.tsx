@@ -6,7 +6,7 @@ interface IGrid {
 
 const Grid = ({ children }: IGrid) => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+    <div className="flex flex-wrap gap-4 justify-center md:justify-around">
       {children}
     </div>
   );

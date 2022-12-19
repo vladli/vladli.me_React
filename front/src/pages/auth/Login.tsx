@@ -14,7 +14,9 @@ const Login = () => {
             </div>
             <Divider vertical />
             <div className="flex w-[50%] items-center justify-center bg-stone-600">
-              <TextField name="id" label="Username" />
+              <div className="w-[70%]">
+                <TextField name="id" />
+              </div>
             </div>
           </div>
         </Card>

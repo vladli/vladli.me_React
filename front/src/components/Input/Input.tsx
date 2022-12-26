@@ -1,18 +1,20 @@
 import React from "react";
 
-interface ITextField extends React.InputHTMLAttributes<HTMLInputElement> {
+interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  text?: string;
+  register?: any;
+  required?: boolean;
   [key: string]: any;
 }
-const TextField: React.FC<ITextField> = ({ name, text, ...rest }) => {
+const Input = ({ name, register, required, ...rest }: IInput) => {
   return (
     <div className="mb-3 w-full">
       <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-        {text}
+        {name}
         <input
           className="w-full rounded border-0 bg-white px-3 py-3 text-sm text-slate-600 placeholder-slate-300 shadow outline-none focus:outline-none focus:ring"
           id={name}
+          {...register(name, { required })}
           {...rest}
         />
       </label>
@@ -20,4 +22,4 @@ const TextField: React.FC<ITextField> = ({ name, text, ...rest }) => {
   );
 };
 
-export default TextField;
+export default Input;

@@ -5,7 +5,7 @@ import React from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "full";
   gradientMono?: "blue" | "green" | "red" | "purple" | undefined;
   gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
   leftIcon?: string;
@@ -39,6 +39,7 @@ const textSize = {
   small: tw`text-xs`,
   medium: tw`text-sm`,
   large: tw`text-base`,
+  full: tw`w-[100%] justify-center`,
 };
 
 const ButtonStyled = styled.button<ButtonProps>(

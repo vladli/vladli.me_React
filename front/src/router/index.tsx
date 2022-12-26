@@ -4,7 +4,7 @@ import DashboardLayout from "../layouts/dashboard";
 import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
-const Login = lazy(() => import("../pages/auth/Login"));
+const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "login",
-        element: <Login />,
+        element: <LoginPage />,
       },
     ],
   },

@@ -14,7 +14,11 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        element: <Dashboard />,
+        element: (
+          <AuthGuard>
+            <Dashboard />
+          </AuthGuard>
+        ),
         index: true,
       },
       {

@@ -2,9 +2,11 @@ import { Outlet, useNavigate } from "react-router-dom";
 import Button from "../../components/Buttons/Button";
 import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation/Navigation";
+import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH } from "../../router/paths";
 
 const DashboardLayout = () => {
+  const { isAuthenticated, signOut }: any = useAuth();
   const navigate = useNavigate();
   return (
     <>
@@ -13,19 +15,25 @@ const DashboardLayout = () => {
           <Logo />
         </div>
         <div className="absolute right-4">
-          <Button
-            leftIcon="entypo:login"
-            onClick={() => navigate(PATH_AUTH.login)}
-          >
-            Log In
-          </Button>
+          {!isAuthenticated ? (
+            <Button
+              leftIcon="entypo:login"
+              onClick={() => navigate(PATH_AUTH.login)}
+            >
+              Log In
+            </Button>
+          ) : (
+            <Button leftIcon="entypo:login" onClick={() => signOut()}>
+              Log Out
+            </Button>
+          )}
         </div>
       </div>
       <div className="flex bg-bgDark">
         <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 sm:flex">
           <Navigation />
         </div>
-        <div className="grow min-h-[calc(100vh-64px)]">
+        <div className="min-h-[calc(100vh-64px)] grow">
           <div className="mx-4 my-4">
             <Outlet />
           </div>

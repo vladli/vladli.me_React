@@ -1,3 +1,5 @@
+import classNames from "classnames";
+
 import CardAction from "./CardAction";
 import CardBody from "./CardBody";
 import CardHeader from "./CardHeader";
@@ -8,9 +10,9 @@ interface ICard {
 }
 
 const Card = ({ children, className }: ICard) => {
-  var classNames = require("classnames");
-  var divClass = classNames(
-    "flex flex-col rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800",
+  let divClass = classNames(
+    "flex flex-col rounded-lg border border-gray-200 bg-white shadow-md",
+    "dark:border-gray-700 dark:bg-gray-800",
     className
   );
   return <div className={divClass}>{children}</div>;

@@ -1,11 +1,14 @@
 import { Suspense } from "react";
 import { RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import router from "./router";
 
 function App() {
   return (
     <Suspense>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </Suspense>
   );
 }

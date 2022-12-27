@@ -9,6 +9,8 @@ import Button from "../../../components/Buttons/Button";
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
+import { useNavigate } from "react-router-dom";
+import { ROOT_PAGE } from "../../../router/paths";
 
 const Login = () => {
   const {
@@ -16,18 +18,17 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const onSubmit = (data: any) => {
     signInWithEmailAndPassword(auth, data.Email, data.Password)
-      .then((user: any) => {
-        console.log(user);
+      .then(() => {
         setErrorMessage("");
+        navigate(ROOT_PAGE);
       })
       .catch((error: any) => {
-        console.log(error.message);
         setErrorMessage(error.message);
       });
   };

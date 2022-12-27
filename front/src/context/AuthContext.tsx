@@ -5,8 +5,7 @@ import { auth } from "../firebase";
 type User = firebase.User | null;
 type ContextState = {
   user: User;
-  isAuthenticated?: boolean;
-  signOut: any;
+  signOut: () => void;
 };
 
 const AuthContext = React.createContext<ContextState | undefined>(undefined);
@@ -16,7 +15,6 @@ interface IAuthProvider {
 }
 
 const AuthProvider = ({ children }: IAuthProvider) => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
   const [user, setUser] = React.useState<User>(null);
   const [loading, setLoading] = React.useState(true);
 
@@ -25,11 +23,10 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }
 
   React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentuser: any) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentuser: User) => {
       setUser(currentuser);
-      setIsAuthenticated(true);
       setLoading(false);
-      console.log("user", currentuser, isAuthenticated);
+      console.log("user", currentuser);
     });
 
     return () => {
@@ -39,7 +36,7 @@ const AuthProvider = ({ children }: IAuthProvider) => {
 
   if (loading) return <div>Loading</div>;
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, signOut }}>
+    <AuthContext.Provider value={{ user, signOut }}>
       {children}
     </AuthContext.Provider>
   );
@@ -50,7 +47,7 @@ const useAuth = () => {
   if (context === undefined)
     throw new Error("Auth context must be use inside AuthProvider");
 
-  return context;
+  return { ...context, isAuthenticated: context?.user?.uid != null };
 };
 
 export default AuthContext;

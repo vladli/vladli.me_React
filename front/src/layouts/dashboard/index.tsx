@@ -6,7 +6,7 @@ import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH } from "../../router/paths";
 
 const DashboardLayout = () => {
-  const { isAuthenticated, signOut }: any = useAuth();
+  const { user, isAuthenticated, signOut }: any = useAuth();
   const navigate = useNavigate();
   return (
     <>
@@ -23,9 +23,14 @@ const DashboardLayout = () => {
               Log In
             </Button>
           ) : (
-            <Button leftIcon="entypo:login" onClick={() => signOut()}>
-              Log Out
-            </Button>
+            <div className="inline-flex">
+              <div className="mr-3 place-self-center text-white">
+                ID: {user.uid}
+              </div>
+              <Button leftIcon="entypo:login" onClick={() => signOut()}>
+                Log Out
+              </Button>
+            </div>
           )}
         </div>
       </div>

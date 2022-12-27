@@ -1,15 +1,20 @@
+import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { Navigate } from "react-router-dom";
+import LoginPage from "../pages/auth/LoginPage";
 import { PATH_AUTH } from "../router/paths";
 
-const AuthGuard = ({ children }: any) => {
-  const { isAuthenticated }: any = useAuth();
-  console.log(isAuthenticated);
-  return isAuthenticated === true ? (
-    children
-  ) : (
-    <Navigate to={PATH_AUTH.login} replace />
-  );
+interface IAuthGuard {
+  children: React.ReactNode;
+}
+
+const AuthGuard = ({ children }: IAuthGuard) => {
+  const { isAuthenticated } = useAuth();
+
+  if (!isAuthenticated) {
+    return <Navigate to={PATH_AUTH.login} />;
+  }
+  return <>{children}</>;
 };
 
 export default AuthGuard;

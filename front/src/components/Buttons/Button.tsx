@@ -2,6 +2,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import React from "react";
+import { m } from "framer-motion";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
@@ -44,6 +45,7 @@ const textSize = {
 
 const ButtonStyled = styled.button<ButtonProps>(
   ({
+    type = "button",
     variant = "contained",
     size = "medium",
     disabled = false,
@@ -67,15 +69,17 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <ButtonStyled
-      {...rest}
-      className="inline-flex select-none items-center font-semibold"
-      disabled={disabled}
-    >
-      {leftIcon && <Icon icon={leftIcon} width={16} />}
-      <span className="px-2">{children}</span>
-      {rightIcon && <Icon icon={rightIcon} width={16} />}
-    </ButtonStyled>
+    <m.div whileTap={{ scale: 0.97 }}>
+      <ButtonStyled
+        {...rest}
+        disabled={disabled}
+        className="inline-flex select-none items-center font-semibold"
+      >
+        {leftIcon && <Icon icon={leftIcon} width={16} />}
+        <span className="px-2">{children}</span>
+        {rightIcon && <Icon icon={rightIcon} width={16} />}
+      </ButtonStyled>
+    </m.div>
   );
 };
 

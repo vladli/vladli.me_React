@@ -3,6 +3,8 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import tw from "twin.macro";
 import { Icon } from "@iconify/react";
+import { m } from "framer-motion";
+
 import NavItemChild from "./NavItemChild";
 
 type NavItemProps = {
@@ -37,6 +39,34 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
 
+  const list = {
+    open: {
+      clipPath: "inset(0% 0% 0% 0% round 10px)",
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.7,
+        delayChildren: 0.3,
+        staggerChildren: 0.05,
+      },
+    },
+    closed: {
+      clipPath: "inset(10% 50% 90% 50% round 10px)",
+      transition: {
+        type: "spring",
+        bounce: 0,
+        duration: 0.3,
+      },
+    },
+  };
+  const itemVariants = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
+    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+  };
   React.useEffect(() => {
     if (submenu) {
       submenu.forEach((item: ItemsProps) => {
@@ -51,29 +81,33 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
     <>
       {!submenu ? (
         <Link to={link}>
-          <li css={styles.container(isActive)}>
+          <m.li whileTap={{ scale: 0.97 }} css={styles.container(isActive)}>
             <div css={styles.item}>
               {icon && <Icon icon={icon} />}
               <span className="ml-2">{name}</span>
             </div>
-          </li>
+          </m.li>
         </Link>
       ) : (
         <>
-          <div css={styles.subcontainer} onClick={() => setOpen(!open)}>
+          <m.div
+            whileTap={{ scale: 0.97 }}
+            css={styles.subcontainer}
+            onClick={() => setOpen(!open)}
+          >
             <div css={styles.item}>
-              <Icon
-                icon={
-                  open
-                    ? "eva:arrow-ios-downward-fill"
-                    : "eva:arrow-ios-forward-fill"
-                }
-              />
+              <m.div
+                variants={{ open: { rotate: 90 }, closed: { rotate: 0 } }}
+                animate={open ? "open" : "closed"}
+                transition={{ duration: 0.2 }}
+              >
+                <Icon icon="eva:arrow-ios-forward-fill" />
+              </m.div>
               <span className="ml-2">{name}</span>
             </div>
-          </div>
+          </m.div>
           {open && (
-            <ul className="animate-openmenu">
+            <ul>
               <NavItemChild items={submenu} />
             </ul>
           )}

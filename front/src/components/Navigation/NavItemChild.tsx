@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import tw from "twin.macro";
 import { Icon } from "@iconify/react";
+import { m } from "framer-motion";
 
 type NavItemChildProps = {
   items: ItemsProps;
@@ -33,12 +34,12 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
         const active = isActive === item.link;
         return (
           <Link key={item.name} to={item.link}>
-            <li css={styles.container(active)}>
+            <m.li whileTap={{ scale: 0.97 }} css={styles.container(active)}>
               <div css={styles.item}>
                 {item.icon && <Icon icon={item.icon} />}
                 <span className="ml-2">{item.name}</span>
               </div>
-            </li>
+            </m.li>
           </Link>
         );
       })}

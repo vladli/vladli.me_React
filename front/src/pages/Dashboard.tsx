@@ -11,7 +11,7 @@ const images = [
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center md:justify-around">
+    <div className="flex flex-wrap justify-center gap-4 md:justify-around">
       {Array.from(Array(15), (e, i) => {
         return (
           <div key={i} className="max-w-xs">
@@ -27,7 +27,7 @@ const Dashboard = () => {
               </Card.Body>
               <Divider />
               <Card.Action>
-                <Button>Click</Button>
+                <Button disabled>Click</Button>
               </Card.Action>
             </Card>
           </div>

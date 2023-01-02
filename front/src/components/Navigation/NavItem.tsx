@@ -39,33 +39,17 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
 
-  const list = {
-    open: {
-      clipPath: "inset(0% 0% 0% 0% round 10px)",
-      transition: {
-        type: "spring",
-        bounce: 0,
-        duration: 0.7,
-        delayChildren: 0.3,
-        staggerChildren: 0.05,
-      },
-    },
-    closed: {
-      clipPath: "inset(10% 50% 90% 50% round 10px)",
-      transition: {
-        type: "spring",
-        bounce: 0,
-        duration: 0.3,
-      },
-    },
-  };
   const itemVariants = {
     open: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 24 },
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 34,
+      },
     },
-    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+    closed: { opacity: 0, y: -10, transition: { duration: 0.2 } },
   };
   React.useEffect(() => {
     if (submenu) {
@@ -107,9 +91,13 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
             </div>
           </m.div>
           {open && (
-            <ul>
+            <m.ul
+              variants={itemVariants}
+              animate={open ? "open" : "closed"}
+              initial="closed"
+            >
               <NavItemChild items={submenu} />
-            </ul>
+            </m.ul>
           )}
         </>
       )}

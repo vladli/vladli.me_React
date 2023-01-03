@@ -1,30 +1,16 @@
 import User from "../models/userModel.js";
 import jwt from "jsonwebtoken";
-import { UserInputError, AuthenticationError } from "apollo-server-express";
 import { JWT_KEY } from "../security/key.js";
+
+import admin from "../firebase/firebase.js";
 
 export default {
   Query: {
     login: async (_, { login, password }) => {
       try {
-        if (!login) throw new UserInputError("Заполните все поля!");
-        if (!password) throw new UserInputError("Заполните все поля!");
+        console.log(admin.auth());
 
-        const user = await User.findOne({ login: login });
-        if (!user) throw new UserInputError("Неверные данные.");
-
-        const isCorrectPassword = true;
-
-        if (!isCorrectPassword) throw new UserInputError("Неверные данные.");
-
-        const token = jwt.sign({ _id: user._id }, JWT_KEY, {
-          expiresIn: 60 * 60,
-          algorithm: "HS256",
-        });
-        return {
-          ...user.toJSON(),
-          token,
-        };
+        return admin;
       } catch (err) {
         return err;
       }
@@ -32,10 +18,18 @@ export default {
     getUser: async (_, args, context) => {
       try {
         let getUser = await User.findOne({ _id: context.userId });
-        if (!getUser) throw new AuthenticationError("Invalid user.");
+        if (!getUser) throw new Error("Invalid user.");
         let newObj = { ...getUser }._doc;
         delete newObj.password;
         return newObj;
+      } catch (err) {
+        return err;
+      }
+    },
+    getAllUsers: async (_, args) => {
+      try {
+        let getAllUsers = await admin.auth().listUsers();
+        return getAllUsers.users;
       } catch (err) {
         return err;
       }

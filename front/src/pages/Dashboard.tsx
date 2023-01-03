@@ -1,3 +1,5 @@
+import { m } from "framer-motion";
+
 import Button from "../components/Buttons/Button";
 import Card from "../components/Cards/Card";
 import Divider from "../components/Divider";
@@ -11,7 +13,12 @@ const images = [
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 md:justify-around">
+    <m.div
+      className="flex flex-wrap justify-center gap-4 md:justify-around"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
       {Array.from(Array(15), (e, i) => {
         return (
           <div key={i} className="max-w-xs">
@@ -33,7 +40,7 @@ const Dashboard = () => {
           </div>
         );
       })}
-    </div>
+    </m.div>
   );
 };
 

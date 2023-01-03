@@ -4,10 +4,9 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-import {
-  ApolloServer,
-  ApolloServerPluginDrainHttpServer,
-} from "@apollo/server";
+import { ApolloServer } from "@apollo/server";
+import { startStandaloneServer } from "@apollo/server/standalone";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import express from "express";
 import http from "http";
 import typeDefs from "./schema/index.js";
@@ -25,15 +24,16 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(express.static(resolve(__dirname, "front/build")));
-app.get("*/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "front/build", "index.html"));
-});
+// app.use(express.static(resolve(__dirname, "front/build")));
+// app.get("*/", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "front/build", "index.html"));
+// });
 
 mongoose
   .connect(process.env.DB_CONNECT, {})
   .then(() => console.log("MongoDB connected."))
   .catch((error) => console.log(error));
+
 const httpServer = http.createServer(app);
 
 async function startApolloServer(app, httpServer) {
@@ -47,9 +47,9 @@ async function startApolloServer(app, httpServer) {
       return { isAuth, userId };
     },
   });
-  await server.start();
-  server.applyMiddleware({ app });
-  await httpServer.listen({ port: PORT });
-  console.log(`🚀 Server started on port ` + httpServer.address().port);
+  const { url } = await startStandaloneServer(server, {
+    listen: { port: 5000 },
+  });
+  console.log(`🚀 Server started on ` + url);
 }
 startApolloServer(app, httpServer);

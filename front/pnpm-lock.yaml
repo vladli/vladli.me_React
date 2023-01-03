@@ -30,6 +30,7 @@ specifiers:
   react-i18next: ^12.1.1
   react-router-dom: ^6.6.1
   react-scripts: 5.0.1
+  react-table: ^7.8.0
   styled-components: ^5
   tailwindcss: ^3.2.1
   twin.macro: ^3.1.0
@@ -53,6 +54,7 @@ dependencies:
   react-i18next: 12.1.1_6vygckh2jgtx4nucc3no6lnm3y
   react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_o77wnou4wwnegu5woljtklrzru
+  react-table: 7.8.0_react@18.2.0
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
   twin.macro: 3.1.0_tailwindcss@3.2.4
   typescript: 4.9.4
@@ -9177,6 +9179,14 @@ packages:
       - webpack-cli
       - webpack-hot-middleware
       - webpack-plugin-serve
+    dev: false
+
+  /react-table/7.8.0_react@18.2.0:
+    resolution: {integrity: sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==}
+    peerDependencies:
+      react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

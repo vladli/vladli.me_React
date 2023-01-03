@@ -1,17 +1,19 @@
 const userType = `
 type User{
-    _id:ID!
-    login:String!
-    password:String!
+    uid:ID!
+    email:String!
+    emailVerified:Boolean
+    displayName:String
+    photoURL:String
 }
 type LoginReturnType{
-    _id:ID!
-    login:String
-    token:String
+
+    admin:String
 }
 type Query{
-    login(login:String!,password:String!):LoginReturnType!
+    login:LoginReturnType!
     getUser(id:ID):User!
+    getAllUsers:[User!]
 }
 `;
 

@@ -15,6 +15,17 @@ const MenuItems = [
     ],
   },
   {
+    name: "Admin",
+    link: "",
+    icon: undefined,
+    submenu: [
+      {
+        name: "Users",
+        link: "/admin/users",
+      },
+    ],
+  },
+  {
     name: "Login",
     link: "/auth/login",
     icon: undefined,

@@ -5,9 +5,12 @@ import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
 
 import AuthGuard from "../guards/AuthGuard";
 import GuestGuard from "../guards/GuestGuard";
+import { PATH_ADMIN } from "./paths";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
+
+const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,16 @@ const router = createBrowserRouter([
             <LoginPage />
           </GuestGuard>
         ),
+      },
+    ],
+  },
+  {
+    path: "admin",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: PATH_ADMIN.users,
+        element: <AdminUsersPage />,
       },
     ],
   },

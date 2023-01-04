@@ -16,14 +16,16 @@ export default {
       }
     },
     getUser: async (_, { uid }, context) => {
-      const user = await admin.auth().getUser(uid);
-      console.log(user);
-      return user;
+      try {
+        const user = await admin.auth().getUser(uid);
+        return user;
+      } catch (err) {
+        return err;
+      }
     },
     getAllUsers: async (_, args) => {
       try {
-        let getAllUsers = await admin.auth().listUsers();
-        console.log(getAllUsers);
+        const getAllUsers = await admin.auth().listUsers();
         return getAllUsers.users;
       } catch (err) {
         return err;

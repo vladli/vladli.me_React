@@ -15,24 +15,25 @@ export default {
         return err;
       }
     },
-    getUser: async (_, args, context) => {
-      try {
-        let getUser = await User.findOne({ _id: context.userId });
-        if (!getUser) throw new Error("Invalid user.");
-        let newObj = { ...getUser }._doc;
-        delete newObj.password;
-        return newObj;
-      } catch (err) {
-        return err;
-      }
+    getUser: async (_, { uid }, context) => {
+      const user = await admin.auth().getUser(uid);
+      console.log(user);
+      return user;
     },
     getAllUsers: async (_, args) => {
       try {
         let getAllUsers = await admin.auth().listUsers();
+        console.log(getAllUsers);
         return getAllUsers.users;
       } catch (err) {
         return err;
       }
+    },
+    setUserRole: async (_, { uid }) => {
+      admin
+        .auth()
+        .setCustomUserClaims(uid, { admin: true })
+        .then(() => console.log(uid));
     },
   },
 };

@@ -5,15 +5,29 @@ type User{
     emailVerified:Boolean
     displayName:String
     photoURL:String
+    phoneNumber:String
+    disabled:Boolean
+
+    metadata:MetaData
+
+    customClaims:UserRole
 }
+type MetaData {
+    creationTime:String
+}
+type UserRole {
+    admin:Boolean
+}
+
 type LoginReturnType{
 
     admin:String
 }
 type Query{
     login:LoginReturnType!
-    getUser(id:ID):User!
+    getUser(uid:ID!):User
     getAllUsers:[User!]
+    setUserRole(uid:ID!):[User!]
 }
 `;
 

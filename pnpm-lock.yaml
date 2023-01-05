@@ -1,8 +1,8 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@apollo/server': ^4.2.2
-  '@babel/node': ^7.19.1
+  '@apollo/server': ^4.3.0
+  '@babel/node': ^7.20.7
   '@graphql-tools/load-files': ^6.6.1
   '@graphql-tools/merge': ^8.3.6
   bcrypt: ^5.0.1
@@ -12,13 +12,13 @@ specifiers:
   express: ^4.18.1
   firebase-admin: ^11.4.1
   graphql: ^16.6.0
-  jsonwebtoken: ^8.5.1
-  mongodb: ^4.10.0
-  mongoose: ^6.6.4
+  jsonwebtoken: ^9.0.0
+  mongodb: ^4.13.0
+  mongoose: ^6.8.2
 
 dependencies:
-  '@apollo/server': 4.2.2_graphql@16.6.0
-  '@babel/node': 7.20.5
+  '@apollo/server': 4.3.0_graphql@16.6.0
+  '@babel/node': 7.20.7
   '@graphql-tools/load-files': 6.6.1_graphql@16.6.0
   '@graphql-tools/merge': 8.3.14_graphql@16.6.0
   bcrypt: 5.1.0
@@ -28,9 +28,9 @@ dependencies:
   express: 4.18.2
   firebase-admin: 11.4.1
   graphql: 16.6.0
-  jsonwebtoken: 8.5.1
-  mongodb: 4.12.1
-  mongoose: 6.8.0
+  jsonwebtoken: 9.0.0
+  mongodb: 4.13.0
+  mongoose: 6.8.2
 
 packages:
 
@@ -68,13 +68,13 @@ packages:
     dependencies:
       '@apollo/usage-reporting-protobuf': 4.0.2
       '@apollo/utils.fetcher': 2.0.0
-      '@apollo/utils.keyvaluecache': 2.0.1
+      '@apollo/utils.keyvaluecache': 2.1.0
       '@apollo/utils.logger': 2.0.0
       graphql: 16.6.0
     dev: false
 
-  /@apollo/server/4.2.2_graphql@16.6.0:
-    resolution: {integrity: sha512-kcWnRy63KFrY1SxIVGX56wlMLRSgwmn2qR0IG0A7Mvrl6oXijVP5ETj7ulmwRcvvJsIoDOObhcCW5hW3UZy41Q==}
+  /@apollo/server/4.3.0_graphql@16.6.0:
+    resolution: {integrity: sha512-M30z/hExJtvqGE4UFJTa0W7FoRPPXmEjrrHK16+v63hE+deH1gYiXq0MdXKvMdoQhQQqnv09jo9mDDEpMBJvjg==}
     engines: {node: '>=14.16.0'}
     peerDependencies:
       graphql: ^16.6.0
@@ -85,7 +85,7 @@ packages:
       '@apollo/utils.createhash': 2.0.0
       '@apollo/utils.fetcher': 2.0.0
       '@apollo/utils.isnodelike': 2.0.0
-      '@apollo/utils.keyvaluecache': 2.0.1
+      '@apollo/utils.keyvaluecache': 2.1.0
       '@apollo/utils.logger': 2.0.0
       '@apollo/utils.usagereporting': 2.0.0_graphql@16.6.0
       '@apollo/utils.withrequired': 2.0.0
@@ -100,7 +100,7 @@ packages:
       express: 4.18.2
       graphql: 16.6.0
       loglevel: 1.8.1
-      lru-cache: 7.13.1
+      lru-cache: 7.14.1
       negotiator: 0.6.3
       node-abort-controller: 3.0.1
       node-fetch: 2.6.7
@@ -144,8 +144,8 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /@apollo/utils.keyvaluecache/2.0.1:
-    resolution: {integrity: sha512-F1v3m2pMXPD3rb2+F79qklBBFtNSWssV+8YJIAI0iLxRxoNdDAzfrBFUseUaBaeen/e5mR54QkeNCiq8EvQ/Eg==}
+  /@apollo/utils.keyvaluecache/2.1.0:
+    resolution: {integrity: sha512-WBNI4H1dGX2fHMk5j4cJo7mlXWn1X6DYCxQ50IvmI7Xv7Y4QKiA5EwbLOCITh9OIZQrVX7L0ASBSgTt6jYx/cg==}
     engines: {node: '>=14'}
     dependencies:
       '@apollo/utils.logger': 2.0.0
@@ -1026,8 +1026,8 @@ packages:
     dev: false
     optional: true
 
-  /@babel/node/7.20.5:
-    resolution: {integrity: sha512-ElSr40UtumWE4fYYF1xfLP2C6b9nfS/rswK7YYpLo9HDGEXGXEAWZaGCxIirxGIDyoV0rbl6jV1LyFMQ6ZOQSA==}
+  /@babel/node/7.20.7:
+    resolution: {integrity: sha512-AQt3gVcP+fpFuoFn4FmIW/+5JovvEoA9og4Y1LrRw0pv3jkl4tujZMMy3X/3ugjLrEy3k1aNywo3JIl3g+jVXQ==}
     engines: {node: '>=6.9.0'}
     hasBin: true
     peerDependencies:
@@ -2743,22 +2743,6 @@ packages:
     dev: false
     optional: true
 
-  /jsonwebtoken/8.5.1:
-    resolution: {integrity: sha512-XjwVfRS6jTMsqYs0EsuJ4LGxXV14zQybNd4L2r0UvbVnSF9Af8x7p5MzbJ90Ioz/9TI41/hTCvznF/loiSzn8w==}
-    engines: {node: '>=4', npm: '>=1.4.28'}
-    dependencies:
-      jws: 3.2.2
-      lodash.includes: 4.3.0
-      lodash.isboolean: 3.0.3
-      lodash.isinteger: 4.0.4
-      lodash.isnumber: 3.0.3
-      lodash.isplainobject: 4.0.6
-      lodash.isstring: 4.0.1
-      lodash.once: 4.1.1
-      ms: 2.1.3
-      semver: 5.7.1
-    dev: false
-
   /jsonwebtoken/9.0.0:
     resolution: {integrity: sha512-tuGfYXxkQGDPnLJ7SibiQgVgeDgfbPq2k2ICcbgqW8WxWLBAxKQM/ZCu/IT8SOSwmaYl4dpTFCW5xZv7YbbWUw==}
     engines: {node: '>=12', npm: '>=6'}
@@ -2869,34 +2853,6 @@ packages:
     resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
     dev: false
 
-  /lodash.includes/4.3.0:
-    resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
-    dev: false
-
-  /lodash.isboolean/3.0.3:
-    resolution: {integrity: sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg==}
-    dev: false
-
-  /lodash.isinteger/4.0.4:
-    resolution: {integrity: sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==}
-    dev: false
-
-  /lodash.isnumber/3.0.3:
-    resolution: {integrity: sha512-QYqzpfwO3/CWf3XP+Z+tkQsfaLL/EnUlXWVkIk5FUPc4sBdTehEqZONuyRt2P67PXAk+NXmTBcc97zw9t1FQrw==}
-    dev: false
-
-  /lodash.isplainobject/4.0.6:
-    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
-    dev: false
-
-  /lodash.isstring/4.0.1:
-    resolution: {integrity: sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==}
-    dev: false
-
-  /lodash.once/4.1.1:
-    resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
-    dev: false
-
   /lodash.sortby/4.7.0:
     resolution: {integrity: sha512-HDWXG8isMntAyRF5vZ7xKuEvOhT4AhlRt/3czTSjvGUxjYCBVRQY48ViDHyfYz9VIoBkW4TMGQNapx+l3RUwdA==}
     dev: false
@@ -2931,11 +2887,6 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
-    dev: false
-
-  /lru-cache/7.13.1:
-    resolution: {integrity: sha512-CHqbAq7NFlW3RSnoWXLJBxCWaZVBrfa9UEHId2M3AW8iEBurbqduNexEUCGc3SHc6iCYXNJCDi903LajSVAEPQ==}
-    engines: {node: '>=12'}
     dev: false
 
   /lru-cache/7.14.1:
@@ -3118,8 +3069,22 @@ packages:
       - aws-crt
     dev: false
 
-  /mongoose/6.8.0:
-    resolution: {integrity: sha512-zlUfjcLya3pLfLTxwyH5S9bZUolJWGKF2M7PEV0118jv4VWHR/krjb6LIWu1RPQN2rwYmnmjjzJLVhbhmHqSmg==}
+  /mongodb/4.13.0:
+    resolution: {integrity: sha512-+taZ/bV8d1pYuHL4U+gSwkhmDrwkWbH1l4aah4YpmpscMwgFBkufIKxgP/G7m87/NUuQzc2Z75ZTI7ZOyqZLbw==}
+    engines: {node: '>=12.9.0'}
+    dependencies:
+      bson: 4.7.0
+      mongodb-connection-string-url: 2.6.0
+      socks: 2.7.1
+    optionalDependencies:
+      '@aws-sdk/credential-providers': 3.224.0
+      saslprep: 1.0.3
+    transitivePeerDependencies:
+      - aws-crt
+    dev: false
+
+  /mongoose/6.8.2:
+    resolution: {integrity: sha512-cIato5N2w/QuJkkh0w4nyf7ty7DqmmP/W8/6PFSM0DrzbxIMlr6VN15LBIceTSJIxbznNl2Mlbh9Rm4sokMw+A==}
     engines: {node: '>=12.0.0'}
     dependencies:
       bson: 4.7.0

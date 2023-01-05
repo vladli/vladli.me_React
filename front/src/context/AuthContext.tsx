@@ -19,14 +19,14 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   const [loading, setLoading] = React.useState(true);
 
   function signOut() {
-    return auth.signOut();
+    sessionStorage.removeItem("Authorization");
+    auth.signOut();
   }
 
   React.useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser: User) => {
       setUser(currentuser);
       setLoading(false);
-      console.log("user", currentuser);
     });
 
     return () => {

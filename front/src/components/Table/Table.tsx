@@ -23,14 +23,14 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
       <div className="overflow-x-auto">
         <div className="inline-block min-w-full">
           <div className="overflow-hidden p-2">
-            <table className="min-w-full text-center">
-              <thead className="border-b bg-gray-50">
+            <table className="min-w-full text-center text-white">
+              <thead className="bg-gray-800">
                 {getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>
                     {headerGroup.headers.map((header) => (
                       <th
                         key={header.id}
-                        className="px-6 py-4 text-sm font-medium text-gray-900"
+                        className="border px-6 py-4 text-sm font-medium"
                       >
                         {header.isPlaceholder
                           ? null
@@ -45,10 +45,10 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
               </thead>
               <tbody>
                 {getRowModel().rows.map((row) => (
-                  <tr key={row.id} className='border-b" bg-white'>
+                  <tr key={row.id} className="bg-gray-900">
                     {row.getVisibleCells().map((cell) => (
                       <td
-                        className="whitespace-nowrap px-6 py-4 text-sm font-light text-gray-900"
+                        className="whitespace-nowrap border px-6 py-4 text-sm"
                         key={cell.id}
                       >
                         {flexRender(

@@ -26,7 +26,7 @@ const DashboardLayout = () => {
           ) : (
             <div className="inline-flex">
               <div className="mr-3 place-self-center text-white">
-                ID: {user.uid}
+                User: {user.email}
               </div>
               <Button leftIcon="entypo:login" onClick={() => signOut()}>
                 Log Out

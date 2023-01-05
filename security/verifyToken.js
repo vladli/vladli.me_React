@@ -15,7 +15,6 @@ export const verifyToken = async (req, res, next) => {
     .auth()
     .verifyIdToken(token)
     .then((user) => {
-      console.log(user);
       req.userId = user.uid;
       req.isAuth = true;
       req.role = user.role;

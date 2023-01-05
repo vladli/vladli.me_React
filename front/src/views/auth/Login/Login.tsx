@@ -25,7 +25,7 @@ const Login = () => {
   const onSubmit = (data: any) => {
     signInWithEmailAndPassword(auth, data.Email, data.Password)
       .then((userCredential) => {
-        userCredential.user.getIdToken().then((token) => {
+        userCredential?.user?.getIdToken().then((token) => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage("");

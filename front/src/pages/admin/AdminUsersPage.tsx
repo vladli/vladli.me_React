@@ -13,7 +13,11 @@ function AdminUsersPage() {
       console.log(error);
     },
   });
-  return <div>AdminUsersPage</div>;
+  return (
+    <div>
+      <button onClick={() => refetch()}>Click</button>
+    </div>
+  );
 }
 
 export default AdminUsersPage;

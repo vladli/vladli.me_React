@@ -1,6 +1,4 @@
 import User from "../models/userModel.js";
-import jwt from "jsonwebtoken";
-import { JWT_KEY } from "../security/key.js";
 
 import admin from "../firebase/firebase.js";
 
@@ -17,6 +15,7 @@ export default {
     },
     getUser: async (_, { uid }, context) => {
       try {
+        console.log(context);
         const user = await admin.auth().getUser(uid);
         return user;
       } catch (err) {
@@ -34,7 +33,7 @@ export default {
     setUserRole: async (_, { uid }) => {
       admin
         .auth()
-        .setCustomUserClaims(uid, { admin: true })
+        .setCustomUserClaims(uid, { role: "admin" })
         .then(() => console.log(uid));
     },
   },

@@ -16,9 +16,14 @@ export const columns: ColumnDef<any, any>[] = [
 ];
 
 const AdminUsers = () => {
-  const { data, loading }: any = useQuery(GET_ALL_USERS);
+  const { data, loading, refetch }: any = useQuery(GET_ALL_USERS);
   if (loading) return <div>Load</div>;
-  return <Table data={data.getAllUsers} columns={columns} />;
+  return (
+    <>
+      <Table data={data.getAllUsers} columns={columns} />
+      <button onClick={() => refetch()}>RELOAD</button>
+    </>
+  );
 };
 
 export default AdminUsers;

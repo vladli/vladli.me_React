@@ -45,7 +45,6 @@ const textSize = {
 
 const ButtonStyled = styled.button<ButtonProps>(
   ({
-    type = "button",
     variant = "contained",
     size = "medium",
     disabled = false,
@@ -54,10 +53,10 @@ const ButtonStyled = styled.button<ButtonProps>(
   }) => [
     tw`transition duration-150 ease-in-out rounded px-4 py-2 text-white`,
     textSize[size],
-    disabled ? tw`cursor-not-allowed` : undefined,
-    !gradientMono && !gradientDuo && containerVariants[variant],
-    gradientMono && gradientMonoVariants[gradientMono],
-    gradientDuo && gradientDuoVariants[gradientDuo],
+    disabled ? tw`cursor-not-allowed bg-gray-400` : undefined,
+    !disabled && !gradientMono && !gradientDuo && containerVariants[variant],
+    !disabled && gradientMono && gradientMonoVariants[gradientMono],
+    !disabled && gradientDuo && gradientDuoVariants[gradientDuo],
   ]
 );
 
@@ -65,13 +64,15 @@ const Button: React.FC<ButtonProps> = ({
   children,
   leftIcon,
   rightIcon,
+
   disabled,
   ...rest
 }) => {
   return (
-    <m.div whileTap={{ scale: 0.97 }}>
+    <m.div whileTap={!disabled ? { scale: 0.97 } : undefined}>
       <ButtonStyled
         {...rest}
+        type="button"
         disabled={disabled}
         className="inline-flex select-none items-center font-semibold"
       >

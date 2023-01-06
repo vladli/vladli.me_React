@@ -20,7 +20,6 @@ const Login = () => {
   } = useForm();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = React.useState("");
-  const [password, setPassword] = React.useState("");
 
   const onSubmit = (data: any) => {
     signInWithEmailAndPassword(auth, data.Email, data.Password)
@@ -29,7 +28,7 @@ const Login = () => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage("");
-        navigate(ROOT_PAGE);
+        navigate(ROOT_PAGE, { replace: true });
       })
       .catch((error: any) => {
         setErrorMessage(error.message);

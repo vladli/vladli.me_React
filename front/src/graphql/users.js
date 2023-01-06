@@ -8,3 +8,18 @@ export const GET_USER = gql`
     }
   }
 `;
+
+export const GET_ALL_USERS = gql`
+  query GetAllUsers {
+    getAllUsers {
+      uid
+      email
+      displayName
+      photoURL
+      disabled
+      metadata {
+        creationTime
+      }
+    }
+  }
+`;

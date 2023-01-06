@@ -30,7 +30,7 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
                     {headerGroup.headers.map((header) => (
                       <th
                         key={header.id}
-                        className="border px-6 py-4 text-sm font-medium"
+                        className="border px-2 py-4 text-sm font-medium"
                       >
                         {header.isPlaceholder
                           ? null
@@ -48,7 +48,7 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
                   <tr key={row.id} className="bg-gray-900">
                     {row.getVisibleCells().map((cell) => (
                       <td
-                        className="whitespace-nowrap border px-6 py-4 text-sm"
+                        className="whitespace-nowrap border px-2 py-4 text-sm"
                         key={cell.id}
                       >
                         {flexRender(

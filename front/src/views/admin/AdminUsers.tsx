@@ -1,34 +1,35 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
+import { useQuery } from "@apollo/client";
+import { GET_ALL_USERS } from "../../graphql/users";
+
 export const columns: ColumnDef<any, any>[] = [
   {
-    accessorKey: "name",
-    header: "Name",
+    accessorKey: "uid",
+    header: "UID",
   },
   {
     accessorKey: "email",
     header: "Email",
   },
   {
-    accessorKey: "gender",
-    header: "Gender",
+    accessorKey: "displayName",
+    header: "Name",
   },
 ];
-const dummyData = () => {
-  const items = [];
-  for (let i = 0; i < 10; i++) {
-    items.push({
-      id: i,
-      name: `Item ${i}`,
-      gender: 100,
-      email: i,
-    });
-  }
-  return items;
-};
+
 const AdminUsers = () => {
-  return <Table data={dummyData()} columns={columns} />;
+  const { data, error, loading }: any = useQuery(GET_ALL_USERS, {
+    onCompleted(users) {
+      console.log(users);
+    },
+    onError(error) {
+      console.log(error);
+    },
+  });
+  if (loading) return <div>Load</div>;
+  return <Table data={data.getAllUsers} columns={columns} />;
 };
 
 export default AdminUsers;

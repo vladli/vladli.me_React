@@ -13,10 +13,6 @@ export const columns: ColumnDef<any, any>[] = [
     accessorKey: "email",
     header: "Email",
   },
-  {
-    accessorKey: "displayName",
-    header: "Name",
-  },
 ];
 
 const AdminUsers = () => {

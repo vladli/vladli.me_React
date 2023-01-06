@@ -19,8 +19,8 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
   });
 
   return (
-    <table className="text-center text-white">
-      <thead className="bg-gray-800">
+    <table className="select-none text-center text-white">
+      <thead className=" bg-gray-800">
         {getHeaderGroups().map((headerGroup) => (
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => (

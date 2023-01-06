@@ -24,11 +24,19 @@ const AuthProvider = ({ children }: IAuthProvider) => {
   }
 
   React.useEffect(() => {
+    const getToken = () => {
+      auth.currentUser?.getIdToken().then((idToken) => {
+        const oldToken = sessionStorage.getItem("Authorization");
+        if (oldToken !== idToken) {
+          sessionStorage.setItem("Authorization", idToken);
+        }
+      });
+    };
     const unsubscribe = onAuthStateChanged(auth, (currentuser: User) => {
       setUser(currentuser);
       setLoading(false);
+      getToken();
     });
-
     return () => {
       unsubscribe();
     };

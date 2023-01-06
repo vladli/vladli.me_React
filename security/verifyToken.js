@@ -11,6 +11,7 @@ export const verifyToken = async (req, res, next) => {
     req.isAuth = false;
     return next();
   }
+  console.log(token);
   admin
     .auth()
     .verifyIdToken(token)

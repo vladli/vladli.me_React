@@ -26,7 +26,7 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
             {headerGroup.headers.map((header) => (
               <th
                 key={header.id}
-                className="border border-gray-600 px-2 py-4 text-sm font-medium"
+                className="border border-gray-600 py-4 text-sm font-medium"
               >
                 {header.isPlaceholder
                   ? null
@@ -44,7 +44,7 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
           <tr key={row.id} className="bg-gray-900">
             {row.getVisibleCells().map((cell) => (
               <td
-                className="whitespace-nowrap border border-gray-600 px-6 py-4 text-sm"
+                className="whitespace-nowrap border border-gray-600 px-4 py-4 text-sm"
                 key={cell.id}
               >
                 {flexRender(cell.column.columnDef.cell, cell.getContext())}

@@ -16,14 +16,7 @@ export const columns: ColumnDef<any, any>[] = [
 ];
 
 const AdminUsers = () => {
-  const { data, error, loading }: any = useQuery(GET_ALL_USERS, {
-    onCompleted(users) {
-      console.log(users);
-    },
-    onError(error) {
-      console.log(error);
-    },
-  });
+  const { data, loading }: any = useQuery(GET_ALL_USERS);
   if (loading) return <div>Load</div>;
   return <Table data={data.getAllUsers} columns={columns} />;
 };

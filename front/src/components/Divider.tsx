@@ -1,9 +1,6 @@
 import React from "react";
 
-interface IDivider {
-  vertical?: boolean;
-}
-const Divider: React.FC<IDivider> = ({ vertical }) => {
+const Divider = ({ vertical }: { vertical: boolean }) => {
   if (vertical) {
     return <div className="w-px border-0 bg-gray-200 dark:bg-gray-700" />;
   } else {

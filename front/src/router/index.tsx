@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/dashboard";
-import LogoOnlyLayout from "../layouts/LogoOnlyLayout";
+import CleanLayout from "../layouts/CleanLayout";
 
 import AuthGuard from "../guards/AuthGuard";
 import GuestGuard from "../guards/GuestGuard";
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "auth",
-    element: <LogoOnlyLayout />,
+    element: <CleanLayout />,
     children: [
       {
         path: "login",

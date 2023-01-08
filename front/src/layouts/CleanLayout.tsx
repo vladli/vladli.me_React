@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-const LogoOnlyLayout = () => {
+const CleanLayout = () => {
   return (
     <div className="min-h-screen bg-bgDark">
       <Outlet />
@@ -7,4 +7,4 @@ const LogoOnlyLayout = () => {
   );
 };
 
-export default LogoOnlyLayout;
+export default CleanLayout;

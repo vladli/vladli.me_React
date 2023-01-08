@@ -4,11 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import LoginPage from "../pages/auth/LoginPage";
 import { PATH_AUTH } from "../router/paths";
 
-interface IAuthGuard {
-  children: React.ReactNode;
-}
-
-const AuthGuard = ({ children }: IAuthGuard) => {
+const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {

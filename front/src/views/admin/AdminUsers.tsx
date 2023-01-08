@@ -20,6 +20,7 @@ export const columns: ColumnDef<any, any>[] = [
 const AdminUsers = () => {
   //const { data, loading, refetch }: any = useQuery(GET_ALL_USERS);
   //if (loading) return <div>Load</div>;
+
   const list = () => {
     let list = [];
     for (let i = 0; i < 20; i++) {
@@ -27,9 +28,10 @@ const AdminUsers = () => {
     }
     return list;
   };
+  const [data, setData] = React.useState(() => list());
   return (
     <>
-      <Table data={list()} columns={columns} />
+      <Table data={data} columns={columns} />
       {/* <Button onClick={() => refetch()}>RELOAD</Button> */}
       <Pagination />
     </>

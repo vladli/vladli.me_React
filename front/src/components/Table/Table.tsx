@@ -3,7 +3,7 @@ import {
   getCoreRowModel,
   useReactTable,
   flexRender,
-  PaginationState,
+  getPaginationRowModel,
 } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
 import Pagination from "../Pagination/Pagination";
@@ -14,19 +14,6 @@ interface ITable {
 }
 
 const Table: React.FC<ITable> = ({ data, columns }) => {
-  const [{ pageIndex, pageSize }, setPagination] =
-    React.useState<PaginationState>({
-      pageIndex: 0,
-      pageSize: 10,
-    });
-
-  const pagination = React.useMemo(
-    () => ({
-      pageIndex,
-      pageSize,
-    }),
-    [pageIndex, pageSize]
-  );
   const {
     getState,
     getPageCount,
@@ -40,18 +27,10 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
   } = useReactTable({
     data,
     columns,
-    state: {
-      pagination,
-    },
+    // Pipeline
     getCoreRowModel: getCoreRowModel(),
-    manualPagination: true,
-    onPaginationChange: setPagination,
-    debugTable: false,
-    initialState: {
-      pagination,
-    },
+    getPaginationRowModel: getPaginationRowModel(),
   });
-  console.log(pageIndex, pageSize, getCanPreviousPage());
 
   return (
     <>
@@ -94,6 +73,18 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
         {"<"}
       </button>
       <button onClick={() => nextPage()}>{">"}</button>
+      <select
+        value={getState().pagination.pageSize}
+        onChange={(e) => {
+          setPageSize(Number(e.target.value));
+        }}
+      >
+        {[10, 20, 30, 40, 50].map((pageSize) => (
+          <option key={pageSize} value={pageSize}>
+            Show {pageSize}
+          </option>
+        ))}
+      </select>
     </>
   );
 };

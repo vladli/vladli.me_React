@@ -40,7 +40,10 @@ await server.start();
 
 app.use(
   "/graphql",
-  cors(),
+  cors({
+    origin: ["http://localhost:3000", "studio.apollographql.com"],
+    credentials: true,
+  }),
   verifyToken,
   bodyParser.json(),
   expressMiddleware(server, {
@@ -54,6 +57,7 @@ app.use(
 await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
 console.log(`🚀 Server ready at http://localhost:5000/graphql`);
 
+mongoose.set("strictQuery", true);
 mongoose
   .connect(process.env.DB_CONNECT, {})
   .then(() => console.log("MongoDB connected."))

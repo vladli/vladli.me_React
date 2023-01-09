@@ -6,7 +6,6 @@ import {
   getPaginationRowModel,
 } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
-import Pagination from "../Pagination/Pagination";
 import TablePagination from "./TablePagination";
 
 interface ITable {

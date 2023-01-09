@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Card from "../../../components/Cards/Card";
+import Box from "../../../components/Box";
 import Divider from "../../../components/Divider";
 import FormInput from "../../../components/Input/FormInput";
 //@ts-ignore
@@ -35,7 +35,7 @@ const Login = () => {
       });
   };
   return (
-    <Card className="w-[80%] 2xl:w-[40%]">
+    <Box className="w-[80%] 2xl:w-[40%]">
       <div className="flex h-[50vh]">
         <div className="hidden w-[50%] items-center justify-center md:flex">
           <img src={LOGIN_IMG} alt="Logo" className="max-h-[100%] p-14" />
@@ -57,7 +57,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-    </Card>
+    </Box>
   );
 };
 

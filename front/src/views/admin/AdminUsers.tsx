@@ -33,7 +33,6 @@ const AdminUsers = () => {
     <>
       <Table data={data} columns={columns} />
       {/* <Button onClick={() => refetch()}>RELOAD</Button> */}
-      <Pagination />
     </>
   );
 };

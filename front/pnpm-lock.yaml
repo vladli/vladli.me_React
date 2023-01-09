@@ -7,7 +7,7 @@ specifiers:
   '@apollo/client': ^3.7.3
   '@emotion/react': ^11.10.5
   '@iconify/react': ^4.0.1
-  '@tanstack/react-table': ^8.7.4
+  '@tanstack/react-table': ^8.7.6
   '@types/jest': ^29.2.5
   '@types/node': ^18.11.18
   '@types/react': ^18.0.26
@@ -17,16 +17,16 @@ specifiers:
   blurhash: ^2.0.4
   classnames: ^2.3.2
   firebase: ^9.15.0
-  framer-motion: ^8.2.4
+  framer-motion: ^8.3.3
   graphql: ^16.6.0
-  i18next: ^22.4.8
+  i18next: ^22.4.9
   i18next-browser-languagedetector: ^7.0.1
   i18next-http-backend: ^2.1.1
   postcss: ^8.4.21
   prettier: ^2.8.2
   prettier-plugin-tailwindcss: ^0.2.1
   react: ^18.2.0
-  react-blurhash: ^0.2.0
+  react-blurhash: ^0.3.0
   react-dom: ^18.2.0
   react-hook-form: ^7.41.5
   react-i18next: ^12.1.4
@@ -41,20 +41,20 @@ specifiers:
 dependencies:
   '@apollo/client': 3.7.3_gdcq4dv6opitr3wbfwyjmanyra
   '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
-  '@tanstack/react-table': 8.7.4_biqbaboplfbrettd7655fr4n2y
+  '@tanstack/react-table': 8.7.6_biqbaboplfbrettd7655fr4n2y
   blurhash: 2.0.4
   classnames: 2.3.2
   firebase: 9.15.0
-  framer-motion: 8.2.4_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 8.3.3_biqbaboplfbrettd7655fr4n2y
   graphql: 16.6.0
-  i18next: 22.4.8
+  i18next: 22.4.9
   i18next-browser-languagedetector: 7.0.1
   i18next-http-backend: 2.1.1
   react: 18.2.0
-  react-blurhash: 0.2.0_jn2mscwhzxibfzgdau2qdbmjna
+  react-blurhash: 0.3.0_jn2mscwhzxibfzgdau2qdbmjna
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.41.5_react@18.2.0
-  react-i18next: 12.1.4_25zoxyjt3sfdpelgxivbzvmrha
+  react-i18next: 12.1.4_iakk3dtjhjpukdoa4oua5khgci
   react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_o77wnou4wwnegu5woljtklrzru
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
@@ -3025,20 +3025,20 @@ packages:
       - supports-color
     dev: false
 
-  /@tanstack/react-table/8.7.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-4Q1OV3kUSxbtekclS3sqjCyCDowqCPruUCfHm1nGoPSmVLRCHoQ1E2rmzTVGeocEKgV9TDnj39tOgGwcADPuPA==}
+  /@tanstack/react-table/8.7.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-/QijmMFeP7wDLBnr0MQ/5MlbXePbIL/1nOtkxBC9zvmBu4gDKJEDBqipUyM7Wc/iBpSd0IFyqBlvZvTPD9FYDA==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      '@tanstack/table-core': 8.7.4
+      '@tanstack/table-core': 8.7.6
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@tanstack/table-core/8.7.4:
-    resolution: {integrity: sha512-OPhzca7e83KGukxLpZ+4F9OBp9CZXi9b/OGJBH8dlC3wpffcSSDczYGUGJKG7wirXQ6cUVYL+9G6UrrdnblKNQ==}
+  /@tanstack/table-core/8.7.6:
+    resolution: {integrity: sha512-sqiNTMzB6cpyL8DFH6/VqW48SwiflLqxQqYpo2wNock7rdVGvlm0BLNI8vZUJbr1+fmmWmHwBvi5OMgZw8n1DA==}
     engines: {node: '>=12'}
     dev: false
 
@@ -5886,8 +5886,8 @@ packages:
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
 
-  /framer-motion/8.2.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-bd2g3kgb8m0jBi+OOzsKPW4rQCn5gOOlbAlT0iMX6ruQPZ9qzIIABrRj2DFhwW6EcFvfJSP6EVVHSI8SQYBBOw==}
+  /framer-motion/8.3.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-K7YpdFSfcs8M12m1gd8AankcEeYh8DhQKPBbCecniSWdOwcfrACiwMptCepMCdDehKmzHo1iDxYXy4FEhw9yaw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -6322,8 +6322,8 @@ packages:
       - encoding
     dev: false
 
-  /i18next/22.4.8:
-    resolution: {integrity: sha512-XSOy17ZWqflOiJRYE/dzv6vDle2Se32dnHREHb93UnZzZ1+UnvQ8yKtt1fpNL3zvXz5AwCqqixrtTVZmRetaiQ==}
+  /i18next/22.4.9:
+    resolution: {integrity: sha512-8gWMmUz460KJDQp/ob3MNUX84cVuDRY9PLFPnV8d+Qezz/6dkjxwOaH70xjrCNDO+JrUL25iXfAIN9wUkInNZw==}
     dependencies:
       '@babel/runtime': 7.20.6
     dev: false
@@ -9053,8 +9053,8 @@ packages:
       whatwg-fetch: 3.6.2
     dev: false
 
-  /react-blurhash/0.2.0_jn2mscwhzxibfzgdau2qdbmjna:
-    resolution: {integrity: sha512-MfhPLfFTNCX3MCJ8nM5t+T5qAixBUv8QHVcHORs5iVaqdpg+IW/e4lpOphc0bm6AvKz//4MuHESIeKKoxi3wnA==}
+  /react-blurhash/0.3.0_jn2mscwhzxibfzgdau2qdbmjna:
+    resolution: {integrity: sha512-XlKr4Ns1iYFRnk6DkAblNbAwN/bTJvxTVoxMvmTcURdc5oLoXZwqAF9N3LZUh/HT+QFlq5n6IS6VsDGsviYAiQ==}
     peerDependencies:
       blurhash: ^2.0.3
       react: '>=15'
@@ -9128,7 +9128,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-i18next/12.1.4_25zoxyjt3sfdpelgxivbzvmrha:
+  /react-i18next/12.1.4_iakk3dtjhjpukdoa4oua5khgci:
     resolution: {integrity: sha512-XQND7jYtgM7ht5PH3yIZljCRpAMTlH/zmngM9ZjToqa+0BR6xuu8c7QF0WIIOEjcMTB2S3iOfpN/xG/ZrAnO6g==}
     peerDependencies:
       i18next: '>= 19.0.0'
@@ -9143,7 +9143,7 @@ packages:
     dependencies:
       '@babel/runtime': 7.20.6
       html-parse-stringify: 3.0.1
-      i18next: 22.4.8
+      i18next: 22.4.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false

@@ -1,9 +1,14 @@
 import React from "react";
 
-const PaginationItem = ({ count }: { count: any }) => {
+interface IPagination {
+  ref: React.ForwardedRef<any>;
+  count?: number;
+}
+
+const PaginationItem = ({ count = 5 }: IPagination) => {
   const getPages = () => {
     let li = [];
-    for (let i = 1; i < count; i++) {
+    for (let i = 1; i <= count; i++) {
       li.push(
         <li
           key={i}
@@ -20,7 +25,6 @@ const PaginationItem = ({ count }: { count: any }) => {
       <li className="ml-0 rounded-l-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         Previous
       </li>
-      {getPages()}
       <li className="rounded-r-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
         Next
       </li>
@@ -28,11 +32,11 @@ const PaginationItem = ({ count }: { count: any }) => {
   );
 };
 
-const Pagination = () => {
+const Pagination = ({ ref, count }: IPagination) => {
   return (
     <div>
       <ul className="inline-flex -space-x-px">
-        <PaginationItem count={5} />
+        <PaginationItem ref={ref} count={count} />
       </ul>
     </div>
   );

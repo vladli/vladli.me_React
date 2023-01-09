@@ -7,31 +7,33 @@ import {
 } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
 import Pagination from "../Pagination/Pagination";
+import TablePagination from "./TablePagination";
 
 interface ITable {
   data: any[];
   columns: ColumnDef<any>[];
+  pageSize?: number;
 }
 
-const Table: React.FC<ITable> = ({ data, columns }) => {
+const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
   const {
     getState,
     getPageCount,
     getCanPreviousPage,
     previousPage,
     nextPage,
-    setPageIndex,
+    getCanNextPage,
     setPageSize,
     getHeaderGroups,
     getRowModel,
   } = useReactTable({
     data,
     columns,
+    pageCount: Math.ceil(data.length / pageSize),
     // Pipeline
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
-
   return (
     <>
       <table className="select-none text-center text-white">
@@ -69,22 +71,18 @@ const Table: React.FC<ITable> = ({ data, columns }) => {
           ))}
         </tbody>
       </table>
-      <button onClick={() => previousPage()} disabled={!getCanPreviousPage()}>
-        {"<"}
-      </button>
-      <button onClick={() => nextPage()}>{">"}</button>
-      <select
-        value={getState().pagination.pageSize}
-        onChange={(e) => {
-          setPageSize(Number(e.target.value));
+
+      <TablePagination
+        {...{
+          getState,
+          getPageCount,
+          previousPage,
+          getCanPreviousPage,
+          nextPage,
+          getCanNextPage,
+          setPageSize,
         }}
-      >
-        {[10, 20, 30, 40, 50].map((pageSize) => (
-          <option key={pageSize} value={pageSize}>
-            Show {pageSize}
-          </option>
-        ))}
-      </select>
+      />
     </>
   );
 };

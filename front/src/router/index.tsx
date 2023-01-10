@@ -5,7 +5,7 @@ import CleanLayout from "../layouts/CleanLayout";
 
 import AuthGuard from "../guards/AuthGuard";
 import GuestGuard from "../guards/GuestGuard";
-import { PATH_ADMIN } from "./paths";
+import { PATH_ADMIN, PATH_AUTH } from "./paths";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
@@ -32,11 +32,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "auth",
+    path: PATH_AUTH.root,
     element: <CleanLayout />,
     children: [
       {
-        path: "login",
+        path: PATH_AUTH.login,
         element: (
           <GuestGuard>
             <LoginPage />
@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "admin",
+    path: PATH_ADMIN.root,
     element: <DashboardLayout />,
     children: [
       {

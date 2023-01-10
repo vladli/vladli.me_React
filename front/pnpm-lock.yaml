@@ -6,6 +6,7 @@ overrides:
 specifiers:
   '@apollo/client': ^3.7.3
   '@emotion/react': ^11.10.5
+  '@faker-js/faker': ^7.6.0
   '@iconify/react': ^4.0.1
   '@tanstack/react-table': ^8.7.6
   '@types/jest': ^29.2.5
@@ -17,7 +18,7 @@ specifiers:
   blurhash: ^2.0.4
   classnames: ^2.3.2
   firebase: ^9.15.0
-  framer-motion: ^8.3.3
+  framer-motion: ^8.4.0
   graphql: ^16.6.0
   i18next: ^22.4.9
   i18next-browser-languagedetector: ^7.0.1
@@ -30,13 +31,13 @@ specifiers:
   react-dom: ^18.2.0
   react-hook-form: ^7.41.5
   react-i18next: ^12.1.4
-  react-router-dom: ^6.6.1
+  react-router-dom: ^6.6.2
   react-scripts: 5.0.1
   styled-components: ^5
   tailwindcss: ^3.2.1
   twin.macro: ^3.1.0
   typescript: ^4.9.4
-  zustand: ^4.2.0
+  zustand: ^4.3.1
 
 dependencies:
   '@apollo/client': 3.7.3_gdcq4dv6opitr3wbfwyjmanyra
@@ -45,7 +46,7 @@ dependencies:
   blurhash: 2.0.4
   classnames: 2.3.2
   firebase: 9.15.0
-  framer-motion: 8.3.3_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 8.4.0_biqbaboplfbrettd7655fr4n2y
   graphql: 16.6.0
   i18next: 22.4.9
   i18next-browser-languagedetector: 7.0.1
@@ -55,14 +56,15 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.41.5_react@18.2.0
   react-i18next: 12.1.4_iakk3dtjhjpukdoa4oua5khgci
-  react-router-dom: 6.6.1_biqbaboplfbrettd7655fr4n2y
+  react-router-dom: 6.6.2_biqbaboplfbrettd7655fr4n2y
   react-scripts: 5.0.1_o77wnou4wwnegu5woljtklrzru
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
   twin.macro: 3.1.0_tailwindcss@3.2.4
   typescript: 4.9.4
-  zustand: 4.2.0_react@18.2.0
+  zustand: 4.3.1_react@18.2.0
 
 devDependencies:
+  '@faker-js/faker': 7.6.0
   '@iconify/react': 4.0.1_react@18.2.0
   '@types/jest': 29.2.5
   '@types/node': 18.11.18
@@ -1817,6 +1819,11 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: false
+
+  /@faker-js/faker/7.6.0:
+    resolution: {integrity: sha512-XK6BTq1NDMo9Xqw/YkYyGjSsg44fbNwYRx7QK2CuoQgyy+f1rrTDHoExVM5PsyXCtfl2vs2vVJ0MN0yN6LppRw==}
+    engines: {node: '>=14.0.0', npm: '>=6.0.0'}
+    dev: true
 
   /@firebase/analytics-compat/0.2.0_5z7svkifsmkn6ro3hru7lnxwrq:
     resolution: {integrity: sha512-brk8IN4ErWiZoB/UdJ0mWZhQOKt90ztv4MUwQjhuYJ4iwnVMz0Mzj9+tplU1hVpSZXdfbKQFfRN9kp/3sTiyWw==}
@@ -5886,8 +5893,8 @@ packages:
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
 
-  /framer-motion/8.3.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-K7YpdFSfcs8M12m1gd8AankcEeYh8DhQKPBbCecniSWdOwcfrACiwMptCepMCdDehKmzHo1iDxYXy4FEhw9yaw==}
+  /framer-motion/8.4.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-32ECxsAMrhFfpMnA/j3wXku//587kQe29emTGpIQsnh60mFSMTrnpIupAn5Bnk5qq4/OMNgWWCI6mnaFhsIu7w==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -9163,8 +9170,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /react-router-dom/6.6.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-u+8BKUtelStKbZD5UcY0NY90WOzktrkJJhyhNg7L0APn9t1qJNLowzrM9CHdpB6+rcPt6qQrlkIXsTvhuXP68g==}
+  /react-router-dom/6.6.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-6SCDXxRQqW5af8ImOqKza7icmQ47/EMbz572uFjzvcArg3lZ+04PxSPp8qGs+p2Y+q+b+S/AjXv8m8dyLndIIA==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
@@ -9173,11 +9180,11 @@ packages:
       '@remix-run/router': 1.2.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-router: 6.6.1_react@18.2.0
+      react-router: 6.6.2_react@18.2.0
     dev: false
 
-  /react-router/6.6.1_react@18.2.0:
-    resolution: {integrity: sha512-YkvlYRusnI/IN0kDtosUCgxqHeulN5je+ew8W+iA1VvFhf86kA+JEI/X/8NqYcr11hCDDp906S+SGMpBheNeYQ==}
+  /react-router/6.6.2_react@18.2.0:
+    resolution: {integrity: sha512-uJPG55Pek3orClbURDvfljhqFvMgJRo59Pktywkk8hUUkTY2aRfza8Yhl/vZQXs+TNQyr6tu+uqz/fLxPICOGQ==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16.8'
@@ -11074,8 +11081,8 @@ packages:
     resolution: {integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==}
     dev: false
 
-  /zustand/4.2.0_react@18.2.0:
-    resolution: {integrity: sha512-eNwaDoD2FYVnMgtNxiMUhTJO780wonZUzJrPQTLYI0erSIMZF8cniWFW22kGQUECd8rdHRJ/ZJL2XO54c9Ttuw==}
+  /zustand/4.3.1_react@18.2.0:
+    resolution: {integrity: sha512-EVyo/eLlOTcJm/X5M00rwtbYFXwRVTaRteSvhtbTZUCQFJkNfIyHPiJ6Ke68MSWzcKHpPzvqNH4gC2ZS/sbNqw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'

@@ -10,14 +10,20 @@ import Button from "../../../components/Buttons/Button";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
-import { ROOT_PAGE } from "../../../router/paths";
+import { PATH_PAGE } from "../../../router/paths";
+
+type Inputs = {
+  Email: string;
+  Password: string;
+};
 
 const Login = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+    getValues,
+  } = useForm<Inputs>();
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = React.useState("");
 
@@ -28,7 +34,7 @@ const Login = () => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage("");
-        navigate(ROOT_PAGE, { replace: true });
+        navigate(PATH_PAGE.root, { replace: true });
       })
       .catch((error: any) => {
         setErrorMessage(error.message);

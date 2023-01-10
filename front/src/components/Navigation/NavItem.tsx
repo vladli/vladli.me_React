@@ -3,7 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import tw from "twin.macro";
 import { Icon } from "@iconify/react";
-import { m } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 import NavItemChild from "./NavItemChild";
 
@@ -27,7 +27,7 @@ const styles = {
   ],
   subcontainer: [
     tw`text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
-    w-56 m-2
+    w-56 m-2 
     hover:bg-gray-500`,
   ],
   item: [tw`flex items-center text-base font-semibold select-none `],
@@ -49,7 +49,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
         damping: 34,
       },
     },
-    closed: { opacity: 0, y: -10, transition: { duration: 0.2 } },
+    closed: { opacity: 0, y: -5, transition: { duration: 0.2 } },
   };
   React.useEffect(() => {
     if (submenu) {
@@ -90,15 +90,18 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
               <span className="ml-2">{name}</span>
             </div>
           </m.div>
-          {open && (
-            <m.ul
-              variants={itemVariants}
-              animate={open ? "open" : "closed"}
-              initial="closed"
-            >
-              <NavItemChild items={submenu} />
-            </m.ul>
-          )}
+          <AnimatePresence>
+            {open && (
+              <m.ul
+                variants={itemVariants}
+                animate={open ? "open" : "closed"}
+                initial="closed"
+                exit="closed"
+              >
+                <NavItemChild items={submenu} />
+              </m.ul>
+            )}
+          </AnimatePresence>
         </>
       )}
     </>

@@ -1,9 +1,10 @@
 import React from "react";
+import { FieldValues, UseFormRegister } from "react-hook-form/dist/types";
 import Input from "./Input";
 
 interface IFormInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  register?: any;
+  register: UseFormRegister<FieldValues>;
   required?: boolean;
   [key: string]: any;
 }

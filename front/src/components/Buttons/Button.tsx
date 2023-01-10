@@ -7,6 +7,7 @@ import { m } from "framer-motion";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
   size?: "small" | "medium" | "large" | "full";
+  type?: "button" | "submit";
   gradientMono?: "blue" | "green" | "red" | "purple" | undefined;
   gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
   leftIcon?: string;
@@ -47,6 +48,7 @@ const ButtonStyled = styled.button<ButtonProps>(
   ({
     variant = "contained",
     size = "medium",
+
     disabled = false,
     gradientMono = undefined,
     gradientDuo = undefined,
@@ -65,6 +67,7 @@ const Button: React.FC<ButtonProps> = ({
   leftIcon,
   rightIcon,
 
+  type = "button",
   disabled,
   ...rest
 }) => {
@@ -72,7 +75,7 @@ const Button: React.FC<ButtonProps> = ({
     <m.div whileTap={!disabled ? { scale: 0.97 } : undefined}>
       <ButtonStyled
         {...rest}
-        type="button"
+        type={type}
         disabled={disabled}
         className="inline-flex select-none items-center font-semibold"
       >

@@ -1,11 +1,10 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import tw from "twin.macro";
 import { Icon } from "@iconify/react";
 import { AnimatePresence, m } from "framer-motion";
 
 import NavItemChild from "./NavItemChild";
+import classNames from "classnames";
 
 type NavItemProps = {
   items: ItemsProps;
@@ -19,18 +18,11 @@ type ItemsProps = {
 };
 
 const styles = {
-  container: (isActive: boolean) => [
-    tw`text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
-    w-56 mb-1 mx-2
-    hover:bg-gray-500`,
-    isActive && tw`bg-gray-600`,
-  ],
-  subcontainer: [
-    tw`text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
+  subcontainer: `text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
     w-56 m-2 
     hover:bg-gray-500`,
-  ],
-  item: [tw`flex items-center text-base font-semibold select-none `],
+
+  item: "flex items-center text-base font-semibold select-none",
 };
 
 const NavItem: React.FC<NavItemProps> = ({ items }) => {
@@ -38,6 +30,10 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const isActive: boolean = useLocation().pathname === link;
   const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
+
+  const containerClass = `text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
+  w-56 mb-1 mx-2
+  hover:bg-gray-500`;
 
   const itemVariants = {
     open: {
@@ -65,8 +61,11 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
     <>
       {!submenu ? (
         <Link to={link}>
-          <m.li whileTap={{ scale: 0.97 }} css={styles.container(isActive)}>
-            <div css={styles.item}>
+          <m.li
+            whileTap={{ scale: 0.97 }}
+            className={classNames(containerClass, isActive && `bg-gray-600`)}
+          >
+            <div className={styles.item}>
               {icon && <Icon icon={icon} />}
               <span className="ml-2">{name}</span>
             </div>
@@ -76,10 +75,10 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
         <>
           <m.div
             whileTap={{ scale: 0.97 }}
-            css={styles.subcontainer}
+            className={styles.subcontainer}
             onClick={() => setOpen(!open)}
           >
-            <div css={styles.item}>
+            <div className={styles.item}>
               <m.div
                 variants={{ open: { rotate: 90 }, closed: { rotate: 0 } }}
                 animate={open ? "open" : "closed"}

@@ -32,6 +32,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: PATH_AUTH.root,
     element: <CleanLayout />,

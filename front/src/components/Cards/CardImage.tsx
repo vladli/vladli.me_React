@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
 import { BlurhashCanvas } from "react-blurhash";
 import tw from "twin.macro";
@@ -16,18 +15,18 @@ const CardImage: React.FC<ICardImage> = ({
 }) => {
   const [loaded, setloaded] = React.useState(false);
   return (
-    <div className="max-w-sm h-[220px] select-none">
+    <div className="h-[220px] max-w-sm select-none">
       {!loaded && blured && (
         <BlurhashCanvas
           hash={blured}
-          className={`rounded-t-lg w-full h-full ${
+          className={`h-full w-full rounded-t-lg ${
             loaded ? "hidden" : "visible"
           }`}
         />
       )}
       <img
         src={image}
-        className={`rounded-t-lg w-full h-full ${
+        className={`h-full w-full rounded-t-lg ${
           !loaded ? "hidden" : "visible"
         }`}
         alt=""

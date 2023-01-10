@@ -16,8 +16,8 @@ const Dashboard = () => {
     <m.div
       className="flex flex-wrap justify-center gap-4 md:justify-around"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: 1.5 } }}
-      exit={{ opacity: 0, transition: { duration: 1.5 } }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       {Array.from(Array(15), (e, i) => {
         return (

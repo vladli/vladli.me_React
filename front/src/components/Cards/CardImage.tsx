@@ -1,6 +1,5 @@
 import React from "react";
 import { BlurhashCanvas } from "react-blurhash";
-import tw from "twin.macro";
 interface ICardImage extends React.ImgHTMLAttributes<HTMLImageElement> {
   image: string;
   blured?: string;

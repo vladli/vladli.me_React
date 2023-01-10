@@ -9,9 +9,7 @@ function App() {
     <LazyMotion features={domMax}>
       <AuthProvider>
         <Suspense>
-          <AnimatePresence>
-            <RouterProvider router={router} />
-          </AnimatePresence>
+          <RouterProvider router={router} />
         </Suspense>
       </AuthProvider>
     </LazyMotion>

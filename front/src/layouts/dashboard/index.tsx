@@ -1,5 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 
+import { AnimatePresence } from "framer-motion";
 import Button from "../../components/Buttons/Button";
 import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation/Navigation";

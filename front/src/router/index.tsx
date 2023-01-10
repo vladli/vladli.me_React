@@ -6,6 +6,7 @@ import CleanLayout from "../layouts/CleanLayout";
 import AuthGuard from "../guards/AuthGuard";
 import GuestGuard from "../guards/GuestGuard";
 import { PATH_ADMIN, PATH_AUTH } from "./paths";
+import { AnimatePresence } from "framer-motion";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));

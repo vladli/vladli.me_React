@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 
 import Button from "../components/Buttons/Button";
 import Card from "../components/Cards/Card";
@@ -16,8 +16,8 @@ const Dashboard = () => {
     <m.div
       className="flex flex-wrap justify-center gap-4 md:justify-around"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
+      animate={{ opacity: 1, transition: { duration: 1.5 } }}
+      exit={{ opacity: 0, transition: { duration: 1.5 } }}
     >
       {Array.from(Array(15), (e, i) => {
         return (

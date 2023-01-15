@@ -4,7 +4,7 @@ specifiers:
   '@apollo/server': ^4.3.0
   '@babel/node': ^7.20.7
   '@graphql-tools/load-files': ^6.6.1
-  '@graphql-tools/merge': ^8.3.6
+  '@graphql-tools/merge': ^8.3.15
   bcrypt: ^5.0.1
   body-parser: ^1.20.1
   cookie-parser: ^1.4.6
@@ -21,7 +21,7 @@ dependencies:
   '@apollo/server': 4.3.0_graphql@16.6.0
   '@babel/node': 7.20.7
   '@graphql-tools/load-files': 6.6.1_graphql@16.6.0
-  '@graphql-tools/merge': 8.3.14_graphql@16.6.0
+  '@graphql-tools/merge': 8.3.15_graphql@16.6.0
   bcrypt: 5.1.0
   body-parser: 1.20.1
   cookie-parser: 1.4.6
@@ -1232,6 +1232,16 @@ packages:
       tslib: 2.4.1
     dev: false
 
+  /@graphql-tools/merge/8.3.15_graphql@16.6.0:
+    resolution: {integrity: sha512-hYYOlsqkUlL6oOo7zzuk6hIv7xQzy+x21sgK84d5FWaiWYkLYh9As8myuDd9SD5xovWWQ9m/iRhIOVDEMSyEKA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      '@graphql-tools/utils': 9.1.4_graphql@16.6.0
+      graphql: 16.6.0
+      tslib: 2.4.1
+    dev: false
+
   /@graphql-tools/schema/9.0.12_graphql@16.6.0:
     resolution: {integrity: sha512-DmezcEltQai0V1y96nwm0Kg11FDS/INEFekD4nnVgzBqawvznWqK6D6bujn+cw6kivoIr3Uq//QmU/hBlBzUlQ==}
     peerDependencies:
@@ -1246,6 +1256,15 @@ packages:
 
   /@graphql-tools/utils/9.1.3_graphql@16.6.0:
     resolution: {integrity: sha512-bbJyKhs6awp1/OmP+WKA1GOyu9UbgZGkhIj5srmiMGLHohEOKMjW784Sk0BZil1w2x95UPu0WHw6/d/HVCACCg==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
+    dependencies:
+      graphql: 16.6.0
+      tslib: 2.4.1
+    dev: false
+
+  /@graphql-tools/utils/9.1.4_graphql@16.6.0:
+    resolution: {integrity: sha512-hgIeLt95h9nQgQuzbbdhuZmh+8WV7RZ/6GbTj6t3IU4Zd2zs9yYJ2jgW/krO587GMOY8zCwrjNOMzD40u3l7Vg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:

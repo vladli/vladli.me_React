@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import { GET_ALL_USERS } from "../../graphql/users";
 import Pagination from "../../components/Pagination/Pagination";
 import Button from "../../components/Buttons/Button";
+import { faker } from "@faker-js/faker";
 
 export const columns: ColumnDef<any, any>[] = [
   {
@@ -15,6 +16,14 @@ export const columns: ColumnDef<any, any>[] = [
     accessorKey: "email",
     header: "Email",
   },
+  {
+    accessorKey: "ip",
+    header: "ip",
+  },
+  {
+    accessorKey: "userName",
+    header: "Username",
+  },
 ];
 
 const AdminUsers = () => {
@@ -23,8 +32,11 @@ const AdminUsers = () => {
 
   const list = () => {
     let list = [];
-    for (let i = 0; i < 20; i++) {
-      list.push({ uid: i, email: "asddsa" });
+    for (let i = 0; i < 400; i++) {
+      const randomName = faker.name.fullName(); // Rowan Nikolaus
+      const ip = faker.internet.ip();
+      const randomEmail = faker.internet.email();
+      list.push({ uid: i, email: randomEmail, ip: ip, userName: randomName });
     }
     return list;
   };

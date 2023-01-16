@@ -6,16 +6,18 @@ import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation/Navigation";
 import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH } from "../../router/paths";
+import DarkModeSwitch from "../../components/DarkModeSwitch";
 
 const DashboardLayout = () => {
   const { user, isAuthenticated, signOut }: any = useAuth();
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex h-16 w-full flex-wrap items-center border border-gray-700 bg-gray-800">
+      <div className="flex h-16 w-full flex-wrap items-center border bg-white dark:border-gray-700 dark:bg-gray-800">
         <div className="ml-4 sm:ml-14">
-          <Logo height={4} />
+          <Logo />
         </div>
+        <DarkModeSwitch />
         <div className="absolute right-4">
           {!isAuthenticated ? (
             <Button

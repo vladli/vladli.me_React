@@ -1,3 +1,5 @@
+import { Icon } from "@iconify/react";
+import { m } from "framer-motion";
 import React from "react";
 import useDarkTheme from "../hooks/useDarkTheme";
 import Button from "./Buttons/Button";
@@ -12,11 +14,15 @@ const DarkModeSwitch = () => {
     setDarkSide(checked);
   };
   return (
-    <div>
-      <Button variant="contained" onClick={toggleDarkMode}>
-        Dar
-      </Button>
-    </div>
+    <m.div
+      className="cursor-pointer select-none"
+      variants={{ light: { rotate: 0 }, dark: { rotate: 180 } }}
+      animate={colorTheme === "light" ? "light" : "dark"}
+      transition={{ duration: 0.2 }}
+      onClick={toggleDarkMode}
+    >
+      <Icon icon="mdi:theme-light-dark" width={36} color="white" />
+    </m.div>
   );
 };
 

@@ -40,7 +40,7 @@ const AdminUsers = () => {
     }
     return list;
   };
-  const [data, setData] = React.useState(() => list());
+  const [data] = React.useState(() => list());
   return (
     <>
       <Table data={data} columns={columns} />

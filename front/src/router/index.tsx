@@ -7,6 +7,7 @@ import AuthGuard from "../guards/AuthGuard";
 import GuestGuard from "../guards/GuestGuard";
 import { PATH_ADMIN, PATH_AUTH } from "./paths";
 import { AnimatePresence } from "framer-motion";
+import LoadingPage from "../pages/LoadingPage";
 
 const Dashboard = lazy(() => import("../pages/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
@@ -22,17 +23,13 @@ const router = createBrowserRouter([
         element: <Dashboard />,
         index: true,
       },
-      {
-        element: (
-          <AuthGuard>
-            <div>asd</div>
-          </AuthGuard>
-        ),
-        path: "/2",
-      },
     ],
   },
-
+  {
+    index: true,
+    path: "/2",
+    element: <LoadingPage />,
+  },
   {
     path: PATH_AUTH.root,
     element: <CleanLayout />,

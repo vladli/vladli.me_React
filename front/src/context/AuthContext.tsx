@@ -1,6 +1,7 @@
 import React from "react";
 import firebase, { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase";
+import Loading from "../pages/LoadingPage";
 
 type User = firebase.User | null;
 type ContextState = {
@@ -38,7 +39,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
   }, []);
 
-  if (loading) return <div>Loading</div>;
+  if (loading) return <Loading />;
   return (
     <AuthContext.Provider value={{ user, signOut }}>
       {children}

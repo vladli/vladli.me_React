@@ -14,7 +14,7 @@ const DashboardLayout = () => {
     <>
       <div className="flex h-16 w-full flex-wrap items-center border border-gray-700 bg-gray-800">
         <div className="ml-4 sm:ml-14">
-          <Logo />
+          <Logo height={4} />
         </div>
         <div className="absolute right-4">
           {!isAuthenticated ? (

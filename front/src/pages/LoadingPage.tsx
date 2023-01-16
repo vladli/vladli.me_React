@@ -18,7 +18,7 @@ const Loading = () => {
             repeat: Infinity,
           }}
         >
-          <Logo size={10} />
+          <Logo height={10} />
         </m.div>
         <m.div
           className="absolute h-[300px] w-[300px] border-[3px] border-red-400"

@@ -22,6 +22,10 @@ export const PATH_ADMIN = {
   users: path(ROOT_ADMIN, "/users"),
 };
 
+export const PATH_DASHBOARD = {
+  root: ROOT_DASHBOARD,
+};
+
 export const PATH_PAGE = {
   root: ROOT_PAGE,
   comingSoon: "/coming-soon",

@@ -1,16 +1,20 @@
+import { link } from "fs";
+import { PATH_DASHBOARD, PATH_PAGE } from "./router/paths";
+
 const MenuItems = [
   {
     name: "Main",
+    link: PATH_PAGE.root,
+    icon: undefined,
+  },
+  {
+    name: "Dashboard",
     link: "",
     icon: undefined,
     submenu: [
       {
-        name: "Main",
-        link: "/",
-      },
-      {
-        name: "Main33",
-        link: "/2",
+        name: "Dashboard",
+        link: PATH_DASHBOARD.root,
       },
     ],
   },

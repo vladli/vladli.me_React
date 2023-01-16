@@ -9,7 +9,8 @@ const Box = ({
   className: string;
 }) => {
   let divClass = classNames(
-    "flex flex-col rounded-lg border border-gray-200 bg-white shadow-md",
+    "flex flex-col rounded-lg border shadow-md",
+    "border-gray-200 bg-slate-400",
     "dark:border-gray-700 dark:bg-gray-800",
     className
   );

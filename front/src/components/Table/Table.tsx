@@ -35,14 +35,14 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
   });
   return (
     <>
-      <table className="select-none text-center text-white">
-        <thead className=" bg-gray-800">
+      <table className="select-none text-center dark:text-white">
+        <thead className="cardBgLight dark:bg-cardBgDark">
           {getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className="border border-gray-600 py-4 text-sm font-medium"
+                  className="border border-gray-600 py-4 text-sm font-bold"
                 >
                   {header.isPlaceholder
                     ? null
@@ -57,10 +57,10 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
         </thead>
         <tbody>
           {getRowModel().rows.map((row) => (
-            <tr key={row.id} className="bg-gray-900">
+            <tr key={row.id} className="cardBgLight dark:bg-cardBgDark">
               {row.getVisibleCells().map((cell) => (
                 <td
-                  className="whitespace-nowrap border border-gray-600 px-4 py-4 text-sm"
+                  className="whitespace-nowrap border border-gray-600 px-4 py-4 text-sm font-medium"
                   key={cell.id}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

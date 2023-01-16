@@ -13,7 +13,7 @@ const DashboardLayout = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex h-16 w-full flex-wrap items-center border bg-white dark:border-gray-700 dark:bg-gray-800">
+      <div className="flex h-16 w-full flex-wrap items-center  bg-menuBgLight  dark:bg-menuBgDark">
         <div className="ml-4 sm:ml-14">
           <Logo />
         </div>
@@ -38,8 +38,8 @@ const DashboardLayout = () => {
           )}
         </div>
       </div>
-      <div className="flex bg-bgDark">
-        <div className="hidden min-h-[calc(100vh-64px)] bg-gray-800 sm:flex">
+      <div className="flex bg-bgLight dark:bg-bgDark">
+        <div className="hidden min-h-[calc(100vh-64px)] bg-menuBgLight dark:bg-menuBgDark sm:flex">
           <Navigation />
         </div>
         <div className="min-h-[calc(100vh-64px)] grow">

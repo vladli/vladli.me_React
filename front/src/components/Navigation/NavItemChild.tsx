@@ -18,15 +18,18 @@ type ItemsProps = {
 
 const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
   const isActive = useLocation().pathname;
-  const divClassBase = `text-white cursor-pointer pl-12 py-3 leading-3 tracking-normal rounded-[10px] 
-  w-56 m-auto mb-1 mx-2 
-  hover:bg-gray-500`;
+  const divClassBase = `cursor-pointer pl-12 py-3 leading-3 tracking-normal rounded-[10px] w-56 m-auto mb-1 mx-2 
+  text-white 
+  hover:bg-sky-500 dark:hover:bg-zinc-600`;
 
   return (
     <>
       {items.map((item: any) => {
         const active = isActive === item.link;
-        let divClass = classNames(divClassBase, active && ` bg-gray-600`);
+        let divClass = classNames(
+          divClassBase,
+          active && ` bg-sky-600 dark:bg-zinc-700`
+        );
         return (
           <Link key={item.name} to={item.link}>
             <m.li whileTap={{ scale: 0.97 }} className={divClass}>

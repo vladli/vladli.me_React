@@ -20,7 +20,7 @@ type ItemsProps = {
 const styles = {
   subcontainer: `text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
     w-56 m-2 
-    hover:bg-gray-500`,
+    hover:bg-sky-500 dark:hover:bg-zinc-600`,
 
   item: "flex items-center text-base font-semibold select-none",
 };
@@ -31,9 +31,10 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
 
-  const containerClass = `text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
+  const containerClass = `cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
   w-56 mb-1 mx-2
-  hover:bg-gray-500`;
+  text-white 
+  hover:bg-sky-500 dark:hover:bg-zinc-600`;
 
   const itemVariants = {
     open: {
@@ -63,7 +64,10 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
         <Link to={link}>
           <m.li
             whileTap={{ scale: 0.97 }}
-            className={classNames(containerClass, isActive && `bg-gray-600`)}
+            className={classNames(
+              containerClass,
+              isActive && `bg-sky-500 dark:bg-zinc-700`
+            )}
           >
             <div className={styles.item}>
               {icon && <Icon icon={icon} />}

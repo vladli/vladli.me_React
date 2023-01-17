@@ -1,6 +1,4 @@
 import { Updater } from "@tanstack/react-table";
-import React from "react";
-import Pagination from "../Pagination/Pagination";
 
 interface ITablePagination {
   getPageCount: () => number;

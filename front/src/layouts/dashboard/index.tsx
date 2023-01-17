@@ -1,15 +1,9 @@
-import { Outlet, useLocation, useNavigate, useOutlet } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { AnimatePresence, m } from "framer-motion";
-import Button from "../../components/Buttons/Button";
-import Logo from "../../components/Logo";
 import Navigation from "../../components/Navigation/Navigation";
-import { useAuth } from "../../context/AuthContext";
-import { PATH_AUTH } from "../../router/paths";
-import DarkModeSwitch from "../../components/DarkModeSwitch";
 import Header from "./Header";
 import Footer from "./Footer";
-import React from "react";
 import AnimatedOutlet from "../../components/AnimatedOutlet";
 
 const DashboardLayout = () => {

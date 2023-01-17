@@ -1,5 +1,4 @@
 import { m } from "framer-motion";
-import React from "react";
 import Logo from "../components/Logo";
 import ProgressBar from "../components/ProgressBar";
 

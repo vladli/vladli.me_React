@@ -1,5 +1,5 @@
 import React from "react";
-import firebase, { onAuthStateChanged, signOut } from "firebase/auth";
+import firebase, { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import Loading from "../pages/LoadingPage";
 

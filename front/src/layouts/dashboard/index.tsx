@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { AnimatePresence, m } from "framer-motion";
 import Navigation from "../../components/Navigation/Navigation";

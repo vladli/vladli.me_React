@@ -1,4 +1,3 @@
-import { m } from "framer-motion";
 import AdminUsers from "../../views/admin/AdminUsers";
 
 function AdminUsersPage() {

@@ -14,13 +14,9 @@ import AnimatedOutlet from "../../components/AnimatedOutlet";
 
 const DashboardLayout = () => {
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
-    <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <>
       <Header />
       <div className="flex bg-bgLight dark:bg-bgDark">
         <div className="hidden min-h-[calc(100vh-64px)] bg-menuBgLight dark:bg-menuBgDark sm:flex">
@@ -42,7 +38,7 @@ const DashboardLayout = () => {
         </div>
       </div>
       <Footer />
-    </m.div>
+    </>
   );
 };
 

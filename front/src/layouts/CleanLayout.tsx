@@ -1,8 +1,20 @@
-import { Outlet } from "react-router-dom";
+import { AnimatePresence, m } from "framer-motion";
+import { Outlet, useLocation } from "react-router-dom";
+import AnimatedOutlet from "../components/AnimatedOutlet";
 const CleanLayout = () => {
+  const location = useLocation();
   return (
     <div className="min-h-screen bg-bgLight dark:bg-bgDark">
-      <Outlet />
+      <AnimatePresence mode="wait">
+        <m.div
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <AnimatedOutlet />
+        </m.div>
+      </AnimatePresence>
     </div>
   );
 };

@@ -1,19 +1,22 @@
-import { lazy } from "react";
+import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../layouts/dashboard";
 import CleanLayout from "../layouts/CleanLayout";
 
-import AuthGuard from "../guards/AuthGuard";
 import GuestGuard from "../guards/GuestGuard";
 import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
-import { AnimatePresence } from "framer-motion";
-import LoadingPage from "../pages/LoadingPage";
-import MainPage from "../pages/main/MainPage";
 
-const Dashboard = lazy(() => import("../pages/Dashboard"));
+const MainPage = lazy(() => import("../pages/main/MainPage"));
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
 
 const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
+
+const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <React.Suspense fallback={<h1>LOADING...</h1>}>{children}</React.Suspense>
+  );
+};
 
 const router = createBrowserRouter([
   {
@@ -31,7 +34,11 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        element: <Dashboard />,
+        element: (
+          <SuspenseLoading>
+            <Dashboard />
+          </SuspenseLoading>
+        ),
         index: true,
       },
     ],
@@ -44,7 +51,9 @@ const router = createBrowserRouter([
         path: PATH_AUTH.login,
         element: (
           <GuestGuard>
-            <LoginPage />
+            <SuspenseLoading>
+              <LoginPage />
+            </SuspenseLoading>
           </GuestGuard>
         ),
       },
@@ -56,7 +65,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: PATH_ADMIN.users,
-        element: <AdminUsersPage />,
+        element: (
+          <SuspenseLoading>
+            <AdminUsersPage />
+          </SuspenseLoading>
+        ),
       },
     ],
   },

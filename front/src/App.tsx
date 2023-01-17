@@ -9,9 +9,7 @@ function App() {
   return (
     <LazyMotion features={domMax}>
       <AuthProvider>
-        <Suspense fallback={<LoadingPage />}>
-          <RouterProvider router={router} />
-        </Suspense>
+        <RouterProvider router={router} />
       </AuthProvider>
     </LazyMotion>
   );

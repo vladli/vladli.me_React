@@ -1,8 +1,8 @@
 import { AnimatePresence, m } from "framer-motion";
 
-import Button from "../components/Buttons/Button";
-import Card from "../components/Cards/Card";
-import Divider from "../components/Divider";
+import Button from "../../components/Buttons/Button";
+import Card from "../../components/Cards/Card";
+import Divider from "../../components/Divider";
 
 const images = [
   {

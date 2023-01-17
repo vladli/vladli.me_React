@@ -35,7 +35,7 @@ const DashboardLayout = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <AnimatedOutlet />
+                <AnimatedOutlet key={location.key} />
               </m.div>
             </AnimatePresence>
           </div>

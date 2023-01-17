@@ -25,6 +25,7 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
     setPageSize,
     getHeaderGroups,
     getRowModel,
+    setPageIndex,
   } = useReactTable({
     data,
     columns,
@@ -80,6 +81,7 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
           nextPage,
           getCanNextPage,
           setPageSize,
+          setPageIndex,
         }}
       />
     </>

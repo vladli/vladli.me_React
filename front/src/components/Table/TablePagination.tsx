@@ -9,25 +9,40 @@ interface ITablePagination {
   nextPage: () => void;
   getCanNextPage: () => boolean;
   setPageSize: (updater: Updater<number>) => void;
+  setPageIndex: (updater: Updater<number>) => void;
   [key: string]: any;
 }
 
 const TablePagination = (props: ITablePagination) => {
   return (
-    <div className="inline-flex select-none -space-x-px">
+    <div className="my-2 inline-flex select-none -space-x-px">
       <button
         className="ml-0 rounded-l-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-cardBgDark dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        onClick={() => props.setPageIndex(0)}
+        disabled={!props.getCanPreviousPage}
+      >
+        {"<<"}
+      </button>
+      <button
+        className="ml-0  border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-cardBgDark dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
         onClick={() => props.previousPage()}
         disabled={!props.getCanPreviousPage}
       >
         Previous
       </button>
       <button
-        className="rounded-r-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-cardBgDark dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        className="border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-cardBgDark dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
         onClick={() => props.nextPage()}
         disabled={!props.getCanNextPage}
       >
         Next
+      </button>
+      <button
+        className="rounded-r-lg border border-gray-300 bg-white px-3 py-2 leading-tight text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:border-gray-600 dark:bg-cardBgDark dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+        onClick={() => props.setPageIndex(props.getPageCount() - 1)}
+        disabled={!props.getCanNextPage}
+      >
+        {">>"}
       </button>
       <select
         className="rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-cardBgDark dark:text-gray-400 dark:placeholder-gray-400 dark:focus:border-blue-500 "

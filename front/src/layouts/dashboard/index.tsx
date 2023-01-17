@@ -13,22 +13,21 @@ const DashboardLayout = () => {
     <>
       <Header />
       <div className="flex bg-bgLight dark:bg-bgDark">
-        <div className="hidden min-h-[calc(100vh-64px)] bg-menuBgLight dark:bg-menuBgDark sm:flex">
+        <div className="hidden bg-menuBgLight pt-4 dark:bg-menuBgDark sm:flex">
           <Navigation />
         </div>
-        <div className="min-h-[calc(100vh-64px)] grow">
-          <div className="mx-4 my-4">
-            <AnimatePresence mode="wait">
-              <m.div
-                key={location.pathname}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <AnimatedOutlet key={location.key} />
-              </m.div>
-            </AnimatePresence>
-          </div>
+        <div className="min-h-[calc(100vh-5rem-3rem)] grow">
+          <AnimatePresence mode="wait">
+            <m.div
+              className="mx-4 my-4"
+              key={location.pathname}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <AnimatedOutlet key={location.key} />
+            </m.div>
+          </AnimatePresence>
         </div>
       </div>
       <Footer />

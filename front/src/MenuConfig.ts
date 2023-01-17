@@ -5,7 +5,7 @@ const MenuItems = [
   {
     name: "Main",
     link: PATH_PAGE.root,
-    icon: undefined,
+    icon: "grommet-icons:domain",
   },
   {
     name: "Dashboard",
@@ -15,6 +15,7 @@ const MenuItems = [
       {
         name: "Dashboard",
         link: PATH_DASHBOARD.root,
+        icon: "material-symbols:dashboard",
       },
     ],
   },
@@ -26,13 +27,14 @@ const MenuItems = [
       {
         name: "Users",
         link: "/admin/users",
+        icon: "mdi:users-group",
       },
     ],
   },
   {
     name: "Login",
     link: "/auth/login",
-    icon: undefined,
+    icon: "material-symbols:login",
   },
 ];
 

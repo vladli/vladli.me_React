@@ -24,7 +24,11 @@ const router = createBrowserRouter([
     element: <CleanLayout />,
     children: [
       {
-        element: <MainPage />,
+        element: (
+          <SuspenseLoading>
+            <MainPage />
+          </SuspenseLoading>
+        ),
         index: true,
       },
     ],

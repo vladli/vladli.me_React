@@ -61,23 +61,23 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   return (
     <>
       {!submenu ? (
-        <Link to={link}>
-          <m.li
-            whileTap={{ scale: 0.97 }}
-            className={classNames(
-              containerClass,
-              isActive && `bg-sky-500 dark:bg-zinc-700`
-            )}
-          >
+        <m.li
+          whileTap={{ scale: 0.97 }}
+          className={classNames(
+            containerClass,
+            isActive && `bg-sky-500 dark:bg-zinc-700`
+          )}
+        >
+          <Link to={link}>
             <div className={styles.item}>
               {icon && <Icon icon={icon} />}
               <span className="ml-2">{name}</span>
             </div>
-          </m.li>
-        </Link>
+          </Link>
+        </m.li>
       ) : (
         <>
-          <m.div
+          <m.li
             whileTap={{ scale: 0.97 }}
             className={styles.subcontainer}
             onClick={() => setOpen(!open)}
@@ -92,17 +92,19 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
               </m.div>
               <span className="ml-2">{name}</span>
             </div>
-          </m.div>
+          </m.li>
           <AnimatePresence>
             {open && (
-              <m.ul
-                variants={itemVariants}
-                animate={open ? "open" : "closed"}
-                initial="closed"
-                exit="closed"
-              >
-                <NavItemChild items={submenu} />
-              </m.ul>
+              <li>
+                <m.ul
+                  variants={itemVariants}
+                  animate={open ? "open" : "closed"}
+                  initial="closed"
+                  exit="closed"
+                >
+                  <NavItemChild items={submenu} />
+                </m.ul>
+              </li>
             )}
           </AnimatePresence>
         </>

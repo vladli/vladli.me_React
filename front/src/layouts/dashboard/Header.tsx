@@ -13,8 +13,8 @@ const Header = () => {
   const { user, isAuthenticated, signOut }: any = useAuth();
   const navigate = useNavigate();
   return (
-    <div className="flex h-16 w-full flex-wrap items-center  bg-menuBgLight  dark:bg-menuBgDark">
-      <div className="ml-4 sm:ml-14">
+    <div className="flex h-20 w-full flex-wrap items-center  bg-menuBgLight  dark:bg-menuBgDark">
+      <div className="mt-2 ml-4 sm:ml-14">
         <Logo />
       </div>
       <DarkModeSwitch />

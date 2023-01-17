@@ -31,14 +31,14 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
           active && ` bg-sky-600 dark:bg-zinc-700`
         );
         return (
-          <Link key={item.name} to={item.link}>
-            <m.li whileTap={{ scale: 0.97 }} className={divClass}>
+          <m.li key={item.name} whileTap={{ scale: 0.97 }} className={divClass}>
+            <Link to={item.link}>
               <div className="flex select-none items-center text-base font-semibold">
                 {item.icon && <Icon icon={item.icon} />}
                 <span className="ml-2">{item.name}</span>
               </div>
-            </m.li>
-          </Link>
+            </Link>
+          </m.li>
         );
       })}
     </>

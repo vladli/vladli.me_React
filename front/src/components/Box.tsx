@@ -11,7 +11,7 @@ const Box = ({
   let divClass = classNames(
     "flex flex-col rounded-lg border shadow-md",
     "border-gray-200 bg-slate-400",
-    "dark:border-gray-700 dark:bg-gray-800",
+    "dark:border-gray-800 dark:bg-cardBgDark",
     className
   );
   return <div className={divClass}>{children}</div>;

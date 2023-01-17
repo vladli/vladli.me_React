@@ -10,7 +10,7 @@ import Button from "../../../components/Buttons/Button";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { useNavigate } from "react-router-dom";
-import { PATH_PAGE } from "../../../router/paths";
+import { PATH_ADMIN, PATH_DASHBOARD, PATH_PAGE } from "../../../router/paths";
 
 type Inputs = {
   Email: string;

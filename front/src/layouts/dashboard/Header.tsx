@@ -1,10 +1,7 @@
-import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { AnimatePresence } from "framer-motion";
 import Button from "../../components/Buttons/Button";
 import Logo from "../../components/Logo";
-import Navigation from "../../components/Navigation/Navigation";
 import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";

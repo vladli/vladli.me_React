@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import { RouterProvider } from "react-router-dom";
 import { LazyMotion, domMax } from "framer-motion";
 import { AuthProvider } from "./context/AuthContext";

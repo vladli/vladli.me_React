@@ -18,6 +18,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   function signOut() {
     sessionStorage.removeItem("Authorization");
     auth.signOut();
+    setUser(null);
   }
 
   React.useEffect(() => {

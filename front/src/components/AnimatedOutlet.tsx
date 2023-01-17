@@ -5,7 +5,7 @@ const AnimatedOutlet: React.FC = () => {
   const o = useOutlet();
   const [outlet] = React.useState(o);
 
-  return <>{outlet}</>;
+  return outlet;
 };
 
 export default AnimatedOutlet;

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import { AnimatePresence, m } from "framer-motion";
 import Navigation from "../../components/Navigation/Navigation";
@@ -25,7 +25,7 @@ const DashboardLayout = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <AnimatedOutlet key={location.key} />
+              <AnimatedOutlet />
             </m.div>
           </AnimatePresence>
         </div>

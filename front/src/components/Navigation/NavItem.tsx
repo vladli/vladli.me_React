@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { AnimatePresence, m } from "framer-motion";
 
@@ -18,7 +18,7 @@ type ItemsProps = {
 };
 
 const styles = {
-  subcontainer: `text-white cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
+  subcontainer: `text-white cursor-pointer pl-6 py-3 rounded-[10px] 
     w-56 m-2 
     hover:bg-sky-500 dark:hover:bg-zinc-600`,
 
@@ -31,7 +31,9 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
   const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
 
-  const containerClass = `cursor-pointer pl-6 py-3 leading-3 tracking-normal rounded-[10px] 
+  const navigate = useNavigate();
+
+  const containerClass = `pl-6 py-3 cursor-pointer rounded-[10px] 
   w-56 mb-1 mx-2
   text-white 
   hover:bg-sky-500 dark:hover:bg-zinc-600`;
@@ -62,22 +64,23 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
     <>
       {!submenu ? (
         <m.li
+          key={link}
           whileTap={{ scale: 0.97 }}
           className={classNames(
             containerClass,
             isActive && `bg-sky-500 dark:bg-zinc-700`
           )}
+          onClick={() => navigate(link)}
         >
-          <Link to={link}>
-            <div className={styles.item}>
-              {icon && <Icon icon={icon} />}
-              <span className="ml-2">{name}</span>
-            </div>
-          </Link>
+          <div className={styles.item}>
+            {icon && <Icon icon={icon} />}
+            <span className="ml-2">{name}</span>
+          </div>
         </m.li>
       ) : (
         <>
           <m.li
+            key={link}
             whileTap={{ scale: 0.97 }}
             className={styles.subcontainer}
             onClick={() => setOpen(!open)}
@@ -95,7 +98,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
           </m.li>
           <AnimatePresence>
             {open && (
-              <li>
+              <li key={link}>
                 <m.ul
                   variants={itemVariants}
                   animate={open ? "open" : "closed"}

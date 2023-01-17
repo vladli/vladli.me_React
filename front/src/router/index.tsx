@@ -1,5 +1,6 @@
 import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+
 import DashboardLayout from "../layouts/dashboard";
 import CleanLayout from "../layouts/CleanLayout";
 
@@ -24,12 +25,12 @@ const router = createBrowserRouter([
     element: <CleanLayout />,
     children: [
       {
+        index: true,
         element: (
           <SuspenseLoading>
             <MainPage />
           </SuspenseLoading>
         ),
-        index: true,
       },
     ],
   },
@@ -38,18 +39,18 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
+        index: true,
         element: (
           <SuspenseLoading>
             <Dashboard />
           </SuspenseLoading>
         ),
-        index: true,
       },
     ],
   },
   {
     path: PATH_AUTH.root,
-    element: <CleanLayout />,
+    element: <CleanLayout key="auth" />,
     children: [
       {
         path: PATH_AUTH.login,

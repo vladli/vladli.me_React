@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import tw from "twin.macro";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { m } from "framer-motion";
 import classNames from "classnames";
@@ -17,9 +16,9 @@ type ItemsProps = {
 }[];
 
 const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
+  const navigate = useNavigate();
   const isActive = useLocation().pathname;
-  const divClassBase = `cursor-pointer pl-12 py-3 leading-3 tracking-normal rounded-[10px] w-56 m-auto mb-1 mx-2 
-  text-white 
+  const divClassBase = `cursor-pointer pl-12 py-3 rounded-[10px] w-56 m-auto mb-1 mx-2 text-white 
   hover:bg-sky-500 dark:hover:bg-zinc-600`;
 
   return (
@@ -31,13 +30,16 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
           active && ` bg-sky-600 dark:bg-zinc-700`
         );
         return (
-          <m.li key={item.name} whileTap={{ scale: 0.97 }} className={divClass}>
-            <Link to={item.link}>
-              <div className="flex select-none items-center text-base font-semibold">
-                {item.icon && <Icon icon={item.icon} />}
-                <span className="ml-2">{item.name}</span>
-              </div>
-            </Link>
+          <m.li
+            key={item.name}
+            whileTap={{ scale: 0.97 }}
+            className={divClass}
+            onClick={() => navigate(item.link)}
+          >
+            <div className="flex select-none items-center text-base font-semibold">
+              {item.icon && <Icon icon={item.icon} />}
+              <span className="ml-2">{item.name}</span>
+            </div>
           </m.li>
         );
       })}

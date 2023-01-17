@@ -13,12 +13,7 @@ const images = [
 
 const Dashboard = () => {
   return (
-    <m.div
-      className="flex flex-wrap justify-center gap-4 md:justify-around"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div className="flex flex-wrap justify-center gap-4 md:justify-around">
       {Array.from(Array(15), (e, i) => {
         return (
           <div key={i} className="max-w-xs">
@@ -40,7 +35,7 @@ const Dashboard = () => {
           </div>
         );
       })}
-    </m.div>
+    </div>
   );
 };
 

@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex min-h-[3rem] w-full justify-center bg-bgLight dark:bg-menuBgDark">
-      Footer
+    <div className="flex h-20 w-full justify-center bg-bgLight dark:bg-menuBgDark dark:text-white">
+      <div className="place-self-center">Footer</div>
     </div>
   );
 };

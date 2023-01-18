@@ -33,6 +33,6 @@
     "graphql": "^16.6.0",
     "jsonwebtoken": "^9.0.0",
     "mongodb": "^4.13.0",
-    "mongoose": "^6.8.3"
+    "mongoose": "^6.8.4"
   }
 }

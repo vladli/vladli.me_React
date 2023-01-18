@@ -16,7 +16,7 @@ const DashboardLayout = () => {
         <div className="hidden bg-menuBgLight pt-4 dark:bg-menuBgDark sm:flex">
           <Navigation />
         </div>
-        <div className="min-h-[calc(100vh-5rem-3rem)] grow">
+        <div className="h-[calc(100vh-5rem-5rem)] grow dark:text-white">
           <AnimatePresence mode="wait">
             <m.div
               className="mx-4 my-4"

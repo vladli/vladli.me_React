@@ -12,7 +12,7 @@ interface ICard {
 const Card = ({ children, className }: ICard) => {
   let divClass = classNames(
     "flex flex-col rounded-lg border shadow-md",
-    " border-gray-200 bg-cardBgLight",
+    "border-gray-200 bg-cardBgLight",
     "dark:border-gray-800 dark:bg-cardBgDark",
     className
   );

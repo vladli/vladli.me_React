@@ -11,6 +11,8 @@ const MainPage = lazy(() => import("../pages/main/MainPage"));
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
 
+const TestPage = lazy(() => import("../pages/TestPage"));
+
 const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
 
 const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
         element: (
           <SuspenseLoading>
             <Dashboard />
+          </SuspenseLoading>
+        ),
+      },
+      {
+        path: PATH_DASHBOARD.root + "/test",
+        element: (
+          <SuspenseLoading>
+            <TestPage />
           </SuspenseLoading>
         ),
       },

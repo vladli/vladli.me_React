@@ -6,7 +6,7 @@ const CleanLayout = () => {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-bgLight dark:bg-bgDark">
+    <div className="min-h-screen bg-bgLight dark:bg-bgDark dark:text-white">
       <AnimatePresence mode="wait">
         <m.div
           key={location.pathname}

@@ -1,5 +1,10 @@
 import { link } from "fs";
-import { PATH_DASHBOARD, PATH_PAGE } from "./router/paths";
+import {
+  PATH_ADMIN,
+  PATH_AUTH,
+  PATH_DASHBOARD,
+  PATH_PAGE,
+} from "./router/paths";
 
 const MenuItems = [
   {
@@ -26,14 +31,19 @@ const MenuItems = [
     submenu: [
       {
         name: "Users",
-        link: "/admin/users",
+        link: PATH_ADMIN.users,
         icon: "mdi:users-group",
       },
     ],
   },
   {
+    name: "TestPage",
+    link: PATH_DASHBOARD.root + "/test",
+    icon: "material-symbols:engineering-outline",
+  },
+  {
     name: "Login",
-    link: "/auth/login",
+    link: PATH_AUTH.login,
     icon: "material-symbols:login",
   },
 ];

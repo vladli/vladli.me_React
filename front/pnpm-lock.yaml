@@ -19,7 +19,7 @@ specifiers:
   blurhash: ^2.0.4
   classnames: ^2.3.2
   firebase: ^9.15.0
-  framer-motion: ^8.4.3
+  framer-motion: ^8.4.6
   graphql: ^16.6.0
   i18next: ^22.4.9
   i18next-browser-languagedetector: ^7.0.1
@@ -48,7 +48,7 @@ dependencies:
   blurhash: 2.0.4
   classnames: 2.3.2
   firebase: 9.15.0
-  framer-motion: 8.4.3_biqbaboplfbrettd7655fr4n2y
+  framer-motion: 8.4.6_biqbaboplfbrettd7655fr4n2y
   graphql: 16.6.0
   i18next: 22.4.9
   i18next-browser-languagedetector: 7.0.1
@@ -5901,8 +5901,8 @@ packages:
   /fraction.js/4.2.0:
     resolution: {integrity: sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==}
 
-  /framer-motion/8.4.3_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-UMfJ8hEOlIObdJgI+U/VgaSSKY+W9/E0YtnFHPDsIE9rNPglaFZ+oycB0gj8ERuRBInGaIgNCFsil8iaJHZFgA==}
+  /framer-motion/8.4.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-0GkpTQnhDysG5SiD2VbANtAs8yCXVQLasynVABDTZYI+Qcx1krWg+rfyveM8W78q7AX+8RTsiMz/LJ7YIRZvFw==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0

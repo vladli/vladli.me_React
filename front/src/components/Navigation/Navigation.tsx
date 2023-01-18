@@ -1,17 +1,13 @@
-import React from "react";
 import NavItem from "./NavItem";
 import MenuConfig from "../../MenuConfig";
 
-interface NavigationProps {}
-const Navigation: React.FC<NavigationProps> = () => {
+const Navigation = () => {
   return (
-    <>
-      <ul>
-        {MenuConfig.map<any>((menu) => (
-          <NavItem key={menu.name} items={menu} />
-        ))}
-      </ul>
-    </>
+    <ul>
+      {MenuConfig.map<any>((menu) => (
+        <NavItem key={menu.name} items={menu} />
+      ))}
+    </ul>
   );
 };
 

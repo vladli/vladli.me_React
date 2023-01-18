@@ -14,7 +14,7 @@ type ItemsProps = {
   name: string;
   link: string;
   icon?: string;
-  submenu?: any;
+  submenu?: { name: string; link: string; icon?: string }[];
 };
 
 const styles = {

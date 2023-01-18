@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <>
       <ProgressBar />
-      <div className="fixed z-50 flex h-full w-full items-center justify-center bg-slate-400 dark:bg-bgDark">
+      <div className="fixed z-50 flex h-full w-full items-center justify-center  bg-bgDark">
         <m.div
           initial={{ rotateY: 0 }}
           animate={{ rotateY: 360 }}

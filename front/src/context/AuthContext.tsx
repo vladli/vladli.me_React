@@ -11,7 +11,7 @@ type ContextState = {
 
 const AuthContext = React.createContext<ContextState | undefined>(undefined);
 
-const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
   const [user, setUser] = React.useState<User>(null);
   const [loading, setLoading] = React.useState(true);
 

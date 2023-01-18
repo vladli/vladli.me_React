@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../../components/Buttons/Button";
 import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
-import { PATH_AUTH } from "../../router/paths";
+import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
 
 const Header = () => {
@@ -12,7 +12,9 @@ const Header = () => {
   return (
     <div className="flex h-20 w-full flex-wrap items-center  bg-menuBgLight  dark:bg-menuBgDark">
       <div className="mt-2 ml-4 sm:ml-14">
-        <Logo />
+        <Link to={PATH_DASHBOARD.root}>
+          <Logo />
+        </Link>
       </div>
       <DarkModeSwitch />
       <div className="absolute right-4">

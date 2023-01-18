@@ -1,3 +1,6 @@
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import { domMax, LazyMotion } from "framer-motion";
 import ReactDOM from "react-dom/client";
 import {
   ApolloClient,
@@ -8,10 +11,10 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+import router from "./router";
 import "./index.css";
 
-import App from "./App";
-import React from "react";
+import { AuthProvider } from "./context/AuthContext";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:5000/graphql",
@@ -36,7 +39,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <LazyMotion features={domMax}>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </LazyMotion>
     </ApolloProvider>
   </React.StrictMode>
 );

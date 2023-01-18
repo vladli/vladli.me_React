@@ -5,9 +5,7 @@ import useDarkTheme from "../hooks/useDarkTheme";
 
 const DarkModeSwitch = () => {
   const [colorTheme, setTheme] = useDarkTheme();
-  const [darkSide, setDarkSide] = React.useState(
-    colorTheme === "light" ? true : false
-  );
+  const [, setDarkSide] = React.useState(colorTheme === "light" ? true : false);
   const toggleDarkMode = (checked: any) => {
     setTheme(colorTheme);
     setDarkSide(checked);

@@ -9,7 +9,7 @@ const MenuItems = [
   {
     name: "Main",
     link: PATH_PAGE.root,
-    icon: "grommet-icons:domain",
+    icon: "material-symbols:pages-outline-sharp",
   },
   {
     name: "Dashboard",

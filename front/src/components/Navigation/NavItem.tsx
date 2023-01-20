@@ -91,7 +91,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
                 animate={open ? "open" : "closed"}
                 transition={{ duration: 0.2 }}
               >
-                <Icon icon="eva:arrow-ios-forward-fill" />
+                <Icon icon="material-symbols:arrow-forward-ios-rounded" />
               </m.div>
               <span className="ml-2">{name}</span>
             </div>

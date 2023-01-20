@@ -3,7 +3,7 @@ import {
   PATH_AUTH,
   PATH_DASHBOARD,
   PATH_PAGE,
-} from "./router/paths";
+} from "../router/paths";
 
 const MenuItems = [
   {

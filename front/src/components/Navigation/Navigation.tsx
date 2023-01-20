@@ -1,5 +1,5 @@
 import NavItem from "./NavItem";
-import MenuConfig from "../../MenuConfig";
+import MenuConfig from "../../config/MenuConfig";
 
 const Navigation = () => {
   return (

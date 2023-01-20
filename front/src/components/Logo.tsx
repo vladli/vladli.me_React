@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import styled from "styled-components";
 
 //@ts-ignore
@@ -8,9 +9,16 @@ const Image = styled.img`
   height: ${(props) => props.height}rem;
 `;
 
-const Logo = ({ height = 4 }: { height?: number }) => {
+const Logo = ({
+  height = 4,
+  className,
+}: {
+  height?: number;
+  className?: string;
+}) => {
+  const divClass = classNames("select-none", className);
   return (
-    <div className="select-none">
+    <div className={divClass}>
       <Image src={LogoImage} alt="Logo" height={height} />
     </div>
   );

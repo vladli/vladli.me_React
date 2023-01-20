@@ -1,10 +1,11 @@
 import { AnimatePresence, m } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import AnimatedOutlet from "../components/AnimatedOutlet";
+import useDarkTheme from "../hooks/useDarkTheme";
 
 const CleanLayout = () => {
   const location = useLocation();
-
+  const [theme, setTheme] = useDarkTheme();
   return (
     <div className="min-h-screen bg-bgLight dark:bg-bgDark dark:text-white">
       <AnimatePresence mode="wait">

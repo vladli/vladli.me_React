@@ -16,9 +16,8 @@ const Logo = ({
   height?: number;
   className?: string;
 }) => {
-  const divClass = classNames("select-none", className);
   return (
-    <div className={divClass}>
+    <div className={classNames("select-none", className)}>
       <Image src={LogoImage} alt="Logo" height={height} />
     </div>
   );

@@ -25,15 +25,15 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
     <>
       {items.map((item: any) => {
         const active = isActive === item.link;
-        let divClass = classNames(
-          divClassBase,
-          active && ` bg-sky-600 dark:bg-zinc-700`
-        );
+
         return (
           <m.li
             key={item.name}
             whileTap={{ scale: 0.97 }}
-            className={divClass}
+            className={classNames(
+              divClassBase,
+              active && `bg-sky-600 dark:bg-zinc-700`
+            )}
             onClick={() => navigate(item.link)}
           >
             <div className="flex select-none items-center text-base font-semibold">

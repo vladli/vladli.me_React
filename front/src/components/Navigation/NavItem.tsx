@@ -33,11 +33,6 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
 
   const navigate = useNavigate();
 
-  const containerClass = `pl-6 py-3 cursor-pointer rounded-[10px] 
-  w-56 mb-1 mx-2
-  text-white 
-  hover:bg-sky-500 dark:hover:bg-zinc-600`;
-
   const itemVariants = {
     open: {
       opacity: 1,
@@ -67,7 +62,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
           key={link}
           whileTap={{ scale: 0.97 }}
           className={classNames(
-            containerClass,
+            "mx-2 mb-1 w-56 cursor-pointer rounded-[10px] py-3 pl-6 text-white hover:bg-sky-500 dark:hover:bg-zinc-600",
             isActive && `bg-sky-500 dark:bg-zinc-700`
           )}
           onClick={() => navigate(link)}

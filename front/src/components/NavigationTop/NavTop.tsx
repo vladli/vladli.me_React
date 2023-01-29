@@ -11,24 +11,19 @@ const NavigationTop = ({ className }: { className?: string }) => {
   return (
     <nav
       className={classNames(
-        "absolute right-4 mt-2 flex select-none flex-row space-x-8 p-4",
+        "absolute right-4 mt-2 flex select-none flex-row space-x-8 p-4 font-semibold",
         className
       )}
     >
       {TopMenu.map((item) =>
         !item.submenu ? (
-          <div key={item.name} className="px-2">
+          <div key={item.name} className="px-2 hover:text-gray-400">
             <Link to={item.link}>{item.name}</Link>
           </div>
         ) : (
-          <div key={item.name}>
-            <div className="flex items-center">
-              <span
-                className="cursor-pointer pr-1"
-                onClick={() => setOpen(!open)}
-              >
-                {item.name}
-              </span>
+          <div key={item.name} onClick={() => setOpen(!open)}>
+            <div className="flex cursor-pointer items-center hover:text-gray-400">
+              <span className=" pr-1 ">{item.name}</span>
               <m.div
                 variants={{ open: { rotate: 90 }, closed: { rotate: 0 } }}
                 animate={open ? "open" : "closed"}

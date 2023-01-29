@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 import { AnimatePresence, m } from "framer-motion";
-import Navigation from "../../components/Navigation/Navigation";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import Header from "./Header";
 import Footer from "./Footer";
 import AnimatedOutlet from "../../components/AnimatedOutlet";
@@ -14,7 +14,7 @@ const DashboardLayout = () => {
       <Header />
       <div className="flex bg-bgLight dark:bg-bgDark">
         <div className="hidden bg-menuBgLight pt-4 dark:bg-menuBgDark sm:flex">
-          <Navigation />
+          <Sidebar />
         </div>
         <div className="min-h-[calc(100vh-5rem-5rem)] grow dark:text-white">
           <AnimatePresence mode="wait">

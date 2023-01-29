@@ -1,14 +1,14 @@
-import NavItem from "./NavItem";
+import Item from "./Item";
 import MenuConfig from "../../config/MenuConfig";
 
-const Navigation = () => {
+const Sidebar = () => {
   return (
     <ul>
       {MenuConfig.map<any>((menu) => (
-        <NavItem key={menu.name} items={menu} />
+        <Item key={menu.name} items={menu} />
       ))}
     </ul>
   );
 };
 
-export default Navigation;
+export default Sidebar;

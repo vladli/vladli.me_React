@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { AnimatePresence, m } from "framer-motion";
 
-import NavItemChild from "./NavItemChild";
+import ItemChild from "./ItemChild";
 import classNames from "classnames";
 
 type NavItemProps = {
@@ -100,7 +100,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
                   initial="closed"
                   exit="closed"
                 >
-                  <NavItemChild items={submenu} />
+                  <ItemChild items={submenu} />
                 </m.ul>
               </li>
             )}

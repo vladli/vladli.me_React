@@ -17,7 +17,12 @@ const TopMenu = [
     icon: undefined,
     submenu: [
       {
-        name: "Dashboard",
+        name: "1",
+        link: PATH_ADMIN.users,
+        icon: "material-symbols:dashboard",
+      },
+      {
+        name: "2",
         link: PATH_DASHBOARD.root,
         icon: "material-symbols:dashboard",
       },

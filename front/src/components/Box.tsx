@@ -13,7 +13,7 @@ const Box = ({
       className={classNames(
         "flex flex-col rounded-lg border shadow-md",
         "border-gray-200 bg-slate-400",
-        "dark:border-gray-800 dark:bg-cardBgDark",
+        "dark:border-gray-800 dark:bg-dark-mainBg",
         className
       )}
     >

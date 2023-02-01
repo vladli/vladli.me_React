@@ -37,7 +37,7 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
   return (
     <>
       <table className="select-none text-center dark:text-white">
-        <thead className="cardBgLight dark:bg-cardBgDark">
+        <thead className="bg-light-mainBg dark:bg-dark-mainBg">
           {getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (
@@ -58,7 +58,7 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
         </thead>
         <tbody>
           {getRowModel().rows.map((row) => (
-            <tr key={row.id} className="cardBgLight dark:bg-cardBgDark">
+            <tr key={row.id} className="bg-neutral-100 dark:bg-dark-mainBg">
               {row.getVisibleCells().map((cell) => (
                 <td
                   className="whitespace-nowrap border border-gray-600 px-4 py-4 text-sm font-medium"

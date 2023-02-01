@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 import React from "react";
 import { m } from "framer-motion";
+import classNames from "classnames";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
@@ -14,6 +15,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   rightIcon?: string;
   disabled?: boolean;
   children: React.ReactNode;
+  className?: string;
   [key: string]: any;
 }
 
@@ -67,6 +69,7 @@ const Button: React.FC<ButtonProps> = ({
   leftIcon,
   rightIcon,
 
+  className,
   type = "button",
   disabled,
   ...rest
@@ -77,7 +80,10 @@ const Button: React.FC<ButtonProps> = ({
         {...rest}
         type={type}
         disabled={disabled}
-        className="inline-flex select-none items-center font-semibold"
+        className={classNames(
+          "inline-flex select-none items-center font-semibold",
+          className
+        )}
       >
         {leftIcon && <Icon icon={leftIcon} width={16} />}
         <span className="px-2">{children}</span>

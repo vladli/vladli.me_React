@@ -7,7 +7,7 @@ const CleanLayout = () => {
   const location = useLocation();
   const [theme, setTheme] = useDarkTheme();
   return (
-    <div className="min-h-screen bg-bgLight dark:bg-bgDark dark:text-white">
+    <div className="min-h-screen bg-light-secondaryBg dark:bg-dark-secondaryBg dark:text-white">
       <AnimatePresence mode="wait">
         <m.div
           key={location.pathname}

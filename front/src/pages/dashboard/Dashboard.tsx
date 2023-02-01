@@ -1,6 +1,5 @@
 import Button from "../../components/Buttons/Button";
 import Card from "../../components/Cards/Card";
-import Divider from "../../components/Divider";
 
 const images = [
   {

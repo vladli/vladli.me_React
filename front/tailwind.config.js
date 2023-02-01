@@ -9,19 +9,16 @@ module.exports = {
       colors: {
         current: "currentColor",
         primary: colors.blue,
-
         dark: {
           mainBg: "#171717",
+          secondaryBg: "#262626",
           text: "#fff",
         },
-
-        menuBgLight: "#991b1b",
-        cardBgLight: "#fafafa",
-        bgLight: "#d4d4d4",
-
-        menuBgDark: "#171717",
-        cardBgDark: "#171717",
-        bgDark: "#262626",
+        light: {
+          mainBg: "#991b1b",
+          secondaryBg: "#fafafa",
+          text: "#fff",
+        },
       },
     },
   },

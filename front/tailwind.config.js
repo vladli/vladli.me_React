@@ -10,13 +10,18 @@ module.exports = {
         current: "currentColor",
         primary: colors.blue,
 
-        menuBgLight: "#094067",
-        cardBgLight: "#fffffe",
-        bgLight: "#fffffe",
+        dark: {
+          mainBg: "#171717",
+          text: "#fff",
+        },
 
-        menuBgDark: "#16161a",
-        cardBgDark: "#16161a",
-        bgDark: "#242629",
+        menuBgLight: "#991b1b",
+        cardBgLight: "#fafafa",
+        bgLight: "#d4d4d4",
+
+        menuBgDark: "#171717",
+        cardBgDark: "#171717",
+        bgDark: "#262626",
       },
     },
   },

@@ -1,4 +1,5 @@
 import React from "react";
+import Divider from "../Divider";
 
 interface ICardAction {
   children: React.ReactNode;
@@ -6,9 +7,12 @@ interface ICardAction {
 
 const CardAction: React.FC<ICardAction> = ({ children }) => {
   return (
-    <div className="inline-flex items-center px-4 pb-4 select-none">
-      {children}
-    </div>
+    <>
+      <Divider className="my-4 " />
+      <div className="inline-flex select-none items-center px-4 pb-4">
+        {children}
+      </div>
+    </>
   );
 };
 

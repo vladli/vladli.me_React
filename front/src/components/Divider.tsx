@@ -1,8 +1,30 @@
-const Divider = ({ vertical }: { vertical?: boolean }) => {
+import classNames from "classnames";
+
+const Divider = ({
+  vertical,
+  className,
+}: {
+  vertical?: boolean;
+  className?: string;
+}) => {
   if (vertical) {
-    return <div className="w-px border-0 bg-gray-200 dark:bg-gray-800" />;
+    return (
+      <div
+        className={classNames(
+          "w-px border-0 bg-gray-200 dark:bg-gray-800",
+          className
+        )}
+      />
+    );
   } else {
-    return <hr className="my-4 h-px border-0 bg-gray-200 dark:bg-gray-800" />;
+    return (
+      <hr
+        className={classNames(
+          "h-px border-0 bg-gray-200 dark:bg-gray-800",
+          className
+        )}
+      />
+    );
   }
 };
 

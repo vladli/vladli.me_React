@@ -24,7 +24,6 @@ const Dashboard = () => {
               fine silica particles, specifically from a volcano; medically, it
               is the same as silicosis.
             </Card.Body>
-            <Divider />
             <Card.Action>
               <Button disabled>Click</Button>
             </Card.Action>

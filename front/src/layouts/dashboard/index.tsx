@@ -13,7 +13,7 @@ const DashboardLayout = () => {
     <>
       <Header />
       <div className="flex bg-bgLight dark:bg-bgDark">
-        <div className="hidden bg-menuBgLight pt-4 dark:bg-menuBgDark sm:flex">
+        <div className="hidden bg-menuBgLight pt-4 dark:bg-dark-mainBg sm:flex">
           <Sidebar />
         </div>
         <div className="min-h-[calc(100vh-5rem-5rem)] grow dark:text-white">

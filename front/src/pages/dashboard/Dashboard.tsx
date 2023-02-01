@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import Button from "../../components/Buttons/Button";
 import Card from "../../components/Cards/Card";
 
@@ -24,7 +25,13 @@ const Dashboard = () => {
               is the same as silicosis.
             </Card.Body>
             <Card.Action>
-              <Button disabled>Click</Button>
+              <Button className="mr-2">Open</Button>
+              <Button variant="outlined">
+                <Icon
+                  icon="material-symbols:delete-forever-outline"
+                  height={20}
+                />
+              </Button>
             </Card.Action>
           </Card>
         );

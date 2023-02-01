@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
   size?: "small" | "medium" | "large" | "full";
   type?: "button" | "submit";
+  color?: "blue" | "gray" | undefined;
   gradientMono?: "blue" | "green" | "red" | "purple" | undefined;
   gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
   leftIcon?: string;
@@ -23,6 +24,11 @@ const containerVariants = {
   // Named class sets
   contained: tw`bg-primary-600 hover:bg-primary-700 `,
   outlined: tw`hover:border-primary-600 hover:text-primary-600 border border-primary-700 `,
+};
+
+const colorVariants = {
+  blue: tw`bg-primary-600 hover:bg-primary-700`,
+  gray: tw`bg-neutral-700 hover:bg-neutral-800`,
 };
 
 const gradientMonoVariants = {
@@ -52,15 +58,18 @@ const ButtonStyled = styled.button<ButtonProps>(
     size = "medium",
 
     disabled = false,
+    color = undefined,
     gradientMono = undefined,
     gradientDuo = undefined,
   }) => [
-    tw`transition duration-150 ease-in-out rounded px-4 py-2 text-white`,
+    tw`transition duration-150 ease-in-out rounded p-2 text-white`,
     textSize[size],
+
     disabled ? tw`cursor-not-allowed bg-gray-400` : undefined,
     !disabled && !gradientMono && !gradientDuo && containerVariants[variant],
     !disabled && gradientMono && gradientMonoVariants[gradientMono],
     !disabled && gradientDuo && gradientDuoVariants[gradientDuo],
+    !disabled && color && colorVariants[color],
   ]
 );
 

@@ -19,7 +19,7 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
   const navigate = useNavigate();
   const isActive = useLocation().pathname;
   const divClassBase = `cursor-pointer pl-12 py-3 rounded-[10px] w-56 m-auto mb-1 mx-2 text-white 
-  hover:bg-sky-500 dark:hover:bg-zinc-600`;
+  hover:bg-zinc-600`;
 
   return (
     <>
@@ -30,10 +30,7 @@ const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
           <m.li
             key={item.name}
             whileTap={{ scale: 0.97 }}
-            className={classNames(
-              divClassBase,
-              active && `bg-sky-600 dark:bg-zinc-700`
-            )}
+            className={classNames(divClassBase, active && `bg-zinc-700`)}
             onClick={() => navigate(item.link)}
           >
             <div className="flex select-none items-center text-base font-semibold">

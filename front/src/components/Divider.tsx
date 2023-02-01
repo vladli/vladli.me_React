@@ -11,7 +11,7 @@ const Divider = ({
     return (
       <div
         className={classNames(
-          "w-px border-0 bg-gray-200 dark:bg-gray-800",
+          "w-px border-0 bg-gray-200 dark:bg-neutral-800",
           className
         )}
       />
@@ -20,7 +20,7 @@ const Divider = ({
     return (
       <hr
         className={classNames(
-          "h-px border-0 bg-gray-200 dark:bg-gray-800",
+          "h-px border-0 bg-gray-200 dark:bg-neutral-800",
           className
         )}
       />

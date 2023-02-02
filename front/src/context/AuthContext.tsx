@@ -40,7 +40,7 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
     };
   }, []);
 
-  if (loading) return <Loading />;
+  if (loading) return null;
   return (
     <AuthContext.Provider value={{ user, signOut }}>
       {children}

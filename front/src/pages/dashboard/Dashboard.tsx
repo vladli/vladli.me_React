@@ -25,8 +25,10 @@ const Dashboard = () => {
               is the same as silicosis.
             </Card.Body>
             <Card.Action>
-              <Button className="mr-2">Open</Button>
-              <Button variant="outlined">
+              <Button color="blue" className="mr-2" size="medium">
+                Open
+              </Button>
+              <Button disabled>
                 <Icon
                   icon="material-symbols:delete-forever-outline"
                   height={20}

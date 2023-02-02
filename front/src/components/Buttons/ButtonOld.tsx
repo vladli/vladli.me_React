@@ -5,12 +5,11 @@ import React from "react";
 import { m } from "framer-motion";
 import classNames from "classnames";
 
-type Color = "blue" | "gray" | undefined;
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "contained" | "outlined";
   size?: "small" | "medium" | "large" | "full";
   type?: "button" | "submit";
-  color?: Color;
+  color?: "blue" | "gray" | undefined;
   gradientMono?: "blue" | "green" | "red" | "purple" | undefined;
   gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
   leftIcon?: string;
@@ -21,24 +20,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   [key: string]: any;
 }
 
-const colorVariants = (variant = "contained", color: Color) => {
-  let colors;
-  if (variant === "contained") {
-    switch (color) {
-      case "blue":
-        return tw`bg-primary-600 hover:bg-primary-700`;
-      case "gray":
-        return tw`bg-neutral-600 hover:bg-neutral-700`;
-    }
-  } else if (variant === "outlined") {
-    switch (color) {
-      case "blue":
-        return tw`hover:border-primary-600 hover:text-primary-600 border border-primary-700`;
-      case "gray":
-        return tw`hover:border-neutral-600 hover:text-neutral-600 border border-neutral-700`;
-    }
-  }
-  return colors;
+const containerVariants = {
+  // Named class sets
+  contained: tw`bg-primary-600 hover:bg-primary-700 `,
+  outlined: tw`hover:border-primary-600 hover:text-primary-600 border border-primary-700 `,
+};
+
+const colorVariants = {
+  blue: tw`bg-primary-600 hover:bg-primary-700`,
+  gray: tw`bg-neutral-700 hover:bg-neutral-800`,
 };
 
 const gradientMonoVariants = {
@@ -62,13 +52,27 @@ const textSize = {
   full: tw`w-[100%] justify-center`,
 };
 
-const ButtonStyled = styled.button<ButtonProps>`
-  ${({ variant, color }) =>
-    color ? colorVariants(variant, color) : colorVariants("contained", "blue")}
-  ${({ size }) => (size ? textSize[size] : textSize["medium"])}
-  ${({ disabled }) =>
-    disabled && tw`cursor-not-allowed bg-neutral-800 hover:bg-neutral-800`}
-`;
+const ButtonStyled = styled.button<ButtonProps>(
+  ({
+    variant = "contained",
+    size = "medium",
+
+    disabled = false,
+    color = undefined,
+    gradientMono = undefined,
+    gradientDuo = undefined,
+  }) => [
+    tw`transition duration-150 ease-in-out rounded p-2 text-white`,
+    textSize[size],
+
+    disabled ? tw`cursor-not-allowed bg-gray-400` : undefined,
+    !disabled && !gradientMono && !gradientDuo && containerVariants[variant],
+    !disabled && gradientMono && gradientMonoVariants[gradientMono],
+    !disabled && gradientDuo && gradientDuoVariants[gradientDuo],
+    !disabled && color && colorVariants[color],
+  ]
+);
+
 const Button: React.FC<ButtonProps> = ({
   children,
   leftIcon,
@@ -87,7 +91,6 @@ const Button: React.FC<ButtonProps> = ({
         disabled={disabled}
         className={classNames(
           "inline-flex select-none items-center font-semibold",
-          "rounded p-2 text-white transition duration-150 ease-in-out",
           className
         )}
       >

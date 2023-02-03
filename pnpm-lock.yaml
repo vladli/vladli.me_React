@@ -4,7 +4,7 @@ specifiers:
   '@apollo/server': ^4.3.2
   '@babel/node': ^7.20.7
   '@graphql-tools/load-files': ^6.6.1
-  '@graphql-tools/merge': ^8.3.16
+  '@graphql-tools/merge': ^8.3.17
   bcrypt: ^5.0.1
   body-parser: ^1.20.1
   cookie-parser: ^1.4.6
@@ -21,7 +21,7 @@ dependencies:
   '@apollo/server': 4.3.2_graphql@16.6.0
   '@babel/node': 7.20.7
   '@graphql-tools/load-files': 6.6.1_graphql@16.6.0
-  '@graphql-tools/merge': 8.3.16_graphql@16.6.0
+  '@graphql-tools/merge': 8.3.17_graphql@16.6.0
   bcrypt: 5.1.0
   body-parser: 1.20.1
   cookie-parser: 1.4.6
@@ -1223,12 +1223,12 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@graphql-tools/merge/8.3.16_graphql@16.6.0:
-    resolution: {integrity: sha512-In0kcOZcPIpYOKaqdrJ3thdLPE7TutFnL9tbrHUy2zCinR2O/blpRC48jPckcs0HHrUQ0pGT4HqvzMkZUeEBAw==}
+  /@graphql-tools/merge/8.3.17_graphql@16.6.0:
+    resolution: {integrity: sha512-CLzz49lc6BavPhH9gPRm0sJeNA7kC/tF/jLUTQsyef6xj82Jw3rqIJ9PE+bk1cqPCOG01WLOfquBu445OMDO2g==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@graphql-tools/utils': 9.1.4_graphql@16.6.0
+      '@graphql-tools/utils': 9.2.0_graphql@16.6.0
       graphql: 16.6.0
       tslib: 2.4.1
     dev: false
@@ -1254,13 +1254,22 @@ packages:
       tslib: 2.4.1
     dev: false
 
-  /@graphql-tools/utils/9.1.4_graphql@16.6.0:
-    resolution: {integrity: sha512-hgIeLt95h9nQgQuzbbdhuZmh+8WV7RZ/6GbTj6t3IU4Zd2zs9yYJ2jgW/krO587GMOY8zCwrjNOMzD40u3l7Vg==}
+  /@graphql-tools/utils/9.2.0_graphql@16.6.0:
+    resolution: {integrity: sha512-s3lEG1iYkyYEnKCWrIFECX3XH2wmZvbg6Ir3udCvIDynq+ydaO7JQXobclpPtwSJtjlS353haF//6V7mnBQ4bg==}
     peerDependencies:
       graphql: ^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
+      '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
       graphql: 16.6.0
       tslib: 2.4.1
+    dev: false
+
+  /@graphql-typed-document-node/core/3.1.1_graphql@16.6.0:
+    resolution: {integrity: sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==}
+    peerDependencies:
+      graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
     dev: false
 
   /@grpc/grpc-js/1.7.3:

@@ -41,12 +41,7 @@ const AdminUsers = () => {
     return list;
   };
   const [data] = React.useState(() => list());
-  return (
-    <>
-      <Table data={data} columns={columns} />
-      {/* <Button onClick={() => refetch()}>RELOAD</Button> */}
-    </>
-  );
+  return <Table data={data} columns={columns} />;
 };
 
 export default AdminUsers;

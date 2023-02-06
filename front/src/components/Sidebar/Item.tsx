@@ -19,7 +19,7 @@ type ItemsProps = {
 
 const styles = {
   subcontainer: `text-white cursor-pointer pl-6 py-3 rounded-[10px] 
-    w-56 m-2 
+    w-52 m-2 
     hover:bg-zinc-600`,
 
   item: "flex items-center text-base font-semibold select-none",
@@ -62,7 +62,7 @@ const NavItem: React.FC<NavItemProps> = ({ items }) => {
           key={link}
           whileTap={{ scale: 0.97 }}
           className={classNames(
-            `mx-2 mb-1 w-56 cursor-pointer rounded-[10px] py-3 pl-6 text-white 
+            `mx-2 mb-1 w-52 cursor-pointer rounded-[10px] py-3 pl-6 text-white 
             hover:bg-zinc-600`,
             isActive && `bg-zinc-700`
           )}

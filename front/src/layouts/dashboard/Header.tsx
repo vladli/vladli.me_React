@@ -5,13 +5,28 @@ import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
+import { Icon } from "@iconify/react";
+import { useState } from "react";
 
-const Header = () => {
+type Props = {
+  mobileNavStatus: boolean;
+  setMobileNav: any;
+};
+
+export default function Header({ mobileNavStatus, setMobileNav }: Props) {
   const { user, isAuthenticated, signOut }: any = useAuth();
+
   const navigate = useNavigate();
   return (
-    <div className="flex h-20 w-full flex-wrap items-center  bg-light-mainBg  dark:bg-dark-mainBg">
-      <div className="mt-2 ml-4 sm:ml-14">
+    <div className="sticky top-0 flex h-20 w-full flex-wrap items-center  bg-light-mainBg  dark:bg-dark-mainBg">
+      <Icon
+        icon="material-symbols:menu-rounded"
+        color="white"
+        width={30}
+        className="ml-2 cursor-pointer sm:hidden"
+        onClick={() => setMobileNav(!mobileNavStatus)}
+      />
+      <div className="ml-1 sm:ml-14">
         <Link to={PATH_DASHBOARD.root}>
           <Logo />
         </Link>
@@ -38,6 +53,4 @@ const Header = () => {
       </div>
     </div>
   );
-};
-
-export default Header;
+}

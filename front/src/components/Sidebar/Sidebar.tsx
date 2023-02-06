@@ -3,7 +3,7 @@ import MenuConfig from "../../config/MenuConfig";
 
 const Sidebar = () => {
   return (
-    <ul>
+    <ul className="w-56">
       {MenuConfig.map<any>((menu) => (
         <Item key={menu.name} items={menu} />
       ))}

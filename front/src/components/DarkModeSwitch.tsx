@@ -18,7 +18,7 @@ const DarkModeSwitch = () => {
       transition={{ duration: 0.3 }}
       onClick={toggleDarkMode}
     >
-      <Icon icon="mdi:theme-light-dark" width={36} color="white" />
+      <Icon icon="mdi:theme-light-dark" width={30} color="white" />
     </m.div>
   );
 };

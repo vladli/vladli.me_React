@@ -1,7 +1,11 @@
-import React from "react";
+import LoadingEffect from "../components/LoadingEffect";
 
 const TestPage = () => {
-  return <div>TestPage</div>;
+  return (
+    <div className="h-full">
+      <LoadingEffect />
+    </div>
+  );
 };
 
 export default TestPage;

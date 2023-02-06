@@ -19,7 +19,7 @@ const DashboardLayout = () => {
         <div className="min-h-[calc(100vh-5rem-5rem)] grow dark:text-white">
           <AnimatePresence mode="wait">
             <m.div
-              className="mx-4 my-4"
+              className="h-full p-4"
               key={location.pathname}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

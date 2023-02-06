@@ -7,13 +7,14 @@ const CleanLayout = () => {
   const location = useLocation();
   const [theme, setTheme] = useDarkTheme();
   return (
-    <div className="min-h-screen bg-light-secondaryBg dark:bg-dark-secondaryBg dark:text-white">
+    <div className="bg-light-secondaryBg dark:bg-dark-secondaryBg dark:text-white">
       <AnimatePresence mode="wait">
         <m.div
           key={location.pathname}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          className="h-screen"
         >
           <AnimatedOutlet />
         </m.div>

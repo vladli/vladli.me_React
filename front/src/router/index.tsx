@@ -6,6 +6,7 @@ import CleanLayout from "../layouts/CleanLayout";
 
 import GuestGuard from "../guards/GuestGuard";
 import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
+import LoadingEffect from "../components/LoadingEffect";
 
 const MainPage = lazy(() => import("../pages/main/MainPage"));
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
@@ -17,7 +18,7 @@ const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
 
 const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
   return (
-    <React.Suspense fallback={<h1>LOADING...</h1>}>{children}</React.Suspense>
+    <React.Suspense fallback={<LoadingEffect />}>{children}</React.Suspense>
   );
 };
 

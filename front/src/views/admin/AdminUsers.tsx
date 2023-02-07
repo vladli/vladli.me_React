@@ -10,10 +10,12 @@ export const columns: ColumnDef<any, any>[] = [
   {
     accessorKey: "uid",
     header: "UID",
+    enableSorting: false,
   },
   {
     accessorKey: "email",
     header: "Email",
+    sortDescFirst: false,
   },
 ];
 

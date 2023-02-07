@@ -4,9 +4,12 @@ import {
   useReactTable,
   flexRender,
   getPaginationRowModel,
+  SortingState,
+  getSortedRowModel,
 } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
 import TablePagination from "./TablePagination";
+import classNames from "classnames";
 
 interface ITable {
   data: any[];
@@ -15,6 +18,7 @@ interface ITable {
 }
 
 const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
   const {
     getState,
     getPageCount,
@@ -29,11 +33,18 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
   } = useReactTable({
     data,
     columns,
+    state: {
+      sorting,
+    },
     pageCount: Math.ceil(data.length / pageSize),
+
     // Pipeline
+    onSortingChange: setSorting,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+
   return (
     <>
       <table className=" select-none text-center text-light-text dark:text-dark-text">
@@ -43,7 +54,11 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className="border border-neutral-700 py-4 text-sm font-bold"
+                  className={classNames(
+                    "border border-neutral-700 py-4 text-sm font-bold",
+                    header.column.getCanSort() ? "cursor-pointer" : ""
+                  )}
+                  onClick={header.column.getToggleSortingHandler()}
                 >
                   {header.isPlaceholder
                     ? null
@@ -51,6 +66,10 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
                         header.column.columnDef.header,
                         header.getContext()
                       )}
+                  {{
+                    asc: " 🔼",
+                    desc: " 🔽",
+                  }[header.column.getIsSorted() as string] ?? null}
                 </th>
               ))}
             </tr>

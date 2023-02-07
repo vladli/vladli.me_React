@@ -14,7 +14,7 @@ interface ITable {
   pageSize?: number;
 }
 
-const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
+const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
   const {
     getState,
     getPageCount,
@@ -57,7 +57,7 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
           ))}
         </thead>
         <tbody>
-          {getRowModel().rows.map((row) => (
+          {getRowModel()?.rows.map((row) => (
             <tr key={row.id} className="bg-neutral-100 dark:bg-dark-mainBg">
               {row.getVisibleCells().map((cell) => (
                 <td
@@ -71,19 +71,20 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 12 }) => {
           ))}
         </tbody>
       </table>
-
-      <TablePagination
-        {...{
-          getState,
-          getPageCount,
-          previousPage,
-          getCanPreviousPage,
-          nextPage,
-          getCanNextPage,
-          setPageSize,
-          setPageIndex,
-        }}
-      />
+      {getPageCount() > 1 && (
+        <TablePagination
+          {...{
+            getState,
+            getPageCount,
+            previousPage,
+            getCanPreviousPage,
+            nextPage,
+            getCanNextPage,
+            setPageSize,
+            setPageIndex,
+          }}
+        />
+      )}
     </>
   );
 };

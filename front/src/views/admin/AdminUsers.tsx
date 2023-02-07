@@ -1,12 +1,17 @@
 import React from "react";
 import { ColumnDef } from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
-import { useQuery } from "@apollo/client";
+
 import { GET_ALL_USERS } from "../../graphql/users";
 import Pagination from "../../components/Pagination/Pagination";
 import Button from "../../components/Buttons/Button";
 import { faker } from "@faker-js/faker";
+import useGraphQL from "../../utils/gqlRequest";
+import gqlRequest from "../../utils/gqlRequest";
+import { useQuery } from "@tanstack/react-query";
 
+import { request, GraphQLClient } from "graphql-request";
+import LoadingEffect from "../../components/LoadingEffect";
 export const columns: ColumnDef<any, any>[] = [
   {
     accessorKey: "uid",
@@ -16,32 +21,15 @@ export const columns: ColumnDef<any, any>[] = [
     accessorKey: "email",
     header: "Email",
   },
-  {
-    accessorKey: "ip",
-    header: "ip",
-  },
-  {
-    accessorKey: "userName",
-    header: "Username",
-  },
 ];
 
 const AdminUsers = () => {
-  //const { data, loading, refetch }: any = useQuery(GET_ALL_USERS);
-  //if (loading) return <div>Load</div>;
-
-  const list = () => {
-    let list = [];
-    for (let i = 0; i < 400; i++) {
-      const randomName = faker.name.fullName(); // Rowan Nikolaus
-      const ip = faker.internet.ip();
-      const randomEmail = faker.internet.email();
-      list.push({ uid: i, email: randomEmail, ip: ip, userName: randomName });
-    }
-    return list;
-  };
-  const [data] = React.useState(() => list());
-  return <Table data={data} columns={columns} />;
+  const { isLoading, isError, data } = useQuery({
+    queryKey: ["data"],
+    queryFn: () => gqlRequest(GET_ALL_USERS),
+  });
+  if (isLoading || isError) return null;
+  return <Table data={data?.getAllUsers} columns={columns} />;
 };
 
 export default AdminUsers;

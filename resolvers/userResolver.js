@@ -13,13 +13,10 @@ export default {
         return err;
       }
     },
-    getUser: async (_, { uid }, context) => {
-      try {
-        const user = await admin.auth().getUser(uid);
-        return user;
-      } catch (err) {
-        return err;
-      }
+    getUser: async (_, { uid }, { role }) => {
+      if (role !== "admin") throw new GraphQLError(NO_PREMESSION);
+      const user = await admin.auth().getUser(uid);
+      return user;
     },
     getAllUsers: async (_, __, { role }) => {
       if (role !== "admin") throw new GraphQLError(NO_PREMESSION);

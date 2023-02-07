@@ -1,12 +1,17 @@
 import { GraphQLClient } from "graphql-request";
 
-export default function gqlRequest(query: string, variables?: any) {
+export default async function gqlRequest(query: string, variables?: any) {
   const accessTokenRaw = sessionStorage.getItem("Authorization");
   const client = new GraphQLClient("http://localhost:5000/graphql", {
     headers: {
       authorization: accessTokenRaw ? `Bearer ${accessTokenRaw}` : "",
     },
   });
-  const data = client.request(query, variables);
-  return data;
+
+  try {
+    const data = await client.request(query, variables);
+    return data;
+  } catch (error: any) {
+    throw JSON.stringify(error.response.errors[0]);
+  }
 }

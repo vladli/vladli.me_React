@@ -1,19 +1,16 @@
 import { ApolloServer } from "@apollo/server";
-import { startStandaloneServer } from "@apollo/server/standalone";
 import { expressMiddleware } from "@apollo/server/express4";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import { resolve, dirname } from "path";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
 import express from "express";
 import typeDefs from "./schema/index.js";
 import resolvers from "./resolvers/index.js";
-import path from "path";
 import http from "http";
 import { verifyToken } from "./security/verifyToken.js";
 
@@ -35,6 +32,9 @@ const server = new ApolloServer({
   resolvers,
   plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   introspection: true,
+  formatError: (formattedError, error) => {
+    return formattedError.message;
+  },
 });
 await server.start();
 

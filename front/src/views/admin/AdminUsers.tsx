@@ -22,9 +22,11 @@ export const columns: ColumnDef<any, any>[] = [
 const AdminUsers = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["admin_users"],
-    queryFn: () => gqlRequest(GET_ALL_USERS),
+    queryFn: async () => gqlRequest(GET_ALL_USERS),
   });
-  if (isLoading || isError) return <LoadingEffect />;
+
+  if (isLoading) return <LoadingEffect />;
+  if (isError) return <h1>err</h1>;
   return <Table data={data?.getAllUsers} columns={columns} />;
 };
 

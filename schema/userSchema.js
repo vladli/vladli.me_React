@@ -16,11 +16,10 @@ type MetaData {
     creationTime:String
 }
 type UserRole {
-    admin:Boolean
+    role:String
 }
 
 type LoginReturnType{
-
     admin:String
 }
 type Query{

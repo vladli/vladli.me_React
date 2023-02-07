@@ -1,6 +1,6 @@
-import User from "../models/userModel.js";
-
+import { GraphQLError } from "graphql";
 import admin from "../firebase/firebase.js";
+import { NO_PREMESSION } from "../config/errors.js";
 
 export default {
   Query: {
@@ -15,20 +15,16 @@ export default {
     },
     getUser: async (_, { uid }, context) => {
       try {
-        console.log(context);
         const user = await admin.auth().getUser(uid);
         return user;
       } catch (err) {
         return err;
       }
     },
-    getAllUsers: async (_, args) => {
-      try {
-        const getAllUsers = await admin.auth().listUsers();
-        return getAllUsers.users;
-      } catch (err) {
-        return err;
-      }
+    getAllUsers: async (_, __, { role }) => {
+      if (role !== "admin") throw new GraphQLError(NO_PREMESSION);
+      const getAllUsers = await admin.auth().listUsers();
+      return getAllUsers.users;
     },
     setUserRole: async (_, { uid }) => {
       admin

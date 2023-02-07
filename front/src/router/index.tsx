@@ -7,6 +7,7 @@ import CleanLayout from "../layouts/CleanLayout";
 import GuestGuard from "../guards/GuestGuard";
 import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
 import LoadingEffect from "../components/LoadingEffect";
+import ProgressBar from "../components/ProgressBar";
 
 const MainPage = lazy(() => import("../pages/main/MainPage"));
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
@@ -17,9 +18,7 @@ const TestPage = lazy(() => import("../pages/TestPage"));
 const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
 
 const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <React.Suspense fallback={<LoadingEffect />}>{children}</React.Suspense>
-  );
+  return <React.Suspense fallback={<ProgressBar />}>{children}</React.Suspense>;
 };
 
 const router = createBrowserRouter([

@@ -1,7 +1,6 @@
 import React from "react";
 import firebase, { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
-import Loading from "../pages/LoadingPage";
 
 type User = firebase.User | null;
 type ContextState = {

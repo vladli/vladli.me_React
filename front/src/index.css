@@ -17,5 +17,5 @@
 @tailwind utilities;
 
 #nprogress .bar {
-  background: red;
+  background: "#2563eb";
 }

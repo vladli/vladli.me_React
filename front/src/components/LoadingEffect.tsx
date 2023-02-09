@@ -3,7 +3,7 @@ export default function LoadingEffect() {
     <div className="flex h-full min-h-full place-items-center justify-center ">
       <svg
         aria-hidden="true"
-        className="inline h-16 w-16 animate-spin fill-blue-500 text-gray-600 dark:text-gray-600"
+        className="inline h-16 w-16 animate-spin fill-blue-600 text-gray-600 dark:text-gray-200"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

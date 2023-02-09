@@ -14,7 +14,7 @@ specifiers:
   firebase-admin: ^11.5.0
   graphql: ^16.6.0
   jsonwebtoken: ^9.0.0
-  mongodb: ^5.0.0
+  mongodb: ^5.0.1
   mongoose: ^6.9.1
 
 dependencies:
@@ -31,7 +31,7 @@ dependencies:
   firebase-admin: 11.5.0
   graphql: 16.6.0
   jsonwebtoken: 9.0.0
-  mongodb: 5.0.0
+  mongodb: 5.0.1
   mongoose: 6.9.1
 
 packages:
@@ -3086,8 +3086,8 @@ packages:
       - aws-crt
     dev: false
 
-  /mongodb/5.0.0:
-    resolution: {integrity: sha512-WHmlbefKp/iAX2LlSZ56iKt4pRftib/dD3mDaji8R7IJcRoKPc5+/kSn3mIBxKPLVxcl73KdDKBLkQTxj1OjaA==}
+  /mongodb/5.0.1:
+    resolution: {integrity: sha512-KpjtY+NWFmcic6UDYEdfn768ZTuKyv7CRaui7ZSd6q/0/o1AURMC7KygTUwB1Cl8V10Pe5NiP+Y2eBMCDs/ygQ==}
     engines: {node: '>=14.20.1'}
     peerDependencies:
       '@aws-sdk/credential-providers': ^3.201.0

@@ -1,13 +1,15 @@
 import React, { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import ProgressBar from "../components/ProgressBar";
 
 import DashboardLayout from "../layouts/dashboard";
 import CleanLayout from "../layouts/CleanLayout";
 
 import GuestGuard from "../guards/GuestGuard";
+import RoleGuard from "../guards/RoleGuard";
+
 import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
-import LoadingEffect from "../components/LoadingEffect";
-import ProgressBar from "../components/ProgressBar";
+import { ROLES } from "../config/userRoles";
 
 const MainPage = lazy(() => import("../pages/main/MainPage"));
 const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
@@ -81,9 +83,11 @@ const router = createBrowserRouter([
       {
         path: PATH_ADMIN.users,
         element: (
-          <SuspenseLoading>
-            <AdminUsersPage />
-          </SuspenseLoading>
+          <RoleGuard roles={[ROLES.Admin]}>
+            <SuspenseLoading>
+              <AdminUsersPage />
+            </SuspenseLoading>
+          </RoleGuard>
         ),
       },
     ],

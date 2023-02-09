@@ -6,14 +6,14 @@ const Box = ({
   className,
 }: {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }) => {
   return (
     <div
       className={classNames(
         "flex flex-col rounded-lg border shadow-md",
-        "border-gray-200 bg-slate-400",
-        "dark:border-gray-800 dark:bg-dark-mainBg",
+        "border-neutral-200 bg-light-secondaryBg",
+        "dark:border-neutral-800 dark:bg-dark-mainBg",
         className
       )}
     >

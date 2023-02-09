@@ -25,8 +25,7 @@ const AdminUsers = () => {
     queryFn: async () => gqlRequest(GET_ALL_USERS),
   });
 
-  if (isLoading) return <LoadingEffect />;
-  if (isError) return <h1>err</h1>;
+  if (isLoading || isError) return <LoadingEffect />;
   return <Table data={data?.getAllUsers} columns={columns} />;
 };
 

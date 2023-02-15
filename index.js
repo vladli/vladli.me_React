@@ -10,16 +10,19 @@ import express from "express";
 import typeDefs from "./schema/index.js";
 import resolvers from "./resolvers/index.js";
 import http from "http";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import { verifyToken } from "./security/verifyToken.js";
 
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const app = express();
 
 app.use(express.static("front/build"));
-app.get("/", (req, res) => {
+app.get("/*", (req, res) => {
   res.sendFile("index.html", { root: path.join(__dirname, "front/build") });
 });
 

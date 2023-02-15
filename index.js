@@ -10,6 +10,7 @@ import express from "express";
 import typeDefs from "./schema/index.js";
 import resolvers from "./resolvers/index.js";
 import http from "http";
+import path from "path";
 import { verifyToken } from "./security/verifyToken.js";
 
 dotenv.config();

@@ -4,9 +4,9 @@ const mongoose = require("mongoose");
 const app = express();
 
 // Create GET request
-app.use(express.static("front/build"));
-app.get("*/", (req, res) => {
-  res.sendFile("front/build", "index.html");
+app.use(express.static("public"));
+app.get("/", (req, res) => {
+  res.sendFile("public", "index.html");
 });
 
 // Initialize server

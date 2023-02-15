@@ -52,8 +52,22 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="w-[70%]">
-            <FormInput name="Email" register={register} autoComplete="email" />
-            <FormInput name="Password" register={register} type="password" />
+            <div className="flex flex-col rounded-2xl bg-neutral-800/60 font-bold">
+              <p className="m-auto">Email: demo@vladli.me</p>
+              <p className="m-auto">Password: 123456</p>
+            </div>
+            <FormInput
+              name="Email"
+              register={register}
+              autoComplete="email"
+              value="demo@vladli.me"
+            />
+            <FormInput
+              name="Password"
+              register={register}
+              type="password"
+              value={123456}
+            />
             {errorMessage}
             <div className="w-[100%]">
               <Button size="full" type="submit">

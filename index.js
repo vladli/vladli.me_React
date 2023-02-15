@@ -21,11 +21,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
-app.use(express.static("front/build"));
-app.get("/*", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "front/build") });
-});
-
 const httpServer = http.createServer(app);
 const server = new ApolloServer({
   typeDefs,
@@ -39,7 +34,7 @@ const server = new ApolloServer({
 await server.start();
 
 app.use(
-  "/graphql",
+  "/api/graphql",
   cors({
     origin: [
       "http://localhost:3000",
@@ -58,8 +53,13 @@ app.use(
   })
 );
 
+app.use(express.static("front/build"));
+app.get("/*", (req, res) => {
+  res.sendFile("index.html", { root: path.join(__dirname, "front/build") });
+});
+
 await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
-console.log(`🚀 Server ready at http://localhost:5000/graphql`);
+console.log(`🚀 Server ready at http://localhost:5000/api/graphql`);
 
 mongoose.set("strictQuery", true);
 mongoose

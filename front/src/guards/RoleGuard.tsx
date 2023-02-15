@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "../components/Box";
-import { ROLES } from "../config/userRoles";
 import { useAuth } from "../context/AuthContext";
 import AuthGuard from "./AuthGuard";
 
@@ -14,11 +13,8 @@ export default function RoleGuard({ children, roles }: Props) {
   const [role, setRole] = React.useState("");
 
   React.useEffect(() => {
-    console.log(user);
-
     user?.getIdTokenResult().then((token) => {
       setRole(token.claims.role);
-      console.log(token);
     });
   }, [user]);
 

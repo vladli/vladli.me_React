@@ -17,6 +17,11 @@ export const columns: ColumnDef<any, any>[] = [
     header: "Email",
     sortDescFirst: false,
   },
+  {
+    header: "Register date",
+    sortDescFirst: false,
+    accessorFn: (row) => row.metadata.creationTime,
+  },
 ];
 
 const AdminUsers = () => {
@@ -26,7 +31,14 @@ const AdminUsers = () => {
   });
 
   if (isLoading || isError) return <LoadingEffect />;
-  return <Table data={data?.getAllUsers} columns={columns} />;
+  return (
+    <>
+      <span className="mb-4 flex justify-center font-bold">
+        Google Firebase Authentication
+      </span>
+      <Table data={data?.getAllUsers} columns={columns} />
+    </>
+  );
 };
 
 export default AdminUsers;

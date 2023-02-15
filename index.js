@@ -41,7 +41,11 @@ await server.start();
 app.use(
   "/graphql",
   cors({
-    origin: ["http://localhost:3000", "studio.apollographql.com"],
+    origin: [
+      "http://localhost:3000",
+      "studio.apollographql.com",
+      "https://vladli.me",
+    ],
     credentials: true,
   }),
   verifyToken,

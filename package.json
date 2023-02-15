@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name": "vladli.me",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,17 +7,9 @@
   "scripts": {
     "start": "node index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vladli/portfolio.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vladli/portfolio/issues"
-  },
-  "homepage": "https://github.com/vladli/portfolio#readme",
   "dependencies": {
     "@apollo/server": "^4.3.3",
     "@babel/node": "^7.20.7",

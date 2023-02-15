@@ -1,19 +1,60 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const path = require("path");
-// Initialize Express
+import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
+import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
+
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import cors from "cors";
+import bodyParser from "body-parser";
+import express from "express";
+import typeDefs from "./schema/index.js";
+import resolvers from "./resolvers/index.js";
+import http from "http";
+import { verifyToken } from "./security/verifyToken.js";
+
+dotenv.config();
+
+const PORT = process.env.PORT || 5000;
 const app = express();
 
-// Create GET request
 app.use(express.static("public"));
 app.get("/", (req, res) => {
   res.sendFile("index.html", { root: path.join(__dirname, "public") });
 });
 
-// Initialize server
-app.listen(5000, () => {
-  console.log("Running on port 5000.");
+const httpServer = http.createServer(app);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  introspection: true,
+  formatError: (formattedError, error) => {
+    return formattedError.message;
+  },
 });
+await server.start();
 
-// Export the Express API
-module.exports = app;
+app.use(
+  "/graphql",
+  cors({
+    origin: ["http://localhost:3000", "studio.apollographql.com"],
+    credentials: true,
+  }),
+  verifyToken,
+  bodyParser.json(),
+  expressMiddleware(server, {
+    context: async ({ req }) => {
+      const { isAuth, userId, role } = req;
+      return { isAuth, userId, role };
+    },
+  })
+);
+
+await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
+console.log(`🚀 Server ready at http://localhost:5000/graphql`);
+
+mongoose.set("strictQuery", true);
+mongoose
+  .connect(process.env.DB_CONNECT, {})
+  .then(() => console.log("MongoDB connected."))
+  .catch((error) => console.log(error));

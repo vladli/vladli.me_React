@@ -14,8 +14,10 @@ export default function RoleGuard({ children, roles }: Props) {
   const [role, setRole] = React.useState("");
 
   React.useEffect(() => {
+    console.log(user);
     const getRole = () => {
       user?.getIdTokenResult().then((token) => setRole(token.claims.role));
+      console.log(user?.getIdTokenResult());
     };
     return () => getRole();
   }, [user]);

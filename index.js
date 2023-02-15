@@ -21,9 +21,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
-app.use(express.static(resolve(__dirname, "front/build")));
+app.use(express.static("front/build"));
 app.get("*/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "front/build", "index.html"));
+  res.sendFile("front/build", "index.html");
 });
 
 const httpServer = http.createServer(app);

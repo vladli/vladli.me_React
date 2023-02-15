@@ -26,13 +26,13 @@ const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
 const router = createBrowserRouter([
   {
     path: PATH_PAGE.root,
-    element: <CleanLayout />,
+    element: <DashboardLayout />,
     children: [
       {
         index: true,
         element: (
           <SuspenseLoading>
-            <MainPage />
+            <Dashboard />
           </SuspenseLoading>
         ),
       },

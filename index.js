@@ -18,9 +18,9 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 const app = express();
 
-app.use(express.static("public"));
+app.use(express.static("front/build"));
 app.get("/", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "public") });
+  res.sendFile("index.html", { root: path.join(__dirname, "front/build") });
 });
 
 const httpServer = http.createServer(app);

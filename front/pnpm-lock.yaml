@@ -7,13 +7,13 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@faker-js/faker': ^7.6.0
   '@iconify/react': ^4.1.0
-  '@tanstack/react-query': ^4.24.4
+  '@tanstack/react-query': ^4.24.6
   '@tanstack/react-table': ^8.7.9
   '@types/jest': ^29.4.0
   '@types/node': ^18.13.0
   '@types/nprogress': ^0.2.0
-  '@types/react': ^18.0.27
-  '@types/react-dom': ^18.0.10
+  '@types/react': ^18.0.28
+  '@types/react-dom': ^18.0.11
   '@types/styled-components': ^5.1.26
   autoprefixer: ^10.4.13
   blurhash: ^2.0.4
@@ -36,11 +36,11 @@ specifiers:
   tailwindcss: ^3.2.6
   twin.macro: ^3.1.0
   typescript: ^4.9.5
-  zustand: ^4.3.2
+  zustand: ^4.3.3
 
 dependencies:
-  '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
-  '@tanstack/react-query': 4.24.4_biqbaboplfbrettd7655fr4n2y
+  '@emotion/react': 11.10.5_pmekkgnqduwlme35zpnqhenc34
+  '@tanstack/react-query': 4.24.6_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-table': 8.7.9_biqbaboplfbrettd7655fr4n2y
   blurhash: 2.0.4
   classnames: 2.3.2
@@ -58,7 +58,7 @@ dependencies:
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
   twin.macro: 3.1.0_tailwindcss@3.2.6
   typescript: 4.9.5
-  zustand: 4.3.2_react@18.2.0
+  zustand: 4.3.3_react@18.2.0
 
 devDependencies:
   '@faker-js/faker': 7.6.0
@@ -66,8 +66,8 @@ devDependencies:
   '@types/jest': 29.4.0
   '@types/node': 18.13.0
   '@types/nprogress': 0.2.0
-  '@types/react': 18.0.27
-  '@types/react-dom': 18.0.10
+  '@types/react': 18.0.28
+  '@types/react-dom': 18.0.11
   '@types/styled-components': 5.1.26
   autoprefixer: 10.4.13_postcss@8.4.21
   postcss: 8.4.21
@@ -1699,7 +1699,7 @@ packages:
     resolution: {integrity: sha512-G/YwXTkv7Den9mXDO7AhLWkE3q+I92B+VqAE+dYG4NGPaHZGvt3G8Q0p9vmE+sq7rTGphUbAvmQ9YpbfMQGGlA==}
     dev: false
 
-  /@emotion/react/11.10.5_3stiutgnnbnfnf3uowm5cip22i:
+  /@emotion/react/11.10.5_pmekkgnqduwlme35zpnqhenc34:
     resolution: {integrity: sha512-TZs6235tCJ/7iF6/rvTaOH4oxQg2gMAcdHemjwLKIjKz4rRuYe1HJ2TQJKnAcRAfOUDdU8XoDadCe1rl72iv8A==}
     peerDependencies:
       '@babel/core': ^7.0.0
@@ -1718,7 +1718,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.0_react@18.2.0
       '@emotion/utils': 1.2.0
       '@emotion/weak-memoize': 0.3.0
-      '@types/react': 18.0.27
+      '@types/react': 18.0.28
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
     dev: false
@@ -2982,12 +2982,12 @@ packages:
       - supports-color
     dev: false
 
-  /@tanstack/query-core/4.24.4:
-    resolution: {integrity: sha512-9dqjv9eeB6VHN7lD3cLo16ZAjfjCsdXetSAD5+VyKqLUvcKTL0CklGQRJu+bWzdrS69R6Ea4UZo8obHYZnG6aA==}
+  /@tanstack/query-core/4.24.6:
+    resolution: {integrity: sha512-Tfru6YTDTCpX7dKVwHp/sosw/dNjEdzrncduUjIkQxn7n7u+74HT2ZrGtwwrU6Orws4x7zp3FKRqBPWVVhpx9w==}
     dev: false
 
-  /@tanstack/react-query/4.24.4_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-RpaS/3T/a3pHuZJbIAzAYRu+1nkp+/enr9hfRXDS/mojwx567UiMksoqW4wUFWlwIvWTXyhot2nbIipTKEg55Q==}
+  /@tanstack/react-query/4.24.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-pbJUVZCS4pcXS0kZiY+mVJ01ude0GrH5OXT2g9whcqSveRG/YVup/XdA9NdRpSMGkP2HxDRxxRNsTXkniWeIIA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2998,7 +2998,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.24.4
+      '@tanstack/query-core': 4.24.6
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
@@ -3138,7 +3138,7 @@ packages:
   /@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
     dependencies:
-      '@types/react': 18.0.27
+      '@types/react': 18.0.28
       hoist-non-react-statics: 3.3.2
     dev: true
 
@@ -3218,14 +3218,14 @@ packages:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: false
 
-  /@types/react-dom/18.0.10:
-    resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
+  /@types/react-dom/18.0.11:
+    resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
-      '@types/react': 18.0.27
+      '@types/react': 18.0.28
     dev: true
 
-  /@types/react/18.0.27:
-    resolution: {integrity: sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==}
+  /@types/react/18.0.28:
+    resolution: {integrity: sha512-RD0ivG1kEztNBdoAK7lekI9M+azSnitIn85h4iOiaLjaTrMjzslhaqCGaI4IyCJ1RljWiLCEu4jyrLLgqxBTew==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -3274,7 +3274,7 @@ packages:
     resolution: {integrity: sha512-KuKJ9Z6xb93uJiIyxo/+ksS7yLjS1KzG6iv5i78dhVg/X3u5t1H7juRWqVmodIdz6wGVaIApo1u01kmFRdJHVw==}
     dependencies:
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 18.0.27
+      '@types/react': 18.0.28
       csstype: 3.1.1
     dev: true
 
@@ -11007,8 +11007,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /zustand/4.3.2_react@18.2.0:
-    resolution: {integrity: sha512-rd4haDmlwMTVWVqwvgy00ny8rtti/klRoZjFbL/MAcDnmD5qSw/RZc+Vddstdv90M5Lv6RPgWvm1Hivyn0QgJw==}
+  /zustand/4.3.3_react@18.2.0:
+    resolution: {integrity: sha512-x2jXq8S0kfLGNwGh87nhRfEc2eZy37tSatpSoSIN+O6HIaBhgQHSONV/F9VNrNcBcKQu/E80K1DeHDYQC/zCrQ==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'

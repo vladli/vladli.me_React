@@ -9,6 +9,7 @@
     "**/node_modules": true,
     "**/.gitignore": true,
     "**/pnpm-lock.yaml": true,
-    "**/README.md": true
+    "**/README.md": true,
+    "**/public": true
   }
 }

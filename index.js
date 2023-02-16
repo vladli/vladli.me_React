@@ -1,65 +1,33 @@
-import { ApolloServer } from "@apollo/server";
-import { expressMiddleware } from "@apollo/server/express4";
-import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
-
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import bodyParser from "body-parser";
 import express from "express";
-import typeDefs from "./schema/index.js";
-import resolvers from "./resolvers/index.js";
-import http from "http";
+import routes from "./routes/index.js";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import { verifyToken } from "./security/verifyToken.js";
 
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const app = express();
 
-const httpServer = http.createServer(app);
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-  introspection: true,
-  formatError: (formattedError, error) => {
-    return formattedError.message;
-  },
-});
-await server.start();
+app.use(bodyParser.json());
+app.use(cors({ origin: "http://localhost:3000" }));
 
-app.use(
-  "/api/graphql",
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "studio.apollographql.com",
-      "https://vladli.me",
-    ],
-    credentials: true,
-  }),
-  verifyToken,
-  bodyParser.json(),
-  expressMiddleware(server, {
-    context: async ({ req }) => {
-      const { isAuth, userId, role } = req;
-      return { isAuth, userId, role };
-    },
-  })
-);
+app.use("/api", verifyToken, routes);
 
 app.use(express.static("front/build"));
-app.get("/*", (req, res) => {
-  res.sendFile("index.html", { root: path.join(__dirname, "front/build") });
+app.use("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "front/build", "index.html"));
 });
 
-await new Promise((resolve) => httpServer.listen({ port: 5000 }, resolve));
-console.log(`🚀 Server ready at http://localhost:5000/api/graphql`);
+/** Server */
+
+const PORT = process.env.PORT ?? 5000;
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 
 mongoose.set("strictQuery", true);
 mongoose

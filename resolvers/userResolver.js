@@ -1,33 +1,23 @@
-import { GraphQLError } from "graphql";
 import admin from "../firebase/firebase.js";
 import { NO_PREMESSION } from "../config/errors.js";
 
-export default {
-  Query: {
-    login: async (_, { login, password }) => {
-      try {
-        console.log(admin.auth());
+export const getUsers = (req, res) => {
+  const { role, params } = req;
 
-        return admin;
-      } catch (err) {
-        return err;
-      }
-    },
-    getUser: async (_, { uid }, { role }) => {
-      if (role !== "admin") throw new GraphQLError(NO_PREMESSION);
-      const user = await admin.auth().getUser(uid);
-      return user;
-    },
-    getAllUsers: async (_, __, { role }) => {
-      if (role !== "admin") throw new GraphQLError(NO_PREMESSION);
-      const getAllUsers = await admin.auth().listUsers();
-      return getAllUsers.users;
-    },
-    setUserRole: async (_, { uid }) => {
-      admin
-        .auth()
-        .setCustomUserClaims(uid, { role: "admin" })
-        .then(() => console.log(uid));
-    },
-  },
+  if (role !== "admin") return res.status(404).send(NO_PREMESSION);
+  admin
+    .auth()
+    .getUser(params.uid)
+    .then((user) => res.json(user))
+    .catch(() => res.send(NO_PREMESSION));
+};
+
+export const getAllUsers = (req, res) => {
+  const { role } = req;
+  //if (role !== "admin") return res.status(404).send(NO_PREMESSION);
+  admin
+    .auth()
+    .listUsers()
+    .then((users) => res.send(users))
+    .catch(() => res.send(NO_PREMESSION));
 };

@@ -2,6 +2,7 @@ import admin from "../firebase/firebase.js";
 
 export const verifyToken = async (req, res, next) => {
   const authToken = req.headers.authorization;
+
   if (!authToken) {
     req.isAuth = false;
     return next();

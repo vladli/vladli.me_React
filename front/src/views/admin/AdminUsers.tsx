@@ -1,8 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
 
-import { GET_ALL_USERS } from "../../graphql/users";
-import gqlRequest from "../../utils/gqlRequest";
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
 
@@ -27,7 +25,12 @@ export const columns: ColumnDef<any, any>[] = [
 const AdminUsers = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["admin_users"],
-    queryFn: async () => gqlRequest(GET_ALL_USERS),
+    queryFn: async () => {
+      const response = await fetch(
+        "http://localhost:5000/api/users/getAllUsers"
+      );
+      return response.json();
+    },
   });
 
   if (isLoading || isError) return <LoadingEffect />;
@@ -36,7 +39,7 @@ const AdminUsers = () => {
       <span className="mb-4 flex justify-center font-bold">
         Google Firebase Authentication
       </span>
-      <Table data={data?.getAllUsers} columns={columns} />
+      <Table data={data?.users} columns={columns} />
     </>
   );
 };

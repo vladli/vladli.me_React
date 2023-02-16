@@ -15,13 +15,14 @@ const __dirname = dirname(__filename);
 const app = express();
 
 app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use("/api", verifyToken, routes);
 
-app.use(express.static("front/build"));
-app.use("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "front/build", "index.html"));
+app.use(express.static(resolve(__dirname, "front/build")));
+app.get("*/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "front/build", "index.html"));
 });
 
 /** Server */

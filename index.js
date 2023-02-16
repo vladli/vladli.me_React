@@ -4,7 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import express from "express";
 import routes from "./routes/index.js";
-import path, { dirname } from "path";
+import path, { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import { verifyToken } from "./security/verifyToken.js";
 

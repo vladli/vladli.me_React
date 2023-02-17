@@ -10,6 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
+app.use("/", (req, res) => res.send("GOOD"));
 //app.use("/api", verifyToken, routes);
 // app.use(express.static(resolve(__dirname, "front/build")));
 // app.get("*/", (req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 {
-  "ignore": [".git", "node_modules", "dist"],
+  "ignore": [".git", "node_modules", "dist", "fornt"],
   "watch": ["./"],
-  "exec": "pnpm start",
+  "exec": "pnpm run dev",
   "ext": "ts"
 }

@@ -13,10 +13,6 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 
-app.use((req: Request, res: Response, next: NextFunction) => {
-  req.isAuth = false;
-  next();
-});
 app.use("/api", verifyToken, routes);
 
 app.use(express.static(resolve("./", "front/build")));

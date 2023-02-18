@@ -37,10 +37,6 @@ dotenv_1.default.config();
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({ origin: ["http://localhost:3000", "https://vladli.me"] }));
-app.use((req, res, next) => {
-    req.isAuth = false;
-    next();
-});
 app.use("/api", verifyToken_1.default, index_1.default);
 app.use(express_1.default.static((0, path_1.resolve)("./", "front/build")));
 app.get("*/", (req, res) => {

@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
-import express, { Express, NextFunction, Request, Response } from "express";
+import express, { Express, Request, Response } from "express";
 import routes from "./routes/index";
 import verifyToken from "./security/verifyToken";
 import path, { resolve } from "path";

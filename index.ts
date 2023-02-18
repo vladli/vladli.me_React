@@ -16,7 +16,7 @@ app.use("/api", verifyToken, routes);
 
 const root = require("path").join("./", "front", "build");
 app.use(express.static(root));
-app.get("*", (req: Request, res: Response) => {
+app.get("*/", (req: Request, res: Response) => {
   res.sendFile("index.html", { root });
 });
 

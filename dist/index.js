@@ -16,7 +16,7 @@ app.use((0, cors_1.default)({ origin: ["http://localhost:3000", "https://vladli.
 app.use("/api", verifyToken_1.default, index_1.default);
 const root = require("path").join("./", "front", "build");
 app.use(express_1.default.static(root));
-app.get("*", (req, res) => {
+app.get("*/", (req, res) => {
     res.sendFile("index.html", { root });
 });
 /** Server */

@@ -52,10 +52,6 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="w-[70%]">
-            <div className="flex flex-col rounded-2xl bg-neutral-800/60 font-bold">
-              <p className="m-auto">Email: demo@vladli.me</p>
-              <p className="m-auto">Password: 123456</p>
-            </div>
             <FormInput
               name="Email"
               register={register}

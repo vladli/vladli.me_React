@@ -4,6 +4,7 @@ import cors from "cors";
 import express, { Express, NextFunction, Request, Response } from "express";
 import routes from "./routes/index";
 import verifyToken from "./security/verifyToken";
+import path, { resolve } from "path";
 
 dotenv.config();
 
@@ -14,10 +15,9 @@ app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 
 app.use("/api", verifyToken, routes);
 
-const root = require("path").join("./", "front", "build");
-app.use(express.static(root));
+app.use(express.static(resolve("./", "front/build")));
 app.get("*/", (req: Request, res: Response) => {
-  res.sendFile("index.html", { root });
+  res.sendFile(path.resolve("./", "front/build", "index.html"));
 });
 
 /** Server */

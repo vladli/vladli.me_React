@@ -5,7 +5,7 @@ import express, { Express, Request, Response } from "express";
 //import routes from "./routes/index.js";
 import path, { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
-//import { verifyToken } from "./security/verifyToken.js";
+import verifyToken from "./security/verifyToken";
 
 dotenv.config();
 
@@ -16,9 +16,7 @@ const app: Express = express();
 app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 
-app.use("/", (req: Request, res: Response) => res.send("GOOD"));
-
-//app.use("/api", verifyToken, routes);
+app.use("/api", verifyToken);
 
 // app.use(express.static(resolve(__dirname, "front/build")));
 // app.get("*/", (req: Request, res: Response) => {

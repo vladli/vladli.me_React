@@ -26,9 +26,7 @@ const AdminUsers = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["admin_users"],
     queryFn: async () => {
-      const response = await fetch(
-        "http://localhost:5000/api/users/getAllUsers"
-      );
+      const response = await fetch("/api/users/getAllUsers");
       return response.json();
     },
   });

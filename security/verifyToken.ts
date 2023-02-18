@@ -9,12 +9,12 @@ export default function verifyToken(
   const authToken = req.headers.authorization;
 
   if (!authToken) {
-    req.currentUser.isAuth = false;
+    req.isAuth = false;
     return next();
   }
   const token = authToken.split(" ")[1];
   if (!token || token === "") {
-    req.currentUser.isAuth = false;
+    req.isAuth = false;
     return next();
   }
 
@@ -22,13 +22,13 @@ export default function verifyToken(
     .auth()
     .verifyIdToken(token)
     .then((user) => {
-      req.currentUser.userId = user.uid;
-      req.currentUser.isAuth = true;
-      req.currentUser.role = user.role;
+      req.userId = user.uid;
+      req.isAuth = true;
+      req.role = user.role;
       next();
     })
     .catch(() => {
-      req.currentUser.isAuth = false;
+      req.isAuth = false;
       return next();
     });
 }

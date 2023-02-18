@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 
 export const getUsers = (req: Request, res: Response) => {
   const { role, params } = req;
-
+  console.log(params);
   if (role !== "admin") return res.status(404).send(NO_PREMESSION);
   admin
     .auth()
@@ -16,7 +16,7 @@ export const getUsers = (req: Request, res: Response) => {
 export const getAllUsers = (req: Request, res: Response) => {
   const { role } = req;
 
-  //if (role !== "admin") return res.status(404).send(NO_PREMESSION);
+  if (role !== "admin") return res.status(404).send(NO_PREMESSION);
   admin
     .auth()
     .listUsers()

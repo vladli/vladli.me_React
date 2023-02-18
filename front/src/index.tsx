@@ -5,8 +5,14 @@ import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import router from "./router";
 import "./index.css";
-
+import axios from "axios";
 import { AuthProvider } from "./context/AuthContext";
+
+//axios
+const accessTokenRaw = sessionStorage.getItem("Authorization");
+axios.defaults.headers.common["Authorization"] = accessTokenRaw
+  ? `Bearer ${accessTokenRaw}`
+  : "";
 
 const queryClient = new QueryClient();
 

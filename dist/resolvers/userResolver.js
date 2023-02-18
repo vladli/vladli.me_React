@@ -8,6 +8,7 @@ const firebase_1 = __importDefault(require("../firebase/firebase"));
 const errors_1 = require("../config/errors");
 const getUsers = (req, res) => {
     const { role, params } = req;
+    console.log(params);
     if (role !== "admin")
         return res.status(404).send(errors_1.NO_PREMESSION);
     firebase_1.default
@@ -19,7 +20,8 @@ const getUsers = (req, res) => {
 exports.getUsers = getUsers;
 const getAllUsers = (req, res) => {
     const { role } = req;
-    //if (role !== "admin") return res.status(404).send(NO_PREMESSION);
+    if (role !== "admin")
+        return res.status(404).send(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()
         .listUsers()

@@ -1,8 +1,10 @@
 import { ColumnDef } from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
+import axios from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
+import fetchServer from "../../utils/fetchServer";
 
 export const columns: ColumnDef<any, any>[] = [
   {
@@ -26,8 +28,8 @@ const AdminUsers = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["admin_users"],
     queryFn: async () => {
-      const response = await fetch("/api/users/getAllUsers");
-      return response.json();
+      const { data } = await axios("/api/users/getAllUsers");
+      return data;
     },
   });
 

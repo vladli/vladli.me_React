@@ -18,6 +18,16 @@ export const getAllUsers = (req: Request, res: Response) => {
   admin
     .auth()
     .listUsers()
-    .then((users) => res.send(users))
+    .then((users) => {
+      const userList: any = [];
+      users.users.map((user) =>
+        userList.push({
+          uid: user.uid,
+          email: user.email,
+          creationTime: user.metadata.creationTime,
+        })
+      );
+      res.send(userList);
+    })
     .catch(() => res.send(NO_PREMESSION));
 };

@@ -17,9 +17,9 @@ export const columns: ColumnDef<any, any>[] = [
     sortDescFirst: false,
   },
   {
+    accessorKey: "creationTime",
     header: "Register date",
     sortDescFirst: false,
-    accessorFn: (row) => row.metadata.creationTime,
   },
 ];
 
@@ -38,7 +38,7 @@ const AdminUsers = () => {
       <span className="mb-4 flex justify-center font-bold">
         Google Firebase Authentication
       </span>
-      <Table data={data?.users} columns={columns} />
+      {data && <Table data={data} columns={columns} />}
     </>
   );
 };

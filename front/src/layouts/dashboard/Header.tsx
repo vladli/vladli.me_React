@@ -6,7 +6,6 @@ import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
 
 type Props = {
   mobileNavStatus: boolean;
@@ -27,7 +26,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
         onClick={() => setMobileNav(!mobileNavStatus)}
       />
       <div className="ml-1 sm:ml-14">
-        <Link to={PATH_DASHBOARD.root}>
+        <Link to={PATH_DASHBOARD.root.url}>
           <Logo />
         </Link>
       </div>
@@ -36,7 +35,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
         {!isAuthenticated ? (
           <Button
             leftIcon="entypo:login"
-            onClick={() => navigate(PATH_AUTH.login)}
+            onClick={() => navigate(PATH_AUTH.login.url)}
           >
             Log In
           </Button>

@@ -10,32 +10,19 @@ const ROOT_ADMIN = "/admin";
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {
-  root: ROOT_AUTH,
-  login: path(ROOT_AUTH, "/login"),
-  register: path(ROOT_AUTH, "/register"),
-  verify: path(ROOT_AUTH, "/verify"),
-  resetPassword: path(ROOT_AUTH, "/reset-password"),
+  login: { url: path(ROOT_AUTH, "/login"), title: "Login Page" },
+  register: { url: path(ROOT_AUTH, "/register"), title: "Register ROOT_PAGE" },
 };
 
 export const PATH_ADMIN = {
-  root: ROOT_ADMIN,
-  users: path(ROOT_ADMIN, "/users"),
+  users: { url: path(ROOT_ADMIN, "/users"), title: "All users" },
 };
 
 export const PATH_DASHBOARD = {
-  root: ROOT_DASHBOARD,
+  root: { url: ROOT_DASHBOARD, title: "Dashboard" },
 };
 
 export const PATH_PAGE = {
-  root: ROOT_PAGE,
-  comingSoon: "/coming-soon",
-  maintenance: "/maintenance",
-  pricing: "/pricing",
-  payment: "/payment",
-  about: "/about-us",
-  contact: "/contact-us",
-  faqs: "/faqs",
-  page404: "/404",
-  page500: "/500",
-  components: "/components",
+  root: { url: ROOT_PAGE, title: "Main page" },
+  page404: { url: "/404", title: "404" },
 };

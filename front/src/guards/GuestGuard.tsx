@@ -6,7 +6,7 @@ import React from "react";
 const GuestGuard = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
   if (isAuthenticated) {
-    return <Navigate to={PATH_DASHBOARD.root} />;
+    return <Navigate to={PATH_DASHBOARD.root.url} />;
   }
   return <>{children}</>;
 };

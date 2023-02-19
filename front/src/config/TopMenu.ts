@@ -1,14 +1,9 @@
-import {
-  PATH_ADMIN,
-  PATH_AUTH,
-  PATH_DASHBOARD,
-  PATH_PAGE,
-} from "../router/paths";
+import { PATH_ADMIN, PATH_DASHBOARD, PATH_PAGE } from "../router/paths";
 
 const TopMenu = [
   {
     name: "Main",
-    link: PATH_PAGE.root,
+    link: PATH_PAGE.root.url,
     icon: "material-symbols:pages-outline-sharp",
   },
   {
@@ -18,12 +13,12 @@ const TopMenu = [
     submenu: [
       {
         name: "1",
-        link: PATH_ADMIN.users,
+        link: PATH_ADMIN.users.url,
         icon: "material-symbols:dashboard",
       },
       {
         name: "2",
-        link: PATH_DASHBOARD.root,
+        link: PATH_DASHBOARD.root.url,
         icon: "material-symbols:dashboard",
       },
     ],

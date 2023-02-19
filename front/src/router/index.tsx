@@ -25,7 +25,7 @@ const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
 
 const router = createBrowserRouter([
   {
-    path: PATH_PAGE.root,
+    path: PATH_PAGE.root.url,
     element: <DashboardLayout />,
     children: [
       {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: PATH_DASHBOARD.root,
+    path: PATH_DASHBOARD.root.url,
     element: <DashboardLayout />,
     children: [
       {
@@ -61,11 +61,10 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: PATH_AUTH.root,
     element: <CleanLayout key="auth" />,
     children: [
       {
-        path: PATH_AUTH.login,
+        path: PATH_AUTH.login.url,
         element: (
           <GuestGuard>
             <SuspenseLoading>
@@ -77,11 +76,10 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: PATH_ADMIN.root,
     element: <DashboardLayout />,
     children: [
       {
-        path: PATH_ADMIN.users,
+        path: PATH_ADMIN.users.url,
         element: (
           <RoleGuard roles={[ROLES.Admin]}>
             <SuspenseLoading>

@@ -1,14 +1,17 @@
-import React from "react";
 import Logo from "../../components/Logo";
 import NavigationTop from "../../components/NavigationTop/NavTop";
-import TopMenu from "../../config/TopMenu";
+import PageTitle from "../../components/PageTitle";
+import { PATH_PAGE } from "../../router/paths";
 
 const MainPage = () => {
   return (
-    <div className="flex justify-center pt-2">
-      <Logo />
-      <NavigationTop />
-    </div>
+    <>
+      <PageTitle title={PATH_PAGE.root.title} />
+      <div className="flex justify-center pt-2">
+        <Logo />
+        <NavigationTop />
+      </div>
+    </>
   );
 };
 

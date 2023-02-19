@@ -1,6 +1,6 @@
 import React from "react";
 import firebase, { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../config/firebase";
 import axios from "axios";
 
 type User = firebase.User | null;

@@ -1,10 +1,15 @@
 import Login from "../../views/auth/Login/Login";
-import { m } from "framer-motion";
+import PageTitle from "../../components/PageTitle";
+import { PATH_AUTH } from "../../router/paths";
+
 const LoginPage = () => {
   return (
-    <div className="flex h-[100vh] items-center justify-center">
-      <Login />
-    </div>
+    <>
+      <PageTitle title={PATH_AUTH.login.title} />
+      <div className="flex h-[100vh] items-center justify-center">
+        <Login />
+      </div>
+    </>
   );
 };
 

@@ -7,7 +7,7 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
 
   if (!isAuthenticated) {
-    return <Navigate to={PATH_AUTH.login} />;
+    return <Navigate to={PATH_AUTH.login.url} />;
   }
   return <>{children}</>;
 };

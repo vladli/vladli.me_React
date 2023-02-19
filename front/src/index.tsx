@@ -7,6 +7,7 @@ import router from "./router";
 import "./index.css";
 import axios from "axios";
 import { AuthProvider } from "./context/AuthContext";
+import { HelmetProvider } from "react-helmet-async";
 
 //axios
 const accessTokenRaw = sessionStorage.getItem("Authorization");
@@ -21,12 +22,14 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <LazyMotion features={domMax}>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </LazyMotion>
-    </QueryClientProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <LazyMotion features={domMax}>
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
+        </LazyMotion>
+      </QueryClientProvider>
+    </HelmetProvider>
   </React.StrictMode>
 );

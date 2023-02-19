@@ -8,7 +8,7 @@ import LOGIN_IMG from "../../../assets/login.svg";
 import Button from "../../../components/Buttons/Button";
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { auth } from "../../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { PATH_PAGE } from "../../../router/paths";
 
@@ -34,7 +34,7 @@ const Login = () => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage("");
-        navigate(PATH_PAGE.root, { replace: true });
+        navigate(PATH_PAGE.root.url, { replace: true });
       })
       .catch((error: any) => {
         setErrorMessage(error.message);

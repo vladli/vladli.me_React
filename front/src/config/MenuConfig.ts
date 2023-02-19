@@ -8,7 +8,7 @@ import {
 const MenuItems = [
   {
     name: "Main",
-    link: PATH_PAGE.root,
+    link: PATH_PAGE.root.url,
     icon: "material-symbols:pages-outline-sharp",
   },
   {
@@ -18,7 +18,7 @@ const MenuItems = [
     submenu: [
       {
         name: "Dashboard",
-        link: PATH_DASHBOARD.root,
+        link: PATH_DASHBOARD.root.url,
         icon: "material-symbols:dashboard",
       },
     ],
@@ -30,19 +30,19 @@ const MenuItems = [
     submenu: [
       {
         name: "Users",
-        link: PATH_ADMIN.users,
+        link: PATH_ADMIN.users.url,
         icon: "mdi:users-group",
       },
     ],
   },
   {
     name: "TestPage",
-    link: PATH_DASHBOARD.root + "/test",
+    link: PATH_DASHBOARD.root.url + "/test",
     icon: "material-symbols:engineering-outline",
   },
   {
     name: "Login",
-    link: PATH_AUTH.login,
+    link: PATH_AUTH.login.url,
     icon: "material-symbols:login",
   },
 ];

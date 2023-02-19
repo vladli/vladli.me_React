@@ -1,10 +1,14 @@
 import LoadingEffect from "../components/LoadingEffect";
+import PageTitle from "../components/PageTitle";
 
 const TestPage = () => {
   return (
-    <div className="h-full">
-      <LoadingEffect />
-    </div>
+    <>
+      <PageTitle title="Test Page" />
+      <div className="h-full">
+        <LoadingEffect />
+      </div>
+    </>
   );
 };
 

@@ -1,17 +1,24 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import Box from "../components/Box";
 import { useAuth } from "../context/AuthContext";
+import { PATH_AUTH } from "../router/paths";
 import AuthGuard from "./AuthGuard";
 
 type Props = {
   children: React.ReactNode;
   roles: string[];
+  redirect?: boolean;
 };
 
-export default function RoleGuard({ children, roles }: Props) {
+export default function RoleGuard({
+  children,
+  roles,
+  redirect = false,
+}: Props) {
   const { user } = useAuth();
   const [role, setRole] = React.useState("");
-
+  console.log(role);
   React.useEffect(() => {
     user?.getIdTokenResult().then((token) => {
       setRole(token.claims.role);
@@ -19,10 +26,12 @@ export default function RoleGuard({ children, roles }: Props) {
   }, [user]);
 
   if (!roles.includes(role))
-    return (
-      <Box className="p-4 dark:bg-red-900">
+    return !redirect ? (
+      <Box className="bg-red-900 p-4 text-white dark:bg-red-900">
         <h3>You have no access to this page.</h3>
       </Box>
+    ) : (
+      <Navigate to={PATH_AUTH.login.url} />
     );
   return <AuthGuard>{children}</AuthGuard>;
 }

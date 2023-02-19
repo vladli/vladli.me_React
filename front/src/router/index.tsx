@@ -81,7 +81,7 @@ const router = createBrowserRouter([
       {
         path: PATH_ADMIN.users.url,
         element: (
-          <RoleGuard roles={[ROLES.Admin]}>
+          <RoleGuard roles={[ROLES.Admin]} redirect>
             <SuspenseLoading>
               <AdminUsersPage />
             </SuspenseLoading>

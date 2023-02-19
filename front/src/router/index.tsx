@@ -23,73 +23,76 @@ const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
   return <React.Suspense fallback={<ProgressBar />}>{children}</React.Suspense>;
 };
 
-const router = createBrowserRouter([
-  {
-    path: PATH_PAGE.root.url,
-    element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: (
-          <SuspenseLoading>
-            <Dashboard />
-          </SuspenseLoading>
-        ),
-      },
-    ],
-  },
-  {
-    path: PATH_DASHBOARD.root.url,
-    element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: (
-          <SuspenseLoading>
-            <Dashboard />
-          </SuspenseLoading>
-        ),
-      },
-      {
-        path: PATH_DASHBOARD.root.url + "/test",
-        element: (
-          <SuspenseLoading>
-            <TestPage />
-          </SuspenseLoading>
-        ),
-      },
-    ],
-  },
-  {
-    element: <CleanLayout key="auth" />,
-    children: [
-      {
-        path: PATH_AUTH.login.url,
-        element: (
-          <GuestGuard>
+const router = createBrowserRouter(
+  [
+    {
+      path: PATH_PAGE.root.url,
+      element: <DashboardLayout />,
+      children: [
+        {
+          index: true,
+          element: (
             <SuspenseLoading>
-              <LoginPage />
+              <Dashboard />
             </SuspenseLoading>
-          </GuestGuard>
-        ),
-      },
-    ],
-  },
-  {
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: PATH_ADMIN.users.url,
-        element: (
-          <RoleGuard roles={[ROLES.Admin]} redirect>
+          ),
+        },
+      ],
+    },
+    {
+      path: PATH_DASHBOARD.root.url,
+      element: <DashboardLayout />,
+      children: [
+        {
+          index: true,
+          element: (
             <SuspenseLoading>
-              <AdminUsersPage />
+              <Dashboard />
             </SuspenseLoading>
-          </RoleGuard>
-        ),
-      },
-    ],
-  },
-]);
+          ),
+        },
+        {
+          path: PATH_DASHBOARD.root.url + "/test",
+          element: (
+            <SuspenseLoading>
+              <TestPage />
+            </SuspenseLoading>
+          ),
+        },
+      ],
+    },
+    {
+      element: <CleanLayout key="auth" />,
+      children: [
+        {
+          path: PATH_AUTH.login.url,
+          element: (
+            <GuestGuard>
+              <SuspenseLoading>
+                <LoginPage />
+              </SuspenseLoading>
+            </GuestGuard>
+          ),
+        },
+      ],
+    },
+    {
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: PATH_ADMIN.users.url,
+          element: (
+            <RoleGuard roles={[ROLES.Admin]} redirect>
+              <SuspenseLoading>
+                <AdminUsersPage />
+              </SuspenseLoading>
+            </RoleGuard>
+          ),
+        },
+      ],
+    },
+  ],
+  { basename: "/" }
+);
 
 export default router;

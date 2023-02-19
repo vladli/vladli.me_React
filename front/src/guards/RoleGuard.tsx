@@ -16,14 +16,7 @@ export default function RoleGuard({
   roles,
   redirect = false,
 }: Props) {
-  const { user } = useAuth();
-  const [role, setRole] = React.useState("");
-  console.log(role);
-  React.useEffect(() => {
-    user?.getIdTokenResult().then((token) => {
-      setRole(token.claims.role);
-    });
-  }, [user]);
+  const { role } = useAuth();
 
   if (!roles.includes(role))
     return !redirect ? (

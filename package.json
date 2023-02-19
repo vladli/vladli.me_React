@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "homepage": ".",
   "scripts": {
     "build": "rimraf dist && tsc",
     "dev": "ts-node-esm index.ts",

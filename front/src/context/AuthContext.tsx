@@ -6,6 +6,7 @@ import axios from "axios";
 type User = firebase.User | null;
 type ContextState = {
   user: User;
+  role: string;
   signOut: () => void;
 };
 
@@ -13,6 +14,7 @@ const AuthContext = React.createContext<ContextState | undefined>(undefined);
 
 const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
   const [user, setUser] = React.useState<User>(null);
+  const [role, setRole] = React.useState("");
   const [loading, setLoading] = React.useState(true);
 
   function signOut() {
@@ -23,11 +25,15 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
 
   React.useEffect(() => {
     const getToken = () => {
-      auth.currentUser?.getIdToken().then((idToken) => {
+      if (!auth.currentUser) setRole("");
+      auth.currentUser?.getIdTokenResult().then((token) => {
+        setRole(token.claims.role);
         const oldToken = sessionStorage.getItem("Authorization");
-        if (oldToken !== idToken) {
-          sessionStorage.setItem("Authorization", idToken);
-          axios.defaults.headers.common["Authorization"] = `Bearer ${idToken}`;
+        if (oldToken !== token.token) {
+          sessionStorage.setItem("Authorization", token.token);
+          axios.defaults.headers.common[
+            "Authorization"
+          ] = `Bearer ${token.token}`;
         }
       });
     };
@@ -39,11 +45,11 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
     return () => {
       unsubscribe();
     };
-  }, []);
+  }, [user]);
 
   if (loading) return null;
   return (
-    <AuthContext.Provider value={{ user, signOut }}>
+    <AuthContext.Provider value={{ user, role, signOut }}>
       {children}
     </AuthContext.Provider>
   );

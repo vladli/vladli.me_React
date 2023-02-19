@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: PATH_DASHBOARD.root + "/test",
+        path: PATH_DASHBOARD.root.url + "/test",
         element: (
           <SuspenseLoading>
             <TestPage />

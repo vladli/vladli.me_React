@@ -1,11 +1,10 @@
-import React from "react";
 import Divider from "../Divider";
 
-interface ICardAction {
+type Props = {
   children: React.ReactNode;
-}
+};
 
-const CardAction: React.FC<ICardAction> = ({ children }) => {
+const CardAction = ({ children }: Props) => {
   return (
     <>
       <Divider className="my-4 " />

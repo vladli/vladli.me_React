@@ -9,13 +9,12 @@ const Image = styled.img`
   height: ${(props) => props.height}rem;
 `;
 
-const Logo = ({
-  height = 4,
-  className,
-}: {
+type Props = {
   height?: number;
   className?: string;
-}) => {
+};
+
+const Logo = ({ height = 4, className }: Props) => {
   return (
     <div className={classNames("select-none", className)}>
       <Image src={LogoImage} alt="Logo" height={height} />

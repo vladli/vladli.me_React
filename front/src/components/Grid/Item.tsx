@@ -1,10 +1,8 @@
-import React, { ReactNode } from "react";
+type Props = {
+  children: React.ReactNode;
+};
 
-export interface IItem {
-  children: ReactNode;
-}
-
-const Item: React.FC<IItem> = ({ children }) => {
+const Item = ({ children }: Props) => {
   return <div className="">{children}</div>;
 };
 

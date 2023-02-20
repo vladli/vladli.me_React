@@ -1,12 +1,11 @@
 import classNames from "classnames";
 
-const Divider = ({
-  vertical,
-  className,
-}: {
+type Props = {
   vertical?: boolean;
   className?: string;
-}) => {
+};
+
+const Divider = ({ vertical, className }: Props) => {
   if (vertical) {
     return (
       <div

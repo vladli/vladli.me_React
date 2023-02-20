@@ -11,13 +11,13 @@ import type { ColumnDef } from "@tanstack/react-table";
 import TablePagination from "./TablePagination";
 import classNames from "classnames";
 
-interface ITable {
+type Props = {
   data: any[];
   columns: ColumnDef<any>[];
   pageSize?: number;
-}
+};
 
-const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
+const Table = ({ data, columns, pageSize = 10 }: Props) => {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const {
     getState,
@@ -47,8 +47,8 @@ const Table: React.FC<ITable> = ({ data, columns, pageSize = 10 }) => {
 
   return (
     <>
-      <table className=" select-none text-center text-light-text dark:text-dark-text">
-        <thead className="bg-light-mainBg text-dark-text dark:bg-dark-mainBg">
+      <table className="text-center text-light-text dark:text-dark-text">
+        <thead className="select-none bg-light-mainBg  text-dark-text dark:bg-dark-mainBg">
           {getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => (

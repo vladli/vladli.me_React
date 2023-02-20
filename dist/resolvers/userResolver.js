@@ -7,12 +7,12 @@ exports.getAllUsers = exports.getUser = void 0;
 const firebase_1 = __importDefault(require("../firebase/firebase"));
 const errors_1 = require("../config/errors");
 const getUser = (req, res) => {
-    const { role, params } = req;
+    const { role, query } = req;
     if (role !== "admin")
         return res.status(404).send(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()
-        .getUser(params.uid)
+        .getUser(query["uid"])
         .then((user) => res.json(user))
         .catch(() => res.send(errors_1.NO_PREMESSION));
 };

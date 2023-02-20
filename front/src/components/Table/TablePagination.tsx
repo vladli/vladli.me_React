@@ -1,5 +1,6 @@
 import { Updater } from "@tanstack/react-table";
-interface ITablePagination {
+
+type Props = {
   getPageCount: () => number;
   previousPage: () => void;
   getCanPreviousPage: () => boolean;
@@ -8,9 +9,9 @@ interface ITablePagination {
   setPageSize: (updater: Updater<number>) => void;
   setPageIndex: (updater: Updater<number>) => void;
   [key: string]: any;
-}
+};
 
-const TablePagination = (props: ITablePagination) => {
+const TablePagination = (props: Props) => {
   return (
     <div className="my-2 inline-flex select-none -space-x-px">
       <button

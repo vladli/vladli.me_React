@@ -1,17 +1,13 @@
 import React from "react";
 import { BlurhashCanvas } from "react-blurhash";
-interface ICardImage extends React.ImgHTMLAttributes<HTMLImageElement> {
+
+type Props = {
   image: string;
   blured?: string;
   width?: number;
-}
+} & React.ImgHTMLAttributes<HTMLImageElement>;
 
-const CardImage: React.FC<ICardImage> = ({
-  image,
-  blured,
-  loading = "lazy",
-  ...rest
-}) => {
+const CardImage = ({ image, blured, loading = "lazy", ...rest }: Props) => {
   const [loaded, setloaded] = React.useState(false);
   return (
     <div className="h-[220px] max-w-sm select-none">

@@ -1,10 +1,9 @@
-import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { m } from "framer-motion";
 import classNames from "classnames";
 
-type NavItemChildProps = {
+type Props = {
   items: ItemsProps;
   open?: any;
 };
@@ -15,7 +14,7 @@ type ItemsProps = {
   icon?: string;
 }[];
 
-const NavItem: React.FC<NavItemChildProps> = ({ items }) => {
+const NavItem = ({ items }: Props) => {
   const navigate = useNavigate();
   const isActive = useLocation().pathname;
   const divClassBase = `cursor-pointer pl-12 py-3 rounded-[10px] w-52 m-auto mb-1 mx-2 text-white 

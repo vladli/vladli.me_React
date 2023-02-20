@@ -19,3 +19,14 @@ const app = initializeApp(firebaseConfig);
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 export default app;
+
+export function getErrorMessage(errorCode: string) {
+  switch (errorCode) {
+    case "auth/invalid-email":
+    case "auth/user-not-found":
+    case "auth/wrong-password":
+      return "User not found";
+    default:
+      return "Error";
+  }
+}

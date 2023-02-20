@@ -12,12 +12,13 @@ import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
 import { ROLES } from "../config/userRoles";
 
 const MainPage = lazy(() => import("../pages/main/MainPage"));
-const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
+const Dashboard = lazy(() => import("../pages/dashboard/DashboardPage"));
 const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
 
 const TestPage = lazy(() => import("../pages/TestPage"));
 
 const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
+const AdminFindUser = lazy(() => import("../pages/admin/AdminFindUserPage"));
 
 const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
   return <React.Suspense fallback={<ProgressBar />}>{children}</React.Suspense>;
@@ -85,6 +86,16 @@ const router = createBrowserRouter(
             <RoleGuard roles={[ROLES.Admin]} redirect>
               <SuspenseLoading>
                 <AdminUsersPage />
+              </SuspenseLoading>
+            </RoleGuard>
+          ),
+        },
+        {
+          path: PATH_ADMIN.findUser.url,
+          element: (
+            <RoleGuard roles={[ROLES.Admin]} redirect>
+              <SuspenseLoading>
+                <AdminFindUser />
               </SuspenseLoading>
             </RoleGuard>
           ),

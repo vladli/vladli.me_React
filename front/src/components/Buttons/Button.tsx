@@ -11,8 +11,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "medium" | "large" | "full";
   type?: "button" | "submit";
   color?: Color;
-  gradientMono?: "blue" | "green" | "red" | "purple" | undefined;
-  gradientDuo?: "blue" | "green" | "red" | "purple" | undefined;
   leftIcon?: string;
   rightIcon?: string;
   disabled?: boolean;
@@ -41,20 +39,6 @@ const colorVariants = (variant = "contained", color: Color) => {
   return colors;
 };
 
-const gradientMonoVariants = {
-  blue: tw`bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br`,
-  green: tw`bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br`,
-  red: tw`bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br`,
-  purple: tw`bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br`,
-};
-
-const gradientDuoVariants = {
-  blue: tw`bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl`,
-  green: tw`bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl`,
-  red: tw`bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl`,
-  purple: tw`bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl`,
-};
-
 const textSize = {
   small: tw`text-xs`,
   medium: tw`text-sm`,
@@ -67,7 +51,8 @@ const ButtonStyled = styled.button<ButtonProps>`
     color ? colorVariants(variant, color) : colorVariants("contained", "blue")}
   ${({ size }) => (size ? textSize[size] : textSize["medium"])}
   ${({ disabled }) =>
-    disabled && tw`cursor-not-allowed bg-neutral-800 hover:bg-neutral-800`}
+    disabled &&
+    tw`cursor-not-allowed bg-neutral-700 hover:bg-neutral-700 opacity-70`}
 `;
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -86,7 +71,7 @@ const Button: React.FC<ButtonProps> = ({
         type={type}
         disabled={disabled}
         className={classNames(
-          "inline-flex select-none items-center font-semibold",
+          "inline-flex select-none items-center font-medium uppercase leading-normal",
           "rounded p-2 text-white transition duration-150 ease-in-out",
           className
         )}

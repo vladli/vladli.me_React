@@ -1,12 +1,12 @@
-import { ReactNode } from "react";
 import Item from "./Item";
-interface IGrid {
-  children: ReactNode;
-}
 
-const Grid = ({ children }: IGrid) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Grid = ({ children }: Props) => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center md:justify-around">
+    <div className="flex flex-wrap justify-center gap-4 md:justify-around">
       {children}
     </div>
   );

@@ -6,7 +6,7 @@ import { AnimatePresence, m } from "framer-motion";
 import ItemChild from "./ItemChild";
 import classNames from "classnames";
 
-type NavItemProps = {
+type Props = {
   items: ItemsProps;
 };
 
@@ -25,7 +25,7 @@ const styles = {
   item: "flex items-center text-base font-semibold select-none",
 };
 
-const NavItem: React.FC<NavItemProps> = ({ items }) => {
+const NavItem = ({ items }: Props) => {
   const { name, link, icon, submenu } = items;
   const isActive: boolean = useLocation().pathname === link;
   const location = useLocation().pathname;

@@ -1,11 +1,10 @@
 import React from "react";
 
-interface IPagination {
+type Props = {
   ref: React.ForwardedRef<any>;
   count?: number;
-}
-
-const PaginationItem = ({ count = 5 }: IPagination) => {
+};
+const PaginationItem = ({ count = 5 }: Props) => {
   const getPages = () => {
     let li = [];
     for (let i = 1; i <= count; i++) {
@@ -32,7 +31,7 @@ const PaginationItem = ({ count = 5 }: IPagination) => {
   );
 };
 
-const Pagination = ({ ref, count }: IPagination) => {
+const Pagination = ({ ref, count }: Props) => {
   return (
     <div>
       <ul className="inline-flex -space-x-px">

@@ -1,13 +1,12 @@
 import React from "react";
 import classNames from "classnames";
 
-const Box = ({
-  children,
-  className,
-}: {
+type Props = {
   children: React.ReactNode;
   className?: string;
-}) => {
+};
+
+const Box = ({ children, className }: Props) => {
   return (
     <div
       className={classNames(

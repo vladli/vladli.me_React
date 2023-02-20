@@ -1,7 +1,6 @@
 import Item from "./Item";
 import MenuConfig from "../../config/MenuConfig";
 import { useAuth } from "../../context/AuthContext";
-import React from "react";
 
 const Sidebar = () => {
   const { role } = useAuth();

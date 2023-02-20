@@ -3,11 +3,11 @@ import { NO_PREMESSION } from "../config/errors";
 import { Request, Response } from "express";
 
 export const getUser = (req: Request, res: Response) => {
-  const { role, params } = req;
+  const { role, query } = req;
   if (role !== "admin") return res.status(404).send(NO_PREMESSION);
   admin
     .auth()
-    .getUser(params.uid)
+    .getUser(query["uid"] as string)
     .then((user) => res.json(user))
     .catch(() => res.send(NO_PREMESSION));
 };

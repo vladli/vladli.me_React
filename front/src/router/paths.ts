@@ -16,6 +16,7 @@ export const PATH_AUTH = {
 
 export const PATH_ADMIN = {
   users: { url: path(ROOT_ADMIN, "/users"), title: "All users" },
+  findUser: { url: path(ROOT_ADMIN, "/find-user"), title: "Find user" },
 };
 
 export const PATH_DASHBOARD = {

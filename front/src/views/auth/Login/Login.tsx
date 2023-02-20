@@ -10,7 +10,7 @@ import LOGIN_IMG from "../../../assets/login.svg";
 import Button from "../../../components/Buttons/Button";
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../config/firebase";
+import { auth, getErrorMessage } from "../../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { PATH_PAGE } from "../../../router/paths";
 
@@ -25,7 +25,7 @@ type FormData = yup.InferType<typeof schema>;
 const Login = () => {
   const {
     register,
-    formState: { errors, isDirty, isValid },
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm<FormData>({ mode: "onChange", resolver: yupResolver(schema) });
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
@@ -37,24 +37,11 @@ const Login = () => {
         userCredential?.user?.getIdToken().then((token) => {
           sessionStorage.setItem("Authorization", token);
         });
-        setErrorMessage("");
+        setErrorMessage(null);
         navigate(PATH_PAGE.root.url, { replace: true });
       })
       .catch((error: any) => {
-        switch (error.code) {
-          case "auth/invalid-email":
-            setErrorMessage(error.message);
-            break;
-          case "auth/user-not-found":
-            setErrorMessage("User not found");
-            break;
-          case "auth/wrong-password":
-            setErrorMessage("User not found");
-            break;
-          default:
-            setErrorMessage(error.code);
-            break;
-        }
+        setErrorMessage(getErrorMessage(error.code));
       });
   };
   return (

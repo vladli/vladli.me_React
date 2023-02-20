@@ -4,12 +4,13 @@ import CardAction from "./CardAction";
 import CardBody from "./CardBody";
 import CardHeader from "./CardHeader";
 import CardImage from "./CardImage";
-interface ICard {
+
+type Props = {
   children: React.ReactNode;
   className?: string;
-}
+};
 
-const Card = ({ children, className }: ICard) => {
+const Card = ({ children, className }: Props) => {
   return (
     <div
       className={classNames(

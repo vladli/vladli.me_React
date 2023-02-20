@@ -1,9 +1,4 @@
-import {
-  PATH_ADMIN,
-  PATH_AUTH,
-  PATH_DASHBOARD,
-  PATH_PAGE,
-} from "../router/paths";
+import { PATH_ADMIN, PATH_DASHBOARD, PATH_PAGE } from "../router/paths";
 import { ROLES } from "./userRoles";
 
 function getMenu(userRole: string) {
@@ -37,6 +32,11 @@ function getMenu(userRole: string) {
                 link: PATH_ADMIN.users.url,
                 icon: "mdi:users-group",
               },
+              {
+                name: "Find User",
+                link: PATH_ADMIN.findUser.url,
+                icon: "mdi:users-group",
+              },
             ],
           },
         ]
@@ -45,11 +45,6 @@ function getMenu(userRole: string) {
       name: "TestPage",
       link: PATH_DASHBOARD.root.url + "/test",
       icon: "material-symbols:engineering-outline",
-    },
-    {
-      name: "Login",
-      link: PATH_AUTH.login.url,
-      icon: "material-symbols:login",
     },
   ].filter(Boolean);
   return MenuItems;

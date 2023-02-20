@@ -1,10 +1,8 @@
-import React from "react";
-
-interface ICardHeader {
+type Props = {
   children: React.ReactNode;
-}
+};
 
-const CardHeader: React.FC<ICardHeader> = ({ children }) => {
+const CardHeader = ({ children }: Props) => {
   return (
     <div className="m-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
       {children}

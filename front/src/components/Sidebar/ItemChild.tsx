@@ -18,6 +18,7 @@ const NavItem = ({ items }: Props) => {
   const navigate = useNavigate();
   const isActive = useLocation().pathname;
   const divClassBase = `cursor-pointer pl-12 py-3 rounded-[10px] w-52 m-auto mb-1 mx-2 text-white 
+  transition duration-200 ease-in-out
   hover:bg-zinc-600`;
 
   return (

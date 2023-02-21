@@ -51,7 +51,7 @@ const ButtonStyled = styled.button<ButtonProps>`
   ${({ size }) => (size ? textSize[size] : textSize["medium"])}
   ${({ disabled }) =>
     disabled &&
-    tw`cursor-not-allowed bg-neutral-700 hover:bg-neutral-700 opacity-70`}
+    tw`cursor-not-allowed bg-neutral-700/30 hover:bg-neutral-700/30`}
 `;
 const MotionButton = m(ButtonStyled);
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -73,7 +73,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         className={classNames(
           "inline-flex select-none items-center font-medium uppercase leading-normal",
-          "rounded p-2 text-white transition duration-150 ease-in-out",
+          "rounded p-2 text-white transition duration-200 ease-in-out",
           className
         )}
         whileTap={

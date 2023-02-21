@@ -17,7 +17,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
 
   const navigate = useNavigate();
   return (
-    <div className="sticky top-0 flex h-20 w-full flex-wrap items-center bg-light-mainBg dark:bg-dark-mainBg">
+    <div className="sticky top-0 z-50 flex h-20 w-full flex-wrap items-center bg-light-mainBg dark:bg-dark-mainBg">
       <Icon
         icon="material-symbols:menu-rounded"
         color="white"

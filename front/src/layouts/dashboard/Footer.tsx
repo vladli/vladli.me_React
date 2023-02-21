@@ -13,7 +13,7 @@ const Footer = () => {
             icon="mdi:linkedin"
             color="#0072b1"
             width="32"
-            className="rounded-md hover:bg-neutral-700"
+            className="rounded-md transition duration-200 ease-in-out hover:bg-neutral-700"
           />
         </a>
         <a href="mailto: dev.vladli@gmail.com" className="ml-2">
@@ -21,7 +21,7 @@ const Footer = () => {
             icon="mdi:email-edit"
             width="32"
             color="#ebebeb"
-            className="rounded-md hover:bg-neutral-700"
+            className="rounded-md transition duration-200 ease-in-out hover:bg-neutral-700"
           />
         </a>
         <a
@@ -34,7 +34,7 @@ const Footer = () => {
             icon="mdi:github"
             color="black"
             width="32"
-            className="rounded-md hover:bg-neutral-700"
+            className="rounded-md transition duration-200 ease-in-out hover:bg-neutral-700"
           />
         </a>
       </div>

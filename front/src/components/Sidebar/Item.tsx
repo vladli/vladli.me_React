@@ -20,6 +20,7 @@ type ItemsProps = {
 const styles = {
   subcontainer: `text-white cursor-pointer pl-6 py-3 rounded-[10px] 
     w-52 m-2 
+    transition duration-200 ease-in-out
     hover:bg-zinc-600`,
 
   item: "flex items-center text-base font-medium select-none",
@@ -63,6 +64,7 @@ const NavItem = ({ items }: Props) => {
           whileTap={{ scale: 0.97 }}
           className={classNames(
             `mx-2 mb-1 w-52 cursor-pointer rounded-[10px] py-3 pl-6 text-white 
+            transition duration-200 ease-in-out
             hover:bg-zinc-600`,
             isActive && `bg-zinc-700`
           )}

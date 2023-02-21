@@ -22,7 +22,7 @@ const styles = {
     w-52 m-2 
     hover:bg-zinc-600`,
 
-  item: "flex items-center text-base font-semibold select-none",
+  item: "flex items-center text-base font-medium select-none",
 };
 
 const NavItem = ({ items }: Props) => {

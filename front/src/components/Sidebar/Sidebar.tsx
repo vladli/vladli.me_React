@@ -8,9 +8,9 @@ const Sidebar = () => {
   return (
     <div className="w-56">
       {isAuthenticated && (
-        <div className="mx-2 flex flex-col items-center truncate rounded-lg border border-neutral-700 p-2 text-white">
+        <div className="mx-2 flex flex-col items-center truncate rounded-lg border border-neutral-700 p-2 font-medium text-white">
           <p>{user?.email}</p>
-          <p>{role}</p>
+          <p>{role.toUpperCase()}</p>
         </div>
       )}
       <ul className="mt-2">

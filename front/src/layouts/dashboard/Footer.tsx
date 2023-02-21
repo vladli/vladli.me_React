@@ -9,10 +9,33 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Icon icon="mdi:linkedin" color="#0072b1" width="32" />
+          <Icon
+            icon="mdi:linkedin"
+            color="#0072b1"
+            width="32"
+            className="rounded-md hover:bg-neutral-700"
+          />
         </a>
         <a href="mailto: dev.vladli@gmail.com" className="ml-2">
-          <Icon icon="mdi:email-edit" width="32" />
+          <Icon
+            icon="mdi:email-edit"
+            width="32"
+            color="#ebebeb"
+            className="rounded-md hover:bg-neutral-700"
+          />
+        </a>
+        <a
+          href="https://github.com/vladli"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-2"
+        >
+          <Icon
+            icon="mdi:github"
+            color="black"
+            width="32"
+            className="rounded-md hover:bg-neutral-700"
+          />
         </a>
       </div>
     </div>

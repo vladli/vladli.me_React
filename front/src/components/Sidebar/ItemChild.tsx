@@ -32,7 +32,7 @@ const NavItem = ({ items }: Props) => {
             className={classNames(divClassBase, active && `bg-zinc-700`)}
             onClick={() => navigate(item.link)}
           >
-            <div className="flex select-none items-center text-base font-semibold">
+            <div className="flex select-none items-center text-base font-medium">
               {item.icon && <Icon icon={item.icon} />}
               <span className="ml-2">{item.name}</span>
             </div>

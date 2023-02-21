@@ -18,10 +18,16 @@ export default function AdminFindUser() {
       return data;
     },
   });
+  const inputReference = React.useRef<HTMLInputElement>(null);
+  React.useEffect(() => {
+    inputReference.current?.focus();
+  }, []);
+
   return (
     <>
       <div className="flex place-items-center">
         <Input
+          ref={inputReference}
           name="uid"
           value={uid}
           onChange={(e) => setUid(e.target.value)}

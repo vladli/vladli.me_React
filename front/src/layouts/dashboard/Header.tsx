@@ -13,11 +13,11 @@ type Props = {
 };
 
 export default function Header({ mobileNavStatus, setMobileNav }: Props) {
-  const { user, isAuthenticated, signOut }: any = useAuth();
+  const { isAuthenticated, signOut }: any = useAuth();
 
   const navigate = useNavigate();
   return (
-    <div className="sticky top-0 flex h-20 w-full flex-wrap items-center  bg-light-mainBg  dark:bg-dark-mainBg">
+    <div className="sticky top-0 flex h-20 w-full flex-wrap items-center bg-light-mainBg dark:bg-dark-mainBg">
       <Icon
         icon="material-symbols:menu-rounded"
         color="white"
@@ -25,7 +25,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
         className="ml-2 cursor-pointer sm:hidden"
         onClick={() => setMobileNav(!mobileNavStatus)}
       />
-      <div className="ml-1 sm:ml-14">
+      <div className="sm:ml-14">
         <Link to={PATH_DASHBOARD.root.url}>
           <Logo />
         </Link>
@@ -40,14 +40,9 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
             Log In
           </Button>
         ) : (
-          <div className="inline-flex">
-            <div className="mr-3 place-self-center text-white">
-              User: {user.email}
-            </div>
-            <Button leftIcon="entypo:login" onClick={() => signOut()}>
-              Log Out
-            </Button>
-          </div>
+          <Button leftIcon="entypo:login" onClick={() => signOut()}>
+            Log Out
+          </Button>
         )}
       </div>
     </div>

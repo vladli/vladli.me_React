@@ -7,13 +7,8 @@ type Props = {
   labeled?: boolean;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input = ({
-  name,
-  required,
-  labeled = false,
-  className,
-  ...rest
-}: Props) => {
+const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const { name, required, labeled = false, className, ...rest } = props;
   return (
     <>
       {labeled ? (
@@ -26,6 +21,7 @@ const Input = ({
           {name}
           {required && <span className="ml-1 text-red-500">{"*"}</span>}
           <input
+            ref={ref}
             className="w-full rounded border-0 bg-white px-3 py-3 text-sm text-slate-600 placeholder-slate-300 shadow outline-none focus:outline-none focus:ring"
             id={name}
             {...rest}
@@ -33,6 +29,7 @@ const Input = ({
         </label>
       ) : (
         <input
+          ref={ref}
           className={classNames(
             "rounded p-1 text-slate-600 placeholder-slate-300 focus:outline-none focus:ring",
             className
@@ -43,6 +40,7 @@ const Input = ({
       )}
     </>
   );
-};
+});
 
 export default Input;
+Input.displayName = "Input";

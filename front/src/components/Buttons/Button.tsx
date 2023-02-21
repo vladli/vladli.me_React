@@ -1,12 +1,12 @@
 import tw from "twin.macro";
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
-import React from "react";
+import * as React from "react";
 import { m } from "framer-motion";
 import classNames from "classnames";
 
 type Color = "blue" | "gray" | undefined;
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = {
   variant?: "contained" | "outlined";
   size?: "small" | "medium" | "large" | "full";
   type?: "button" | "submit";
@@ -16,8 +16,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   children: React.ReactNode;
   className?: string;
-  [key: string]: any;
-}
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const colorVariants = (variant = "contained", color: Color) => {
   let colors;
@@ -54,20 +53,22 @@ const ButtonStyled = styled.button<ButtonProps>`
     disabled &&
     tw`cursor-not-allowed bg-neutral-700 hover:bg-neutral-700 opacity-70`}
 `;
-const Button: React.FC<ButtonProps> = ({
-  children,
-  leftIcon,
-  rightIcon,
+const MotionButton = m(ButtonStyled);
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => {
+    const {
+      children,
+      leftIcon,
+      rightIcon,
 
-  className,
-  type = "button",
-  disabled,
-  ...rest
-}) => {
-  return (
-    <m.div whileTap={!disabled ? { scale: 0.97 } : undefined}>
-      <ButtonStyled
-        {...rest}
+      className,
+      type = "button",
+      disabled,
+      ...rest
+    } = props;
+    return (
+      <MotionButton
+        ref={ref}
         type={type}
         disabled={disabled}
         className={classNames(
@@ -75,13 +76,18 @@ const Button: React.FC<ButtonProps> = ({
           "rounded p-2 text-white transition duration-150 ease-in-out",
           className
         )}
+        whileTap={
+          !disabled ? { scale: 0.97, transition: { duration: 0 } } : undefined
+        }
+        {...rest}
       >
         {leftIcon && <Icon icon={leftIcon} width={16} />}
         <span className="px-2">{children}</span>
         {rightIcon && <Icon icon={rightIcon} width={16} />}
-      </ButtonStyled>
-    </m.div>
-  );
-};
+      </MotionButton>
+    );
+  }
+);
 
 export default Button;
+Button.displayName = "Button";

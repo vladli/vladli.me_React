@@ -14,11 +14,11 @@ const DashboardLayout = () => {
     <div className="min-w-fit">
       <Header {...{ mobileNavStatus, setMobileNav }} />
       <div className="flex bg-light-secondaryBg dark:bg-dark-secondaryBg">
-        <div className="fixed hidden h-screen bg-light-mainBg pt-4 dark:bg-dark-mainBg sm:block">
+        <div className="fixed hidden h-screen bg-light-mainBg dark:bg-dark-mainBg sm:block">
           <Sidebar />
         </div>
         {mobileNavStatus && (
-          <div className="h-modal fixed z-50 h-full overflow-y-auto overflow-x-hidden bg-light-mainBg pt-4 dark:bg-dark-mainBg sm:hidden">
+          <div className="h-modal fixed z-50 h-full overflow-y-auto overflow-x-hidden bg-light-mainBg dark:bg-dark-mainBg sm:hidden">
             <Sidebar />
           </div>
         )}

@@ -39,7 +39,7 @@ app.use(express_1.default.json());
 app.use((0, cors_1.default)({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 app.use("/api", verifyToken_1.default, index_1.default);
 app.use(express_1.default.static((0, path_1.resolve)("./", "front/build")));
-app.get("*/", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path_1.default.resolve("./", "front/build", "index.html"));
 });
 /** Server */

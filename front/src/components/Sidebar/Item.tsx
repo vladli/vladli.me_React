@@ -17,15 +17,6 @@ type ItemsProps = {
   submenu?: { name: string; link: string; icon?: string }[];
 };
 
-const styles = {
-  subcontainer: `text-white cursor-pointer pl-6 py-3 rounded-[10px] 
-    w-52 m-2 
-    transition duration-200 ease-in-out
-    hover:bg-zinc-600`,
-
-  item: "flex items-center text-base font-medium select-none",
-};
-
 const NavItem = ({ items }: Props) => {
   const { name, link, icon, submenu } = items;
   const isActive: boolean = useLocation().pathname === link;
@@ -59,31 +50,20 @@ const NavItem = ({ items }: Props) => {
   return (
     <>
       {!submenu ? (
-        <m.li
+        <li
           key={link}
-          whileTap={{ scale: 0.97 }}
-          className={classNames(
-            `mx-2 mb-1 w-52 cursor-pointer rounded-[10px] py-3 pl-6 text-white 
-            transition duration-200 ease-in-out
-            hover:bg-zinc-600`,
-            isActive && `bg-zinc-700`
-          )}
+          className={classNames(isActive && `bordered`)}
           onClick={() => navigate(link)}
         >
-          <div className={styles.item}>
+          <div>
             {icon && <Icon icon={icon} />}
-            <span className="ml-2">{name}</span>
+            {name}
           </div>
-        </m.li>
+        </li>
       ) : (
         <>
-          <m.li
-            key={link}
-            whileTap={{ scale: 0.97 }}
-            className={styles.subcontainer}
-            onClick={() => setOpen(!open)}
-          >
-            <div className={styles.item}>
+          <li key={link} onClick={() => setOpen(!open)}>
+            <div>
               <m.div
                 variants={{ open: { rotate: 90 }, closed: { rotate: 0 } }}
                 animate={open ? "open" : "closed"}
@@ -91,21 +71,19 @@ const NavItem = ({ items }: Props) => {
               >
                 <Icon icon="material-symbols:arrow-forward-ios-rounded" />
               </m.div>
-              <span className="ml-2">{name}</span>
+              {name}
             </div>
-          </m.li>
+          </li>
           <AnimatePresence>
             {open && (
-              <li key={link}>
-                <m.ul
-                  variants={itemVariants}
-                  animate={open ? "open" : "closed"}
-                  initial="closed"
-                  exit="closed"
-                >
-                  <ItemChild items={submenu} />
-                </m.ul>
-              </li>
+              <m.ul
+                variants={itemVariants}
+                animate={open ? "open" : "closed"}
+                initial="closed"
+                exit="closed"
+              >
+                <ItemChild items={submenu} />
+              </m.ul>
             )}
           </AnimatePresence>
         </>

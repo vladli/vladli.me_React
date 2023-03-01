@@ -10,7 +10,7 @@ type Props = {
 const CardImage = ({ image, blured, loading = "lazy", ...rest }: Props) => {
   const [loaded, setloaded] = React.useState(false);
   return (
-    <div className="h-[220px] max-w-sm select-none">
+    <figure className="h-[220px] max-w-sm select-none">
       {!loaded && blured && (
         <BlurhashCanvas
           hash={blured}
@@ -28,7 +28,7 @@ const CardImage = ({ image, blured, loading = "lazy", ...rest }: Props) => {
         {...rest}
         onLoad={() => setloaded(true)}
       />
-    </div>
+    </figure>
   );
 };
 

@@ -1,26 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors");
 
 module.exports = {
-  darkMode: "class",
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  theme: {
-    extend: {
-      colors: {
-        current: "currentColor",
-        primary: colors.blue,
-        dark: {
-          mainBg: "#171717",
-          secondaryBg: "#262626",
-          text: "#fff",
-        },
-        light: {
-          mainBg: "#171717",
-          secondaryBg: "#F3f3f3",
-          text: "#374151",
-        },
-      },
-    },
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "node_modules/daisyui/dist/**/*.js"],
+
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["cmyk", "halloween"],
+    darkTheme: "halloween",
   },
-  plugins: [],
 };

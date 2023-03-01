@@ -12,14 +12,7 @@ type Props = {
 
 const Card = ({ children, className }: Props) => {
   return (
-    <div
-      className={classNames(
-        "flex flex-col rounded-lg border shadow-md",
-        "border-neutral-200 bg-light-secondaryBg",
-        "dark:border-neutral-800 dark:bg-dark-mainBg",
-        className
-      )}
-    >
+    <div className={classNames("card", "bg-base-100 shadow-xl", className)}>
       {children}
     </div>
   );

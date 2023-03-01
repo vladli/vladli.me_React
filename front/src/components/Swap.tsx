@@ -1,0 +1,50 @@
+import clsx from "clsx";
+import React from "react";
+import { twMerge } from "tailwind-merge";
+
+type Props = React.LabelHTMLAttributes<HTMLLabelElement> & {
+  onElement: React.ReactNode | React.ReactNode[];
+  offElement: React.ReactNode | React.ReactNode[];
+  active?: boolean;
+  rotate?: boolean;
+  flip?: boolean;
+  value?: boolean;
+  action?: any;
+};
+
+const Swap = React.forwardRef<HTMLLabelElement, Props>(
+  (
+    {
+      onElement,
+      offElement,
+      active,
+      rotate,
+      flip,
+      className,
+      value,
+      action,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = twMerge(
+      "swap",
+      className,
+      clsx({
+        "swap-active": active,
+        "swap-rotate": rotate,
+        "swap-flip": flip,
+      })
+    );
+    return (
+      <label {...props} className={classes} ref={ref}>
+        <input type="checkbox" defaultChecked={value} onClick={action} />
+        <div className="swap-on">{onElement}</div>
+        <div className="swap-off">{offElement}</div>
+      </label>
+    );
+  }
+);
+
+Swap.displayName = "Swap";
+export default Swap;

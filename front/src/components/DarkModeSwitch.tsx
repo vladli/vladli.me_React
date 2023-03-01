@@ -1,25 +1,26 @@
 import { Icon } from "@iconify/react";
-import { m } from "framer-motion";
+
 import React from "react";
 import useDarkTheme from "../hooks/useDarkTheme";
+import Swap from "./Swap";
 
 const DarkModeSwitch = () => {
   const [colorTheme, setTheme] = useDarkTheme();
-  const [, setDarkSide] = React.useState(colorTheme === "light" ? true : false);
-  const toggleDarkMode = (checked: any) => {
+  const [darkSide, setDarkSide] = React.useState(
+    colorTheme === "cmyk" ? true : false
+  );
+  const toggleDarkMode = () => {
     setTheme(colorTheme);
-    setDarkSide(checked);
+    setDarkSide(colorTheme === "cmyk" ? true : false);
   };
   return (
-    <m.div
-      className="cursor-pointer select-none"
-      variants={{ light: { rotate: 0 }, dark: { rotate: 180 } }}
-      animate={colorTheme === "light" ? "light" : "dark"}
-      transition={{ duration: 0.3 }}
-      onClick={toggleDarkMode}
-    >
-      <Icon icon="mdi:theme-light-dark" width={30} color="white" />
-    </m.div>
+    <Swap
+      onElement={<Icon icon="material-symbols:light-mode" width={32} />}
+      offElement={<Icon icon="material-symbols:dark-mode" width={32} />}
+      rotate
+      value={darkSide}
+      action={toggleDarkMode}
+    />
   );
 };
 

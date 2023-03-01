@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import Button from "../../components/Buttons/Button";
+import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
 import { Icon } from "@iconify/react";
+import Swap from "../../components/Swap";
 
 type Props = {
   mobileNavStatus: boolean;
@@ -17,21 +18,28 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
 
   const navigate = useNavigate();
   return (
-    <div className="sticky top-0 z-50 flex h-20 w-full flex-wrap items-center bg-light-mainBg dark:bg-dark-mainBg">
-      <Icon
-        icon="material-symbols:menu-rounded"
-        color="white"
-        width={30}
-        className="ml-2 cursor-pointer sm:hidden"
-        onClick={() => setMobileNav(!mobileNavStatus)}
-      />
-      <div className="sm:ml-14">
-        <Link to={PATH_DASHBOARD.root.url}>
-          <Logo />
-        </Link>
+    <div className="navbar sticky top-0 z-50 bg-base-100">
+      <div className="navbar-start">
+        <div className="flex-none cursor-pointer lg:hidden">
+          <Swap
+            onElement={
+              <Icon icon="material-symbols:close-rounded" width={32} />
+            }
+            offElement={
+              <Icon icon="material-symbols:menu-rounded" width={32} />
+            }
+            rotate
+            action={() => setMobileNav(!mobileNavStatus)}
+          />
+        </div>
+        <div className="flex-none">
+          <Link to={PATH_DASHBOARD.root.url}>
+            <Logo />
+          </Link>
+        </div>
+        <DarkModeSwitch />
       </div>
-      <DarkModeSwitch />
-      <div className="absolute right-4">
+      <div className="navbar-end">
         {!isAuthenticated ? (
           <Button
             leftIcon="entypo:login"

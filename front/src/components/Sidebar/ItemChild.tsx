@@ -17,9 +17,6 @@ type ItemsProps = {
 const NavItem = ({ items }: Props) => {
   const navigate = useNavigate();
   const isActive = useLocation().pathname;
-  const divClassBase = `cursor-pointer pl-12 py-3 rounded-[10px] w-52 m-auto mb-1 mx-2 text-white 
-  transition duration-200 ease-in-out
-  hover:bg-zinc-600`;
 
   return (
     <>
@@ -30,12 +27,12 @@ const NavItem = ({ items }: Props) => {
           <m.li
             key={item.name}
             whileTap={{ scale: 0.97 }}
-            className={classNames(divClassBase, active && `bg-zinc-700`)}
+            className={classNames(active && `bordered`)}
             onClick={() => navigate(item.link)}
           >
-            <div className="flex select-none items-center text-base font-medium">
+            <div className="pl-8">
               {item.icon && <Icon icon={item.icon} />}
-              <span className="ml-2">{item.name}</span>
+              {item.name}
             </div>
           </m.li>
         );

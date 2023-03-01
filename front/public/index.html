@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>vladli.me</title>
     <script>
-      if (localStorage.theme === "dark" || !("theme" in localStorage)) {
-        localStorage.setItem("theme", "dark");
-        document.documentElement.classList.add("dark");
+      if (localStorage.theme === "halloween" || !("theme" in localStorage)) {
+        localStorage.setItem("theme", "halloween");
+        document.documentElement.setAttribute("data-theme", "halloween");
       } else {
-        document.documentElement.classList.remove("dark");
+        document.documentElement.removeAttribute("data-theme");
       }
     </script>
   </head>

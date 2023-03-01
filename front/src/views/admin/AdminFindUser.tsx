@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
-import Button from "../../components/Buttons/Button";
+import Button from "../../components/Button";
 import Input from "../../components/Input";
 import LoadingEffect from "../../components/LoadingEffect";
 

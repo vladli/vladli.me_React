@@ -7,7 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 //@ts-ignore
 import LOGIN_IMG from "../../../assets/login.svg";
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Button";
+
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, getErrorMessage } from "../../../config/firebase";
@@ -76,7 +77,7 @@ const Login = () => {
             />
             <p className="text-red-500">{errors.Password?.message}</p>
             <div className="mt-4 w-[100%]">
-              <Button size="full" type="submit" disabled={!isValid}>
+              <Button fullWidth type="submit" disabled={!isValid}>
                 Login
               </Button>
               {errorMessage && (

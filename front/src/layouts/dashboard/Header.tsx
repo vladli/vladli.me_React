@@ -18,7 +18,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
 
   const navigate = useNavigate();
   return (
-    <div className="navbar sticky top-0 z-50 bg-base-100">
+    <div className="navbar sticky top-0 z-50 bg-base-100 transition-all duration-300 ease-in-out">
       <div className="navbar-start">
         <div className="flex-none cursor-pointer lg:hidden">
           <Swap
@@ -29,6 +29,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
               <Icon icon="material-symbols:menu-rounded" width={32} />
             }
             rotate
+            active={mobileNavStatus}
             action={() => setMobileNav(!mobileNavStatus)}
           />
         </div>

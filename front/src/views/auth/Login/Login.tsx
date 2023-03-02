@@ -51,7 +51,7 @@ const Login = () => {
         <div className="hidden w-[50%] items-center justify-center md:flex">
           <img src={LOGIN_IMG} alt="Logo" className="max-h-[100%] p-14" />
         </div>
-        <Divider vertical />
+        <Divider horizontal />
         <form
           className="flex w-[100%] items-center justify-center md:w-[50%]"
           onSubmit={handleSubmit(onSubmit)}

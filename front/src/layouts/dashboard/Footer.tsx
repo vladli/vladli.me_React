@@ -2,7 +2,7 @@ import { Icon } from "@iconify/react";
 
 const Footer = () => {
   return (
-    <div className="flex h-20 w-full justify-center bg-light-mainBg text-light-text dark:bg-dark-mainBg dark:text-dark-text">
+    <div className="flex h-20 w-full justify-center bg-base-100 transition-all duration-300 ease-in-out">
       <div className="flex place-self-center">
         <a
           href="https://linkedin.com/in/vladislavli"

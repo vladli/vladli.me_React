@@ -8,7 +8,6 @@ type Props = React.LabelHTMLAttributes<HTMLLabelElement> & {
   active?: boolean;
   rotate?: boolean;
   flip?: boolean;
-  value?: boolean;
   action?: any;
 };
 
@@ -21,7 +20,6 @@ const Swap = React.forwardRef<HTMLLabelElement, Props>(
       rotate,
       flip,
       className,
-      value,
       action,
       ...props
     },
@@ -37,8 +35,7 @@ const Swap = React.forwardRef<HTMLLabelElement, Props>(
       })
     );
     return (
-      <label {...props} className={classes} ref={ref}>
-        <input type="checkbox" defaultChecked={value} onClick={action} />
+      <label {...props} className={classes} ref={ref} onClick={action}>
         <div className="swap-on">{onElement}</div>
         <div className="swap-off">{offElement}</div>
       </label>

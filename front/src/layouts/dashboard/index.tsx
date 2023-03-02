@@ -14,7 +14,7 @@ const DashboardLayout = () => {
   return (
     <div className="min-w-fit">
       <Header {...{ mobileNavStatus, setMobileNav }} />
-      <div className="drawer-mobile drawer">
+      <div className="drawer-mobile drawer ">
         <input
           type="checkbox"
           checked={mobileNavStatus}

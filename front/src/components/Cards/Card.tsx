@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 
 import CardAction from "./CardAction";
 import CardBody from "./CardBody";
@@ -12,7 +12,7 @@ type Props = {
 
 const Card = ({ children, className }: Props) => {
   return (
-    <div className={classNames("card", "bg-base-100 shadow-xl", className)}>
+    <div className={clsx("card", "bg-base-100 shadow-xl", className)}>
       {children}
     </div>
   );

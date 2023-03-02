@@ -18,7 +18,7 @@ const DarkModeSwitch = () => {
       onElement={<Icon icon="material-symbols:light-mode" width={32} />}
       offElement={<Icon icon="material-symbols:dark-mode" width={32} />}
       rotate
-      value={darkSide}
+      active={!darkSide}
       action={toggleDarkMode}
     />
   );

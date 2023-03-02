@@ -7,7 +7,7 @@ type Props = {
 const CardAction = ({ children }: Props) => {
   return (
     <>
-      <Divider className="my-4 " />
+      <Divider />
       <div className="card-actions">{children}</div>
     </>
   );

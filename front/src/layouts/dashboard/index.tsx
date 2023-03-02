@@ -21,13 +21,14 @@ const DashboardLayout = () => {
           className="drawer-toggle"
           readOnly
         />
-        <div className="drawer-content bg-base-300 p-4">
+        <div className="drawer-content h-full bg-base-300 p-4 ">
           <AnimatePresence mode="wait">
             <m.div
               key={location.pathname}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              className="h-full"
             >
               <AnimatedOutlet />
             </m.div>

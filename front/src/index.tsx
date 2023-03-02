@@ -3,11 +3,11 @@ import { RouterProvider } from "react-router-dom";
 import { domMax, LazyMotion } from "framer-motion";
 import ReactDOM from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HelmetProvider } from "react-helmet-async";
 import router from "./router";
 import "./index.css";
 import axios from "axios";
-import { AuthProvider } from "./context/AuthContext";
-import { HelmetProvider } from "react-helmet-async";
+import { AuthProvider } from "context/AuthContext";
 
 //axios
 const accessTokenRaw = sessionStorage.getItem("Authorization");

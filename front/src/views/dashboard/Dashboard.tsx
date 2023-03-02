@@ -1,7 +1,5 @@
-import React from "react";
-import { Icon } from "@iconify/react";
-
-import Card from "../../components/Cards/Card";
+import Button from "components/Button";
+import Card from "components/Cards/Card";
 
 const images = [
   {
@@ -26,7 +24,9 @@ export default function Dashboard() {
                 inhalation of very fine silica particles, specifically from a
                 volcano; medically, it is the same as silicosis.
               </p>
-              <Card.Action>asd</Card.Action>
+              <Card.Action>
+                <Button>Click</Button>
+              </Card.Action>
             </Card.Body>
           </Card>
         );

@@ -10,6 +10,7 @@
     "**/.gitignore": true,
     "**/pnpm-lock.yaml": true,
     "**/README.md": true,
-    "**/build": true
+    "**/build": true,
+    "**/index.html": true,"
   }
 }

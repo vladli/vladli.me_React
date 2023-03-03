@@ -9,103 +9,40 @@ import {
 } from "@tanstack/react-table";
 import type { ColumnDef } from "@tanstack/react-table";
 import TablePagination from "./TablePagination";
-import classNames from "classnames";
+import TableHead from "./TableHead";
+import TableBody from "./TableBody";
+import TableRow from "./TableRow";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
-type Props = {
-  data: any[];
-  columns: ColumnDef<any>[];
+type Props = React.TableHTMLAttributes<HTMLTableElement> & {
+  data?: any[];
+  columns?: ColumnDef<any>[];
   pageSize?: number;
+  compact?: boolean;
+  zebra?: boolean;
 };
 
-const Table = ({ data, columns, pageSize = 10 }: Props) => {
-  const [sorting, setSorting] = React.useState<SortingState>([]);
-  const {
-    getState,
-    getPageCount,
-    getCanPreviousPage,
-    previousPage,
-    nextPage,
-    getCanNextPage,
-    setPageSize,
-    getHeaderGroups,
-    getRowModel,
-    setPageIndex,
-  } = useReactTable({
-    data,
-    columns,
-    state: {
-      sorting,
-    },
-    pageCount: Math.ceil(data.length / pageSize),
+const Table = React.forwardRef<HTMLTableElement, Props>((props, ref) => {
+  const { compact, zebra, className, children, ...rest } = props;
 
-    // Pipeline
-    onSortingChange: setSorting,
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-  });
-
-  return (
-    <>
-      <table className="text-center text-light-text dark:text-dark-text">
-        <thead className="select-none bg-light-mainBg  text-dark-text dark:bg-dark-mainBg">
-          {getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th
-                  key={header.id}
-                  className={classNames(
-                    "border border-neutral-700 py-4 text-sm font-bold",
-                    header.column.getCanSort() ? "cursor-pointer" : ""
-                  )}
-                  onClick={header.column.getToggleSortingHandler()}
-                >
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                  {{
-                    asc: " 🔼",
-                    desc: " 🔽",
-                  }[header.column.getIsSorted() as string] ?? null}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {getRowModel()?.rows.map((row) => (
-            <tr key={row.id} className="bg-neutral-100 dark:bg-dark-mainBg">
-              {row.getVisibleCells().map((cell) => (
-                <td
-                  className="whitespace-nowrap border border-neutral-700 px-4 py-4 text-sm font-medium"
-                  key={cell.id}
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {getPageCount() > 1 && (
-        <TablePagination
-          {...{
-            getState,
-            getPageCount,
-            previousPage,
-            getCanPreviousPage,
-            nextPage,
-            getCanNextPage,
-            setPageSize,
-            setPageIndex,
-          }}
-        />
-      )}
-    </>
+  const classes = twMerge(
+    "table",
+    className,
+    clsx({
+      "table-zebra": zebra,
+      "table-compact": compact,
+    })
   );
-};
+  return (
+    <table {...rest} className={classes} ref={ref}>
+      {children}
+    </table>
+  );
+});
 
-export default Table;
+export default Object.assign(Table, {
+  Head: TableHead,
+  Body: TableBody,
+  Row: TableRow,
+});

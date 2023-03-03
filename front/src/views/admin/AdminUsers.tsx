@@ -1,9 +1,21 @@
-import { ColumnDef } from "@tanstack/react-table";
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  SortingState,
+  useReactTable,
+} from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
 import axios from "axios";
 
+import ReactPaginate from "react-paginate";
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
+import React from "react";
+import TablePagination from "components/Table/TablePagination";
+import Pagination from "components/Pagination";
 
 export const columns: ColumnDef<any, any>[] = [
   {
@@ -31,14 +43,81 @@ const AdminUsers = () => {
       return data;
     },
   });
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const pageSize = 1;
+  const {
+    getState,
+    getPageCount,
+    getCanPreviousPage,
+    previousPage,
+    nextPage,
+    getCanNextPage,
+    setPageSize,
+    getFlatHeaders,
+    getRowModel,
+    setPageIndex,
+  } = useReactTable({
+    data,
+    columns,
+    state: {
+      sorting,
+    },
+    pageCount: Math.ceil(data?.length / pageSize),
 
+    // Pipeline
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+  });
   if (isLoading || isError) return <LoadingEffect />;
   return (
     <>
-      <span className="mb-4 flex justify-center font-bold">
+      <span className="mb-4 flex justify-center rounded-full bg-primary font-bold">
         Google Firebase Authentication
       </span>
-      {data && <Table data={data} columns={columns} />}
+      <Table zebra>
+        <Table.Head>
+          {getFlatHeaders().map((header) => (
+            <span
+              key={header.id}
+              className={header.column.getCanSort() ? "cursor-pointer" : ""}
+              onClick={header.column.getToggleSortingHandler()}
+            >
+              {header.isPlaceholder
+                ? null
+                : flexRender(
+                    header.column.columnDef.header,
+                    header.getContext()
+                  )}
+              {{
+                asc: " 🔼",
+                desc: " 🔽",
+              }[header.column.getIsSorted() as string] ?? null}
+            </span>
+          ))}
+        </Table.Head>
+        <Table.Body>
+          {getRowModel()?.rows.map((row) => (
+            <Table.Row key={row.id} hover>
+              {row.getVisibleCells().map((cell) => (
+                <span key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </span>
+              ))}
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table>
+
+      <ReactPaginate
+        pageCount={getPageCount()}
+        className="btn-group"
+        pageClassName="btn btn-sm"
+        activeClassName="btn-active"
+        previousClassName="btn btn-sm"
+        nextClassName="btn btn-sm"
+      />
     </>
   );
 };

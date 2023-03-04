@@ -19,6 +19,11 @@ import Pagination from "components/Pagination";
 
 export const columns: ColumnDef<any, any>[] = [
   {
+    accessorKey: "id",
+    header: "",
+    enableSorting: false,
+  },
+  {
     accessorKey: "uid",
     header: "UID",
     enableSorting: false,
@@ -70,6 +75,9 @@ const AdminUsers = () => {
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
+  const handlePageClick = ({ selected: selectedPage }: any) => {
+    setPageIndex(selectedPage);
+  };
   if (isLoading || isError) return <LoadingEffect />;
   return (
     <>
@@ -98,26 +106,22 @@ const AdminUsers = () => {
           ))}
         </Table.Head>
         <Table.Body>
-          {getRowModel()?.rows.map((row) => (
+          {getRowModel()?.rows.map((row, i) => (
             <Table.Row key={row.id} hover>
               {row.getVisibleCells().map((cell) => (
-                <span key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </span>
+                <React.Fragment key={cell.id}>
+                  <span>{i + 1}</span>
+                  <span>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </span>
+                </React.Fragment>
               ))}
             </Table.Row>
           ))}
         </Table.Body>
       </Table>
 
-      <ReactPaginate
-        pageCount={getPageCount()}
-        className="btn-group"
-        pageClassName="btn btn-sm"
-        activeClassName="btn-active"
-        previousClassName="btn btn-sm"
-        nextClassName="btn btn-sm"
-      />
+      <Pagination pageCount={getPageCount()} onPageChange={handlePageClick} />
     </>
   );
 };

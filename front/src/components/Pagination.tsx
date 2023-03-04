@@ -1,30 +1,53 @@
+import { Updater } from "@tanstack/react-table";
 import React from "react";
 import ReactPaginate from "react-paginate";
 
 type Props = {
   pageCount: number;
   onPageChange: any;
+  state: any;
+  setPageSize: (updater: Updater<number>) => void;
 };
 
-export default function Pagination({ pageCount, onPageChange }: Props) {
+export default function Pagination({
+  state,
+  pageCount,
+  onPageChange,
+  setPageSize,
+}: Props) {
   const linkClasses =
-    "flex flex-1 h-full justify-center items-center m-[-0.75rem]";
+    "flex flex-1 h-full justify-center items-center m-[-1rem]";
 
   return (
-    <ReactPaginate
-      pageCount={pageCount}
-      onPageChange={onPageChange}
-      containerClassName="btn-group flex justify-center mt-2"
-      pageClassName="btn btn-sm"
-      pageLinkClassName={linkClasses}
-      activeClassName="btn-active"
-      previousClassName="btn btn-sm"
-      previousLinkClassName={linkClasses}
-      nextClassName="btn btn-sm"
-      nextLinkClassName={linkClasses}
-      disabledClassName="btn-disabled"
-      previousLabel={"<"}
-      nextLabel={">"}
-    />
+    <div className="mt-2 flex items-center justify-center">
+      <ReactPaginate
+        pageCount={pageCount}
+        onPageChange={onPageChange}
+        containerClassName="btn-group ml-2"
+        pageClassName="btn"
+        pageLinkClassName={linkClasses}
+        activeClassName="btn-active"
+        previousClassName="btn"
+        previousLinkClassName={linkClasses}
+        nextClassName="btn"
+        nextLinkClassName={linkClasses}
+        disabledClassName="btn-disabled"
+        previousLabel={"<"}
+        nextLabel={">"}
+      />
+      <select
+        className="select ml-2 w-28"
+        value={state.pagination.pageSize}
+        onChange={(e) => {
+          setPageSize(Number(e.target.value));
+        }}
+      >
+        {[10, 20, 30, 40, 50].map((pageSize) => (
+          <option key={pageSize} value={pageSize}>
+            Show {pageSize}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }

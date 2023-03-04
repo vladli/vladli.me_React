@@ -10,11 +10,9 @@ import {
 import Table from "../../components/Table/Table";
 import axios from "axios";
 
-import ReactPaginate from "react-paginate";
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
 import React from "react";
-import TablePagination from "components/Table/TablePagination";
 import Pagination from "components/Pagination";
 
 export const columns: ColumnDef<any, any>[] = [
@@ -49,14 +47,10 @@ const AdminUsers = () => {
     },
   });
   const [sorting, setSorting] = React.useState<SortingState>([]);
-  const pageSize = 1;
+  const pageSize = 10;
   const {
     getState,
     getPageCount,
-    getCanPreviousPage,
-    previousPage,
-    nextPage,
-    getCanNextPage,
     setPageSize,
     getFlatHeaders,
     getRowModel,
@@ -121,7 +115,12 @@ const AdminUsers = () => {
         </Table.Body>
       </Table>
 
-      <Pagination pageCount={getPageCount()} onPageChange={handlePageClick} />
+      <Pagination
+        state={getState()}
+        pageCount={getPageCount()}
+        onPageChange={handlePageClick}
+        setPageSize={setPageSize}
+      />
     </>
   );
 };

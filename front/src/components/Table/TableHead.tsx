@@ -1,10 +1,10 @@
-import React from "react";
+import { forwardRef } from "react";
 
 type Props = React.TableHTMLAttributes<HTMLTableSectionElement> & {
   children?: React.ReactNode[];
 };
 
-const TableHead = React.forwardRef<HTMLTableSectionElement, Props>(
+const TableHead = forwardRef<HTMLTableSectionElement, Props>(
   ({ children, ...props }, ref) => {
     return (
       <thead {...props} ref={ref}>

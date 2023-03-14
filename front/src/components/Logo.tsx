@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import styled from "styled-components";
 
 //@ts-ignore
@@ -16,7 +16,7 @@ type Props = {
 
 const Logo = ({ height = 4, className }: Props) => {
   return (
-    <div className={classNames("select-none", className)}>
+    <div className={clsx("select-none", className)}>
       <Image src={LogoImage} alt="Logo" height={height} />
     </div>
   );

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Props = React.TableHTMLAttributes<HTMLTableRowElement> & {
@@ -8,7 +8,7 @@ type Props = React.TableHTMLAttributes<HTMLTableRowElement> & {
   hover?: boolean;
 };
 
-const TableRow = React.forwardRef<HTMLTableRowElement, Props>((props, ref) => {
+const TableRow = forwardRef<HTMLTableRowElement, Props>((props, ref) => {
   const { children, className, active, hover, ...rest } = props;
   const classes = twMerge(
     className,

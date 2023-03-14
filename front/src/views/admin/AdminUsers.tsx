@@ -12,7 +12,7 @@ import axios from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
-import React from "react";
+import { useState, Fragment } from "react";
 import Pagination from "components/Pagination";
 
 export const columns: ColumnDef<any, any>[] = [
@@ -46,7 +46,7 @@ const AdminUsers = () => {
       return data;
     },
   });
-  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([]);
   const pageSize = 10;
   const {
     getState,
@@ -78,7 +78,7 @@ const AdminUsers = () => {
       <span className="mb-4 flex justify-center rounded-full bg-primary font-bold">
         Google Firebase Authentication
       </span>
-      <Table zebra>
+      <Table>
         <Table.Head>
           {getFlatHeaders().map((header) => (
             <span
@@ -101,14 +101,14 @@ const AdminUsers = () => {
         </Table.Head>
         <Table.Body>
           {getRowModel()?.rows.map((row, i) => (
-            <Table.Row key={row.id} hover>
+            <Table.Row key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <React.Fragment key={cell.id}>
+                <Fragment key={cell.id}>
                   <span>{i + 1}</span>
                   <span>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </span>
-                </React.Fragment>
+                </Fragment>
               ))}
             </Table.Row>
           ))}

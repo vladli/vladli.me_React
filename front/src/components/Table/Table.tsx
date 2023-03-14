@@ -1,14 +1,5 @@
-import React from "react";
-import {
-  getCoreRowModel,
-  useReactTable,
-  flexRender,
-  getPaginationRowModel,
-  SortingState,
-  getSortedRowModel,
-} from "@tanstack/react-table";
+import { forwardRef } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
-import TablePagination from "./TablePagination";
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import TableRow from "./TableRow";
@@ -23,7 +14,7 @@ type Props = React.TableHTMLAttributes<HTMLTableElement> & {
   zebra?: boolean;
 };
 
-const Table = React.forwardRef<HTMLTableElement, Props>((props, ref) => {
+const Table = forwardRef<HTMLTableElement, Props>((props, ref) => {
   const { compact, zebra, className, children, ...rest } = props;
 
   const classes = twMerge(

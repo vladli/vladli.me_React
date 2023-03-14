@@ -1,5 +1,6 @@
 import React from "react";
-import classNames from "classnames";
+
+import clsx from "clsx";
 
 type Props = {
   children: React.ReactNode;
@@ -9,10 +10,10 @@ type Props = {
 const Box = ({ children, className }: Props) => {
   return (
     <div
-      className={classNames(
+      className={clsx(
         "flex flex-col rounded-lg border shadow-md",
-        "border-neutral-200 bg-light-secondaryBg",
-        "dark:border-neutral-800 dark:bg-dark-mainBg",
+        "bg-light-secondaryBg border-neutral-200",
+        "dark:bg-dark-mainBg dark:border-neutral-800",
         className
       )}
     >

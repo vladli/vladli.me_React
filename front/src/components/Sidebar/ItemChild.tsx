@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { m } from "framer-motion";
-import classNames from "classnames";
+import clsx from "clsx";
 
 type Props = {
   items: ItemsProps;
@@ -27,7 +27,7 @@ const NavItem = ({ items }: Props) => {
           <m.li
             key={item.name}
             whileTap={{ scale: 0.97 }}
-            className={classNames(active && `bordered`)}
+            className={clsx(active && `bordered`)}
             onClick={() => navigate(item.link)}
           >
             <div className="pl-8">

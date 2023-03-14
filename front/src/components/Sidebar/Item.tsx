@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { AnimatePresence, m } from "framer-motion";
 
 import ItemChild from "./ItemChild";
-import classNames from "classnames";
+import clsx from "clsx";
 
 type Props = {
   items: ItemsProps;
@@ -52,7 +52,7 @@ const NavItem = ({ items }: Props) => {
       {!submenu ? (
         <li
           key={link}
-          className={classNames(isActive && `bordered`)}
+          className={clsx(isActive && `bordered`)}
           onClick={() => navigate(link)}
         >
           <div>

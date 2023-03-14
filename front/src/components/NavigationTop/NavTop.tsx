@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import classNames from "classnames";
+import clsx from "clsx";
 import { m } from "framer-motion";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ const NavigationTop = ({ className }: { className?: string }) => {
   const [open, setOpen] = React.useState<boolean>(false);
   return (
     <nav
-      className={classNames(
+      className={clsx(
         "absolute right-4 mt-2 flex select-none flex-row space-x-8 p-4 font-semibold",
         className
       )}

@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import React from "react";
 
 type Props = {
@@ -13,7 +13,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     <>
       {labeled ? (
         <label
-          className={classNames(
+          className={clsx(
             "block select-none text-sm font-medium text-gray-900 dark:text-white",
             className
           )}
@@ -30,7 +30,7 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
       ) : (
         <input
           ref={ref}
-          className={classNames(
+          className={clsx(
             "rounded p-1 text-slate-600 placeholder-slate-300 focus:outline-none focus:ring",
             className
           )}

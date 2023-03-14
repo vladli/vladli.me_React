@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import clsx from "clsx";
 import React from "react";
 
 type Props = {
@@ -20,7 +20,7 @@ const Input = ({
     <>
       {labeled ? (
         <label
-          className={classNames(
+          className={clsx(
             "block select-none text-sm font-medium text-gray-900 dark:text-white",
             className
           )}
@@ -36,7 +36,7 @@ const Input = ({
         </label>
       ) : (
         <input
-          className={classNames(
+          className={clsx(
             "w-full rounded border-0 bg-white px-3 py-3 text-sm text-slate-600 placeholder-slate-300 shadow outline-none focus:outline-none focus:ring",
             className
           )}

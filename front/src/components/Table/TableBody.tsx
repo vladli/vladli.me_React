@@ -1,8 +1,8 @@
-import React from "react";
+import { forwardRef } from "react";
 
 type Props = React.TableHTMLAttributes<HTMLTableSectionElement>;
 
-const TableBody = React.forwardRef<HTMLTableSectionElement, Props>(
+const TableBody = forwardRef<HTMLTableSectionElement, Props>(
   ({ children, ...props }, ref) => {
     return (
       <tbody {...props} ref={ref}>

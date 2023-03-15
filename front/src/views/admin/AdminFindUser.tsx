@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import Button from "../../components/Button";
-import Input from "../../components/Input";
+import Input from "../../components/Form/Input";
 import LoadingEffect from "../../components/LoadingEffect";
 
 export default function AdminFindUser() {

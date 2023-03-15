@@ -14,7 +14,7 @@ const DashboardLayout = () => {
   return (
     <div className="min-w-fit">
       <Header {...{ mobileNavStatus, setMobileNav }} />
-      <div className="drawer-mobile drawer ">
+      <div className="drawer-mobile drawer">
         <input
           type="checkbox"
           checked={mobileNavStatus}
@@ -39,7 +39,7 @@ const DashboardLayout = () => {
             className="drawer-overlay"
             onClick={() => setMobileNav(false)}
           ></label>
-          <Sidebar />
+          <Sidebar {...{ setMobileNav }} />
         </div>
       </div>
       <Footer />

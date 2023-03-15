@@ -8,6 +8,7 @@ import clsx from "clsx";
 
 type Props = {
   items: ItemsProps;
+  setMobileNav: any;
 };
 
 type ItemsProps = {
@@ -17,14 +18,17 @@ type ItemsProps = {
   submenu?: { name: string; link: string; icon?: string }[];
 };
 
-const NavItem = ({ items }: Props) => {
+const NavItem = ({ items, setMobileNav }: Props) => {
   const { name, link, icon, submenu } = items;
   const isActive: boolean = useLocation().pathname === link;
   const location = useLocation().pathname;
   const [open, setOpen] = React.useState(false);
 
   const navigate = useNavigate();
-
+  const navigateTo = (link: string) => {
+    navigate(link);
+    setMobileNav(false);
+  };
   const itemVariants = {
     open: {
       opacity: 1,
@@ -53,7 +57,7 @@ const NavItem = ({ items }: Props) => {
         <li
           key={link}
           className={clsx(isActive && `bordered`)}
-          onClick={() => navigate(link)}
+          onClick={() => navigateTo(link)}
         >
           <div>
             {icon && <Icon icon={icon} />}
@@ -82,7 +86,7 @@ const NavItem = ({ items }: Props) => {
                 initial="closed"
                 exit="closed"
               >
-                <ItemChild items={submenu} />
+                <ItemChild items={submenu} {...{ setMobileNav }} />
               </m.ul>
             )}
           </AnimatePresence>

@@ -9,14 +9,7 @@ type Props = {
 
 const Box = ({ children, className }: Props) => {
   return (
-    <div
-      className={clsx(
-        "flex flex-col rounded-lg border shadow-md",
-        "bg-light-secondaryBg border-neutral-200",
-        "dark:bg-dark-mainBg dark:border-neutral-800",
-        className
-      )}
-    >
+    <div className={clsx("card", "bg-base-100 shadow-xl", className)}>
       {children}
     </div>
   );

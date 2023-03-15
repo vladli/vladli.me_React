@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Box from "../../../components/Box";
 import Divider from "../../../components/Divider";
-import Input from "../../../components/Input/Input";
+import Input from "../../../components/Form/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 //@ts-ignore
@@ -53,12 +53,12 @@ const Login = () => {
         <div className="hidden w-[50%] items-center justify-center md:flex">
           <img src={LOGIN_IMG} alt="Logo" className="max-h-[100%] p-14" />
         </div>
-        <Divider horizontal />
+        <Divider horizontal className="hidden md:flex" />
         <form
           className="flex w-[100%] items-center justify-center md:w-[50%]"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="w-[70%]">
+          <div>
             <Input
               labeled
               name="Email"
@@ -66,16 +66,17 @@ const Login = () => {
               autoComplete="email"
               required
               value="demo@vladli.me"
+              color={errors.Email ? "error" : "ghost"}
             />
             <p className="text-red-500">{errors.Email?.message}</p>
             <Input
-              className="mt-2"
               labeled
               name="Password"
               register={register}
               type="password"
-              value={123456}
               required
+              value={123456}
+              color={errors.Password ? "error" : "ghost"}
             />
             <p className="text-red-500">{errors.Password?.message}</p>
             <div className="mt-4 w-[100%]">

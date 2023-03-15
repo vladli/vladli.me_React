@@ -6,6 +6,7 @@ import clsx from "clsx";
 type Props = {
   items: ItemsProps;
   open?: any;
+  setMobileNav?: any;
 };
 
 type ItemsProps = {
@@ -14,10 +15,13 @@ type ItemsProps = {
   icon?: string;
 }[];
 
-const NavItem = ({ items }: Props) => {
-  const navigate = useNavigate();
+const NavItem = ({ items, setMobileNav }: Props) => {
   const isActive = useLocation().pathname;
-
+  const navigate = useNavigate();
+  const navigateTo = (link: string) => {
+    navigate(link);
+    setMobileNav(false);
+  };
   return (
     <>
       {items.map((item: any) => {
@@ -28,7 +32,7 @@ const NavItem = ({ items }: Props) => {
             key={item.name}
             whileTap={{ scale: 0.97 }}
             className={clsx(active && `bordered`)}
-            onClick={() => navigate(item.link)}
+            onClick={() => navigateTo(item.link)}
           >
             <div className="pl-8">
               {item.icon && <Icon icon={item.icon} />}

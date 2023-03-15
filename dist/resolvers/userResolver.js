@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = exports.getUser = void 0;
+exports.deleteUser = exports.getAllUsers = exports.getUser = void 0;
 const firebase_1 = __importDefault(require("../firebase/firebase"));
 const errors_1 = require("../config/errors");
 const getUser = (req, res) => {
@@ -36,3 +36,9 @@ const getAllUsers = (req, res) => {
         .catch(() => res.send(errors_1.NO_PREMESSION));
 };
 exports.getAllUsers = getAllUsers;
+const deleteUser = (req, res) => {
+    const { role, query } = req;
+    res.send("h");
+    console.log(query["uid"]);
+};
+exports.deleteUser = deleteUser;

@@ -15,9 +15,9 @@ app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 
 app.use("/api", verifyToken, routes);
 
-app.use(express.static(resolve("./", "front/build")));
+app.use(express.static(resolve("./", "front/dist")));
 app.get("/*", (req: Request, res: Response) => {
-  res.sendFile(path.resolve("./", "front/build", "index.html"));
+  res.sendFile(path.resolve("./", "front/dist", "index.html"));
 });
 
 /** Server */

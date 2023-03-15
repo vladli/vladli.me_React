@@ -9,13 +9,14 @@ import {
 } from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
 import axios from "axios";
-
+import { ToastContainer, toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
 import { useState, Fragment } from "react";
 import Pagination from "components/Pagination";
 import Button from "components/Button";
 import { Icon } from "@iconify/react";
+import Modal from "components/Modal/Modal";
 
 export const columns: ColumnDef<any, any>[] = [
   {
@@ -46,27 +47,56 @@ export const columns: ColumnDef<any, any>[] = [
     header: "Actions",
     enableSorting: false,
     cell: (props) => {
-      const uid = props.row.original.uid;
-      const actionDelete = () => {
-        axios
-          .delete(`/api/users/user`, {
-            params: { uid: uid },
-          })
-          .then((s) => console.log(s));
-      };
-      return (
-        <>
-          <Button shape="square" size="sm" color="ghost">
-            <Icon icon="material-symbols:edit" />
-          </Button>
-          <Button shape="square" size="sm" color="ghost" onClick={actionDelete}>
-            <Icon icon="material-symbols:delete-forever-outline" color="red" />
-          </Button>
-        </>
-      );
+      return <DeleteButton user={props.row.original} />;
     },
   },
 ];
+
+const DeleteButton = ({ user }: any) => {
+  const { uid, email, creationTime } = user;
+  const [modalVisible, setModalVisible] = useState(false);
+  const showModal = () => setModalVisible(!modalVisible);
+  const actionDelete = () => {
+    axios
+      .delete(`/api/users/user`, {
+        params: { uid: uid },
+      })
+      .then(() => {
+        setModalVisible(false);
+        toast.success("Complete!");
+      });
+  };
+  return (
+    <>
+      <Button shape="square" size="sm" color="ghost">
+        <Icon icon="material-symbols:edit" />
+      </Button>
+      <Button shape="square" size="sm" color="ghost" onClick={showModal}>
+        <Icon icon="material-symbols:delete-forever-outline" color="red" />
+      </Button>
+      <Modal open={modalVisible} onClickBackDrop={showModal}>
+        <label
+          onClick={showModal}
+          className="btn-sm btn-circle btn absolute right-2 top-2"
+        >
+          ✕
+        </label>
+        <Modal.Header className="font-bold">Delete User</Modal.Header>
+        <Modal.Body>
+          <p>Do you want to permanently delete user?</p>
+          <br />
+          <p>UID: {uid}</p>
+          <p>Email: {email}</p>
+        </Modal.Body>
+        <Modal.Actions>
+          <Button color="error" size="sm" onClick={actionDelete}>
+            Delete
+          </Button>
+        </Modal.Actions>
+      </Modal>
+    </>
+  );
+};
 
 const AdminUsers = () => {
   const { isLoading, isError, data } = useQuery({

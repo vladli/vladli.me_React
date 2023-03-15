@@ -2,6 +2,7 @@ import React from "react";
 import firebase, { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 type User = firebase.User | null;
 type ContextState = {
@@ -21,6 +22,7 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
     sessionStorage.removeItem("Authorization");
     auth.signOut();
     setUser(null);
+    toast.info("You have been logged out", { icon: false });
   }
 
   React.useEffect(() => {

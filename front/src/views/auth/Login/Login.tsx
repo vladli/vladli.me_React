@@ -14,6 +14,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, getErrorMessage } from "../../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { PATH_PAGE } from "../../../router/paths";
+import { toast } from "react-toastify";
 
 const schema = yup
   .object({
@@ -39,6 +40,7 @@ const Login = () => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage(null);
+        toast.success("Loged in as " + data.Email);
         navigate(PATH_PAGE.root.url, { replace: true });
       })
       .catch((error: any) => {

@@ -1,4 +1,5 @@
 @import url("nprogress/nprogress.css");
+@import url("react-toastify/dist/ReactToastify.min.css");
 
 @tailwind base;
 @tailwind components;

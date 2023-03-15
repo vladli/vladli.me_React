@@ -31,3 +31,9 @@ export const getAllUsers = (req: Request, res: Response) => {
     })
     .catch(() => res.send(NO_PREMESSION));
 };
+
+export const deleteUser = (req: Request, res: Response) => {
+  const { role, query } = req;
+  res.send("h");
+  console.log(query["uid"]);
+};

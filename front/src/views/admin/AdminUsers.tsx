@@ -14,12 +14,17 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
 import { useState, Fragment } from "react";
 import Pagination from "components/Pagination";
+import Button from "components/Button";
+import { Icon } from "@iconify/react";
 
 export const columns: ColumnDef<any, any>[] = [
   {
     accessorKey: "id",
     header: "",
     enableSorting: false,
+    cell: (props) => {
+      return <>{props.row.id}</>;
+    },
   },
   {
     accessorKey: "uid",
@@ -36,13 +41,38 @@ export const columns: ColumnDef<any, any>[] = [
     header: "Register date",
     sortDescFirst: false,
   },
+  {
+    accessorKey: "actions",
+    header: "Actions",
+    enableSorting: false,
+    cell: (props) => {
+      const uid = props.row.original.uid;
+      const actionDelete = () => {
+        axios
+          .delete(`/api/users/user`, {
+            params: { uid: uid },
+          })
+          .then((s) => console.log(s));
+      };
+      return (
+        <>
+          <Button shape="square" size="sm" color="ghost">
+            <Icon icon="material-symbols:edit" />
+          </Button>
+          <Button shape="square" size="sm" color="ghost" onClick={actionDelete}>
+            <Icon icon="material-symbols:delete-forever-outline" color="red" />
+          </Button>
+        </>
+      );
+    },
+  },
 ];
 
 const AdminUsers = () => {
   const { isLoading, isError, data } = useQuery({
     queryKey: ["admin_users"],
     queryFn: async () => {
-      const { data } = await axios("/api/users/getAllUsers");
+      const { data } = await axios.get("/api/users/getAllUsers");
       return data;
     },
   });
@@ -73,6 +103,7 @@ const AdminUsers = () => {
     setPageIndex(selectedPage);
   };
   if (isLoading || isError) return <LoadingEffect />;
+
   return (
     <>
       <span className="mb-4 flex justify-center rounded-full bg-primary font-bold">
@@ -104,10 +135,7 @@ const AdminUsers = () => {
             <Table.Row key={row.id}>
               {row.getVisibleCells().map((cell) => (
                 <Fragment key={cell.id}>
-                  <span>{i + 1}</span>
-                  <span>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </span>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </Fragment>
               ))}
             </Table.Row>

@@ -6,6 +6,7 @@ const TestPage = () => {
   return (
     <>
       <PageTitle title="Test Page" />
+      <LoadingEffect />
       <div className="h-full">
         <Table>
           <Table.Head>

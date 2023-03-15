@@ -1,5 +1,4 @@
 import { Updater } from "@tanstack/react-table";
-import React from "react";
 import ReactPaginate from "react-paginate";
 
 type Props = {

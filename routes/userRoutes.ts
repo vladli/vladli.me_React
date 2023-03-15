@@ -1,9 +1,11 @@
 import { Router } from "express";
-import { getUser, getAllUsers } from "../resolvers/userResolver";
+import { getUser, getAllUsers, deleteUser } from "../resolvers/userResolver";
 
 const router = Router();
 
-router.get("/getUser", getUser);
+router.get("/user", getUser);
+router.delete("/user", deleteUser);
+
 router.get("/getAllUsers", getAllUsers);
 
 export default router;

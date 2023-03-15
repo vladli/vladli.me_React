@@ -12,7 +12,7 @@ export default function AdminFindUser() {
     queryKey: ["admin_getUser"],
     enabled: false,
     queryFn: async () => {
-      const { data } = await axios.get("/api/users/getUser", {
+      const { data } = await axios.get("/api/users/user", {
         params: { uid: uid },
       });
       return data;

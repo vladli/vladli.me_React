@@ -1,25 +1,28 @@
 import clsx from "clsx";
-import styled from "styled-components";
+import { forwardRef } from "react";
 
 //@ts-ignore
 import LogoImage from "../assets/logo.svg";
 
-const Image = styled.img`
-  width: 100%;
-  height: ${(props) => props.height}rem;
-`;
-
-type Props = {
-  height?: number;
+type Props = React.HtmlHTMLAttributes<HTMLImageElement> & {
+  size?: number;
   className?: string;
 };
 
-const Logo = ({ height = 4, className }: Props) => {
-  return (
-    <div className={clsx("select-none", className)}>
-      <Image src={LogoImage} alt="Logo" height={height} />
-    </div>
-  );
-};
+const Logo = forwardRef<HTMLImageElement, Props>(
+  ({ size = 4, className }, ref) => {
+    return (
+      <div className={clsx("select-none", className)}>
+        <img
+          ref={ref}
+          className="w-full"
+          style={{ height: size + "rem" }}
+          src={LogoImage}
+          alt="Logo"
+        />
+      </div>
+    );
+  }
+);
 
 export default Logo;

@@ -1,5 +1,3 @@
-import { Icon } from "@iconify/react";
-
 const Footer = () => {
   return (
     <footer className="footer footer-center bg-primary p-10 text-primary-content transition-all duration-300 ease-in-out">

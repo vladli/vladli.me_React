@@ -1,5 +1,7 @@
-import React from "react";
+import clsx from "clsx";
+import { forwardRef, useState } from "react";
 import { BlurhashCanvas } from "react-blurhash";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
   image: string;
@@ -7,36 +9,37 @@ type Props = {
   width?: number;
 } & React.ImgHTMLAttributes<HTMLImageElement>;
 
-const Image = ({
-  image,
-  blured,
-  height,
-  width,
-  loading = "lazy",
-  ...rest
-}: Props) => {
-  const [loaded, setloaded] = React.useState(true);
-  return (
-    <div className="select-none" style={{ height: height, width: width }}>
-      {loaded && blured && (
-        <BlurhashCanvas
-          hash={blured}
-          className={`h-full w-full rounded-t-lg ${
-            loaded ? "hidden" : "visible"
-          }`}
+const Image = forwardRef<HTMLImageElement, Props>(
+  ({ image, blured, height, width, loading = "lazy", ...rest }) => {
+    const [loaded, setloaded] = useState(true);
+    return (
+      <div className="select-none" style={{ height: height, width: width }}>
+        {loaded && blured && (
+          <BlurhashCanvas
+            hash={blured}
+            className={twMerge(
+              "h-full w-full rounded-t-lg",
+              clsx({
+                hidden: !loaded,
+              })
+            )}
+          />
+        )}
+        <img
+          src={image}
+          className={twMerge(
+            "h-full w-full rounded-t-lg",
+            clsx({
+              hidden: !loaded,
+            })
+          )}
+          alt=""
+          {...rest}
+          onLoad={() => setloaded(false)}
         />
-      )}
-      <img
-        src={image}
-        className={`h-full w-full rounded-t-lg ${
-          !loaded ? "hidden" : "visible"
-        }`}
-        alt=""
-        {...rest}
-        onLoad={() => setloaded(false)}
-      />
-    </div>
-  );
-};
+      </div>
+    );
+  }
+);
 
 export default Image;

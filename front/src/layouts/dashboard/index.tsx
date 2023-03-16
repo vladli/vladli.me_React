@@ -1,15 +1,15 @@
 import { useLocation } from "react-router-dom";
-
+import { useState } from "react";
 import { AnimatePresence, m } from "framer-motion";
+
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Header from "./Header";
 import Footer from "./Footer";
 import AnimatedOutlet from "../../components/AnimatedOutlet";
-import React from "react";
 
 const DashboardLayout = () => {
   const location = useLocation();
-  const [mobileNavStatus, setMobileNav] = React.useState(false);
+  const [mobileNavStatus, setMobileNav] = useState(false);
 
   return (
     <div className="min-w-fit">

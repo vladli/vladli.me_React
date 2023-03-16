@@ -1,9 +1,9 @@
-import React from "react";
+import { useState } from "react";
 import { useOutlet } from "react-router-dom";
 
-const AnimatedOutlet: React.FC = () => {
+const AnimatedOutlet = () => {
   const o = useOutlet();
-  const [outlet] = React.useState(o);
+  const [outlet] = useState(o);
 
   return outlet;
 };

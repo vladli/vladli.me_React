@@ -5,7 +5,7 @@ import { useAuth } from "../../context/AuthContext";
 const Sidebar = ({ setMobileNav }: any) => {
   const { isAuthenticated, user, role } = useAuth();
   return (
-    <ul className="menu w-56 bg-base-100">
+    <ul className="menu w-56 bg-base-100 font-semibold">
       {MenuConfig(role).map<any>((menu, index) => (
         <Item key={index} items={menu} {...{ setMobileNav }} />
       ))}

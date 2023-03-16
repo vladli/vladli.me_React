@@ -1,4 +1,3 @@
-import React from "react";
 import PageTitle from "../../components/PageTitle";
 import { PATH_ADMIN } from "../../router/paths";
 import AdminFindUser from "../../views/admin/AdminFindUser";

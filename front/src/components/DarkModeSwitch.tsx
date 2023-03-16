@@ -1,7 +1,7 @@
-import { Icon } from "@iconify/react";
 import Swap from "./Swap";
 import { useTheme } from "context/ThemeContext";
 import { useEffect, useState } from "react";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const DarkModeSwitch = () => {
   const { theme, setTheme } = useTheme();
@@ -14,8 +14,8 @@ const DarkModeSwitch = () => {
   }, [theme]);
   return (
     <Swap
-      onElement={<Icon icon="material-symbols:light-mode" width={32} />}
-      offElement={<Icon icon="material-symbols:dark-mode" width={32} />}
+      onElement={<MdLightMode size={32} />}
+      offElement={<MdDarkMode size={32} />}
       rotate
       active={darkSide}
       action={toggleDarkMode}

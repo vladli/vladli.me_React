@@ -1,10 +1,9 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Icon } from "@iconify/react";
 import { AnimatePresence, m } from "framer-motion";
-
-import ItemChild from "./ItemChild";
 import clsx from "clsx";
+import ItemChild from "./ItemChild";
+import { MdArrowForwardIos } from "react-icons/md";
 
 type Props = {
   items: ItemsProps;
@@ -14,15 +13,15 @@ type Props = {
 type ItemsProps = {
   name: string;
   link: string;
-  icon?: string;
-  submenu?: { name: string; link: string; icon?: string }[];
+  icon?: React.ReactElement;
+  submenu?: { name: string; link: string; icon?: React.ReactElement }[];
 };
 
 const NavItem = ({ items, setMobileNav }: Props) => {
   const { name, link, icon, submenu } = items;
   const isActive: boolean = useLocation().pathname === link;
   const location = useLocation().pathname;
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
   const navigateTo = (link: string) => {
@@ -41,7 +40,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
     },
     closed: { opacity: 0, y: -5, transition: { duration: 0.2 } },
   };
-  React.useEffect(() => {
+  useEffect(() => {
     if (submenu) {
       submenu.forEach((item: ItemsProps) => {
         if (item.link === location) {
@@ -60,7 +59,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
           onClick={() => navigateTo(link)}
         >
           <div>
-            {icon && <Icon icon={icon} />}
+            {icon && icon}
             {name}
           </div>
         </li>
@@ -73,7 +72,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
                 animate={open ? "open" : "closed"}
                 transition={{ duration: 0.2 }}
               >
-                <Icon icon="material-symbols:arrow-forward-ios-rounded" />
+                <MdArrowForwardIos />
               </m.div>
               {name}
             </div>

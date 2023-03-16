@@ -1,9 +1,9 @@
-import React from "react";
+import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 type ModalHeaderProps = React.HTMLAttributes<HTMLDivElement>;
 
-const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
+const ModalHeader = forwardRef<HTMLDivElement, ModalHeaderProps>(
   ({ children, className, ...props }, ref) => {
     const classes = twMerge("w-full mb-8 text-xl", className);
     return (

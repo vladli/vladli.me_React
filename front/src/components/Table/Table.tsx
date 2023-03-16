@@ -1,10 +1,11 @@
 import { forwardRef } from "react";
 import type { ColumnDef } from "@tanstack/react-table";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
+
 import TableHead from "./TableHead";
 import TableBody from "./TableBody";
 import TableRow from "./TableRow";
-import { twMerge } from "tailwind-merge";
-import clsx from "clsx";
 
 type Props = React.TableHTMLAttributes<HTMLTableElement> & {
   data?: any[];

@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { Icon } from "@iconify/react";
 import { m } from "framer-motion";
 import clsx from "clsx";
 
@@ -12,7 +11,7 @@ type Props = {
 type ItemsProps = {
   name: string;
   link?: string;
-  icon?: string;
+  icon?: React.ReactElement;
 }[];
 
 const NavItem = ({ items, setMobileNav }: Props) => {
@@ -35,7 +34,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
             onClick={() => navigateTo(item.link)}
           >
             <div className="pl-8">
-              {item.icon && <Icon icon={item.icon} />}
+              {item.icon && item.icon}
               {item.name}
             </div>
           </m.li>

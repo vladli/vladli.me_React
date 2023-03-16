@@ -1,4 +1,4 @@
-import React from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import firebase, { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import axios from "axios";
@@ -11,12 +11,12 @@ type ContextState = {
   signOut: () => void;
 };
 
-const AuthContext = React.createContext<ContextState | undefined>(undefined);
+const AuthContext = createContext<ContextState | undefined>(undefined);
 
 const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
-  const [user, setUser] = React.useState<User>(null);
-  const [role, setRole] = React.useState("");
-  const [loading, setLoading] = React.useState(true);
+  const [user, setUser] = useState<User>(null);
+  const [role, setRole] = useState("");
+  const [loading, setLoading] = useState(true);
 
   function signOut() {
     sessionStorage.removeItem("Authorization");
@@ -25,7 +25,7 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
     toast.info("You have been logged out", { icon: false });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     const getToken = () => {
       if (!auth.currentUser) setRole("");
       auth.currentUser?.getIdTokenResult().then((token) => {
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
 };
 
 const useAuth = () => {
-  const context = React.useContext(AuthContext);
+  const context = useContext(AuthContext);
   if (context === undefined)
     throw new Error("Auth context must be use inside AuthProvider");
 

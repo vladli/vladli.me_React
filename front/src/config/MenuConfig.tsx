@@ -1,12 +1,17 @@
 import { PATH_ADMIN, PATH_DASHBOARD, PATH_PAGE } from "../router/paths";
 import { ROLES } from "./userRoles";
+//icons
+import { MdAutoAwesomeMotion, MdDashboard } from "react-icons/md";
+import { HiUserGroup } from "react-icons/hi";
+import { RiUserSearchFill } from "react-icons/ri";
+import { SiTestcafe } from "react-icons/si";
 
 function getMenu(userRole: string) {
   const MenuItems = [
     {
       name: "Main",
       link: PATH_PAGE.root.url,
-      icon: "material-symbols:pages-outline-sharp",
+      icon: <MdAutoAwesomeMotion />,
     },
     {
       name: "Dashboard",
@@ -16,7 +21,7 @@ function getMenu(userRole: string) {
         {
           name: "Dashboard",
           link: PATH_DASHBOARD.root.url,
-          icon: "material-symbols:dashboard",
+          icon: <MdDashboard />,
         },
       ],
     },
@@ -30,12 +35,12 @@ function getMenu(userRole: string) {
               {
                 name: "Users",
                 link: PATH_ADMIN.users.url,
-                icon: "mdi:users-group",
+                icon: <HiUserGroup />,
               },
               {
                 name: "Find User",
                 link: PATH_ADMIN.findUser.url,
-                icon: "mdi:users-group",
+                icon: <RiUserSearchFill />,
               },
             ],
           },
@@ -44,7 +49,7 @@ function getMenu(userRole: string) {
     {
       name: "TestPage",
       link: PATH_DASHBOARD.root.url + "/test",
-      icon: "material-symbols:engineering-outline",
+      icon: <SiTestcafe />,
     },
   ].filter(Boolean);
   return MenuItems;

@@ -1,4 +1,6 @@
-import React from "react";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Box from "../../../components/Box";
 import Divider from "../../../components/Divider";
@@ -12,9 +14,8 @@ import Button from "../../../components/Button";
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth, getErrorMessage } from "../../../config/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { PATH_PAGE } from "../../../router/paths";
-import { toast } from "react-toastify";
 
 const schema = yup
   .object({
@@ -30,7 +31,7 @@ const Login = () => {
     formState: { errors, isValid },
     handleSubmit,
   } = useForm<FormData>({ mode: "onChange", resolver: yupResolver(schema) });
-  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const onSubmit = (data: FormData) => {

@@ -9,14 +9,16 @@ import {
 } from "@tanstack/react-table";
 import Table from "../../components/Table/Table";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../components/LoadingEffect";
 import { useState, Fragment } from "react";
 import Pagination from "components/Pagination";
 import Button from "components/Button";
-import { Icon } from "@iconify/react";
 import Modal from "components/Modal/Modal";
+
+//icons
+import { MdEdit, MdDeleteForever } from "react-icons/md";
 
 export const columns: ColumnDef<any, any>[] = [
   {
@@ -69,10 +71,10 @@ const DeleteButton = ({ user }: any) => {
   return (
     <>
       <Button shape="square" size="sm" color="ghost">
-        <Icon icon="material-symbols:edit" />
+        <MdEdit size={20} />
       </Button>
       <Button shape="square" size="sm" color="ghost" onClick={showModal}>
-        <Icon icon="material-symbols:delete-forever-outline" color="red" />
+        <MdDeleteForever color="red" size={20} />
       </Button>
       <Modal open={modalVisible} onClickBackDrop={showModal}>
         <label

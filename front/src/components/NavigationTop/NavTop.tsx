@@ -1,13 +1,13 @@
-import { Icon } from "@iconify/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
-import React from "react";
+import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import TopMenu from "../../config/TopMenu";
 import NavTopChild from "./NavTopChild";
 
 const NavigationTop = ({ className }: { className?: string }) => {
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <nav
       className={clsx(
@@ -29,7 +29,7 @@ const NavigationTop = ({ className }: { className?: string }) => {
                 animate={open ? "open" : "closed"}
                 transition={{ duration: 0.2 }}
               >
-                <Icon icon="material-symbols:arrow-forward-ios-rounded" />
+                ICON
               </m.div>
             </div>
             {open && <NavTopChild items={item.submenu} />}

@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
 
@@ -21,7 +21,7 @@ const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
 const AdminFindUser = lazy(() => import("../pages/admin/AdminFindUserPage"));
 
 const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
-  return <React.Suspense fallback={<ProgressBar />}>{children}</React.Suspense>;
+  return <Suspense fallback={<ProgressBar />}>{children}</Suspense>;
 };
 
 const router = createBrowserRouter([

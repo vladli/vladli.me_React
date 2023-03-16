@@ -1,12 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
-
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
-import { Icon } from "@iconify/react";
 import Swap from "../../components/Swap";
+
+//icons
+import { MdClose, MdMenu } from "react-icons/md";
+import { CgLogIn, CgLogOut } from "react-icons/cg";
 
 type Props = {
   mobileNavStatus: boolean;
@@ -22,12 +24,8 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
       <div className="navbar-start">
         <div className="flex-none cursor-pointer lg:hidden">
           <Swap
-            onElement={
-              <Icon icon="material-symbols:close-rounded" width={32} />
-            }
-            offElement={
-              <Icon icon="material-symbols:menu-rounded" width={32} />
-            }
+            onElement={<MdClose size={32} />}
+            offElement={<MdMenu size={32} />}
             rotate
             active={mobileNavStatus}
             action={() => setMobileNav(!mobileNavStatus)}
@@ -43,13 +41,13 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
       <div className="navbar-end">
         {!isAuthenticated ? (
           <Button
-            leftIcon="entypo:login"
+            leftIcon={<CgLogIn size={20} />}
             onClick={() => navigate(PATH_AUTH.login.url)}
           >
             Log In
           </Button>
         ) : (
-          <Button leftIcon="entypo:login" onClick={() => signOut()}>
+          <Button leftIcon={<CgLogOut size={20} />} onClick={() => signOut()}>
             Log Out
           </Button>
         )}

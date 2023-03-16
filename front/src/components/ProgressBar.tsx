@@ -1,12 +1,12 @@
-import React from "react";
 import NProgress from "nprogress";
+import { useEffect, useMemo } from "react";
 
 const ProgressBar = () => {
   NProgress.configure({ showSpinner: false });
-  React.useMemo(() => {
+  useMemo(() => {
     NProgress.start();
   }, []);
-  React.useEffect(() => {
+  useEffect(() => {
     return () => {
       NProgress.done();
     };

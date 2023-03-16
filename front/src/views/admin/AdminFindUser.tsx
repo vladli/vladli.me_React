@@ -1,13 +1,13 @@
-import { Icon } from "@iconify/react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import React from "react";
+import { useEffect, useRef, useState } from "react";
+import { MdSearch } from "react-icons/md";
 import Button from "../../components/Button";
 import Input from "../../components/Form/Input";
 import LoadingEffect from "../../components/LoadingEffect";
 
 export default function AdminFindUser() {
-  const [uid, setUid] = React.useState<string>("XhYt4D0ZGlhuXryslrPDly40LJB3");
+  const [uid, setUid] = useState<string>("XhYt4D0ZGlhuXryslrPDly40LJB3");
   const { isLoading, isError, data, refetch } = useQuery({
     queryKey: ["admin_getUser"],
     enabled: false,
@@ -18,8 +18,8 @@ export default function AdminFindUser() {
       return data;
     },
   });
-  const inputReference = React.useRef<HTMLInputElement>(null);
-  React.useEffect(() => {
+  const inputReference = useRef<HTMLInputElement>(null);
+  useEffect(() => {
     inputReference.current?.focus();
   }, []);
 
@@ -32,12 +32,8 @@ export default function AdminFindUser() {
           value={uid}
           onChange={(e) => setUid(e.target.value)}
         />
-        <Button
-          className="ml-2"
-          leftIcon="material-symbols:search-sharp"
-          onClick={() => refetch()}
-        >
-          Search
+        <Button className="ml-2" onClick={() => refetch()}>
+          <MdSearch />
         </Button>
       </div>
       <ul>

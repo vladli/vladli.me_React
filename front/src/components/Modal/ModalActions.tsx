@@ -1,9 +1,9 @@
-import React from "react";
+import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
 type ModalActionsProps = React.HTMLAttributes<HTMLDivElement>;
 
-const ModalActions = React.forwardRef<HTMLDivElement, ModalActionsProps>(
+const ModalActions = forwardRef<HTMLDivElement, ModalActionsProps>(
   ({ children, className, ...props }, ref) => {
     const classes = twMerge("modal-action", className);
     return (

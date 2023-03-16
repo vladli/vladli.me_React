@@ -1,8 +1,14 @@
 import { Router } from "express";
-import { getUser, getAllUsers, deleteUser } from "../resolvers/userResolver";
+import {
+  createUser,
+  getUser,
+  deleteUser,
+  getAllUsers,
+} from "../resolvers/userResolver";
 
 const router = Router();
 
+router.post("/user", createUser);
 router.get("/user", getUser);
 router.delete("/user", deleteUser);
 

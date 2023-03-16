@@ -15,6 +15,7 @@ export const PATH_AUTH = {
 };
 
 export const PATH_ADMIN = {
+  addUser: { url: path(ROOT_ADMIN, "/add-user"), title: "Add user" },
   users: { url: path(ROOT_ADMIN, "/users"), title: "All users" },
   findUser: { url: path(ROOT_ADMIN, "/find-user"), title: "Find user" },
 };

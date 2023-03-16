@@ -11,14 +11,15 @@ import RoleGuard from "../guards/RoleGuard";
 import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
 import { ROLES } from "../config/userRoles";
 
-const MainPage = lazy(() => import("../pages/main/MainPage"));
-const Dashboard = lazy(() => import("../pages/dashboard/DashboardPage"));
-const LoginPage = lazy(() => import("../pages/auth/LoginPage"));
+const MainPage = lazy(() => import("../pages/main/Main"));
+const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
+const LoginPage = lazy(() => import("../pages/auth/Login"));
 
 const TestPage = lazy(() => import("../pages/TestPage"));
 
-const AdminUsersPage = lazy(() => import("../pages/admin/AdminUsersPage"));
-const AdminFindUser = lazy(() => import("../pages/admin/AdminFindUserPage"));
+const AdminAllUsers = lazy(() => import("../pages/admin/AllUsers"));
+const AdminFindUser = lazy(() => import("../pages/admin/FindUser"));
+const AdminAddUser = lazy(() => import("pages/admin/AddUser"));
 
 const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
   return <Suspense fallback={<ProgressBar />}>{children}</Suspense>;
@@ -84,7 +85,7 @@ const router = createBrowserRouter([
         element: (
           <RoleGuard roles={[ROLES.Admin]} redirect>
             <SuspenseLoading>
-              <AdminUsersPage />
+              <AdminAllUsers />
             </SuspenseLoading>
           </RoleGuard>
         ),
@@ -95,6 +96,16 @@ const router = createBrowserRouter([
           <RoleGuard roles={[ROLES.Admin]} redirect>
             <SuspenseLoading>
               <AdminFindUser />
+            </SuspenseLoading>
+          </RoleGuard>
+        ),
+      },
+      {
+        path: PATH_ADMIN.addUser.url,
+        element: (
+          <RoleGuard roles={[ROLES.Admin]} redirect>
+            <SuspenseLoading>
+              <AdminAddUser />
             </SuspenseLoading>
           </RoleGuard>
         ),

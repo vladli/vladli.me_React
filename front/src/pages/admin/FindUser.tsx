@@ -1,12 +1,12 @@
 import PageTitle from "../../components/PageTitle";
 import { PATH_ADMIN } from "../../router/paths";
-import AdminFindUser from "../../views/admin/AdminFindUser";
+import Main from "../../views/admin/FindUser/Main";
 
-export default function AdminFindUserPage() {
+export default function FindUser() {
   return (
     <>
       <PageTitle title={PATH_ADMIN.findUser.title} />
-      <AdminFindUser />
+      <Main />
     </>
   );
 }

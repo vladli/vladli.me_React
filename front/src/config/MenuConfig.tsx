@@ -5,6 +5,7 @@ import { MdAutoAwesomeMotion, MdDashboard } from "react-icons/md";
 import { HiUserGroup } from "react-icons/hi";
 import { RiUserSearchFill } from "react-icons/ri";
 import { SiTestcafe } from "react-icons/si";
+import { FaUserPlus } from "react-icons/fa";
 
 function getMenu(userRole: string) {
   const MenuItems = [
@@ -41,6 +42,11 @@ function getMenu(userRole: string) {
                 name: "Find User",
                 link: PATH_ADMIN.findUser.url,
                 icon: <RiUserSearchFill />,
+              },
+              {
+                name: "Add User",
+                link: PATH_ADMIN.addUser.url,
+                icon: <FaUserPlus />,
               },
             ],
           },

@@ -2,9 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { MdSearch } from "react-icons/md";
-import Button from "../../components/Button";
-import Input from "../../components/Form/Input";
-import LoadingEffect from "../../components/LoadingEffect";
+import Button from "../../../components/Button";
+import Input from "../../../components/Form/Input";
 
 export default function AdminFindUser() {
   const [uid, setUid] = useState<string>("XhYt4D0ZGlhuXryslrPDly40LJB3");

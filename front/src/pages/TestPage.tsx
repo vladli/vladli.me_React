@@ -10,14 +10,7 @@ const TestPage = () => {
   return (
     <>
       <PageTitle title="Test Page" />
-      <Button onClick={() => setVisible(!visible)}>asd</Button>
-      <Modal open={visible} onClickBackDrop={() => setVisible(false)}>
-        <Modal.Header>Good</Modal.Header>
-        <Modal.Body>Bad</Modal.Body>
-        <Modal.Actions>
-          <Button>Good</Button>
-        </Modal.Actions>
-      </Modal>
+      <LoadingEffect />
     </>
   );
 };

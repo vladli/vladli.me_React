@@ -1,16 +1,16 @@
 import PageTitle from "../../components/PageTitle";
 import { PATH_ADMIN } from "../../router/paths";
-import AdminUsers from "../../views/admin/AdminUsers";
+import Main from "views/admin/AddUser/Main";
 
-function AdminUsersPage() {
+export default function AddUser() {
   return (
     <>
-      <PageTitle title={PATH_ADMIN.users.title} />
+      <PageTitle title={PATH_ADMIN.addUser.title} />
       <div className="flex h-full flex-col flex-wrap">
-        <AdminUsers />
+        <>
+          <Main />
+        </>
       </div>
     </>
   );
 }
-
-export default AdminUsersPage;

@@ -1,15 +1,29 @@
 import Item from "./Item";
 import MenuConfig from "../../config/MenuConfig";
 import { useAuth } from "../../context/AuthContext";
+import Logo from "components/Logo";
+import { Link } from "react-router-dom";
+import { PATH_DASHBOARD } from "router/paths";
+import DarkModeSwitch from "components/DarkModeSwitch";
 
 const Sidebar = ({ setMobileNav }: any) => {
   const { isAuthenticated, user, role } = useAuth();
   return (
-    <ul className="menu w-56 bg-base-100 font-semibold">
-      {MenuConfig(role).map<any>((menu, index) => (
-        <Item key={index} items={menu} {...{ setMobileNav }} />
-      ))}
-    </ul>
+    <div className="menu w-56 bg-base-100">
+      <div className="hidden p-2 lg:flex">
+        <div className="flex-none">
+          <Link to={PATH_DASHBOARD.root.url}>
+            <Logo />
+          </Link>
+        </div>
+        <DarkModeSwitch />
+      </div>
+      <ul className="font-semibold">
+        {MenuConfig(role).map<any>((menu, index) => (
+          <Item key={index} items={menu} {...{ setMobileNav }} />
+        ))}
+      </ul>
+    </div>
   );
 };
 

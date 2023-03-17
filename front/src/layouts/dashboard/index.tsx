@@ -4,7 +4,6 @@ import { AnimatePresence, m } from "framer-motion";
 
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Header from "./Header";
-import Footer from "./Footer";
 import AnimatedOutlet from "../../components/AnimatedOutlet";
 
 const DashboardLayout = () => {
@@ -12,8 +11,7 @@ const DashboardLayout = () => {
   const [mobileNavStatus, setMobileNav] = useState(false);
 
   return (
-    <div className="min-w-fit">
-      <Header {...{ mobileNavStatus, setMobileNav }} />
+    <>
       <div className="drawer-mobile drawer">
         <input
           type="checkbox"
@@ -21,19 +19,21 @@ const DashboardLayout = () => {
           className="drawer-toggle"
           readOnly
         />
-        <div className="drawer-content h-full bg-base-300 p-4 ">
+        <div className="drawer-content bg-base-300">
+          <Header {...{ mobileNavStatus, setMobileNav }} />
           <AnimatePresence mode="wait">
             <m.div
               key={location.pathname}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="h-full"
+              className="p-4"
             >
               <AnimatedOutlet />
             </m.div>
           </AnimatePresence>
         </div>
+
         <div className="drawer-side">
           <label
             className="drawer-overlay"
@@ -42,8 +42,7 @@ const DashboardLayout = () => {
           <Sidebar {...{ setMobileNav }} />
         </div>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -11,7 +11,7 @@ const images = [
 export default function Dashboard() {
   return (
     <div className="flex flex-wrap justify-center gap-4 md:justify-around">
-      {Array.from(Array(15), (e, i) => {
+      {Array.from(Array(4), (e, i) => {
         return (
           <Card key={i} className="max-w-xs">
             <Card.Image image={images[0].scr} blured={images[0].blurUrl} />
@@ -20,9 +20,7 @@ export default function Dashboard() {
               <p>
                 The longest word in any of the major English language
                 dictionaries is pneumonoultramicrosc opicsilicovolcanoconiosis,
-                a word that refers to a lung disease contracted from the
-                inhalation of very fine silica particles, specifically from a
-                volcano; medically, it is the same as silicosis.
+                .
               </p>
               <Card.Action>
                 <Button>Click</Button>

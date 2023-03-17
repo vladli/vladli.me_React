@@ -8,7 +8,7 @@ import Input from "../../../components/Form/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 //@ts-ignore
-import LOGIN_IMG from "../../../assets/login.svg";
+import { ReactComponent as LOGIN_IMG } from "assets/login.svg";
 import Button from "../../../components/Button";
 
 //FIREBASE
@@ -52,7 +52,7 @@ const Login = () => {
     <Box className="w-[80%] 2xl:w-[40%]">
       <div className="flex h-[50vh]">
         <div className="hidden w-[50%] items-center justify-center md:flex">
-          <img src={LOGIN_IMG} alt="Logo" className="max-h-[100%] p-14" />
+          <LOGIN_IMG className="max-h-[100%] fill-primary p-6" />
         </div>
         <Divider horizontal className="hidden md:flex" />
         <form

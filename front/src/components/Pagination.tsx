@@ -1,7 +1,9 @@
 import { Updater } from "@tanstack/react-table";
 import ReactPaginate from "react-paginate";
+import { twMerge } from "tailwind-merge";
 
 type Props = {
+  className?: string;
   pageCount: number;
   onPageChange: any;
   state: any;
@@ -9,6 +11,7 @@ type Props = {
 };
 
 export default function Pagination({
+  className,
   state,
   pageCount,
   onPageChange,
@@ -16,9 +19,9 @@ export default function Pagination({
 }: Props) {
   const linkClasses =
     "flex flex-1 h-full justify-center items-center m-[-1rem]";
-
+  const classes = twMerge("mt-2 flex items-center justify-center", className);
   return (
-    <div className="mt-2 flex items-center justify-center">
+    <div className={classes}>
       <ReactPaginate
         pageCount={pageCount}
         onPageChange={onPageChange}

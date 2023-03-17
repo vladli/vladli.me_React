@@ -85,10 +85,10 @@ const Main = () => {
   if (isLoading || isError) return <LoadingEffect />;
 
   return (
-    <div className="p-2">
-      <span className="mb-4 flex justify-center rounded-full bg-primary font-bold">
+    <div className="overflow-x-auto p-2">
+      <div className="sticky left-0 rounded-md bg-primary text-center font-bold">
         Google Firebase Authentication
-      </span>
+      </div>
       <Table className="w-full">
         <Table.Head>
           {getFlatHeaders().map((header) => (
@@ -123,6 +123,7 @@ const Main = () => {
         </Table.Body>
       </Table>
       <Pagination
+        className="sticky left-0"
         state={getState()}
         pageCount={getPageCount()}
         onPageChange={handlePageClick}

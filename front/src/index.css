@@ -9,3 +9,6 @@
   @apply bg-primary;
   height: 3px;
 }
+#nprogress .peg {
+  box-shadow: none;
+}

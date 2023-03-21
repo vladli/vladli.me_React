@@ -1,0 +1,1 @@
+import{r as e,d as a,F as s,j as t}from"./index-44a61d74.js";import{L as r}from"./LoadingEffect-968a7c0a.js";import{P as o}from"./PageTitle-ec6a2320.js";const g=()=>(e.useState(!1),a(s,{children:[t(o,{title:"Test Page"}),t(r,{})]}));export{g as default};

@@ -6,7 +6,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "node_modules/daisyui/dist/**/*.js",
   ],
-
+  safelist: [
+    {
+      pattern: /(bg|ring)-/
+    },
+  ],
   plugins: [require("daisyui")],
   daisyui: {
     themes: ["cmyk", "halloween"],

@@ -10,7 +10,7 @@ const images = [
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-wrap justify-center gap-4 md:justify-around">
+    <div className="p-4 flex flex-wrap justify-center gap-4 md:justify-around">
       {Array.from(Array(4), (e, i) => {
         return (
           <Card key={i} className="max-w-xs">

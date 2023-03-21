@@ -15,7 +15,7 @@ function Main({}: Props) {
       .then(() => toast.info("Complete"));
   };
   return (
-    <div>
+    <div className="p-4">
       <Button onClick={handleClick}>Create random user</Button>
     </div>
   );

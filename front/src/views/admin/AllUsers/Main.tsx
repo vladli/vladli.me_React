@@ -14,6 +14,8 @@ import LoadingEffect from "../../../components/LoadingEffect";
 import { useState, Fragment } from "react";
 import Pagination from "components/Pagination";
 import UserActions from "./UserActions";
+import Indicator from "components/Indicator";
+import Badge from "components/Badge";
 
 const Main = () => {
   const columns: ColumnDef<any, any>[] = [
@@ -34,6 +36,21 @@ const Main = () => {
       accessorKey: "email",
       header: "Email",
       sortDescFirst: false,
+      cell: (props) => {
+        const role = props.row.original.role;
+
+        return (
+          <>
+            {role === "admin" ? (
+              <Indicator item={<Badge color="error">Admin</Badge>}>
+                <span className="pt-1">{props.getValue()}</span>
+              </Indicator>
+            ) : (
+              <>{props.getValue()}</>
+            )}
+          </>
+        );
+      },
     },
     {
       accessorKey: "creationTime",
@@ -85,7 +102,7 @@ const Main = () => {
   if (isLoading || isError) return <LoadingEffect />;
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto p-4">
       <div className="sticky left-0 rounded-md bg-primary text-center font-bold">
         Google Firebase Authentication
       </div>

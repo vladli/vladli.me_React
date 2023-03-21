@@ -44,6 +44,7 @@ export const deleteUser = (req: Request, res: Response) => {
 export const getAllUsers = (req: Request, res: Response) => {
   const { role } = req;
   if (role !== "admin") return res.status(403).send(NO_PREMESSION);
+
   admin
     .auth()
     .listUsers()
@@ -54,6 +55,7 @@ export const getAllUsers = (req: Request, res: Response) => {
           uid: user.uid,
           email: user.email,
           creationTime: user.metadata.creationTime,
+          role: user.customClaims?.role,
         })
       );
       res.send(userList);

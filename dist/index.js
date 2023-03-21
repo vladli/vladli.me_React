@@ -43,7 +43,7 @@ app.get("/*", (req, res) => {
     res.sendFile(path_1.default.resolve("./", "front/dist", "index.html"));
 });
 /** Server */
-const PORT = process.env.PORT ?? 5000;
+const PORT = process.env.PORT ?? 4000;
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 mongoose_1.default.set("strictQuery", true);
 mongoose_1.default

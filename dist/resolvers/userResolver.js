@@ -61,6 +61,7 @@ const getAllUsers = (req, res) => {
             uid: user.uid,
             email: user.email,
             creationTime: user.metadata.creationTime,
+            role: user.customClaims?.role,
         }));
         res.send(userList);
     })

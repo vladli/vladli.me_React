@@ -13,13 +13,14 @@ const DarkModeSwitch = () => {
     setDarkSide(theme === "cmyk" ? false : true);
   }, [theme]);
   return (
-    <Swap
-      onElement={<MdLightMode size={32} />}
-      offElement={<MdDarkMode size={32} />}
-      rotate
-      active={darkSide}
-      action={toggleDarkMode}
-    />
+    <div className="btn-ghost btn" onClick={toggleDarkMode}>
+      <Swap
+        onElement={<MdLightMode size={32} />}
+        offElement={<MdDarkMode size={32} />}
+        rotate
+        active={darkSide}
+      />
+    </div>
   );
 };
 

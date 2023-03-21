@@ -24,7 +24,7 @@ export default function AdminFindUser() {
 
   return (
     <>
-      <div className="flex place-items-center">
+      <div className="flex place-items-center p-4">
         <Input
           ref={inputReference}
           name="uid"

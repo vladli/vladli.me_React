@@ -9,7 +9,7 @@ const ThemeContext = createContext<ContextState | undefined>(undefined);
 
 const ThemeProvider = ({ children }: { children?: React.ReactNode }) => {
   const [theme, setTheme] = useState(localStorage.theme);
-  const colorTheme = theme === "halloween" ? "cmyk" : "halloween";
+  const colorTheme = theme === "halloween" ? "winter" : "halloween";
 
   useEffect(() => {
     const root = window.document.documentElement;

@@ -38,7 +38,7 @@ export default function Pagination({
         nextLabel={">"}
       />
       <select
-        className="select ml-2 w-28"
+        className="select ml-2"
         value={state.pagination.pageSize}
         onChange={(e) => {
           setPageSize(Number(e.target.value));

@@ -8,12 +8,12 @@ module.exports = {
   ],
   safelist: [
     {
-      pattern: /(bg|ring)-/
+      pattern: /(bg|ring)-/,
     },
   ],
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["cmyk", "halloween"],
+    themes: ["winter", "halloween"],
     darkTheme: "halloween",
   },
 };

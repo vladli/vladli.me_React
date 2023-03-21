@@ -6,7 +6,7 @@ import { useTheme } from "context/ThemeContext";
 
 export default function App() {
   const { theme } = useTheme();
-  const darkTheme = theme === "cmyk" ? "light" : "dark";
+  const darkTheme = theme === "winter" ? "light" : "dark";
   return (
     <>
       <ToastContainer

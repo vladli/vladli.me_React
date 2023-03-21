@@ -5,12 +5,12 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 
 const DarkModeSwitch = () => {
   const { theme, setTheme } = useTheme();
-  const [darkSide, setDarkSide] = useState(theme === "cmyk" ? false : true);
+  const [darkSide, setDarkSide] = useState(theme === "winter" ? false : true);
   const toggleDarkMode = () => {
-    setTheme(theme === "cmyk" ? "halloween" : "cmyk");
+    setTheme(theme === "winter" ? "halloween" : "winter");
   };
   useEffect(() => {
-    setDarkSide(theme === "cmyk" ? false : true);
+    setDarkSide(theme === "winter" ? false : true);
   }, [theme]);
   return (
     <div className="btn-ghost btn" onClick={toggleDarkMode}>

@@ -27,7 +27,7 @@ const DashboardLayout = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="h-full"
+              className="h-[calc(100vh-4rem)]"
             >
               <AnimatedOutlet />
             </m.div>

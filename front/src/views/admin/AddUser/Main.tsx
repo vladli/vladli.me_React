@@ -7,7 +7,7 @@ type Props = {};
 
 function Main({}: Props) {
   const handleClick = () => {
-    let email = faker.internet.email();
+    let email = faker.internet.email(...[, ,], "vladli.me");
     axios
       .post("/api/users/user", null, {
         params: { email: email, password: "123456" },

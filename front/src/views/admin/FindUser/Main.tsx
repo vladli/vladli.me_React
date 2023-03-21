@@ -23,8 +23,8 @@ export default function AdminFindUser() {
   }, []);
 
   return (
-    <>
-      <div className="flex place-items-center p-4">
+    <div className="p-4">
+      <div className="flex place-items-center">
         <Input
           ref={inputReference}
           name="uid"
@@ -35,11 +35,11 @@ export default function AdminFindUser() {
           <MdSearch />
         </Button>
       </div>
-      <ul>
+      <ul className="mt-2">
         <li>{data?.uid}</li>
         <li>{data?.email}</li>
         <li>{data?.metadata?.creationTime}</li>
       </ul>
-    </>
+    </div>
   );
 }

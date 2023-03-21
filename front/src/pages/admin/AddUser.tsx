@@ -6,11 +6,7 @@ export default function AddUser() {
   return (
     <>
       <PageTitle title={PATH_ADMIN.addUser.title} />
-      <div className="flex h-full flex-col flex-wrap">
-        <>
-          <Main />
-        </>
-      </div>
+      <Main />
     </>
   );
 }

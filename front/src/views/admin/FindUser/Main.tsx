@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import axiosAPI from "config/axiosAPI";
 import { useEffect, useRef, useState } from "react";
 import { MdSearch } from "react-icons/md";
 import Button from "../../../components/Button";
@@ -11,7 +11,7 @@ export default function AdminFindUser() {
     queryKey: ["admin_getUser"],
     enabled: false,
     queryFn: async () => {
-      const { data } = await axios.get("/api/users/user", {
+      const { data } = await axiosAPI.get("/api/users/user", {
         params: { uid: uid },
       });
       return data;

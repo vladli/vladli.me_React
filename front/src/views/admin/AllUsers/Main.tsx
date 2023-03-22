@@ -8,7 +8,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import Table from "../../../components/Table/Table";
-import axios from "axios";
+import axiosAPI from "config/axiosAPI";
 import { useQuery } from "@tanstack/react-query";
 import LoadingEffect from "../../../components/LoadingEffect";
 import { useState, Fragment } from "react";
@@ -69,7 +69,7 @@ const Main = () => {
   const { isLoading, isError, data, refetch } = useQuery({
     queryKey: ["admin_users"],
     queryFn: async () => {
-      const { data } = await axios.get("/api/users/getAllUsers");
+      const { data } = await axiosAPI.get("/api/users/getAllUsers");
       return data;
     },
   });

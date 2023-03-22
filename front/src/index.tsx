@@ -11,11 +11,6 @@ import App from "./App";
 import { AuthProvider } from "context/AuthContext";
 import { ThemeProvider } from "context/ThemeContext";
 
-//axios
-const accessTokenRaw = sessionStorage.getItem("Authorization");
-axios.defaults.headers.common["Authorization"] = accessTokenRaw
-  ? `Bearer ${accessTokenRaw}`
-  : "";
 //
 const queryClient = new QueryClient();
 

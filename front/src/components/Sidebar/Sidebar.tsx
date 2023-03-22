@@ -1,5 +1,3 @@
-import {useState} from "react";
-
 import Item from "./Item";
 import MenuConfig from "../../config/MenuConfig";
 import { useAuth } from "../../context/AuthContext";
@@ -8,6 +6,7 @@ import { Link } from "react-router-dom";
 import { PATH_DASHBOARD } from "router/paths";
 import DarkModeSwitch from "components/DarkModeSwitch";
 import UserInfo from "./UserInfo";
+import Weather from "./Weather";
 
 const Sidebar = ({ setMobileNav }: any) => {
   const { isAuthenticated, role } = useAuth();
@@ -27,6 +26,7 @@ const Sidebar = ({ setMobileNav }: any) => {
           <Item key={index} items={menu} {...{ setMobileNav }} />
         ))}
       </ul>
+      <Weather />
     </div>
   );
 };

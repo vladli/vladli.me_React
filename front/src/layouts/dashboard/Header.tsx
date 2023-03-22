@@ -8,6 +8,7 @@ import DarkModeSwitch from "../../components/DarkModeSwitch";
 //icons
 import { MdMenu } from "react-icons/md";
 import { CgLogIn, CgLogOut } from "react-icons/cg";
+import Navbar from "components/Navigation/Navbar";
 
 type Props = {
   mobileNavStatus: boolean;
@@ -19,8 +20,8 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
 
   const navigate = useNavigate();
   return (
-    <div className="navbar bg-base-100 transition-all duration-300 ease-in-out">
-      <div className="navbar-start">
+    <Navbar className="bg-base-100 transition-all duration-300 ease-in-out">
+      <Navbar.Start>
         <div className="flex-none cursor-pointer lg:hidden">
           <MdMenu size={32} onClick={() => setMobileNav(true)} />
         </div>
@@ -32,8 +33,8 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
           </div>
           <DarkModeSwitch />
         </div>
-      </div>
-      <div className="navbar-end">
+      </Navbar.Start>
+      <Navbar.End>
         {!isAuthenticated ? (
           <Button
             leftIcon={<CgLogIn size={20} />}
@@ -46,7 +47,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
             Log Out
           </Button>
         )}
-      </div>
-    </div>
+      </Navbar.End>
+    </Navbar>
   );
 }

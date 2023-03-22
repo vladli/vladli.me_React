@@ -7,7 +7,7 @@ import {
 import { Children, cloneElement, forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-type Props = React.HTMLAttributes<HTMLDivElement> & {
+export type AvatarProps = React.HTMLAttributes<HTMLDivElement> & {
   src?: string;
   letters?: string;
   size?: ComponentSize | number;
@@ -20,7 +20,7 @@ type Props = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactNode;
 };
 
-const Avatar = forwardRef<HTMLDivElement, Props>(
+const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
   (
     {
       size = "md",

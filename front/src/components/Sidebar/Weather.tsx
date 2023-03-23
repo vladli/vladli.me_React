@@ -1,13 +1,40 @@
 import useWeather from "hooks/useWeather";
 
+//icons
+import { WiStrongWind } from "react-icons/wi";
+import { CiTempHigh } from "react-icons/ci";
+import { MdLocationCity } from "react-icons/md";
+
 const Weather = () => {
   const { data, loading } = useWeather("Seoul");
+  if (loading || !data) return <p>Loading...</p>;
 
-  if (loading) return <p>Loading...</p>;
+  const icon = data?.weather[0]?.icon;
+  var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+
   return (
-    <div className="mx-2 mt-2 flex flex-col items-center rounded-md border border-primary p-2">
-      <p>{data?.name}</p>
-      <p>{data && Math.round(data.main.temp)} &deg;C</p>
+    <div className="mt-2 grid grid-cols-2">
+      <div className="flex items-center justify-center">
+        <img
+          src={iconUrl}
+          alt="Weather icon"
+          className="rounded-full border border-dashed border-primary p-1"
+        />
+      </div>
+      <div className="flex flex-col items-center">
+        <p className="flex items-center gap-1 font-semibold">
+          <MdLocationCity size={20} />
+          {data.name}
+        </p>
+        <p className="flex items-center gap-1">
+          <CiTempHigh size={20} />
+          {Math.round(data.main.temp)} &deg;C
+        </p>
+        <p className="flex items-center gap-1">
+          <WiStrongWind size={20} />
+          {Math.round(data.wind.speed)} m/s
+        </p>
+      </div>
     </div>
   );
 };

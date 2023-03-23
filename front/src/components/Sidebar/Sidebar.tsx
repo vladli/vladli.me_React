@@ -21,6 +21,7 @@ const Sidebar = ({ setMobileNav }: any) => {
         <DarkModeSwitch />
       </div>
       {isAuthenticated && <UserInfo />}
+
       <ul className="font-semibold">
         {MenuConfig(role).map<any>((menu, index) => (
           <Item key={index} items={menu} {...{ setMobileNav }} />

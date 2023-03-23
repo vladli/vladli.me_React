@@ -2,6 +2,7 @@ import Avatar from "components/Avatar/Avatar";
 import Badge from "components/Badge";
 import Indicator from "components/Indicator";
 import { useAuth } from "context/AuthContext";
+import Weather from "./Weather";
 
 type Props = {};
 

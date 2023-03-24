@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 
 const UserActions = ({ user, refetch }: any) => {
   const { uid, email, creationTime } = user;
-  const [modalDelete, setmodalDelete] = useState(false);
-  const showModal = () => setmodalDelete(!modalDelete);
+  const [modalDelete, setModalDelete] = useState(false);
+  const showModal = () => setModalDelete(!modalDelete);
   const actionDelete = () => {
     axios
       .delete(`/api/users/user`, {
@@ -16,12 +16,12 @@ const UserActions = ({ user, refetch }: any) => {
       })
       .then(() => {
         refetch();
-        setmodalDelete(false);
+        setModalDelete(false);
         toast.success("Complete!");
       })
       .catch((err: any) => {
         toast.error(err.response.data);
-        setmodalDelete(false);
+        setModalDelete(false);
       });
   };
   return (
@@ -33,12 +33,6 @@ const UserActions = ({ user, refetch }: any) => {
         <MdDeleteForever color="red" size={20} />
       </Button>
       <Modal open={modalDelete} onClickBackDrop={showModal}>
-        <label
-          onClick={showModal}
-          className="btn-sm btn-circle btn absolute right-2 top-2"
-        >
-          ✕
-        </label>
         <Modal.Header className="font-bold">Delete User</Modal.Header>
         <Modal.Body>
           <p>Do you want to permanently delete user?</p>

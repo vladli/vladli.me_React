@@ -1,0 +1,1 @@
+import{c as e,a as o}from"./index-c086a3be.js";const d=({horizontal:s,children:i,className:r})=>{const a=e("divider",s&&"divider-horizontal",r);return o("div",{className:a,children:i})};export{d as D};

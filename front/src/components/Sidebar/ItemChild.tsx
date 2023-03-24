@@ -17,7 +17,7 @@ type ItemsProps = {
 const NavItem = ({ items, setMobileNav }: Props) => {
   const isActive = useLocation().pathname;
   const navigate = useNavigate();
-  const navigateTo = (link: string) => {
+  const navigateTo = (link: string) => () => {
     navigate(link);
     setMobileNav(false);
   };
@@ -31,7 +31,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
             key={item.name}
             whileTap={{ scale: 0.97 }}
             className={clsx(active && `bordered`)}
-            onClick={() => navigateTo(item.link)}
+            onClick={navigateTo(item.link)}
           >
             <div className="pl-8">
               {item.icon && item.icon}

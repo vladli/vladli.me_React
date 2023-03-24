@@ -24,9 +24,12 @@ const NavItem = ({ items, setMobileNav }: Props) => {
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
-  const navigateTo = (link: string) => {
+  const navigateTo = () => {
     navigate(link);
     setMobileNav(false);
+  };
+  const toggleSubMenu = () => {
+    setOpen(!open);
   };
   const itemVariants = {
     open: {
@@ -56,7 +59,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
         <li
           key={link}
           className={clsx(isActive && `bordered`)}
-          onClick={() => navigateTo(link)}
+          onClick={navigateTo}
         >
           <div>
             {icon && icon}
@@ -65,7 +68,7 @@ const NavItem = ({ items, setMobileNav }: Props) => {
         </li>
       ) : (
         <>
-          <li key={link} onClick={() => setOpen(!open)}>
+          <li key={link} onClick={toggleSubMenu}>
             <div>
               <m.div
                 variants={{ open: { rotate: 90 }, closed: { rotate: 0 } }}

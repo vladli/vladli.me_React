@@ -17,13 +17,16 @@ type Props = {
 
 export default function Header({ mobileNavStatus, setMobileNav }: Props) {
   const { isAuthenticated, signOut }: any = useAuth();
-
+  const toggleMobileNav = () => setMobileNav(!mobileNavStatus);
   const navigate = useNavigate();
+  const navigateTo = (link: string) => () => {
+    navigate(link);
+  };
   return (
     <Navbar className="bg-base-100 transition-all duration-300 ease-in-out">
       <Navbar.Start>
         <div className="flex-none cursor-pointer lg:hidden">
-          <MdMenu size={32} onClick={() => setMobileNav(true)} />
+          <MdMenu size={32} onClick={toggleMobileNav} />
         </div>
         <div className="flex lg:hidden">
           <div className="flex-none">
@@ -38,7 +41,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
         {!isAuthenticated ? (
           <Button
             leftIcon={<CgLogIn size={20} />}
-            onClick={() => navigate(PATH_AUTH.login.url)}
+            onClick={navigateTo(PATH_AUTH.login.url)}
           >
             Log In
           </Button>

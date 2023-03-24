@@ -25,23 +25,30 @@ const Modal = forwardRef<HTMLDivElement, Props>(
       })
     );
     const bodyClasses = twMerge("modal-box", className);
+    const clickBackDrop = (e: any) => {
+      e.stopPropagation();
+      if (e.target === e.currentTarget) {
+        e.stopPropagation();
+        if (onClickBackDrop) {
+          onClickBackDrop();
+        }
+      }
+    };
     return (
       <div
         aria-label="Modal"
         aria-hidden={!open}
         aria-modal={open}
         className={classes}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (e.target === e.currentTarget) {
-            e.stopPropagation();
-            if (onClickBackDrop) {
-              onClickBackDrop();
-            }
-          }
-        }}
+        onClick={clickBackDrop}
       >
         <div {...props} className={bodyClasses} ref={ref}>
+          <label
+            onClick={clickBackDrop}
+            className="btn-sm btn-circle btn absolute right-2 top-2"
+          >
+            ✕
+          </label>
           {children}
         </div>
       </div>

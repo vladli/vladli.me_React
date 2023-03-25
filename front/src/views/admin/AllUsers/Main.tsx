@@ -103,7 +103,7 @@ const Main = () => {
 
   return (
     <div className="overflow-x-auto p-4">
-      <div className="sticky left-0 rounded-md bg-primary text-center font-bold">
+      <div className="sticky left-0 pb-2 text-center font-bold">
         Google Firebase Authentication
       </div>
       <Table className="w-full">

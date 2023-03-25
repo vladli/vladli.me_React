@@ -3,8 +3,9 @@ import { NOT_ALLOWED, NO_PREMESSION } from "../config/errors";
 import { Request, Response } from "express";
 
 export const createUser = (req: Request, res: Response) => {
-  const { role, query } = req;
-  if (role !== "admin") return res.status(403).send(NO_PREMESSION);
+  const { authRole, query } = req;
+
+  if (authRole !== "admin") return res.status(403).send(NO_PREMESSION);
   admin
     .auth()
     .createUser({
@@ -15,8 +16,9 @@ export const createUser = (req: Request, res: Response) => {
 };
 
 export const getUser = (req: Request, res: Response) => {
-  const { role, query } = req;
-  if (role !== "admin") return res.status(403).send(NO_PREMESSION);
+  const { authRole, query } = req;
+
+  if (authRole !== "admin") return res.status(403).send(NO_PREMESSION);
   admin
     .auth()
     .getUser(query["uid"] as string)
@@ -25,8 +27,9 @@ export const getUser = (req: Request, res: Response) => {
 };
 
 export const deleteUser = (req: Request, res: Response) => {
-  const { role, query } = req;
-  if (role !== "admin") return res.status(403).end(NO_PREMESSION);
+  const { authRole, query } = req;
+
+  if (authRole !== "admin") return res.status(403).end(NO_PREMESSION);
   admin
     .auth()
     .getUser(query["uid"] as string)
@@ -42,9 +45,9 @@ export const deleteUser = (req: Request, res: Response) => {
 };
 
 export const getAllUsers = (req: Request, res: Response) => {
-  const { role } = req;
-  if (role !== "admin") return res.status(403).send(NO_PREMESSION);
+  const { authRole } = req;
 
+  if (authRole !== "admin") return res.status(403).send(NO_PREMESSION);
   admin
     .auth()
     .listUsers()

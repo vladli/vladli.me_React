@@ -1,4 +1,4 @@
-import axios from "axios";
+import axiosAPI from "config/axiosAPI";
 import Button from "components/Button";
 import Modal from "components/Modal/Modal";
 import { useState } from "react";
@@ -6,11 +6,17 @@ import { MdEdit, MdDeleteForever } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const UserActions = ({ user, refetch }: any) => {
-  const { uid, email, creationTime } = user;
+  const { uid, email, role } = user;
   const [modalDelete, setModalDelete] = useState(false);
-  const showModal = () => setModalDelete(!modalDelete);
+  const showModal = () => {
+    if (role === "admin") {
+      toast.error("You can not delete Admin user.");
+      return;
+    }
+    setModalDelete(!modalDelete);
+  };
   const actionDelete = () => {
-    axios
+    axiosAPI
       .delete(`/api/users/user`, {
         params: { uid: uid },
       })

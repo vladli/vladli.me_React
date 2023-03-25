@@ -21,7 +21,7 @@ function verifyToken(req, res, next) {
         .then((user) => {
         req.userId = user.uid;
         req.isAuth = true;
-        req.role = user.role;
+        req.authRole = user.role;
         next();
     })
         .catch(() => {

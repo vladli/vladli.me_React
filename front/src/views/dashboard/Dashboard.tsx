@@ -1,7 +1,7 @@
 import Button from "components/Button";
 import Card from "components/Cards/Card";
 import Modal from "components/Modal/Modal";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 const images = [
   {
@@ -23,7 +23,7 @@ export default function Dashboard() {
   };
   return (
     <div className="flex flex-wrap justify-center gap-4 p-4 md:justify-around">
-      {Array.from(Array(4), (e, i) => {
+      {Array.from(Array(4), (_, i) => {
         return (
           <Card key={i} className="max-w-xs">
             <Card.Image image={images[0].scr} blured={images[0].blurUrl} />

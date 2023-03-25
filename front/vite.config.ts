@@ -30,5 +30,8 @@ export default defineConfig({
         ws: true,
       },
     },
+    cors: {
+      origin: ["https://openweathermap.org"],
+    },
   },
 });

@@ -10,7 +10,7 @@ const Weather = () => {
   if (loading || !data) return <p>Loading...</p>;
 
   const icon = data?.weather[0]?.icon;
-  var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+  var iconUrl = "https://openweathermap.org/img/w/" + icon + ".png";
 
   return (
     <div className="mt-2 grid grid-cols-2">

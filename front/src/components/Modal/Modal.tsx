@@ -21,7 +21,7 @@ const Modal = forwardRef<HTMLDivElement, Props>(
       "modal",
       clsx({
         "modal-open": open,
-        "modal-botton sm:modal-middle": responsive,
+        "modal-bottom sm:modal-middle": responsive,
       })
     );
     const bodyClasses = twMerge("modal-box", className);

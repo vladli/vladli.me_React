@@ -11,7 +11,7 @@ export default function App() {
     <>
       <ToastContainer
         position="top-center"
-        autoClose={3000}
+        autoClose={4000}
         theme={darkTheme}
         draggable={false}
         limit={5}

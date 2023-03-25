@@ -7,8 +7,8 @@ exports.getAllUsers = exports.deleteUser = exports.getUser = exports.createUser 
 const firebase_1 = __importDefault(require("../firebase/firebase"));
 const errors_1 = require("../config/errors");
 const createUser = (req, res) => {
-    const { role, query } = req;
-    if (role !== "admin")
+    const { authRole, query } = req;
+    if (authRole !== "admin")
         return res.status(403).send(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()
@@ -20,8 +20,8 @@ const createUser = (req, res) => {
 };
 exports.createUser = createUser;
 const getUser = (req, res) => {
-    const { role, query } = req;
-    if (role !== "admin")
+    const { authRole, query } = req;
+    if (authRole !== "admin")
         return res.status(403).send(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()
@@ -31,8 +31,8 @@ const getUser = (req, res) => {
 };
 exports.getUser = getUser;
 const deleteUser = (req, res) => {
-    const { role, query } = req;
-    if (role !== "admin")
+    const { authRole, query } = req;
+    if (authRole !== "admin")
         return res.status(403).end(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()
@@ -49,8 +49,8 @@ const deleteUser = (req, res) => {
 };
 exports.deleteUser = deleteUser;
 const getAllUsers = (req, res) => {
-    const { role } = req;
-    if (role !== "admin")
+    const { authRole } = req;
+    if (authRole !== "admin")
         return res.status(403).send(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()

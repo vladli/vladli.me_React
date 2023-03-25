@@ -5,7 +5,7 @@ declare global {
     interface Request {
       userId: string;
       isAuth: boolean;
-      role: string;
+      authRole: string;
     }
   }
 }

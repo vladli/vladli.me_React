@@ -1,6 +1,6 @@
 import PageTitle from "../../components/PageTitle";
 import { PATH_ADMIN } from "../../router/paths";
-import Main from "views/admin/AddUser/Main";
+import Main from "views/admin/AddUser";
 
 export default function AddUser() {
   return (

@@ -7,6 +7,7 @@ const ROOT_AUTH = "/auth";
 const ROOT_DASHBOARD = "/dashboard";
 const ROOT_ADMIN = "/admin";
 
+const ROOT_BEGINNER_PROJECTS = "/beginner-projects";
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {
@@ -27,4 +28,11 @@ export const PATH_DASHBOARD = {
 export const PATH_PAGE = {
   root: { url: ROOT_PAGE, title: "Main page" },
   page404: { url: "/404", title: "404" },
+};
+
+export const PATH_BEGINNER_PROJECTS = {
+  calculator: {
+    url: path(ROOT_BEGINNER_PROJECTS, "/calculator"),
+    title: "Calculator",
+  },
 };

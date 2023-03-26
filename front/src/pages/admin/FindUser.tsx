@@ -1,6 +1,6 @@
 import PageTitle from "../../components/PageTitle";
 import { PATH_ADMIN } from "../../router/paths";
-import Main from "../../views/admin/FindUser/Main";
+import Main from "../../views/admin/FindUser";
 
 export default function FindUser() {
   return (

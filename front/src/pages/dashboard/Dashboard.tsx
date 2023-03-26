@@ -1,6 +1,6 @@
 import PageTitle from "../../components/PageTitle";
 import { PATH_DASHBOARD } from "../../router/paths";
-import Dashboard from "../../views/dashboard/Dashboard";
+import Dashboard from "../../views/dashboard";
 
 const DashboardPage = () => {
   return (

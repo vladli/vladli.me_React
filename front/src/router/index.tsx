@@ -8,7 +8,13 @@ import CleanLayout from "../layouts/CleanLayout";
 import GuestGuard from "../guards/GuestGuard";
 import RoleGuard from "../guards/RoleGuard";
 
-import { PATH_ADMIN, PATH_AUTH, PATH_DASHBOARD, PATH_PAGE } from "./paths";
+import {
+  PATH_ADMIN,
+  PATH_AUTH,
+  PATH_BEGINNER_PROJECTS,
+  PATH_DASHBOARD,
+  PATH_PAGE,
+} from "./paths";
 import { ROLES } from "../config/userRoles";
 
 const MainPage = lazy(() => import("../pages/main/Main"));
@@ -16,6 +22,8 @@ const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
 const LoginPage = lazy(() => import("../pages/auth/Login"));
 
 const TestPage = lazy(() => import("../pages/TestPage"));
+
+const Calculator = lazy(() => import("../pages/beginner-projects/Calculator"));
 
 const AdminAllUsers = lazy(() => import("../pages/admin/AllUsers"));
 const AdminFindUser = lazy(() => import("../pages/admin/FindUser"));
@@ -73,6 +81,19 @@ const router = createBrowserRouter([
               <LoginPage />
             </SuspenseLoading>
           </GuestGuard>
+        ),
+      },
+    ],
+  },
+  {
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: PATH_BEGINNER_PROJECTS.calculator.url,
+        element: (
+          <SuspenseLoading>
+            <Calculator />
+          </SuspenseLoading>
         ),
       },
     ],

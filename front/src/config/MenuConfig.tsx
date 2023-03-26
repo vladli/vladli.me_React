@@ -1,4 +1,9 @@
-import { PATH_ADMIN, PATH_DASHBOARD, PATH_PAGE } from "../router/paths";
+import {
+  PATH_ADMIN,
+  PATH_BEGINNER_PROJECTS,
+  PATH_DASHBOARD,
+  PATH_PAGE,
+} from "../router/paths";
 import { ROLES } from "./userRoles";
 //icons
 import { MdAutoAwesomeMotion, MdDashboard } from "react-icons/md";
@@ -6,6 +11,7 @@ import { HiUserGroup } from "react-icons/hi";
 import { RiUserSearchFill } from "react-icons/ri";
 import { SiTestcafe } from "react-icons/si";
 import { FaUserPlus } from "react-icons/fa";
+import { BsCalculator } from "react-icons/bs";
 
 function getMenu(userRole: string) {
   const MenuItems = [
@@ -23,6 +29,18 @@ function getMenu(userRole: string) {
           name: "Dashboard",
           link: PATH_DASHBOARD.root.url,
           icon: <MdDashboard />,
+        },
+      ],
+    },
+    {
+      name: "Beginner Projects",
+      link: "",
+      icon: undefined,
+      submenu: [
+        {
+          name: "Calculator",
+          link: PATH_BEGINNER_PROJECTS.calculator.url,
+          icon: <BsCalculator />,
         },
       ],
     },

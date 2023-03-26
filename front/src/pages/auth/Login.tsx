@@ -1,4 +1,4 @@
-import Login from "../../views/auth/Login/Login";
+import Login from "../../views/auth/Login";
 import PageTitle from "../../components/PageTitle";
 import { PATH_AUTH } from "../../router/paths";
 

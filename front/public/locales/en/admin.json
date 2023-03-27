@@ -1,0 +1,21 @@
+{
+	"AddUser": {
+		"title": "Add User"
+	},
+	"AllUsers": {
+		"UserActions": {
+			"body": "Do you want to permanently delete user?",
+			"button": "Delete",
+			"title": "Delete User"
+		},
+		"table": {
+			"actions": "Actions",
+			"creationTime": "Register date"
+		},
+		"title": "All Users"
+	},
+	"FindUser": {
+		"title": "Find user"
+	},
+	"title": "Admin"
+}

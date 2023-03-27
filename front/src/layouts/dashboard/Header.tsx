@@ -4,6 +4,7 @@ import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
 import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
+import { useTranslation } from "react-i18next";
 
 //icons
 import { MdMenu } from "react-icons/md";
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export default function Header({ mobileNavStatus, setMobileNav }: Props) {
+  const { t } = useTranslation("auth");
   const { isAuthenticated, signOut }: any = useAuth();
   const toggleMobileNav = () => setMobileNav(!mobileNavStatus);
   const navigate = useNavigate();
@@ -40,14 +42,19 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
       <Navbar.End>
         {!isAuthenticated ? (
           <Button
+            color="info"
             leftIcon={<CgLogIn size={20} />}
             onClick={navigateTo(PATH_AUTH.login.url)}
           >
-            Log In
+            {t("Login.login")}
           </Button>
         ) : (
-          <Button leftIcon={<CgLogOut size={20} />} onClick={() => signOut()}>
-            Log Out
+          <Button
+            color="error"
+            leftIcon={<CgLogOut size={20} />}
+            onClick={() => signOut()}
+          >
+            {t("Login.logout")}
           </Button>
         )}
       </Navbar.End>

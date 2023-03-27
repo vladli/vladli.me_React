@@ -1,11 +1,12 @@
 import PageTitle from "../../components/PageTitle";
-import { PATH_ADMIN } from "../../router/paths";
 import Main from "views/admin/AddUser";
+import { useTranslation } from "react-i18next";
 
 export default function AddUser() {
+  const { t } = useTranslation("admin");
   return (
     <>
-      <PageTitle title={PATH_ADMIN.addUser.title} />
+      <PageTitle title={t("AddUser.title")} />
       <Main />
     </>
   );

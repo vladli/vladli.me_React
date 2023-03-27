@@ -7,6 +7,7 @@ import {
   SortingState,
   useReactTable,
 } from "@tanstack/react-table";
+import { useTranslation } from "react-i18next";
 import Table from "../../../components/Table/Table";
 import axiosAPI from "config/axiosAPI";
 import { useQuery } from "@tanstack/react-query";
@@ -18,6 +19,7 @@ import Indicator from "components/Indicator";
 import Badge from "components/Badge";
 
 const Main = () => {
+  const { t } = useTranslation("admin");
   const columns: ColumnDef<any, any>[] = [
     {
       accessorKey: "id",
@@ -54,12 +56,12 @@ const Main = () => {
     },
     {
       accessorKey: "creationTime",
-      header: "Register date",
+      header: () => t("AllUsers.table.creationTime"),
       sortDescFirst: false,
     },
     {
       accessorKey: "actions",
-      header: "Actions",
+      header: () => t("AllUsers.table.actions"),
       enableSorting: false,
       cell: (props) => {
         return <UserActions user={props.row.original} {...{ refetch }} />;

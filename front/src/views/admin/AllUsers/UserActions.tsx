@@ -1,4 +1,5 @@
 import axiosAPI from "config/axiosAPI";
+import { useTranslation } from "react-i18next";
 import Button from "components/Button";
 import Modal from "components/Modal/Modal";
 import { useState } from "react";
@@ -6,6 +7,7 @@ import { MdEdit, MdDeleteForever } from "react-icons/md";
 import { toast } from "react-toastify";
 
 const UserActions = ({ user, refetch }: any) => {
+  const { t } = useTranslation("admin");
   const { uid, email, role } = user;
   const [modalDelete, setModalDelete] = useState(false);
   const showModal = () => {
@@ -39,16 +41,18 @@ const UserActions = ({ user, refetch }: any) => {
         <MdDeleteForever color="red" size={20} />
       </Button>
       <Modal open={modalDelete} onClickBackDrop={showModal}>
-        <Modal.Header className="font-bold">Delete User</Modal.Header>
+        <Modal.Header className="font-bold">
+          {t("AllUsers.UserActions.title")}
+        </Modal.Header>
         <Modal.Body>
-          <p>Do you want to permanently delete user?</p>
+          <p>{t("AllUsers.UserActions.body")}</p>
           <br />
           <p>UID: {uid}</p>
           <p>Email: {email}</p>
         </Modal.Body>
         <Modal.Actions>
           <Button color="error" size="sm" onClick={actionDelete}>
-            Delete
+            {t("AllUsers.UserActions.button")}
           </Button>
         </Modal.Actions>
       </Modal>

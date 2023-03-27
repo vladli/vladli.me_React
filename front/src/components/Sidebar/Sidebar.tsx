@@ -7,11 +7,12 @@ import { PATH_DASHBOARD } from "router/paths";
 import DarkModeSwitch from "components/DarkModeSwitch";
 import UserInfo from "./UserInfo";
 import Weather from "./Weather";
+import LanguageSwitch from "components/LanguageSwitch";
 
 const Sidebar = ({ setMobileNav }: any) => {
   const { isAuthenticated, role } = useAuth();
   return (
-    <div className="menu w-56 bg-base-100">
+    <div className="menu w-64 bg-base-100">
       <div className="hidden p-2 lg:flex">
         <div className="flex-none">
           <Link to={PATH_DASHBOARD.root.url}>
@@ -19,6 +20,7 @@ const Sidebar = ({ setMobileNav }: any) => {
           </Link>
         </div>
         <DarkModeSwitch />
+        <LanguageSwitch />
       </div>
       {isAuthenticated && <UserInfo />}
 

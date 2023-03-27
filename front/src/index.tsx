@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
 import { domMax, LazyMotion } from "framer-motion";
-import { StrictMode } from "react";
+import { StrictMode, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
-import axios from "axios";
+import "./i18n";
 
 import "./index.css";
 import App from "./App";

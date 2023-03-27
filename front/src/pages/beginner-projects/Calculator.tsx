@@ -1,11 +1,12 @@
 import Calculator from "views/beginner-projects/Calculator";
 import PageTitle from "../../components/PageTitle";
-import { PATH_BEGINNER_PROJECTS } from "../../router/paths";
+import { useTranslation } from "react-i18next";
 
 const DashboardPage = () => {
+  const { t } = useTranslation("beginnerProjects");
   return (
     <>
-      <PageTitle title={PATH_BEGINNER_PROJECTS.calculator.title} />
+      <PageTitle title={t("Calculator.title")} />
       <div className="flex justify-center lg:justify-start">
         <Calculator />
       </div>

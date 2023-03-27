@@ -4,6 +4,7 @@ import {
   PATH_DASHBOARD,
   PATH_PAGE,
 } from "../router/paths";
+import { useTranslation } from "react-i18next";
 import { ROLES } from "./userRoles";
 //icons
 import { MdAutoAwesomeMotion, MdDashboard } from "react-icons/md";
@@ -14,6 +15,7 @@ import { FaUserPlus } from "react-icons/fa";
 import { BsCalculator } from "react-icons/bs";
 
 function getMenu(userRole: string) {
+  const { t } = useTranslation(["beginnerProjects", "admin"]);
   const MenuItems = [
     {
       name: "Main",
@@ -33,12 +35,12 @@ function getMenu(userRole: string) {
       ],
     },
     {
-      name: "Beginner Projects",
+      name: t("beginnerProjects:title"),
       link: "",
       icon: undefined,
       submenu: [
         {
-          name: "Calculator",
+          name: t("beginnerProjects:Calculator:title"),
           link: PATH_BEGINNER_PROJECTS.calculator.url,
           icon: <BsCalculator />,
         },
@@ -47,22 +49,22 @@ function getMenu(userRole: string) {
     ...([ROLES.Admin].includes(userRole)
       ? [
           {
-            name: "Admin",
+            name: t("admin:title"),
             link: "",
             icon: undefined,
             submenu: [
               {
-                name: "Users",
+                name: t("admin:AllUsers.title"),
                 link: PATH_ADMIN.users.url,
                 icon: <HiUserGroup />,
               },
               {
-                name: "Find User",
+                name: t("admin:FindUser.title"),
                 link: PATH_ADMIN.findUser.url,
                 icon: <RiUserSearchFill />,
               },
               {
-                name: "Add User",
+                name: t("admin:AddUser.title"),
                 link: PATH_ADMIN.addUser.url,
                 icon: <FaUserPlus />,
               },

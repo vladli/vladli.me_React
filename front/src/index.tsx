@@ -7,6 +7,7 @@ import "./i18n";
 
 import "./index.css";
 import App from "./App";
+
 //context
 import { AuthProvider } from "context/AuthContext";
 import { ThemeProvider } from "context/ThemeContext";

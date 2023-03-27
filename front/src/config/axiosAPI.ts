@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance: any = axios.create({
-  baseURL: "http://localhost:4000",
+  baseURL: "/",
   headers: {
     Authorization: `Bearer ${sessionStorage.getItem("Authorization")}`,
   },

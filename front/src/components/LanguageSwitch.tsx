@@ -1,19 +1,41 @@
-import React from "react";
-import ReactCountryFlag from "react-country-flag";
-type Props = {};
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import Dropdown from "./Dropdown/Dropdown";
 
-const LanguageSwitch = (props: Props) => {
+const getFlag = (country: any) => {
+  switch (country) {
+    case "en":
+      return "🇺🇸";
+    case "ko":
+      return "🇰🇷";
+    case "ru":
+      return "🇷🇺";
+    default:
+      return "🇺🇸";
+  }
+};
+
+const LanguageSwitch = () => {
+  const { i18n } = useTranslation();
+  const defaultLanguage =
+    localStorage.getItem("lang") !== null ? localStorage.getItem("lang") : "en";
+  const [language, setLanguage] = useState(defaultLanguage);
+  const changeLanguage = (lang: string) => () => {
+    (document.activeElement as HTMLElement).blur();
+    setLanguage(lang);
+    localStorage.setItem("lang", lang);
+    i18n.changeLanguage(lang);
+  };
+
   return (
-    <div className="btn-ghost btn">
-      <ReactCountryFlag
-        svg
-        countryCode="kr"
-        style={{
-          width: "1.4em",
-          height: "1.4em",
-        }}
-      />
-    </div>
+    <Dropdown>
+      <Dropdown.Toggle color="ghost">{getFlag(language)}</Dropdown.Toggle>
+      <Dropdown.Menu>
+        <Dropdown.Item onClick={changeLanguage("en")}>🇺🇸</Dropdown.Item>
+        <Dropdown.Item onClick={changeLanguage("ko")}>🇰🇷</Dropdown.Item>
+        <Dropdown.Item onClick={changeLanguage("ru")}>🇷🇺</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
   );
 };
 

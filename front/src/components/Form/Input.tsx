@@ -14,6 +14,7 @@ type Props = Omit<
   name: string;
   register?: any;
   labeled?: boolean;
+  label?: string | null;
   required?: boolean;
 };
 
@@ -24,6 +25,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
       register,
       required,
       labeled = false,
+      label,
       bordered = true,
       borderOffset,
       size,
@@ -48,7 +50,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         {labeled && (
           <label className="label">
             <span className="label-text font-semibold">
-              {name}
+              {label}
               {required && <span className="ml-1 text-red-500">{"*"}</span>}
             </span>
           </label>

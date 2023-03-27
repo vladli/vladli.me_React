@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { forwardRef, ReactNode } from "react";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -14,7 +14,7 @@ export type DropdownProps = React.HTMLAttributes<HTMLDivElement> & {
   open?: boolean;
 };
 
-const Dropdown = React.forwardRef<HTMLDivElement, DropdownProps>(
+const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
   (
     { children, className, item, horizontal, vertical, hover, open, ...props },
     ref
@@ -29,10 +29,9 @@ const Dropdown = React.forwardRef<HTMLDivElement, DropdownProps>(
         "dropdown-open": open,
       })
     );
-
     return (
       <div role="listbox" {...props} ref={ref} className={classes}>
-        <label tabIndex={0}>{children}</label>
+        {children}
         <ul className="dropdown-content">{item}</ul>
       </div>
     );

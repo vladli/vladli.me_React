@@ -1,0 +1,21 @@
+{
+	"AddUser": {
+		"title": "사용자 추가"
+	},
+	"AllUsers": {
+		"UserActions": {
+			"body": "사용자를 영구적으로 삭제하시겠습니까?",
+			"button": "삭제",
+			"title": "사용자 삭제"
+		},
+		"table": {
+			"actions": "행위",
+			"creationTime": "등록일"
+		},
+		"title": "모든 사용자들"
+	},
+	"FindUser": {
+		"title": "사용자 찾기"
+	},
+	"title": "관리자"
+}

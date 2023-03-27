@@ -2,6 +2,8 @@ import { toast } from "react-toastify";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+
 import Box from "../../../components/Box";
 import Divider from "../../../components/Divider";
 import Input from "../../../components/Form/Input";
@@ -26,6 +28,7 @@ const schema = yup
 type FormData = yup.InferType<typeof schema>;
 
 const Login = () => {
+  const { t } = useTranslation("auth");
   const {
     register,
     formState: { errors, isValid },
@@ -41,7 +44,7 @@ const Login = () => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage(null);
-        toast.success("Loged in as " + data.Email);
+        toast.success(t("Login.logedInMessage") + data.Email);
         navigate(PATH_PAGE.root.url, { replace: true });
       })
       .catch((error: any) => {
@@ -62,6 +65,7 @@ const Login = () => {
           <div>
             <Input
               labeled
+              label="Email"
               name="Email"
               register={register}
               autoComplete="email"
@@ -72,6 +76,7 @@ const Login = () => {
             <p className="text-red-500">{errors.Email?.message}</p>
             <Input
               labeled
+              label={t("Login.password")}
               name="Password"
               register={register}
               type="password"
@@ -82,7 +87,7 @@ const Login = () => {
             <p className="text-red-500">{errors.Password?.message}</p>
             <div className="mt-4 w-[100%]">
               <Button fullWidth type="submit" disabled={!isValid}>
-                Login
+                {t("Login.login")}
               </Button>
               {errorMessage && (
                 <p className="mt-2 select-none rounded-2xl border border-neutral-700 p-2 text-center text-red-500">

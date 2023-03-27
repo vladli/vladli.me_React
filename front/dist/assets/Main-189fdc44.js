@@ -1,0 +1,1 @@
+import{j as a,F as e,a as t,P as s,L as r}from"./index-47bae81b.js";import{P as i}from"./PageTitle-79c7560f.js";const n=()=>a(e,{children:[t(i,{title:s.root.title}),t("div",{className:"flex justify-center pt-2",children:t(r,{})})]});export{n as default};

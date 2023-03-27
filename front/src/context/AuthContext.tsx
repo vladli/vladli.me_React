@@ -3,6 +3,7 @@ import firebase, { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 type User = firebase.User | null;
 type ContextState = {
@@ -14,6 +15,7 @@ type ContextState = {
 const AuthContext = createContext<ContextState | undefined>(undefined);
 
 const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
+  const { t } = useTranslation("Context");
   const [user, setUser] = useState<User>(null);
   const [role, setRole] = useState("");
   const [loading, setLoading] = useState(true);
@@ -22,7 +24,7 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
     sessionStorage.removeItem("Authorization");
     auth.signOut();
     setUser(null);
-    toast.info("You have been logged out", { icon: false });
+    toast.info(t("Auth.signOut"), { icon: false });
   }
 
   useEffect(() => {

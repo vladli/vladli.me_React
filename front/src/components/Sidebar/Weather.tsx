@@ -7,7 +7,7 @@ import { MdLocationCity } from "react-icons/md";
 
 const Weather = () => {
   const { data, loading } = useWeather("Seoul");
-  if (loading || !data) return <p>Loading...</p>;
+  if (loading || !data) return null;
 
   const icon = data?.weather[0]?.icon;
   var iconUrl = "https://openweathermap.org/img/w/" + icon + ".png";

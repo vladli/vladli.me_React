@@ -29,7 +29,7 @@ const useWeather = (city: string) => {
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       )
       .then((res) => {
-        setData(res.data);
+        setData(res?.data);
         setLoading(false);
       });
   }, [city]);

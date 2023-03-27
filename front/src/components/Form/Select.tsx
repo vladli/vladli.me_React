@@ -1,11 +1,60 @@
-type Props = {
-  name: string;
-  register?: any;
-  required?: boolean;
-  labeled?: boolean;
-  options: any;
+import React, { ReactElement } from "react";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
+
+import { ComponentColor, ComponentSize } from "components/@types";
+
+export type SelectProps = Omit<
+  React.SelectHTMLAttributes<HTMLSelectElement>,
+  "size" | "color"
+> & {
+  children: ReactElement<SelectOptionProps>[];
+  size?: ComponentSize;
+  color?: ComponentColor;
+  bordered?: boolean;
+  borderOffset?: boolean;
 };
 
-export default function Select({ register, options, name, ...rest }: Props) {
-  return <div>Select</div>;
-}
+const SelectInner = (
+  props: SelectProps,
+  ref: React.ForwardedRef<HTMLSelectElement>
+): JSX.Element => {
+  const {
+    children,
+    size,
+    color,
+    bordered = true,
+    borderOffset,
+    className,
+    ...rest
+  } = props;
+
+  const classes = twMerge(
+    "select",
+    className,
+    clsx({
+      [`select-${size}`]: size,
+      [`select-${color}`]: color,
+      [`focus:outline-offset-0`]: !borderOffset,
+      "select-bordered": bordered,
+    })
+  );
+
+  return (
+    <select {...rest} ref={ref} className={classes}>
+      {children}
+    </select>
+  );
+};
+
+export type SelectOptionProps = React.OptionHTMLAttributes<HTMLOptionElement>;
+
+const SelectOption = ({
+  children,
+  ...props
+}: SelectOptionProps): JSX.Element => {
+  return <option {...props}>{children}</option>;
+};
+
+const Select = React.forwardRef(SelectInner);
+export default Object.assign(Select, { Option: SelectOption });

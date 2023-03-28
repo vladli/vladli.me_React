@@ -5,7 +5,7 @@ import AnimatedOutlet from "../components/AnimatedOutlet";
 const CleanLayout = () => {
   const location = useLocation();
   return (
-    <div className="bg-light-secondaryBg dark:bg-dark-secondaryBg dark:text-white">
+    <div className="">
       <AnimatePresence mode="wait">
         <m.div
           key={location.pathname}

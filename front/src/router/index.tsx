@@ -16,20 +16,19 @@ import {
   PATH_PAGE,
 } from "./paths";
 import { ROLES } from "../config/userRoles";
+import Page from "components/Page";
 
-const MainPage = lazy(() => import("../pages/main/Main"));
-const Dashboard = lazy(() => import("../pages/dashboard/Dashboard"));
-const LoginPage = lazy(() => import("../pages/auth/Login"));
+const Dashboard = lazy(() => import("pages/dashboard"));
+const LoginPage = lazy(() => import("pages/auth/Login"));
 
-const TestPage = lazy(() => import("../pages/TestPage"));
+const Calculator = lazy(() => import("pages/beginner-projects/Calculator"));
+const Todos = lazy(() => import("pages/beginner-projects/Todos"));
 
-const Calculator = lazy(() => import("../pages/beginner-projects/Calculator"));
-
-const AdminAllUsers = lazy(() => import("../pages/admin/AllUsers"));
-const AdminFindUser = lazy(() => import("../pages/admin/FindUser"));
+const AdminAllUsers = lazy(() => import("pages/admin/AllUsers"));
+const AdminFindUser = lazy(() => import("pages/admin/FindUser"));
 const AdminAddUser = lazy(() => import("pages/admin/AddUser"));
 
-const SuspenseLoading = ({ children }: { children: React.ReactNode }) => {
+const SuspenseLoading = ({ children }: any) => {
   return <Suspense fallback={<ProgressBar />}>{children}</Suspense>;
 };
 
@@ -37,13 +36,16 @@ const router = createBrowserRouter([
   {
     path: PATH_PAGE.root.url,
     element: <DashboardLayout />,
+    loader: () => <SuspenseLoading />,
     children: [
       {
         index: true,
         element: (
-          <SuspenseLoading>
-            <Dashboard />
-          </SuspenseLoading>
+          <Page title="beginnerProjects:title">
+            <SuspenseLoading>
+              <Dashboard />
+            </SuspenseLoading>
+          </Page>
         ),
       },
     ],
@@ -55,17 +57,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: (
-          <SuspenseLoading>
-            <Dashboard />
-          </SuspenseLoading>
-        ),
-      },
-      {
-        path: PATH_DASHBOARD.root.url + "/test",
-        element: (
-          <SuspenseLoading>
-            <TestPage />
-          </SuspenseLoading>
+          <Page title="beginnerProjects:title">
+            <SuspenseLoading>
+              <Dashboard />
+            </SuspenseLoading>
+          </Page>
         ),
       },
     ],
@@ -77,9 +73,15 @@ const router = createBrowserRouter([
         path: PATH_AUTH.login.url,
         element: (
           <GuestGuard>
-            <SuspenseLoading>
-              <LoginPage />
-            </SuspenseLoading>
+            <Page
+              title="auth:Login.title"
+              responsive={false}
+              className="flex h-[100vh] items-center justify-center"
+            >
+              <SuspenseLoading>
+                <LoginPage />
+              </SuspenseLoading>
+            </Page>
           </GuestGuard>
         ),
       },
@@ -91,9 +93,21 @@ const router = createBrowserRouter([
       {
         path: PATH_BEGINNER_PROJECTS.calculator.url,
         element: (
-          <SuspenseLoading>
-            <Calculator />
-          </SuspenseLoading>
+          <Page title="beginnerProjects:Calculator.title">
+            <SuspenseLoading>
+              <Calculator />
+            </SuspenseLoading>
+          </Page>
+        ),
+      },
+      {
+        path: PATH_BEGINNER_PROJECTS.todos.url,
+        element: (
+          <Page title="beginnerProjects:Todos.title">
+            <SuspenseLoading>
+              <Todos />
+            </SuspenseLoading>
+          </Page>
         ),
       },
     ],
@@ -105,9 +119,11 @@ const router = createBrowserRouter([
         path: PATH_ADMIN.users.url,
         element: (
           <RoleGuard roles={[ROLES.Admin]} redirect>
-            <SuspenseLoading>
-              <AdminAllUsers />
-            </SuspenseLoading>
+            <Page title="admin:AllUsers.title">
+              <SuspenseLoading>
+                <AdminAllUsers />
+              </SuspenseLoading>
+            </Page>
           </RoleGuard>
         ),
       },
@@ -115,9 +131,11 @@ const router = createBrowserRouter([
         path: PATH_ADMIN.findUser.url,
         element: (
           <RoleGuard roles={[ROLES.Admin]} redirect>
-            <SuspenseLoading>
-              <AdminFindUser />
-            </SuspenseLoading>
+            <Page title="admin:FindUser.title">
+              <SuspenseLoading>
+                <AdminFindUser />
+              </SuspenseLoading>
+            </Page>
           </RoleGuard>
         ),
       },
@@ -125,9 +143,11 @@ const router = createBrowserRouter([
         path: PATH_ADMIN.addUser.url,
         element: (
           <RoleGuard roles={[ROLES.Admin]} redirect>
-            <SuspenseLoading>
-              <AdminAddUser />
-            </SuspenseLoading>
+            <Page title="admin:AddUser.title">
+              <SuspenseLoading>
+                <AdminAddUser />
+              </SuspenseLoading>
+            </Page>
           </RoleGuard>
         ),
       },

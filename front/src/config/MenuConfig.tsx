@@ -7,7 +7,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { ROLES } from "./userRoles";
 //icons
-import { MdAutoAwesomeMotion, MdDashboard } from "react-icons/md";
+import { MdAutoAwesomeMotion, MdDashboard, MdChecklist } from "react-icons/md";
 import { HiUserGroup } from "react-icons/hi";
 import { RiUserSearchFill } from "react-icons/ri";
 import { SiTestcafe } from "react-icons/si";
@@ -44,6 +44,11 @@ function getMenu(userRole: string) {
           link: PATH_BEGINNER_PROJECTS.calculator.url,
           icon: <BsCalculator />,
         },
+        {
+          name: t("beginnerProjects:Todos.title"),
+          link: PATH_BEGINNER_PROJECTS.todos.url,
+          icon: <MdChecklist />,
+        },
       ],
     },
     ...([ROLES.Admin].includes(userRole)
@@ -72,11 +77,6 @@ function getMenu(userRole: string) {
           },
         ]
       : []),
-    {
-      name: "TestPage",
-      link: PATH_DASHBOARD.root.url + "/test",
-      icon: <SiTestcafe />,
-    },
   ].filter(Boolean);
   return MenuItems;
 }

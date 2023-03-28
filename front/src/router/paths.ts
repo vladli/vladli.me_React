@@ -35,4 +35,8 @@ export const PATH_BEGINNER_PROJECTS = {
     url: path(ROOT_BEGINNER_PROJECTS, "/calculator"),
     title: "Calculator",
   },
+  todos: {
+    url: path(ROOT_BEGINNER_PROJECTS, "/todos"),
+    title: "Calculator",
+  },
 };

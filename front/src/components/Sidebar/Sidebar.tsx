@@ -8,11 +8,12 @@ import DarkModeSwitch from "components/DarkModeSwitch";
 import UserInfo from "./UserInfo";
 import Weather from "./Weather";
 import LanguageSwitch from "components/LanguageSwitch";
+import Button from "components/Button";
 
 const Sidebar = ({ setMobileNav }: any) => {
   const { isAuthenticated, role } = useAuth();
   return (
-    <div className="menu bg-base-100">
+    <div className="menu max-w-[18rem] bg-base-100">
       <div className="hidden p-2 lg:flex">
         <div className="flex-none">
           <Link to={PATH_DASHBOARD.root.url}>
@@ -21,6 +22,16 @@ const Sidebar = ({ setMobileNav }: any) => {
         </div>
         <DarkModeSwitch />
         <LanguageSwitch />
+      </div>
+      <div className="mx-2 mt-2 flex justify-end lg:hidden">
+        <Button
+          color="ghost"
+          fullWidth
+          responsive
+          onClick={() => setMobileNav(false)}
+        >
+          Close
+        </Button>
       </div>
       {isAuthenticated && <UserInfo />}
 

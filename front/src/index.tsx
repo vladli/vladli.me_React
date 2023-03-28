@@ -11,6 +11,7 @@ import App from "./App";
 //context
 import { AuthProvider } from "context/AuthContext";
 import { ThemeProvider } from "context/ThemeContext";
+import { I18nextProvider } from "react-i18next";
 
 //
 const queryClient = new QueryClient();

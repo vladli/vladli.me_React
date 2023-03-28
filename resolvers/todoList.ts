@@ -3,7 +3,7 @@ import todoList from "../models/todoList";
 
 export const createTodo = async (req: Request, res: Response) => {
   const { userId, body } = req;
-  const { text, completed } = body;
+  const { text } = body;
   todoList
     .create({
       userUID: userId,

@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { forwardRef } from "react";
+import { twMerge } from "tailwind-merge";
 
 type Props = React.HtmlHTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
@@ -8,12 +8,9 @@ type Props = React.HtmlHTMLAttributes<HTMLDivElement> & {
 
 const Box = forwardRef<HTMLDivElement, Props>(
   ({ children, className, ...rest }, ref) => {
+    const classes = twMerge("bg-base-100 shadow-xl", className);
     return (
-      <div
-        ref={ref}
-        className={clsx("card", "bg-base-100 shadow-xl", className)}
-        {...rest}
-      >
+      <div ref={ref} className={classes} {...rest}>
         {children}
       </div>
     );

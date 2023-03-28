@@ -1,11 +1,9 @@
 import admin from "../firebase/firebase";
-import { NOT_ALLOWED, NO_PREMESSION } from "../config/errors";
 import { Request, Response } from "express";
 
 export const createUser = (req: Request, res: Response) => {
-  const { authRole, query } = req;
+  const { query } = req;
 
-  if (authRole !== "admin") return res.status(403).send(NO_PREMESSION);
   admin
     .auth()
     .createUser({
@@ -16,20 +14,17 @@ export const createUser = (req: Request, res: Response) => {
 };
 
 export const getUser = (req: Request, res: Response) => {
-  const { authRole, query } = req;
-
-  if (authRole !== "admin") return res.status(403).send(NO_PREMESSION);
+  const { query } = req;
   admin
     .auth()
     .getUser(query["uid"] as string)
     .then((user) => res.json(user))
-    .catch(() => res.send(NO_PREMESSION));
+    .catch((err) => res.send(err));
 };
 
 export const deleteUser = (req: Request, res: Response) => {
-  const { authRole, query } = req;
+  const { query } = req;
 
-  if (authRole !== "admin") return res.status(403).end(NO_PREMESSION);
   admin
     .auth()
     .getUser(query["uid"] as string)
@@ -41,13 +36,10 @@ export const deleteUser = (req: Request, res: Response) => {
         .deleteUser(user.uid)
         .then(() => res.send());
     })
-    .catch(() => res.send(NO_PREMESSION));
+    .catch((err) => res.send(err));
 };
 
 export const getAllUsers = (req: Request, res: Response) => {
-  const { authRole } = req;
-
-  if (authRole !== "admin") return res.status(403).send(NO_PREMESSION);
   admin
     .auth()
     .listUsers()
@@ -63,5 +55,5 @@ export const getAllUsers = (req: Request, res: Response) => {
       );
       res.send(userList);
     })
-    .catch(() => res.send(NO_PREMESSION));
+    .catch((err) => res.send(err));
 };

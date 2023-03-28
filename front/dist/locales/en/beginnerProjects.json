@@ -3,6 +3,7 @@
 		"title": "Calculator"
 	},
 	"Todos": {
+		"AddItem": "Add",
 		"title": "Todo List"
 	},
 	"title": "Beginner Projects"

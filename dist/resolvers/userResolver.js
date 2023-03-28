@@ -5,11 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAllUsers = exports.deleteUser = exports.getUser = exports.createUser = void 0;
 const firebase_1 = __importDefault(require("../firebase/firebase"));
-const errors_1 = require("../config/errors");
 const createUser = (req, res) => {
-    const { authRole, query } = req;
-    if (authRole !== "admin")
-        return res.status(403).send(errors_1.NO_PREMESSION);
+    const { query } = req;
     firebase_1.default
         .auth()
         .createUser({
@@ -20,20 +17,16 @@ const createUser = (req, res) => {
 };
 exports.createUser = createUser;
 const getUser = (req, res) => {
-    const { authRole, query } = req;
-    if (authRole !== "admin")
-        return res.status(403).send(errors_1.NO_PREMESSION);
+    const { query } = req;
     firebase_1.default
         .auth()
         .getUser(query["uid"])
         .then((user) => res.json(user))
-        .catch(() => res.send(errors_1.NO_PREMESSION));
+        .catch((err) => res.send(err));
 };
 exports.getUser = getUser;
 const deleteUser = (req, res) => {
-    const { authRole, query } = req;
-    if (authRole !== "admin")
-        return res.status(403).end(errors_1.NO_PREMESSION);
+    const { query } = req;
     firebase_1.default
         .auth()
         .getUser(query["uid"])
@@ -45,13 +38,10 @@ const deleteUser = (req, res) => {
             .deleteUser(user.uid)
             .then(() => res.send());
     })
-        .catch(() => res.send(errors_1.NO_PREMESSION));
+        .catch((err) => res.send(err));
 };
 exports.deleteUser = deleteUser;
 const getAllUsers = (req, res) => {
-    const { authRole } = req;
-    if (authRole !== "admin")
-        return res.status(403).send(errors_1.NO_PREMESSION);
     firebase_1.default
         .auth()
         .listUsers()
@@ -65,6 +55,6 @@ const getAllUsers = (req, res) => {
         }));
         res.send(userList);
     })
-        .catch(() => res.send(errors_1.NO_PREMESSION));
+        .catch((err) => res.send(err));
 };
 exports.getAllUsers = getAllUsers;

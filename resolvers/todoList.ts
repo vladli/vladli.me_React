@@ -4,6 +4,7 @@ import todoList from "../models/todoList";
 export const createTodo = async (req: Request, res: Response) => {
   const { userId, body } = req;
   const { text } = body;
+
   todoList
     .create({
       userUID: userId,
@@ -20,6 +21,17 @@ export const getTodo = async (req: Request, res: Response) => {
   todoList.find().then((result) => {
     res.send(result);
   });
+};
+
+export const updateTodo = async (req: Request, res: Response) => {
+  const { query } = req;
+  todoList
+    .findByIdAndUpdate(query._id, {
+      completed: query.completed,
+    })
+    .then((result) => {
+      res.send(result);
+    });
 };
 
 export const deleteTodo = async (req: Request, res: Response) => {

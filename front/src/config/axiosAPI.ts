@@ -1,10 +1,12 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 
-const instance: any = axios.create({
+const axiosConfig: AxiosRequestConfig = {
   baseURL: "/",
   headers: {
     Authorization: `Bearer ${sessionStorage.getItem("Authorization")}`,
   },
-});
+};
+
+const instance: any = axios.create(axiosConfig);
 
 export default instance;

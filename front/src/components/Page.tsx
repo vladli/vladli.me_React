@@ -7,14 +7,22 @@ type Props = {
   title: string;
   children: React.ReactElement;
   responsive?: boolean;
+  center?: boolean;
   className?: string;
 };
 
-const Page = ({ title, children, responsive = true, className }: Props) => {
+const Page = ({
+  title,
+  children,
+  responsive = true,
+  center,
+  className,
+}: Props) => {
   const { t } = useTranslation();
   const classes = twMerge(
     clsx({
-      "flex justify-center p-4 lg:justify-start": responsive,
+      "flex justify-center p-4 lg:justify-start": responsive && !center,
+      "flex justify-center p-4": center,
     }),
     className
   );

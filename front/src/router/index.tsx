@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import ProgressBar from "../components/ProgressBar";
+import Page from "components/Page";
 
 import DashboardLayout from "../layouts/dashboard";
 import CleanLayout from "../layouts/CleanLayout";
@@ -16,7 +17,6 @@ import {
   PATH_PAGE,
 } from "./paths";
 import { ROLES } from "../config/userRoles";
-import Page from "components/Page";
 
 const Dashboard = lazy(() => import("pages/dashboard"));
 const LoginPage = lazy(() => import("pages/auth/Login"));
@@ -103,7 +103,7 @@ const router = createBrowserRouter([
       {
         path: PATH_BEGINNER_PROJECTS.todos.url,
         element: (
-          <Page title="beginnerProjects:Todos.title">
+          <Page title="beginnerProjects:Todos.title" center>
             <SuspenseLoading>
               <Todos />
             </SuspenseLoading>

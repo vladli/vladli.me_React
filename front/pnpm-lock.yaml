@@ -6,7 +6,7 @@ specifiers:
   '@tanstack/react-query': ^4.28.0
   '@tanstack/react-table': ^8.8.4
   '@types/nprogress': ^0.2.0
-  '@types/react': ^18.0.29
+  '@types/react': ^18.0.30
   '@types/react-dom': ^18.0.11
   '@types/react-paginate': ^7.1.1
   '@vitejs/plugin-react': ^3.1.0
@@ -73,7 +73,7 @@ dependencies:
 devDependencies:
   '@faker-js/faker': 7.6.0
   '@types/nprogress': 0.2.0
-  '@types/react': 18.0.29
+  '@types/react': 18.0.30
   '@types/react-dom': 18.0.11
   '@types/react-paginate': 7.1.1
   '@vitejs/plugin-react': 3.1.0_vite@4.2.1
@@ -1346,17 +1346,17 @@ packages:
   /@types/react-dom/18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
-      '@types/react': 18.0.29
+      '@types/react': 18.0.30
     dev: true
 
   /@types/react-paginate/7.1.1:
     resolution: {integrity: sha512-94cEJHfBaINba2XGQOWFJF/tYe+AImIhOPqMCfqyeFOgk0qUpDZyDOOW76A1rgdtWndR8UwsMPgV/uuTM8vZ7w==}
     dependencies:
-      '@types/react': 18.0.29
+      '@types/react': 18.0.30
     dev: true
 
-  /@types/react/18.0.29:
-    resolution: {integrity: sha512-wXHktgUABxplw1+UnljseDq4+uztQyp2tlWZRIxHlpchsCFqiYkvaDS8JR7eKOQm8wziTH/el5qL7D6gYNkYcw==}
+  /@types/react/18.0.30:
+    resolution: {integrity: sha512-AnME2cHDH11Pxt/yYX6r0w448BfTwQOLEhQEjCdwB7QskEI7EKtxhGUsExTQe/MsY3D9D5rMtu62WRocw9A8FA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2

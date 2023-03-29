@@ -1,13 +1,7 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllUsers = exports.deleteUser = exports.getUser = exports.createUser = void 0;
-const firebase_1 = __importDefault(require("../firebase/firebase"));
-const createUser = (req, res) => {
+import admin from "../firebase/firebase";
+export const createUser = (req, res) => {
     const { query } = req;
-    firebase_1.default
+    admin
         .auth()
         .createUser({
         email: query["email"],
@@ -15,34 +9,31 @@ const createUser = (req, res) => {
     })
         .then(() => res.send());
 };
-exports.createUser = createUser;
-const getUser = (req, res) => {
+export const getUser = (req, res) => {
     const { query } = req;
-    firebase_1.default
+    admin
         .auth()
         .getUser(query["uid"])
         .then((user) => res.json(user))
         .catch((err) => res.send(err));
 };
-exports.getUser = getUser;
-const deleteUser = (req, res) => {
+export const deleteUser = (req, res) => {
     const { query } = req;
-    firebase_1.default
+    admin
         .auth()
         .getUser(query["uid"])
         .then((user) => {
         if (user.customClaims?.role === "admin")
             return res.status(405).end("You can not delete Admin user.");
-        firebase_1.default
+        admin
             .auth()
             .deleteUser(user.uid)
             .then(() => res.send());
     })
         .catch((err) => res.send(err));
 };
-exports.deleteUser = deleteUser;
-const getAllUsers = (req, res) => {
-    firebase_1.default
+export const getAllUsers = (req, res) => {
+    admin
         .auth()
         .listUsers()
         .then((users) => {
@@ -57,4 +48,3 @@ const getAllUsers = (req, res) => {
     })
         .catch((err) => res.send(err));
 };
-exports.getAllUsers = getAllUsers;

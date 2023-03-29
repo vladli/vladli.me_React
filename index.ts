@@ -16,12 +16,12 @@ app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 
 app.use("/api", verifyToken, routes);
-const dirname = path.resolve();
 
+const dirname = path.resolve();
 const buildPath = path.normalize(path.join(dirname, "/front/dist"));
-console.log(buildPath, dirname);
+
 app.use(express.static(buildPath));
-app.get("/*", (req: Request, res: Response) => {
+app.get("(/*)?", (req: Request, res: Response) => {
   res.sendFile(path.resolve(buildPath, "index.html"));
 });
 /** Server */

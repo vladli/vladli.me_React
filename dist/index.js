@@ -4,7 +4,7 @@ import cors from "cors";
 import express from "express";
 import routes from "./routes/index";
 import verifyToken from "./security/verifyToken";
-import path, { resolve } from "path";
+import path from "path";
 import { URL } from "url";
 dotenv.config();
 const app = express();
@@ -12,9 +12,10 @@ app.use(express.json());
 app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 app.use("/api", verifyToken, routes);
 const __dirname = new URL(".", import.meta.url).pathname;
-app.use(express.static(resolve(__dirname, "front/dist")));
+const buildPath = path.normalize(path.join(__dirname, "../front/dist"));
+app.use(express.static(buildPath));
 app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "front/dist", "index.html"));
+    res.sendFile(path.join(buildPath, "index.html"));
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;

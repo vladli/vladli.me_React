@@ -21,7 +21,8 @@ const createTodo = async (req, res) => {
 };
 exports.createTodo = createTodo;
 const getTodo = async (req, res) => {
-    todoList_1.default.find().then((result) => {
+    const { userId } = req;
+    todoList_1.default.find({ userUID: userId }).then((result) => {
         res.send(result);
     });
 };
@@ -30,6 +31,7 @@ const updateTodo = async (req, res) => {
     const { query } = req;
     todoList_1.default
         .findByIdAndUpdate(query._id, {
+        text: query.text,
         completed: query.completed,
     })
         .then((result) => {

@@ -18,7 +18,8 @@ export const createTodo = async (req: Request, res: Response) => {
 };
 
 export const getTodo = async (req: Request, res: Response) => {
-  todoList.find().then((result) => {
+  const { userId } = req;
+  todoList.find({ userUID: userId }).then((result) => {
     res.send(result);
   });
 };
@@ -27,6 +28,7 @@ export const updateTodo = async (req: Request, res: Response) => {
   const { query } = req;
   todoList
     .findByIdAndUpdate(query._id, {
+      text: query.text,
       completed: query.completed,
     })
     .then((result) => {

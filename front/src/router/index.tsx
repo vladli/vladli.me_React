@@ -17,6 +17,7 @@ import {
   PATH_PAGE,
 } from "./paths";
 import { ROLES } from "../config/userRoles";
+import AuthGuard from "guards/AuthGuard";
 
 const Dashboard = lazy(() => import("pages/dashboard"));
 const LoginPage = lazy(() => import("pages/auth/Login"));
@@ -66,7 +67,6 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: PATH_AUTH.root.url,
     element: <CleanLayout key="auth" />,
     children: [
       {
@@ -103,11 +103,13 @@ const router = createBrowserRouter([
       {
         path: PATH_BEGINNER_PROJECTS.todos.url,
         element: (
-          <Page title="beginnerProjects:Todos.title" center>
-            <SuspenseLoading>
-              <Todos />
-            </SuspenseLoading>
-          </Page>
+          <AuthGuard>
+            <Page title="beginnerProjects:Todos.title" center>
+              <SuspenseLoading>
+                <Todos />
+              </SuspenseLoading>
+            </Page>
+          </AuthGuard>
         ),
       },
     ],

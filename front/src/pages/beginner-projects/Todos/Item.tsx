@@ -1,10 +1,12 @@
 import Button from "components/Button";
 import Checkbox from "components/Form/Checkbox";
+import Input from "components/Form/Input";
 import axiosAPI from "config/axiosAPI";
 import React, { useEffect, useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { toast } from "react-toastify";
 import { DataProps } from ".";
+import EditItem from "./EditItem";
 
 type Props = {
   item: DataProps;
@@ -13,18 +15,26 @@ type Props = {
 
 const Item = ({ item, refetch }: Props) => {
   const [checked, setChecked] = useState(item.completed);
+  const [isChecked, setIsChecked] = useState(false);
+
   const [isEditing, setIsEditing] = useState(false);
+  const [editedText, setEditedText] = useState("");
+
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleChecked = (e: any) => {
+    setIsChecked(true);
+    setChecked(!checked);
+  };
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
   const handleDelete = () => {
     setIsDeleting(true);
   };
-  const completedToggle = (e: any) => {
-    setIsEditing(true);
-    setChecked(!checked);
-  };
-
   useEffect(() => {
-    if (isEditing) {
+    if (isChecked) {
       axiosAPI
         .put("/api/todos/item", null, {
           params: {
@@ -32,9 +42,25 @@ const Item = ({ item, refetch }: Props) => {
             completed: checked,
           },
         })
-        .then(() => setIsEditing(false));
+        .then(() => setIsChecked(false));
     }
   }, [checked]);
+
+  useEffect(() => {
+    if (isEditing) {
+      axiosAPI
+        .put("/api/todos/item", null, {
+          params: {
+            _id: item._id,
+            text: editedText,
+          },
+        })
+        .then(() => {
+          refetch();
+          setIsEditing(false);
+        });
+    }
+  }, [editedText]);
 
   useEffect(() => {
     if (isDeleting) {
@@ -55,11 +81,15 @@ const Item = ({ item, refetch }: Props) => {
     <li className="mb-2 flex gap-2">
       <Checkbox
         checked={checked}
-        onChange={completedToggle}
-        disabled={isEditing}
+        onChange={handleChecked}
+        disabled={isChecked}
       />
-      {item.text}
 
+      {isEditing ? (
+        <EditItem value={item.text} {...{ setIsEditing, setEditedText }} />
+      ) : (
+        <span onDoubleClick={handleEdit}>{item.text}</span>
+      )}
       <div className="flex basis-10/12 justify-end">
         <Button
           shape="square"

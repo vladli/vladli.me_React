@@ -29,6 +29,7 @@ const Todos = () => {
   return (
     <Box className="w-1/2 p-4">
       <h5 className="text-center">{t("Todos.title")}</h5>
+      <p className="text-center">{t("Todos.EditTextInfo")}</p>
       <AddItem {...{ refetch }} />
       <ol start={1}>
         {data.map((item: any) => (

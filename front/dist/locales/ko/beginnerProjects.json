@@ -4,6 +4,7 @@
 	},
 	"Todos": {
 		"AddItem": "추가",
+		"EditTextInfo": "텍스트를 편집하려면 더블 클릭",
 		"title": "할 일 목록"
 	},
 	"title": "초보자 프로젝트"

@@ -4,6 +4,7 @@
 	},
 	"Todos": {
 		"AddItem": "Add",
+		"EditTextInfo": "Double Click to Edit Text",
 		"title": "Todo List"
 	},
 	"title": "Beginner Projects"

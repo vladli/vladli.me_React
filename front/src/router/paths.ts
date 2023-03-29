@@ -11,7 +11,6 @@ const ROOT_BEGINNER_PROJECTS = "/beginner-projects";
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {
-  root: { url: ROOT_AUTH },
   login: { url: path(ROOT_AUTH, "/login"), title: "Login Page" },
   register: { url: path(ROOT_AUTH, "/register"), title: "Register ROOT_PAGE" },
 };

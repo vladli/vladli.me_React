@@ -33,128 +33,131 @@ const SuspenseLoading = ({ children }: any) => {
   return <Suspense fallback={<ProgressBar />}>{children}</Suspense>;
 };
 
-const router = createBrowserRouter([
-  {
-    path: PATH_PAGE.root.url,
-    element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: (
-          <Page title="beginnerProjects:title">
-            <SuspenseLoading>
-              <Dashboard />
-            </SuspenseLoading>
-          </Page>
-        ),
-      },
-    ],
-  },
-  {
-    path: PATH_DASHBOARD.root.url,
-    element: <DashboardLayout />,
-    children: [
-      {
-        index: true,
-        element: (
-          <Page title="beginnerProjects:title">
-            <SuspenseLoading>
-              <Dashboard />
-            </SuspenseLoading>
-          </Page>
-        ),
-      },
-    ],
-  },
-  {
-    element: <CleanLayout key="auth" />,
-    children: [
-      {
-        path: PATH_AUTH.login.url,
-        element: (
-          <GuestGuard>
-            <Page
-              title="auth:Login.title"
-              responsive={false}
-              className="flex h-[100vh] items-center justify-center"
-            >
+const router = createBrowserRouter(
+  [
+    {
+      path: PATH_PAGE.root.url,
+      element: <DashboardLayout />,
+      children: [
+        {
+          index: true,
+          element: (
+            <Page title="beginnerProjects:title">
               <SuspenseLoading>
-                <LoginPage />
+                <Dashboard />
               </SuspenseLoading>
             </Page>
-          </GuestGuard>
-        ),
-      },
-    ],
-  },
-  {
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: PATH_BEGINNER_PROJECTS.calculator.url,
-        element: (
-          <Page title="beginnerProjects:Calculator.title">
-            <SuspenseLoading>
-              <Calculator />
-            </SuspenseLoading>
-          </Page>
-        ),
-      },
-      {
-        path: PATH_BEGINNER_PROJECTS.todos.url,
-        element: (
-          <AuthGuard>
-            <Page title="beginnerProjects:Todos.title" center>
+          ),
+        },
+      ],
+    },
+    {
+      path: PATH_DASHBOARD.root.url,
+      element: <DashboardLayout />,
+      children: [
+        {
+          index: true,
+          element: (
+            <Page title="beginnerProjects:title">
               <SuspenseLoading>
-                <Todos />
+                <Dashboard />
               </SuspenseLoading>
             </Page>
-          </AuthGuard>
-        ),
-      },
-    ],
-  },
-  {
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: PATH_ADMIN.users.url,
-        element: (
-          <RoleGuard roles={[ROLES.Admin]} redirect>
-            <Page title="admin:AllUsers.title">
+          ),
+        },
+      ],
+    },
+    {
+      element: <CleanLayout key="auth" />,
+      children: [
+        {
+          path: PATH_AUTH.login.url,
+          element: (
+            <GuestGuard>
+              <Page
+                title="auth:Login.title"
+                responsive={false}
+                className="flex h-[100vh] items-center justify-center"
+              >
+                <SuspenseLoading>
+                  <LoginPage />
+                </SuspenseLoading>
+              </Page>
+            </GuestGuard>
+          ),
+        },
+      ],
+    },
+    {
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: PATH_BEGINNER_PROJECTS.calculator.url,
+          element: (
+            <Page title="beginnerProjects:Calculator.title">
               <SuspenseLoading>
-                <AdminAllUsers />
+                <Calculator />
               </SuspenseLoading>
             </Page>
-          </RoleGuard>
-        ),
-      },
-      {
-        path: PATH_ADMIN.findUser.url,
-        element: (
-          <RoleGuard roles={[ROLES.Admin]} redirect>
-            <Page title="admin:FindUser.title">
-              <SuspenseLoading>
-                <AdminFindUser />
-              </SuspenseLoading>
-            </Page>
-          </RoleGuard>
-        ),
-      },
-      {
-        path: PATH_ADMIN.addUser.url,
-        element: (
-          <RoleGuard roles={[ROLES.Admin]} redirect>
-            <Page title="admin:AddUser.title">
-              <SuspenseLoading>
-                <AdminAddUser />
-              </SuspenseLoading>
-            </Page>
-          </RoleGuard>
-        ),
-      },
-    ],
-  },
-]);
+          ),
+        },
+        {
+          path: PATH_BEGINNER_PROJECTS.todos.url,
+          element: (
+            <AuthGuard>
+              <Page title="beginnerProjects:Todos.title" center>
+                <SuspenseLoading>
+                  <Todos />
+                </SuspenseLoading>
+              </Page>
+            </AuthGuard>
+          ),
+        },
+      ],
+    },
+    {
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: PATH_ADMIN.users.url,
+          element: (
+            <RoleGuard roles={[ROLES.Admin]} redirect>
+              <Page title="admin:AllUsers.title">
+                <SuspenseLoading>
+                  <AdminAllUsers />
+                </SuspenseLoading>
+              </Page>
+            </RoleGuard>
+          ),
+        },
+        {
+          path: PATH_ADMIN.findUser.url,
+          element: (
+            <RoleGuard roles={[ROLES.Admin]} redirect>
+              <Page title="admin:FindUser.title">
+                <SuspenseLoading>
+                  <AdminFindUser />
+                </SuspenseLoading>
+              </Page>
+            </RoleGuard>
+          ),
+        },
+        {
+          path: PATH_ADMIN.addUser.url,
+          element: (
+            <RoleGuard roles={[ROLES.Admin]} redirect>
+              <Page title="admin:AddUser.title">
+                <SuspenseLoading>
+                  <AdminAddUser />
+                </SuspenseLoading>
+              </Page>
+            </RoleGuard>
+          ),
+        },
+      ],
+    },
+  ],
+  { basename: "/" }
+);
 
 export default router;

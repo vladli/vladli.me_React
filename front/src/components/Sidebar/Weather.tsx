@@ -9,9 +9,6 @@ const Weather = () => {
   const { data, loading } = useWeather("Seoul");
   if (loading || !data) return null;
 
-  const icon = data?.weather[0]?.icon;
-  var iconUrl = "https://openweathermap.org/img/w/" + icon + ".png";
-
   return (
     <div className="flex justify-center gap-5">
       <p className="flex items-center gap-1 font-semibold">

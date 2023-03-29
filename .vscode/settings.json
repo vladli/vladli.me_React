@@ -11,6 +11,6 @@
     "**/pnpm-lock.yaml": true,
     "**/README.md": true,
     "**/build": true,
-    "**/index.html": true
+    "**/index.html": false
   }
 }

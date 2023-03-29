@@ -15,8 +15,8 @@ const DarkModeSwitch = () => {
   return (
     <div className="btn-ghost btn" onClick={toggleDarkMode}>
       <Swap
-        onElement={<MdLightMode size={28} />}
-        offElement={<MdDarkMode size={28} />}
+        onElement={<MdLightMode size={24} />}
+        offElement={<MdDarkMode size={24} />}
         rotate
         active={darkSide}
       />

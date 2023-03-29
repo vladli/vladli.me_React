@@ -15,9 +15,10 @@ app.use(cors({ origin: ["http://localhost:3000", "https://vladli.me"] }));
 
 app.use("/api", verifyToken, routes);
 
-app.use(express.static(resolve("./", "front/dist"), { extensions: ["js"] }));
-app.get("/*", (req: Request, res: Response) => {
-  res.sendFile(path.resolve("./", "front/dist", "index.html"));
+const buildPath = path.normalize(path.join("./", "front/dist"));
+app.use(express.static(buildPath));
+app.get("*/", (req: Request, res: Response) => {
+  res.sendFile(path.join(buildPath, "index.html"));
 });
 
 /** Server */

@@ -104,6 +104,6 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
 
-  "include": ["*", "./firebase/service-account.json"],
-  "exclude": ["/front"]
+  "include": ["*", "./firebase/service-account.json"]
+  //"exclude": ["/front"]
 }

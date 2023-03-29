@@ -1,5 +1,10 @@
-import mongoose from "mongoose";
-const todoList = new mongoose.Schema({
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const mongoose_1 = __importDefault(require("mongoose"));
+const todoList = new mongoose_1.default.Schema({
     userUID: {
         type: String,
         required: true,
@@ -13,4 +18,4 @@ const todoList = new mongoose.Schema({
         requred: true,
     },
 }, { timestamps: true });
-export default mongoose.model("todo-list", todoList);
+exports.default = mongoose_1.default.model("todo-list", todoList);

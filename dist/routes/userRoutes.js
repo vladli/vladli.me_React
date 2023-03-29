@@ -1,8 +1,10 @@
-import { Router } from "express";
-import { createUser, getUser, deleteUser, getAllUsers, } from "../resolvers/userResolver";
-const router = Router();
-router.post("/user", createUser);
-router.get("/user", getUser);
-router.delete("/user", deleteUser);
-router.get("/getAllUsers", getAllUsers);
-export default router;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const userResolver_1 = require("../resolvers/userResolver");
+const router = (0, express_1.Router)();
+router.post("/user", userResolver_1.createUser);
+router.get("/user", userResolver_1.getUser);
+router.delete("/user", userResolver_1.deleteUser);
+router.get("/getAllUsers", userResolver_1.getAllUsers);
+exports.default = router;

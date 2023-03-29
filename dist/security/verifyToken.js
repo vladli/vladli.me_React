@@ -1,5 +1,10 @@
-import admin from "../firebase/firebase";
-export default function verifyToken(req, res, next) {
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const firebase_1 = __importDefault(require("../firebase/firebase"));
+function verifyToken(req, res, next) {
     const authToken = req.headers.authorization;
     if (!authToken) {
         req.isAuth = false;
@@ -10,7 +15,7 @@ export default function verifyToken(req, res, next) {
         req.isAuth = false;
         return next();
     }
-    admin
+    firebase_1.default
         .auth()
         .verifyIdToken(token)
         .then((user) => {
@@ -24,3 +29,4 @@ export default function verifyToken(req, res, next) {
         return next();
     });
 }
+exports.default = verifyToken;

@@ -21,8 +21,8 @@ const dirname = path.resolve();
 const buildPath = path.normalize(path.join(dirname, "/front/dist"));
 
 app.use(express.static(buildPath));
-app.get("(/*)?", (req: Request, res: Response) => {
-  res.sendFile(path.resolve(buildPath, "index.html"));
+app.get("*", function (req, res) {
+  res.sendFile("index.html", { root: path.join(dirname, "/front/dist/") });
 });
 /** Server */
 

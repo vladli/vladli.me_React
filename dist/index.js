@@ -18,8 +18,8 @@ app.use("/api", verifyToken_1.default, index_1.default);
 const dirname = path_1.default.resolve();
 const buildPath = path_1.default.normalize(path_1.default.join(dirname, "/front/dist"));
 app.use(express_1.default.static(buildPath));
-app.get("(/*)?", (req, res) => {
-    res.sendFile(path_1.default.resolve(buildPath, "index.html"));
+app.get("*", function (req, res) {
+    res.sendFile("index.html", { root: path_1.default.join(dirname, "/front/dist/") });
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;

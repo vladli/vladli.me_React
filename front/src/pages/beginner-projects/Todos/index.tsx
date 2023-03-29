@@ -27,12 +27,12 @@ const Todos = () => {
 
   if (isLoading || !data) return <LoadingEffect />;
   return (
-    <Box className="w-5/6 p-4">
+    <Box className="w-1/2 p-4">
       <h5 className="text-center">{t("Todos.title")}</h5>
       <AddItem {...{ refetch }} />
       <ol start={1}>
         {data.map((item: any) => (
-          <Item key={item._id} item={item} />
+          <Item key={item._id} item={item} {...{ refetch }} />
         ))}
       </ol>
     </Box>

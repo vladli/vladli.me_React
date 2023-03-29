@@ -37,7 +37,7 @@ export const updateTodo = async (req: Request, res: Response) => {
 export const deleteTodo = async (req: Request, res: Response) => {
   const { query } = req;
   todoList
-    .findByIdAndDelete(query.id)
+    .findByIdAndDelete(query._id)
     .then((result) => {
       res.send(result);
     })

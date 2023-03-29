@@ -40,7 +40,7 @@ exports.updateTodo = updateTodo;
 const deleteTodo = async (req, res) => {
     const { query } = req;
     todoList_1.default
-        .findByIdAndDelete(query.id)
+        .findByIdAndDelete(query._id)
         .then((result) => {
         res.send(result);
     })

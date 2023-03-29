@@ -1,9 +1,9 @@
 export default function LoadingEffect() {
   return (
-    <div className="flex h-full place-items-center justify-center">
+    <div className="flex items-center justify-center">
       <svg
         aria-hidden="true"
-        className="inline h-16 w-16 animate-spin fill-primary text-base-100"
+        className="m-auto inline h-16 w-16 animate-spin fill-primary text-base-100"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

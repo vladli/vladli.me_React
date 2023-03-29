@@ -36,7 +36,6 @@ const router = createBrowserRouter([
   {
     path: PATH_PAGE.root.url,
     element: <DashboardLayout />,
-    loader: () => <SuspenseLoading />,
     children: [
       {
         index: true,
@@ -67,6 +66,7 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: PATH_AUTH.root.url,
     element: <CleanLayout key="auth" />,
     children: [
       {

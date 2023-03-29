@@ -18,7 +18,7 @@ app.use("/api", verifyToken, routes);
 const dirname = path.resolve();
 const buildPath = path.normalize(path.join(dirname, "/front/dist"));
 app.use(express.static(buildPath));
-app.get("*", function (req, res) {
+app.get("/*", function (req, res) {
   res.sendFile("index.html", { root: path.join(dirname, "/front/dist/") });
 });
 /** Server */

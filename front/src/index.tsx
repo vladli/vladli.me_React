@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import { domMax, LazyMotion } from "framer-motion";
-import { StrictMode, Suspense } from "react";
+import { StrictMode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
 import "./i18n";
@@ -11,7 +11,6 @@ import App from "./App";
 //context
 import { AuthProvider } from "context/AuthContext";
 import { ThemeProvider } from "context/ThemeContext";
-import { I18nextProvider } from "react-i18next";
 
 //
 const queryClient = new QueryClient();

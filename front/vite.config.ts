@@ -34,8 +34,5 @@ export default defineConfig({
         secure: false,
       },
     },
-    cors: {
-      origin: ["https://openweathermap.org"],
-    },
   },
 });

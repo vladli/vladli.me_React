@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import firebase, { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../config/firebase";
-import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 
@@ -35,9 +34,6 @@ const AuthProvider = ({ children }: { children?: React.ReactNode }) => {
         const oldToken = sessionStorage.getItem("Authorization");
         if (oldToken !== token.token) {
           sessionStorage.setItem("Authorization", token.token);
-          axios.defaults.headers.common[
-            "Authorization"
-          ] = `Bearer ${token.token}`;
         }
       });
     };

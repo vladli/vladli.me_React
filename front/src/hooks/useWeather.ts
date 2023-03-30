@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 
 type Data = {
@@ -24,14 +24,16 @@ const useWeather = (city: string) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-      )
-      .then((res) => {
-        setData(res?.data);
-        setLoading(false);
-      });
+    axios("https://api.openweathermap.org/data/2.5/weather", {
+      params: {
+        q: city,
+        appid: apiKey,
+        units: "metric",
+      },
+    }).then((response: AxiosResponse) => {
+      setData(response?.data);
+      setLoading(false);
+    });
   }, [city]);
 
   return { data, loading };

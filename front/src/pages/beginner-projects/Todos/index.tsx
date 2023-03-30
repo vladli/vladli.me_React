@@ -27,7 +27,7 @@ const Todos = () => {
 
   if (isLoading || !data) return <LoadingEffect />;
   return (
-    <Box className="w-1/2 p-4">
+    <Box className="w-11/12 p-4 lg:w-6/12">
       <h5 className="text-center">{t("Todos.title")}</h5>
       <p className="text-center">{t("Todos.EditTextInfo")}</p>
       <AddItem {...{ refetch }} />

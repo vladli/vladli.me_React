@@ -3,7 +3,7 @@ import MenuConfig from "../../config/MenuConfig";
 import { useAuth } from "../../context/AuthContext";
 import Logo from "components/Logo";
 import { Link } from "react-router-dom";
-import { PATH_DASHBOARD } from "router/paths";
+import { PATH_PAGE } from "router/paths";
 import DarkModeSwitch from "components/DarkModeSwitch";
 import UserInfo from "./UserInfo";
 import Weather from "./Weather";
@@ -28,7 +28,7 @@ const Sidebar = ({ setMobileNav }: any) => {
       </div>
       <div className="flex justify-center p-2">
         <div className="flex-none">
-          <Link to={PATH_DASHBOARD.root.url}>
+          <Link to={PATH_PAGE.root.url}>
             <Logo />
           </Link>
         </div>

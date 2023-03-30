@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 import { useAuth } from "../../context/AuthContext";
-import { PATH_AUTH, PATH_DASHBOARD } from "../../router/paths";
+import { PATH_AUTH, PATH_PAGE } from "../../router/paths";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
 import { useTranslation } from "react-i18next";
 import Navbar from "components/Navigation/Navbar";
@@ -31,7 +31,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
           <MdMenu size={24} onClick={toggleMobileNav} />
         </div>
         <div className="flex lg:hidden">
-          <Link to={PATH_DASHBOARD.root.url}>
+          <Link to={PATH_PAGE.root.url}>
             <Logo />
           </Link>
         </div>

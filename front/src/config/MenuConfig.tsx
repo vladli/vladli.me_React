@@ -1,16 +1,10 @@
-import {
-  PATH_ADMIN,
-  PATH_BEGINNER_PROJECTS,
-  PATH_DASHBOARD,
-  PATH_PAGE,
-} from "../router/paths";
+import { PATH_ADMIN, PATH_BEGINNER_PROJECTS, PATH_PAGE } from "../router/paths";
 import { useTranslation } from "react-i18next";
 import { ROLES } from "./userRoles";
 //icons
-import { MdAutoAwesomeMotion, MdDashboard, MdChecklist } from "react-icons/md";
+import { MdAutoAwesomeMotion, MdChecklist } from "react-icons/md";
 import { HiUserGroup } from "react-icons/hi";
 import { RiUserSearchFill } from "react-icons/ri";
-import { SiTestcafe } from "react-icons/si";
 import { FaUserPlus } from "react-icons/fa";
 import { BsCalculator } from "react-icons/bs";
 
@@ -21,18 +15,6 @@ function getMenu(userRole: string) {
       name: "Main",
       link: PATH_PAGE.root.url,
       icon: <MdAutoAwesomeMotion />,
-    },
-    {
-      name: "Dashboard",
-      link: "",
-      icon: undefined,
-      submenu: [
-        {
-          name: "Dashboard",
-          link: PATH_DASHBOARD.root.url,
-          icon: <MdDashboard />,
-        },
-      ],
     },
     {
       name: t("beginnerProjects:title"),

@@ -504,6 +504,31 @@
 							</concept_node>
 						</children>
 					</file_node>
+					<file_node>
+						<name>main</name>
+						<children>
+							<concept_node>
+								<name>title</name>
+								<description/>
+								<comment/>
+								<default_text/>
+								<translations>
+									<translation>
+										<language>en-US</language>
+										<approved>true</approved>
+									</translation>
+									<translation>
+										<language>ko-KR</language>
+										<approved>true</approved>
+									</translation>
+									<translation>
+										<language>ru-RU</language>
+										<approved>true</approved>
+									</translation>
+								</translations>
+							</concept_node>
+						</children>
+					</file_node>
 				</children>
 			</package_node>
 		</children>

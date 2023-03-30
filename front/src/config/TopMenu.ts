@@ -1,4 +1,4 @@
-import { PATH_ADMIN, PATH_DASHBOARD, PATH_PAGE } from "../router/paths";
+import { PATH_ADMIN, PATH_PAGE } from "../router/paths";
 
 const TopMenu = [
   {
@@ -14,11 +14,6 @@ const TopMenu = [
       {
         name: "1",
         link: PATH_ADMIN.users.url,
-        icon: "material-symbols:dashboard",
-      },
-      {
-        name: "2",
-        link: PATH_DASHBOARD.root.url,
         icon: "material-symbols:dashboard",
       },
     ],

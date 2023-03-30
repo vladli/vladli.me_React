@@ -1,11 +1,11 @@
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
-import { PATH_DASHBOARD } from "../router/paths";
+import { PATH_PAGE } from "../router/paths";
 
 const GuestGuard = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
   if (isAuthenticated) {
-    return <Navigate to={PATH_DASHBOARD.root.url} />;
+    return <Navigate to={PATH_PAGE.root.url} />;
   }
   return <>{children}</>;
 };

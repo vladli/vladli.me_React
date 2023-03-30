@@ -13,13 +13,12 @@ import {
   PATH_ADMIN,
   PATH_AUTH,
   PATH_BEGINNER_PROJECTS,
-  PATH_DASHBOARD,
   PATH_PAGE,
 } from "./paths";
 import { ROLES } from "../config/userRoles";
 import AuthGuard from "guards/AuthGuard";
 
-const Dashboard = lazy(() => import("pages/dashboard"));
+const Main = lazy(() => import("pages/main"));
 const LoginPage = lazy(() => import("pages/auth/Login"));
 
 const Calculator = lazy(() => import("pages/beginner-projects/Calculator"));
@@ -42,31 +41,16 @@ const router = createBrowserRouter(
         {
           index: true,
           element: (
-            <Page title="beginnerProjects:title">
+            <Page title="main:title">
               <SuspenseLoading>
-                <Dashboard />
+                <Main />
               </SuspenseLoading>
             </Page>
           ),
         },
       ],
     },
-    {
-      path: PATH_DASHBOARD.root.url,
-      element: <DashboardLayout />,
-      children: [
-        {
-          index: true,
-          element: (
-            <Page title="beginnerProjects:title">
-              <SuspenseLoading>
-                <Dashboard />
-              </SuspenseLoading>
-            </Page>
-          ),
-        },
-      ],
-    },
+
     {
       element: <CleanLayout key="auth" />,
       children: [

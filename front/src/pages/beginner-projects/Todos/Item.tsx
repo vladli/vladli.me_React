@@ -1,8 +1,8 @@
 import Button from "components/Button";
 import Checkbox from "components/Form/Checkbox";
-import Input from "components/Form/Input";
-import axiosAPI from "config/axiosAPI";
+import useAxios from "hooks/useAxios";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { MdDeleteForever } from "react-icons/md";
 import { toast } from "react-toastify";
 import { DataProps } from ".";
@@ -14,83 +14,86 @@ type Props = {
 } & React.HTMLAttributes<HTMLLIElement>;
 
 const Item = ({ item, refetch }: Props) => {
+  const { t } = useTranslation("beginnerProjects");
   const [checked, setChecked] = useState(item.completed);
-  const [isChecked, setIsChecked] = useState(false);
-
+  const [checkPressed, setCheckPressed] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedText, setEditedText] = useState("");
+  const [itemText, setItemText] = useState(item.text);
+  const [{ loading: editLoading }, updateChecked] = useAxios(
+    {
+      url: "/api/todos/item",
+      method: "put",
+    },
+    { manual: true }
+  );
 
   const [isDeleting, setIsDeleting] = useState(false);
+  const [{ loading: deleteLoading }, deleteItem] = useAxios(
+    {
+      url: "/api/todos/item",
+      method: "delete",
+    },
+    { manual: true }
+  );
 
-  const handleChecked = (e: any) => {
-    setIsChecked(true);
+  const handleChecked = () => {
     setChecked(!checked);
+    setCheckPressed(true);
   };
   const handleEdit = () => {
     setIsEditing(true);
   };
 
+  useEffect(() => {
+    if (checkPressed || (isEditing && itemText)) {
+      updateChecked({
+        params: {
+          _id: item._id,
+          text: itemText,
+          completed: checked,
+        },
+      }).then(() => {
+        setCheckPressed(false);
+        if (itemText) {
+          setIsEditing(false);
+        }
+      });
+    }
+  }, [checkPressed, itemText]);
+
   const handleDelete = () => {
     setIsDeleting(true);
   };
-  useEffect(() => {
-    if (isChecked) {
-      axiosAPI
-        .put("/api/todos/item", null, {
-          params: {
-            _id: item._id,
-            completed: checked,
-          },
-        })
-        .then(() => setIsChecked(false));
-    }
-  }, [checked]);
-
-  useEffect(() => {
-    if (isEditing) {
-      axiosAPI
-        .put("/api/todos/item", null, {
-          params: {
-            _id: item._id,
-            text: editedText,
-          },
-        })
-        .then(() => {
-          refetch();
-          setIsEditing(false);
-        });
-    }
-  }, [editedText]);
 
   useEffect(() => {
     if (isDeleting) {
-      axiosAPI
-        .delete("/api/todos/item", {
-          params: {
-            _id: item._id,
-          },
-        })
-        .then(() => {
-          refetch();
-          setIsDeleting(false);
-        });
+      deleteItem({
+        params: {
+          _id: item._id,
+        },
+      }).then(() => {
+        toast.info(t("Todos.ItemDeleted"));
+        refetch();
+      });
     }
   }, [isDeleting]);
 
   return (
-    <li className="mb-2 flex gap-2">
-      <Checkbox
-        checked={checked}
-        onChange={handleChecked}
-        disabled={isChecked}
-      />
+    <li className="mb-2 flex">
+      <div className="flex basis-11/12 gap-2">
+        <Checkbox
+          checked={checked}
+          onChange={handleChecked}
+          disabled={editLoading}
+        />
 
-      {isEditing ? (
-        <EditItem value={item.text} {...{ setIsEditing, setEditedText }} />
-      ) : (
-        <span onDoubleClick={handleEdit}>{item.text}</span>
-      )}
-      <div className="flex basis-10/12 justify-end">
+        {isEditing ? (
+          <EditItem value={itemText} {...{ setIsEditing, setItemText }} />
+        ) : (
+          <span onDoubleClick={handleEdit}>{itemText}</span>
+        )}
+      </div>
+      <div className="flex basis-1/12 justify-end">
         <Button
           shape="square"
           size="sm"

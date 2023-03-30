@@ -5,6 +5,7 @@
 	"Todos": {
 		"AddItem": "Add",
 		"EditTextInfo": "Double Click to Edit Text",
+		"ItemDeleted": "Successfully deleted",
 		"title": "Todo List"
 	},
 	"title": "Beginner Projects"

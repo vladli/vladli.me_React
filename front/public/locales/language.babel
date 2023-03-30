@@ -441,6 +441,26 @@
 										</translations>
 									</concept_node>
 									<concept_node>
+										<name>ItemDeleted</name>
+										<description/>
+										<comment/>
+										<default_text/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>ko-KR</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>ru-RU</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
+									<concept_node>
 										<name>title</name>
 										<description/>
 										<comment/>

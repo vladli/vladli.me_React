@@ -5,15 +5,15 @@ import React, { Dispatch, SetStateAction } from "react";
 
 type Props = {
   value: string;
-  setEditedText: Dispatch<SetStateAction<string>>;
+  setItemText: Dispatch<SetStateAction<string>>;
 };
 
-const EditItem = ({ value, setEditedText }: Props) => {
+const EditItem = ({ value, setItemText }: Props) => {
   const [text, setText] = React.useState(value);
   const updateText = (e: React.FormEvent<HTMLInputElement>) =>
     setText(e.currentTarget.value);
   const handleFinished = () => {
-    setEditedText(text);
+    setItemText(text);
   };
   return (
     <div>

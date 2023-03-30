@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { makeUseAxios } from "axios-hooks";
 
 const axiosConfig: AxiosRequestConfig = {
   baseURL: "/",
@@ -7,6 +8,6 @@ const axiosConfig: AxiosRequestConfig = {
   },
 };
 
-const instance = axios.create(axiosConfig);
+const useAxios = makeUseAxios({ axios: axios.create(axiosConfig) });
 
-export default instance;
+export default useAxios;

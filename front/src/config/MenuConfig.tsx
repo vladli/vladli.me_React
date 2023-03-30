@@ -9,10 +9,10 @@ import { FaUserPlus } from "react-icons/fa";
 import { BsCalculator } from "react-icons/bs";
 
 function getMenu(userRole: string) {
-  const { t } = useTranslation(["beginnerProjects", "admin"]);
+  const { t } = useTranslation();
   const MenuItems = [
     {
-      name: "Main",
+      name: t("main:title"),
       link: PATH_PAGE.root.url,
       icon: <MdAutoAwesomeMotion />,
     },

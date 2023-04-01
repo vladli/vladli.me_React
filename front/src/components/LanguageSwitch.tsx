@@ -6,7 +6,7 @@ const getFlag = (country: any) => {
   switch (country) {
     case "en":
       return "🇺🇸";
-    case "ko":
+    case "kr":
       return "🇰🇷";
     case "ru":
       return "🇷🇺";
@@ -32,7 +32,7 @@ const LanguageSwitch = () => {
       <Dropdown.Toggle color="ghost">{getFlag(language)}</Dropdown.Toggle>
       <Dropdown.Menu>
         <Dropdown.Item onClick={changeLanguage("en")}>🇺🇸</Dropdown.Item>
-        <Dropdown.Item onClick={changeLanguage("ko")}>🇰🇷</Dropdown.Item>
+        <Dropdown.Item onClick={changeLanguage("kr")}>🇰🇷</Dropdown.Item>
         <Dropdown.Item onClick={changeLanguage("ru")}>🇷🇺</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

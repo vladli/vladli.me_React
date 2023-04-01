@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Data = {
   name: string;
@@ -19,6 +20,7 @@ type Data = {
 };
 
 const useWeather = (city: string) => {
+  const { i18n } = useTranslation();
   const apiKey = import.meta.env.VITE_OPEN_WEATHER;
   const [data, setData] = useState<Data | null>(null);
   const [loading, setLoading] = useState(true);
@@ -29,12 +31,13 @@ const useWeather = (city: string) => {
         q: city,
         appid: apiKey,
         units: "metric",
+        lang: i18n.resolvedLanguage,
       },
     }).then((response: AxiosResponse) => {
-      setData(response?.data);
+      setData(response.data);
       setLoading(false);
     });
-  }, [city]);
+  }, [city, i18n.resolvedLanguage]);
 
   return { data, loading };
 };

@@ -23,7 +23,7 @@ export default function RoleGuard({
         <h3>You have no access to this page.</h3>
       </Box>
     ) : (
-      <Navigate to={PATH_AUTH.login.url} />
+      <Navigate to={PATH_AUTH.login} />
     );
   return <AuthGuard>{children}</AuthGuard>;
 }

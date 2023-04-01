@@ -23,6 +23,7 @@ const LoginPage = lazy(() => import("pages/auth/Login"));
 
 const Calculator = lazy(() => import("pages/beginner-projects/Calculator"));
 const Todos = lazy(() => import("pages/beginner-projects/Todos"));
+const Weather = lazy(() => import("pages/beginner-projects/Weather"));
 
 const AdminAllUsers = lazy(() => import("pages/admin/AllUsers"));
 const AdminFindUser = lazy(() => import("pages/admin/FindUser"));
@@ -35,7 +36,7 @@ const SuspenseLoading = ({ children }: any) => {
 const router = createBrowserRouter(
   [
     {
-      path: PATH_PAGE.root.url,
+      path: PATH_PAGE.root,
       element: <DashboardLayout />,
       children: [
         {
@@ -55,7 +56,7 @@ const router = createBrowserRouter(
       element: <CleanLayout key="auth" />,
       children: [
         {
-          path: PATH_AUTH.login.url,
+          path: PATH_AUTH.login,
           element: (
             <GuestGuard>
               <Page
@@ -76,7 +77,7 @@ const router = createBrowserRouter(
       element: <DashboardLayout />,
       children: [
         {
-          path: PATH_BEGINNER_PROJECTS.calculator.url,
+          path: PATH_BEGINNER_PROJECTS.calculator,
           element: (
             <Page title="beginnerProjects:Calculator.title">
               <SuspenseLoading>
@@ -86,7 +87,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: PATH_BEGINNER_PROJECTS.todos.url,
+          path: PATH_BEGINNER_PROJECTS.todos,
           element: (
             <AuthGuard>
               <Page title="beginnerProjects:Todos.title" center>
@@ -97,13 +98,23 @@ const router = createBrowserRouter(
             </AuthGuard>
           ),
         },
+        {
+          path: PATH_BEGINNER_PROJECTS.weather,
+          element: (
+            <Page title="beginnerProjects:Weather.title" center>
+              <SuspenseLoading>
+                <Weather />
+              </SuspenseLoading>
+            </Page>
+          ),
+        },
       ],
     },
     {
       element: <DashboardLayout />,
       children: [
         {
-          path: PATH_ADMIN.users.url,
+          path: PATH_ADMIN.users,
           element: (
             <RoleGuard roles={[ROLES.Admin]} redirect>
               <Page title="admin:AllUsers.title">
@@ -115,7 +126,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: PATH_ADMIN.findUser.url,
+          path: PATH_ADMIN.findUser,
           element: (
             <RoleGuard roles={[ROLES.Admin]} redirect>
               <Page title="admin:FindUser.title">
@@ -127,7 +138,7 @@ const router = createBrowserRouter(
           ),
         },
         {
-          path: PATH_ADMIN.addUser.url,
+          path: PATH_ADMIN.addUser,
           element: (
             <RoleGuard roles={[ROLES.Admin]} redirect>
               <Page title="admin:AddUser.title">

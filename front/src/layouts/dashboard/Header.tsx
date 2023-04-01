@@ -31,7 +31,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
           <MdMenu size={24} onClick={toggleMobileNav} />
         </div>
         <div className="flex lg:hidden">
-          <Link to={PATH_PAGE.root.url}>
+          <Link to={PATH_PAGE.root}>
             <Logo />
           </Link>
         </div>
@@ -41,7 +41,7 @@ export default function Header({ mobileNavStatus, setMobileNav }: Props) {
           <Button
             color="info"
             leftIcon={<CgLogIn size={20} />}
-            onClick={navigateTo(PATH_AUTH.login.url)}
+            onClick={navigateTo(PATH_AUTH.login)}
           >
             {t("Login.login")}
           </Button>

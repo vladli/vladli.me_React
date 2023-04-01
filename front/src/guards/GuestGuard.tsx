@@ -5,7 +5,7 @@ import { PATH_PAGE } from "../router/paths";
 const GuestGuard = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated } = useAuth();
   if (isAuthenticated) {
-    return <Navigate to={PATH_PAGE.root.url} />;
+    return <Navigate to={PATH_PAGE.root} />;
   }
   return <>{children}</>;
 };

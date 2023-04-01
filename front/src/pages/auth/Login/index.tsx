@@ -3,37 +3,41 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
 
-import Box from "../../../components/Box";
-import Divider from "../../../components/Divider";
-import Input from "../../../components/Form/Input";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import Box from "components/Box";
+import Divider from "components/Divider";
+import Input from "components/Form/Input";
+
 //@ts-ignore
 import { ReactComponent as LOGIN_IMG } from "assets/login.svg";
-import Button from "../../../components/Button";
+import Button from "components/Button";
 
 //FIREBASE
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth, getErrorMessage } from "../../../config/firebase";
+import { auth, getErrorMessage } from "config/firebase";
 
-import { PATH_PAGE } from "../../../router/paths";
+import { PATH_PAGE } from "router/paths";
 
-const schema = yup
+const schema = z
   .object({
-    Email: yup.string().email().required(),
-    Password: yup.string().required(),
+    Email: z.string().email({ message: "s" }),
+    Password: z.string(),
   })
-  .required();
-type FormData = yup.InferType<typeof schema>;
+  .strict();
+type FormData = z.infer<typeof schema>;
 
 const Login = () => {
   const { t } = useTranslation("auth");
   const {
     register,
-    formState: { errors, isValid },
     handleSubmit,
-  } = useForm<FormData>({ mode: "onChange", resolver: yupResolver(schema) });
+    formState: { errors, isValid },
+  } = useForm<FormData>({
+    mode: "onChange",
+    resolver: zodResolver(schema),
+  });
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -44,8 +48,8 @@ const Login = () => {
           sessionStorage.setItem("Authorization", token);
         });
         setErrorMessage(null);
-        toast.success(t("Login.logedInMessage") + data.Email);
-        navigate(PATH_PAGE.root.url, { replace: true });
+        toast.success(t("Login.logedInMessage") + " " + data.Email);
+        navigate(PATH_PAGE.root, { replace: true });
       })
       .catch((error: any) => {
         setErrorMessage(getErrorMessage(error.code));
@@ -73,7 +77,9 @@ const Login = () => {
               value="demo@vladli.me"
               color={errors.Email ? "error" : "ghost"}
             />
+
             <p className="text-red-500">{errors.Email?.message}</p>
+
             <Input
               labeled
               label={t("Login.password")}
@@ -84,16 +90,18 @@ const Login = () => {
               value={123456}
               color={errors.Password ? "error" : "ghost"}
             />
+
             <p className="text-red-500">{errors.Password?.message}</p>
+
             <div className="mt-4 w-[100%]">
               <Button fullWidth type="submit" disabled={!isValid}>
                 {t("Login.login")}
               </Button>
-              {errorMessage && (
+              {errorMessage ? (
                 <p className="mt-2 select-none rounded-2xl border border-neutral-700 p-2 text-center text-red-500">
                   {errorMessage}
                 </p>
-              )}
+              ) : null}
             </div>
           </div>
         </form>

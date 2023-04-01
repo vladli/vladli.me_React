@@ -8,5 +8,8 @@
 		"ItemDeleted": "Successfully deleted",
 		"title": "Todo List"
 	},
+	"Weather": {
+		"title": "Weather app"
+	},
 	"title": "Beginner Projects"
 }

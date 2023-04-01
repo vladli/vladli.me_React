@@ -7,13 +7,14 @@ import { HiUserGroup } from "react-icons/hi";
 import { RiUserSearchFill } from "react-icons/ri";
 import { FaUserPlus } from "react-icons/fa";
 import { BsCalculator } from "react-icons/bs";
+import { TiWeatherPartlySunny } from "react-icons/ti";
 
 function getMenu(userRole: string) {
   const { t } = useTranslation();
   const MenuItems = [
     {
       name: t("main:title"),
-      link: PATH_PAGE.root.url,
+      link: PATH_PAGE.root,
       icon: <MdAutoAwesomeMotion />,
     },
     {
@@ -23,13 +24,18 @@ function getMenu(userRole: string) {
       submenu: [
         {
           name: t("beginnerProjects:Calculator:title"),
-          link: PATH_BEGINNER_PROJECTS.calculator.url,
+          link: PATH_BEGINNER_PROJECTS.calculator,
           icon: <BsCalculator />,
         },
         {
           name: t("beginnerProjects:Todos.title"),
-          link: PATH_BEGINNER_PROJECTS.todos.url,
+          link: PATH_BEGINNER_PROJECTS.todos,
           icon: <MdChecklist />,
+        },
+        {
+          name: t("beginnerProjects:Weather.title"),
+          link: PATH_BEGINNER_PROJECTS.weather,
+          icon: <TiWeatherPartlySunny />,
         },
       ],
     },
@@ -42,17 +48,17 @@ function getMenu(userRole: string) {
             submenu: [
               {
                 name: t("admin:AllUsers.title"),
-                link: PATH_ADMIN.users.url,
+                link: PATH_ADMIN.users,
                 icon: <HiUserGroup />,
               },
               {
                 name: t("admin:FindUser.title"),
-                link: PATH_ADMIN.findUser.url,
+                link: PATH_ADMIN.findUser,
                 icon: <RiUserSearchFill />,
               },
               {
                 name: t("admin:AddUser.title"),
-                link: PATH_ADMIN.addUser.url,
+                link: PATH_ADMIN.addUser,
                 icon: <FaUserPlus />,
               },
             ],

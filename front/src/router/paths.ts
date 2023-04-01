@@ -10,28 +10,23 @@ const ROOT_BEGINNER_PROJECTS = "/beginner-projects";
 // ----------------------------------------------------------------------
 
 export const PATH_AUTH = {
-  login: { url: path(ROOT_AUTH, "/login"), title: "Login Page" },
-  register: { url: path(ROOT_AUTH, "/register"), title: "Register ROOT_PAGE" },
+  login: path(ROOT_AUTH, "/login"),
+  register: path(ROOT_AUTH, "/register"),
 };
 
 export const PATH_ADMIN = {
-  addUser: { url: path(ROOT_ADMIN, "/add-user"), title: "Add user" },
-  users: { url: path(ROOT_ADMIN, "/users"), title: "All users" },
-  findUser: { url: path(ROOT_ADMIN, "/find-user"), title: "Find user" },
+  addUser: path(ROOT_ADMIN, "/add-user"),
+  users: path(ROOT_ADMIN, "/users"),
+  findUser: path(ROOT_ADMIN, "/find-user"),
 };
 
 export const PATH_PAGE = {
-  root: { url: ROOT_PAGE, title: "Main page" },
-  page404: { url: "/404", title: "404" },
+  root: ROOT_PAGE,
+  page404: "/404",
 };
 
 export const PATH_BEGINNER_PROJECTS = {
-  calculator: {
-    url: path(ROOT_BEGINNER_PROJECTS, "/calculator"),
-    title: "Calculator",
-  },
-  todos: {
-    url: path(ROOT_BEGINNER_PROJECTS, "/todos"),
-    title: "Calculator",
-  },
+  calculator: path(ROOT_BEGINNER_PROJECTS, "/calculator"),
+  todos: path(ROOT_BEGINNER_PROJECTS, "/todos"),
+  weather: path(ROOT_BEGINNER_PROJECTS, "/weather"),
 };

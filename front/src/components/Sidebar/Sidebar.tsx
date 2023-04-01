@@ -15,7 +15,6 @@ const Sidebar = ({ setMobileNav }: any) => {
   const { isAuthenticated, role } = useAuth();
   return (
     <div className="menu max-w-[18rem] bg-base-100">
-      {" "}
       <div className="mx-2 mt-2 flex justify-end lg:hidden">
         <Button
           color="ghost"
@@ -28,7 +27,7 @@ const Sidebar = ({ setMobileNav }: any) => {
       </div>
       <div className="flex justify-center p-2">
         <div className="flex-none">
-          <Link to={PATH_PAGE.root.url}>
+          <Link to={PATH_PAGE.root}>
             <Logo />
           </Link>
         </div>

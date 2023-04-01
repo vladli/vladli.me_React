@@ -3,7 +3,7 @@ import { PATH_ADMIN, PATH_PAGE } from "../router/paths";
 const TopMenu = [
   {
     name: "Main",
-    link: PATH_PAGE.root.url,
+    link: PATH_PAGE.root,
     icon: "material-symbols:pages-outline-sharp",
   },
   {
@@ -13,7 +13,7 @@ const TopMenu = [
     submenu: [
       {
         name: "1",
-        link: PATH_ADMIN.users.url,
+        link: PATH_ADMIN.users,
         icon: "material-symbols:dashboard",
       },
     ],

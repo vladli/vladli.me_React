@@ -482,6 +482,31 @@
 									</concept_node>
 								</children>
 							</folder_node>
+							<folder_node>
+								<name>Weather</name>
+								<children>
+									<concept_node>
+										<name>title</name>
+										<description/>
+										<comment/>
+										<default_text/>
+										<translations>
+											<translation>
+												<language>en-US</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>ko-KR</language>
+												<approved>true</approved>
+											</translation>
+											<translation>
+												<language>ru-RU</language>
+												<approved>true</approved>
+											</translation>
+										</translations>
+									</concept_node>
+								</children>
+							</folder_node>
 							<concept_node>
 								<name>title</name>
 								<description/>
@@ -554,7 +579,7 @@
 					<language>en-US</language>
 				</translation_url>
 				<translation_url>
-					<path>ko</path>
+					<path>kr</path>
 					<language>ko-KR</language>
 				</translation_url>
 				<translation_url>

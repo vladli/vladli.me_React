@@ -1,4 +1,5 @@
 import clsx from "clsx";
+
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -117,7 +118,7 @@ const Calculator = (props: Props) => {
 
   return (
     <div className="flex w-72 flex-col bg-base-100 p-1">
-      <div className="flex h-16 w-full items-center justify-end bg-primary pr-2 text-2xl font-semibold">
+      <div className="flex h-16 w-full items-center justify-end bg-base-300 pr-2 text-2xl font-semibold">
         {calc.number ? calc.number : calc.result}
       </div>
       <div className="grid grid-cols-4 gap-1 pt-1">

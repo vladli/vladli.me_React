@@ -16,7 +16,6 @@ type Props = {
 const Item = ({ item, refetch }: Props) => {
   const { t } = useTranslation("beginnerProjects");
   const [checked, setChecked] = useState(item.completed);
-  const [checkPressed, setCheckPressed] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [itemText, setItemText] = useState(item.text);
   const [{ loading: editLoading }, updateChecked] = useAxios(
@@ -27,7 +26,6 @@ const Item = ({ item, refetch }: Props) => {
     { manual: true }
   );
 
-  const [isDeleting, setIsDeleting] = useState(false);
   const [{ loading: deleteLoading }, deleteItem] = useAxios(
     {
       url: "/api/todos/item",
@@ -37,50 +35,31 @@ const Item = ({ item, refetch }: Props) => {
   );
 
   const handleChecked = () => {
-    setChecked(!checked);
-    setCheckPressed(true);
+    updateChecked({
+      params: {
+        _id: item._id,
+        completed: !checked,
+      },
+    }).then(() => setChecked(!checked));
   };
   const handleEdit = () => {
     setIsEditing(true);
   };
 
-  useEffect(() => {
-    if (checkPressed || (isEditing && itemText)) {
-      updateChecked({
-        params: {
-          _id: item._id,
-          text: itemText,
-          completed: checked,
-        },
-      }).then(() => {
-        setCheckPressed(false);
-        if (itemText) {
-          setIsEditing(false);
-        }
-      });
-    }
-  }, [checkPressed, itemText]);
-
   const handleDelete = () => {
-    setIsDeleting(true);
+    deleteItem({
+      params: {
+        _id: item._id,
+      },
+    }).then(() => {
+      toast.info(t("Todos.ItemDeleted"));
+      refetch();
+    });
   };
 
-  useEffect(() => {
-    if (isDeleting) {
-      deleteItem({
-        params: {
-          _id: item._id,
-        },
-      }).then(() => {
-        toast.info(t("Todos.ItemDeleted"));
-        refetch();
-      });
-    }
-  }, [isDeleting]);
-
   return (
-    <li className="mb-2 flex">
-      <div className="flex basis-11/12 gap-2">
+    <li className="mb-2 flex items-center">
+      <div className="flex w-10/12 basis-11/12 gap-2">
         <Checkbox
           checked={checked}
           onChange={handleChecked}
@@ -88,9 +67,15 @@ const Item = ({ item, refetch }: Props) => {
         />
 
         {isEditing ? (
-          <EditItem value={itemText} {...{ setIsEditing, setItemText }} />
+          <EditItem
+            id={item._id}
+            value={itemText}
+            {...{ setIsEditing, setItemText, updateChecked }}
+          />
         ) : (
-          <span onDoubleClick={handleEdit}>{itemText}</span>
+          <p className="text-ellipsis overflow-hidden" onDoubleClick={handleEdit}>
+            {itemText}
+          </p>
         )}
       </div>
       <div className="flex basis-1/12 justify-end">
@@ -98,7 +83,7 @@ const Item = ({ item, refetch }: Props) => {
           shape="square"
           size="sm"
           color="ghost"
-          disabled={isDeleting}
+          disabled={deleteLoading}
           onClick={handleDelete}
         >
           <MdDeleteForever color="red" size={20} />

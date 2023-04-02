@@ -41,7 +41,7 @@ const Sidebar = ({ setMobileNav }: any) => {
         ))}
       </ul>
       <Divider />
-      <Weather />
+      {<Weather />}
       <Divider />
     </div>
   );

@@ -8,5 +8,8 @@
 		"ItemDeleted": "삭제되었습니다",
 		"title": "할 일 목록"
 	},
+	"Weather": {
+		"title": "날씨 앱"
+	},
 	"title": "초보자 프로젝트"
 }

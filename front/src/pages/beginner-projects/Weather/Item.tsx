@@ -32,7 +32,7 @@ const Item = ({ data }: Props) => {
       var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
       return (
         <td key={key}>
-          <img src={iconurl} alt="" className="m-auto"/>
+          <img src={iconurl} alt="" className="m-auto" />
         </td>
       );
     });
@@ -44,7 +44,7 @@ const Item = ({ data }: Props) => {
   };
   const precipitation = () => {
     return data.list.map((item, key) => {
-      return <TD key={key}>{item.pop}</TD>;
+      return <TD key={key}>{item.pop * 100}</TD>;
     });
   };
   const wind = () => {

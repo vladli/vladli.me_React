@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { Data } from "hooks/useWeatherForecast";
-import Table from "components/Table/Table";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   data: Data;
@@ -18,6 +18,7 @@ const TD = forwardRef<
 });
 
 const Item = ({ data }: Props) => {
+  const { t } = useTranslation("beginnerProjects");
   const time = () => {
     return data.list.map((item, key) => {
       const Hour = new Date(item.dt * 1000).toLocaleTimeString("en-GB", {
@@ -44,7 +45,7 @@ const Item = ({ data }: Props) => {
   };
   const precipitation = () => {
     return data.list.map((item, key) => {
-      return <TD key={key}>{~~item.pop * 100}</TD>;
+      return <TD key={key}>{Math.trunc(item.pop * 100)}</TD>;
     });
   };
   const wind = () => {
@@ -60,7 +61,7 @@ const Item = ({ data }: Props) => {
   return (
     <tbody>
       <tr>
-        <TD>Time</TD>
+        <TD>{t("Weather.Time")}</TD>
         {time()}
       </tr>
       <tr>
@@ -73,19 +74,22 @@ const Item = ({ data }: Props) => {
       </tr>
       <tr>
         <TD>
-          Prec<p className="text-center text-sm">(%)</p>
+          {t("Weather.Precipitation")}
+          <p className="text-center text-sm">(%)</p>
         </TD>
         {precipitation()}
       </tr>
       <tr>
         <TD>
-          Wind<p className="text-center text-sm">(m/s)</p>
+          {t("Weather.Wind")}
+          <p className="text-center text-sm">(m/s)</p>
         </TD>
         {wind()}
       </tr>
       <tr>
         <TD>
-          Hum<p className="text-center text-sm">(%)</p>
+          {t("Weather.Humidity")}
+          <p className="text-center text-sm">(%)</p>
         </TD>
         {humidity()}
       </tr>

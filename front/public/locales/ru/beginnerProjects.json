@@ -9,6 +9,11 @@
 		"title": "Список дел"
 	},
 	"Weather": {
+		"Humidity": "Влажность",
+		"Location": "Локация",
+		"Precipitation": "Осадки",
+		"Time": "Время",
+		"Wind": "Ветер",
 		"title": "Погода"
 	},
 	"title": "Проекты - Новичок"

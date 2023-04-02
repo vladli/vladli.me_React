@@ -3,7 +3,7 @@ import { ComponentColor, ComponentSize } from "components/@types";
 import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-type Props = Omit<
+export type Props = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
   "size" | "color"
 > & {

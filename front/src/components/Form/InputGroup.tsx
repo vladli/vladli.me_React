@@ -21,7 +21,7 @@ const InputGroup = forwardRef<HTMLLabelElement, InputGroupProps>(
     );
 
     return (
-      <label {...props} className={classes} ref={ref}>
+      <label {...props} className={classes}>
         {children}
       </label>
     );

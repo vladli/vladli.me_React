@@ -9,6 +9,11 @@
 		"title": "Todo List"
 	},
 	"Weather": {
+		"Humidity": "Humidity",
+		"Location": "Location",
+		"Precipitation": "Precipitation",
+		"Time": "Time",
+		"Wind": "Wind",
 		"title": "Weather app"
 	},
 	"title": "Beginner Projects"

@@ -9,6 +9,11 @@
 		"title": "할 일 목록"
 	},
 	"Weather": {
+		"Humidity": "습도",
+		"Location": "위치",
+		"Precipitation": "강수확률",
+		"Time": "시간",
+		"Wind": "바람",
 		"title": "날씨 앱"
 	},
 	"title": "초보자 프로젝트"

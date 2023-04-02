@@ -26,7 +26,7 @@ const SearchCity = ({ setCity }: Props) => {
   const searchCity = (city: string) => {
     if (city) {
       axios
-        .get("http://api.openweathermap.org/geo/1.0/direct", {
+        .get("https://api.openweathermap.org/geo/1.0/direct", {
           params: {
             q: city,
             appid: apiKey,

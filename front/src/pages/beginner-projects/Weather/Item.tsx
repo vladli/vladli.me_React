@@ -44,7 +44,7 @@ const Item = ({ data }: Props) => {
   };
   const precipitation = () => {
     return data.list.map((item, key) => {
-      return <TD key={key}>{item.pop * 100}</TD>;
+      return <TD key={key}>{~~item.pop * 100}</TD>;
     });
   };
   const wind = () => {

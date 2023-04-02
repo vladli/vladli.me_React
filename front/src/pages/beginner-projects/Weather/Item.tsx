@@ -30,7 +30,7 @@ const Item = ({ data }: Props) => {
   const icon = () => {
     return data.list.map((item, key) => {
       var iconcode = item.weather[0].icon;
-      var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+      var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
       return (
         <td key={key}>
           <img src={iconurl} alt="" className="m-auto" />

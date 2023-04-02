@@ -21,6 +21,7 @@ const dirname = path_1.default.resolve();
 const buildPath = path_1.default.normalize(path_1.default.join(dirname, "/front/dist"));
 app.use(express_1.default.static(buildPath));
 app.get("/*", function (req, res) {
+    res.setHeader("Content-Type", "Application/javascript");
     res.sendFile("index.html", { root: path_1.default.join(dirname, "/front/dist/") });
 });
 /** Server */

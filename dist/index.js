@@ -27,6 +27,7 @@ const buildPath = path_1.default.normalize(path_1.default.join(dirname, "/front/
 app.use(express_1.default.static(buildPath));
 app.get("/*", function (req, res) {
     res.sendFile("index.html", { root: path_1.default.join(dirname, "/front/dist/") });
+    res.setHeader("Content-type", "text/javascript");
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;

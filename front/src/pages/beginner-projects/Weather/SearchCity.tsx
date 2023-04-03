@@ -1,5 +1,5 @@
 import Button from "components/Button";
-import DropdownInput from "components/Form/DropdownInput";
+import DropdownInput from "pages/beginner-projects/Weather/DropdownInput";
 import InputGroup from "components/Form/InputGroup";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { MdSearch } from "react-icons/md";
@@ -7,65 +7,59 @@ import axios from "axios";
 import useDebounce from "hooks/useDebounce";
 
 type Props = {
-  setCity: Dispatch<SetStateAction<string>>;
+  city: any;
+  setCity: any;
 };
 
 export type GeoProps = {
   data: {
     country: string;
     name: string;
-    state: string;
+    latitude: number;
+    longitude: number;
   };
 }[];
 
-const SearchCity = ({ setCity }: Props) => {
+const SearchCity = ({ city, setCity }: Props) => {
   const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value, 300);
+  const debouncedValue = useDebounce(value, 400);
   const [searchData, setSearchData] = useState<GeoProps>([]);
-  const apiKey = import.meta.env.VITE_GEOAPIFY;
+  const apiKey = import.meta.env.VITE_APININJAS;
   const searchCity = (city: string) => {
     if (city) {
       axios
-        .get("https://api.geoapify.com/v1/geocode/autocomplete", {
+        .get("https://api.api-ninjas.com/v1/city", {
           params: {
-            text: city,
-            apiKey: apiKey,
+            name: city,
             limit: 5,
-            lang: "en",
-            format: "json",
-            type: "city",
+          },
+          headers: {
+            "X-Api-Key": apiKey,
           },
         })
         .then((res: any) => {
-          setSearchData(res.data.results);
+          setSearchData(res.data);
         });
-    }
+    } else setSearchData([]);
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
-  const handleSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    setCity(value);
-  };
+
   useEffect(() => {
     searchCity(value);
   }, [debouncedValue]);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <InputGroup className="justify-center">
-        <DropdownInput
-          name="CitySearch"
-          datalist={searchData}
-          value={value}
-          onChange={handleChange}
-        />
-        <Button type="submit">
-          <MdSearch />
-        </Button>
-      </InputGroup>
-    </form>
+    <>
+      <DropdownInput
+        name="CitySearch"
+        datalist={searchData}
+        value={value}
+        onChange={handleChange}
+        {...{ city, setCity }}
+      />
+    </>
   );
 };
 

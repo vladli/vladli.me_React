@@ -8,17 +8,25 @@ import { useTranslation } from "react-i18next";
 
 const Weather = () => {
   const { t } = useTranslation("beginnerProjects");
-  const [city, setCity] = useState("Seoul");
-  const { data, loading, error } = useWeatherForecast(city);
+  const [city, setCity] = useState({
+    name: "Seoul, KR",
+    latitude: 37.5833,
+    longitude: 127,
+  });
+  const { data, loading, error } = useWeatherForecast(
+    city.latitude,
+    city.longitude
+  );
 
   if (loading || !data) return null;
 
   return (
     <Box className="w-full overflow-x-auto p-4">
-      <SearchCity {...{ setCity }} />
+      <SearchCity {...{ city, setCity }} />
       {!error ? (
         <div className="m-2 text-center text-lg">
-          {t("Weather.Location")}: <span className="capitalize">{city}</span>
+          {t("Weather.Location")}:{" "}
+          <span className="capitalize">{city.name}</span>
         </div>
       ) : null}
       <Table className="w-full">

@@ -26,7 +26,7 @@ export type Data = {
   }[];
 };
 
-const useWeatherForecast = (city: string) => {
+const useWeatherForecast = (latitude: number, longitude: number) => {
   const { i18n } = useTranslation();
   const apiKey = import.meta.env.VITE_OPEN_WEATHER;
   const [data, setData] = useState<Data | null>(null);
@@ -37,7 +37,8 @@ const useWeatherForecast = (city: string) => {
     setError(null);
     axios("https://api.openweathermap.org/data/2.5/forecast", {
       params: {
-        q: city,
+        lat: latitude,
+        lon: longitude,
         appid: apiKey,
         units: "metric",
         cnt: 8,
@@ -49,7 +50,7 @@ const useWeatherForecast = (city: string) => {
         setLoading(false);
       })
       .catch((error: Error) => setError(error.message));
-  }, [city, i18n.resolvedLanguage]);
+  }, [latitude, longitude, i18n.resolvedLanguage]);
 
   return { data, loading, error };
 };

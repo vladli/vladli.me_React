@@ -18,6 +18,7 @@ app.use((0, cors_1.default)({
         "http://localhost:3000",
         "https://vladli.me",
         "https://api.openweathermap.org",
+        "https://api.geoapify.com",
     ],
 }));
 app.use("/api", verifyToken_1.default, index_1.default);

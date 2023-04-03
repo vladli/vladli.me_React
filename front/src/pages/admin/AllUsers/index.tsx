@@ -104,7 +104,7 @@ const Main = () => {
   if (isLoading || isError) return <LoadingEffect />;
 
   return (
-    <div className="overflow-x-auto">
+    <div className="w-full overflow-x-auto">
       <div className="sticky left-0 pb-2 text-center font-bold">
         Google Firebase Authentication
       </div>

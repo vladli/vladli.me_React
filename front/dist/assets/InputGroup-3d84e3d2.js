@@ -1,1 +1,0 @@
-import{r as e,t as u,c,a as n}from"./index-16c82929.js";const l=e.forwardRef(({children:a,size:r,vertical:s,className:t,...p},i)=>{const o=u("input-group",t,c({[`input-group-${r}`]:r,"input-group-vertical":s}));return n("label",{...p,className:o,children:a})});l.displayName="InputGroup";export{l as I};

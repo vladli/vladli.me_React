@@ -79,7 +79,7 @@ const router = createBrowserRouter(
         {
           path: PATH_BEGINNER_PROJECTS.calculator,
           element: (
-            <Page title="beginnerProjects:Calculator.title">
+            <Page title="beginnerProjects:Calculator.title" center>
               <SuspenseLoading>
                 <Calculator />
               </SuspenseLoading>

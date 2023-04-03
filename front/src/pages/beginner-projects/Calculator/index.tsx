@@ -131,6 +131,12 @@ const Calculator = (props: Props) => {
                 "flex h-16 cursor-pointer items-center justify-center border bg-base-100 hover:bg-base-300",
                 clsx({
                   [`col-span-2`]: button === 0 || button === "AC",
+                  [`bg-primary`]:
+                    button === "÷" ||
+                    button === "+" ||
+                    button === "-" ||
+                    button === "X" ||
+                    button === "=",
                 })
               )}
               onClick={

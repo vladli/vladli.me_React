@@ -17,6 +17,7 @@ app.use(
       "http://localhost:3000",
       "https://vladli.me",
       "https://api.openweathermap.org",
+      "https://api.geoapify.com",
     ],
   })
 );

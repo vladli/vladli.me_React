@@ -20,20 +20,25 @@ export type GeoProps = {
 
 const SearchCity = ({ setCity }: Props) => {
   const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value, 500);
+  const debouncedValue = useDebounce(value, 300);
   const [searchData, setSearchData] = useState<GeoProps>([]);
-  const apiKey = import.meta.env.VITE_OPEN_WEATHER;
+  const apiKey = import.meta.env.VITE_GEOAPIFY;
   const searchCity = (city: string) => {
     if (city) {
       axios
-        .get("https://api.openweathermap.org/geo/1.0/direct", {
+        .get("https://api.geoapify.com/v1/geocode/autocomplete", {
           params: {
-            q: city,
-            appid: apiKey,
+            text: city,
+            apiKey: apiKey,
             limit: 5,
+            lang: "en",
+            format: "json",
+            type: "city",
           },
         })
-        .then((res: any) => setSearchData(res.data));
+        .then((res: any) => {
+          setSearchData(res.data.results);
+        });
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

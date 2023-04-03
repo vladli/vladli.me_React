@@ -12,7 +12,7 @@ const DropdownInput = forwardRef<HTMLInputElement, DropDownProps>(
         <Input list="datalist" {...rest} />
         <datalist id="datalist">
           {datalist.map((data: any, i: number) => (
-            <option key={i} value={data.name + ", " + data.country} />
+            <option key={i} value={data.city + ", " + data.country} />
           ))}
         </datalist>
       </>

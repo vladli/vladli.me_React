@@ -70,9 +70,6 @@ dependencies:
   react-toastify:
     specifier: ^9.1.2
     version: 9.1.2(react-dom@18.2.0)(react@18.2.0)
-  tailwind-merge:
-    specifier: ^1.11.0
-    version: 1.11.0
   zod:
     specifier: ^3.21.4
     version: 3.21.4
@@ -105,9 +102,6 @@ devDependencies:
   axios-hooks:
     specifier: ^4.0.0
     version: 4.0.0(axios@1.3.4)(react@18.2.0)
-  country-state-city:
-    specifier: ^3.1.2
-    version: 3.1.2
   postcss:
     specifier: ^8.4.21
     version: 8.4.21
@@ -117,6 +111,9 @@ devDependencies:
   prettier-plugin-tailwindcss:
     specifier: ^0.2.6
     version: 0.2.6(prettier@2.8.7)
+  tailwind-merge:
+    specifier: ^1.11.0
+    version: 1.11.0
   tailwindcss:
     specifier: ^3.3.1
     version: 3.3.1(postcss@8.4.21)
@@ -1666,10 +1663,6 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /country-state-city@3.1.2:
-    resolution: {integrity: sha512-qpzY7GyzqgJsx5TQUak0ryhbMcn1bLN1mgQc37EWkJMOEbszrAMowjzmisnf8ybhLBnbesZ1LK3KTc7SUX1T1w==}
-    dev: true
-
   /cross-fetch@3.1.5:
     resolution: {integrity: sha512-lvb1SBsI0Z7GDwmuid+mU3kWVBwTVUbe7S0H52yaaAdQOXq2YktTCZdlAcNKFzE6QtRz0snpw9bNiPeOIkkQvw==}
     dependencies:
@@ -2694,7 +2687,7 @@ packages:
 
   /tailwind-merge@1.11.0:
     resolution: {integrity: sha512-oG3/328Y7LrfPMfkgMNxoqEk1ZQdXBxdphf9FFrreo8q0EtVIHt3bQf2IyFhQuVt8puB57lCRBNbazGhYAyz9w==}
-    dev: false
+    dev: true
 
   /tailwindcss@3.3.1(postcss@8.4.21):
     resolution: {integrity: sha512-Vkiouc41d4CEq0ujXl6oiGFQ7bA3WEhUZdTgXAhtKxSy49OmKs8rEfQmupsfF0IGW8fv2iQkp1EVUuapCFrZ9g==}

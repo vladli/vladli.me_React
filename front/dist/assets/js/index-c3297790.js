@@ -1,4 +1,4 @@
-import{r as le,k as nt,l as ot,t as rt,j as U,a as A,u as ze,F as Ce,B as we,m as it,h as lt,Q as Re,I as st,n as at}from"./index-5ecb6091.js";import{T as ce}from"./Table-40349001.js";import{i as Be}from"./axiosAPI-4b460b84.js";import{L as ut}from"./LoadingEffect-10af3ea2.js";import{M as pe}from"./Modal-45b4b0c9.js";import{u as gt}from"./useQuery-3a823d93.js";/**
+import{r as le,k as nt,l as ot,t as rt,j as U,a as A,u as ze,F as Ce,B as we,m as it,h as lt,Q as Re,I as st,n as at}from"./index-31c99350.js";import{T as ce}from"./Table-b267d3a3.js";import{i as Be}from"./axiosAPI-f5007386.js";import{L as ut}from"./LoadingEffect-838fbca2.js";import{M as pe}from"./Modal-2a530ba0.js";import{u as gt}from"./useQuery-8a85df47.js";/**
  * table-core
  *
  * Copyright (c) TanStack

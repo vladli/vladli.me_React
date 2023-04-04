@@ -24,7 +24,7 @@ app.get("/*", function (req, res) {
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Example app listening on a port ${PORT}!`));
 mongoose_1.default.set("strictQuery", true);
 mongoose_1.default
     .connect(process.env.DB_CONNECT, {})

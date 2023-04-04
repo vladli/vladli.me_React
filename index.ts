@@ -5,11 +5,12 @@ import express, { Express } from "express";
 import routes from "./routes/index";
 import verifyToken from "./security/verifyToken";
 import path from "path";
+import ViteExpress from "vite-express";
 
 dotenv.config();
 
 const app: Express = express();
-
+ViteExpress.config({ mode: "production" });
 app.use(express.json());
 app.use(cors());
 
@@ -24,7 +25,8 @@ app.get("/*", function (req, res) {
 /** Server */
 
 const PORT = process.env.PORT ?? 4000;
-app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+ViteExpress.listen(app, 4000, () => console.log("Server is listening..."));
+//app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 
 mongoose.set("strictQuery", true);
 mongoose

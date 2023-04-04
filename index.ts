@@ -11,16 +11,7 @@ dotenv.config();
 const app: Express = express();
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "https://vladli.me",
-      "https://api.openweathermap.org",
-      "https://api.geoapify.com",
-    ],
-  })
-);
+app.use(cors());
 
 app.use("/api", verifyToken, routes);
 

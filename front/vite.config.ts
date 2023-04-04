@@ -24,7 +24,9 @@ export default defineConfig({
     },
   },
   build: {
+    manifest: true,
     rollupOptions: {
+      input: "./src/index.tsx",
       output: {
         chunkFileNames: "assets/js/[name]-[hash].js",
         entryFileNames: "assets/js/[name]-[hash].js",

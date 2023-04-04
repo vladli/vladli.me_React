@@ -1,3 +1,4 @@
+import "vite/modulepreload-polyfill";
 import ReactDOM from "react-dom/client";
 import { domMax, LazyMotion } from "framer-motion";
 import { StrictMode } from "react";

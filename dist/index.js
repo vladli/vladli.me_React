@@ -15,11 +15,12 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use("/api", verifyToken_1.default, index_1.default);
-app.use("/", express_1.default.static(path_1.default.join(__dirname, "/front/dist")));
+const dirname = path_1.default.resolve();
+app.use("/", express_1.default.static(path_1.default.join(dirname, "/front/dist")));
 app.get("/*", function (req, res) {
     res
         .set({ "Content-Type": "text/html" })
-        .sendFile(path_1.default.join(__dirname, "/front/dist/", "index.html"));
+        .sendFile(path_1.default.join(dirname, "/front/dist/", "index.html"));
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;

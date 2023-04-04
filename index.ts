@@ -13,12 +13,13 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api", verifyToken, routes);
+const dirname = path.resolve();
 
-app.use("/", express.static(path.join(__dirname, "/front/dist")));
+app.use("/", express.static(path.join(dirname, "/front/dist")));
 app.get("/*", function (req, res) {
   res
     .set({ "Content-Type": "text/html" })
-    .sendFile(path.join(__dirname, "/front/dist/", "index.html"));
+    .sendFile(path.join(dirname, "/front/dist/", "index.html"));
 });
 /** Server */
 

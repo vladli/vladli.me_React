@@ -10,10 +10,8 @@ const express_1 = __importDefault(require("express"));
 const index_1 = __importDefault(require("./routes/index"));
 const verifyToken_1 = __importDefault(require("./security/verifyToken"));
 const path_1 = __importDefault(require("path"));
-const vite_express_1 = __importDefault(require("vite-express"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-vite_express_1.default.config({ mode: "production" });
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 app.use("/api", verifyToken_1.default, index_1.default);
@@ -25,8 +23,7 @@ app.get("/*", function (req, res) {
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;
-vite_express_1.default.listen(app, 4000, () => console.log("Server is listening..."));
-//app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
 mongoose_1.default.set("strictQuery", true);
 mongoose_1.default
     .connect(process.env.DB_CONNECT, {})

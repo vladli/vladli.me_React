@@ -5,7 +5,7 @@ type Props = {
 };
 
 function PageTitle({ title }: Props) {
-  const _title = title + " | vladli.me";
+  const _title = title + " | vladli.ME";
   return (
     <Helmet>
       <title>{_title}</title>

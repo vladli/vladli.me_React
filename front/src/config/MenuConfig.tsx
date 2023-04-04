@@ -8,6 +8,7 @@ import { RiUserSearchFill } from "react-icons/ri";
 import { FaUserPlus } from "react-icons/fa";
 import { BsCalculator } from "react-icons/bs";
 import { TiWeatherPartlySunny } from "react-icons/ti";
+import { TbTicTac } from "react-icons/tb";
 
 function getMenu(userRole: string) {
   const { t } = useTranslation();
@@ -36,6 +37,11 @@ function getMenu(userRole: string) {
           name: t("beginnerProjects:Weather.title"),
           link: PATH_BEGINNER_PROJECTS.weather,
           icon: <TiWeatherPartlySunny />,
+        },
+        {
+          name: t("beginnerProjects:TicTacToe.title"),
+          link: PATH_BEGINNER_PROJECTS.ticTacToe,
+          icon: <TbTicTac />,
         },
       ],
     },

@@ -24,6 +24,7 @@ const LoginPage = lazy(() => import("pages/auth/Login"));
 const Calculator = lazy(() => import("pages/beginner-projects/Calculator"));
 const Todos = lazy(() => import("pages/beginner-projects/Todos"));
 const Weather = lazy(() => import("pages/beginner-projects/Weather"));
+const TicTacToe = lazy(() => import("pages/beginner-projects/TicTacToe"));
 
 const AdminAllUsers = lazy(() => import("pages/admin/AllUsers"));
 const AdminFindUser = lazy(() => import("pages/admin/FindUser"));
@@ -108,6 +109,16 @@ const router = createBrowserRouter(
             </Page>
           ),
         },
+        {
+          path: PATH_BEGINNER_PROJECTS.ticTacToe,
+          element: (
+            <Page title="beginnerProjects:TicTacToe.title" center>
+              <SuspenseLoading>
+                <TicTacToe />
+              </SuspenseLoading>
+            </Page>
+          ),
+        },
       ],
     },
     {
@@ -117,7 +128,7 @@ const router = createBrowserRouter(
           path: PATH_ADMIN.users,
           element: (
             <RoleGuard roles={[ROLES.Admin]} redirect>
-              <Page title="admin:AllUsers.title">
+              <Page title="admin:AllUsers.title" center>
                 <SuspenseLoading>
                   <AdminAllUsers />
                 </SuspenseLoading>

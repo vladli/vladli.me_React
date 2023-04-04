@@ -2,6 +2,11 @@
 	"Calculator": {
 		"title": "Calculator"
 	},
+	"TicTacToe": {
+		"NextPlayer": "Next player",
+		"Winner": "Winner",
+		"title": "Tic Tac Toe"
+	},
 	"Todos": {
 		"AddItem": "Add",
 		"EditTextInfo": "Double Click to Edit Text",

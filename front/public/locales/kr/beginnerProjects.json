@@ -2,6 +2,11 @@
 	"Calculator": {
 		"title": "계산자"
 	},
+	"TicTacToe": {
+		"NextPlayer": "다음 플레이어",
+		"Winner": "우승자",
+		"title": "박하 사탕 발가락"
+	},
 	"Todos": {
 		"AddItem": "추가",
 		"EditTextInfo": "텍스트를 편집하려면 더블 클릭",

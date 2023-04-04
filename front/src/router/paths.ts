@@ -29,4 +29,5 @@ export const PATH_BEGINNER_PROJECTS = {
   calculator: path(ROOT_BEGINNER_PROJECTS, "/calculator"),
   todos: path(ROOT_BEGINNER_PROJECTS, "/todos"),
   weather: path(ROOT_BEGINNER_PROJECTS, "/weather"),
+  ticTacToe: path(ROOT_BEGINNER_PROJECTS, "/tic-tac-toe"),
 };

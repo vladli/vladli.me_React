@@ -1,47 +1,47 @@
 {
-  "_Input-737cfbf8.js": {
-    "file": "assets/js/Input-737cfbf8.js",
+  "_Input-4b2a9bff.js": {
+    "file": "assets/js/Input-4b2a9bff.js",
     "imports": [
       "index.html"
     ]
   },
-  "_LoadingEffect-cc93b088.js": {
-    "file": "assets/js/LoadingEffect-cc93b088.js",
+  "_LoadingEffect-90c490c8.js": {
+    "file": "assets/js/LoadingEffect-90c490c8.js",
     "imports": [
       "index.html"
     ]
   },
-  "_Modal-15b6066f.js": {
-    "file": "assets/js/Modal-15b6066f.js",
+  "_Modal-43ad24cf.js": {
+    "file": "assets/js/Modal-43ad24cf.js",
     "imports": [
       "index.html"
     ]
   },
-  "_Table-22a6a938.js": {
-    "file": "assets/js/Table-22a6a938.js",
+  "_Table-ca534cf5.js": {
+    "file": "assets/js/Table-ca534cf5.js",
     "imports": [
       "index.html"
     ]
   },
-  "_axiosAPI-136eead3.js": {
-    "file": "assets/js/axiosAPI-136eead3.js",
+  "_axiosAPI-869fad9a.js": {
+    "file": "assets/js/axiosAPI-869fad9a.js",
     "imports": [
       "index.html"
     ]
   },
-  "_useQuery-488400ec.js": {
-    "file": "assets/js/useQuery-488400ec.js",
+  "_useQuery-8fc8d292.js": {
+    "file": "assets/js/useQuery-8fc8d292.js",
     "imports": [
       "index.html"
     ]
   },
   "index.css": {
-    "file": "assets/css/index-471f4d65.css",
+    "file": "assets/css/index-6d56354d.css",
     "src": "index.css"
   },
   "index.html": {
     "css": [
-      "assets/css/index-471f4d65.css"
+      "assets/css/index-6d56354d.css"
     ],
     "dynamicImports": [
       "src/pages/main/index.tsx",
@@ -49,11 +49,12 @@
       "src/pages/beginner-projects/Calculator/index.tsx",
       "src/pages/beginner-projects/Todos/index.tsx",
       "src/pages/beginner-projects/Weather/index.tsx",
+      "src/pages/beginner-projects/TicTacToe/index.tsx",
       "src/pages/admin/AllUsers/index.tsx",
       "src/pages/admin/FindUser/index.tsx",
       "src/pages/admin/AddUser/index.tsx"
     ],
-    "file": "assets/js/index-a354bc22.js",
+    "file": "assets/js/index-a8e0468b.js",
     "isEntry": true,
     "src": "index.html"
   },
@@ -62,82 +63,90 @@
     "src": "src/assets/login.svg"
   },
   "src/pages/admin/AddUser/index.tsx": {
-    "file": "assets/js/index-6c7cf5f3.js",
+    "file": "assets/js/index-3a0a7a27.js",
     "imports": [
       "index.html",
-      "_axiosAPI-136eead3.js"
+      "_axiosAPI-869fad9a.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/admin/AddUser/index.tsx"
   },
   "src/pages/admin/AllUsers/index.tsx": {
-    "file": "assets/js/index-c0e5d7f4.js",
+    "file": "assets/js/index-2e04d7dd.js",
     "imports": [
       "index.html",
-      "_Table-22a6a938.js",
-      "_axiosAPI-136eead3.js",
-      "_LoadingEffect-cc93b088.js",
-      "_Modal-15b6066f.js",
-      "_useQuery-488400ec.js"
+      "_Table-ca534cf5.js",
+      "_axiosAPI-869fad9a.js",
+      "_LoadingEffect-90c490c8.js",
+      "_Modal-43ad24cf.js",
+      "_useQuery-8fc8d292.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/admin/AllUsers/index.tsx"
   },
   "src/pages/admin/FindUser/index.tsx": {
-    "file": "assets/js/index-962e3b73.js",
+    "file": "assets/js/index-197ba67d.js",
     "imports": [
       "index.html",
-      "_axiosAPI-136eead3.js",
-      "_Input-737cfbf8.js",
-      "_useQuery-488400ec.js"
+      "_axiosAPI-869fad9a.js",
+      "_Input-4b2a9bff.js",
+      "_useQuery-8fc8d292.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/admin/FindUser/index.tsx"
   },
   "src/pages/auth/Login/index.tsx": {
-    "file": "assets/js/index-24c9637e.js",
+    "file": "assets/js/index-ecec5bbd.js",
     "imports": [
       "index.html",
-      "_Input-737cfbf8.js"
+      "_Input-4b2a9bff.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/auth/Login/index.tsx"
   },
   "src/pages/beginner-projects/Calculator/index.tsx": {
-    "file": "assets/js/index-d3aebcc3.js",
+    "file": "assets/js/index-30883828.js",
     "imports": [
       "index.html"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/beginner-projects/Calculator/index.tsx"
   },
+  "src/pages/beginner-projects/TicTacToe/index.tsx": {
+    "file": "assets/js/index-11bd9fb6.js",
+    "imports": [
+      "index.html"
+    ],
+    "isDynamicEntry": true,
+    "src": "src/pages/beginner-projects/TicTacToe/index.tsx"
+  },
   "src/pages/beginner-projects/Todos/index.tsx": {
-    "file": "assets/js/index-72172f2f.js",
+    "file": "assets/js/index-7aafc9c6.js",
     "imports": [
       "index.html",
-      "_LoadingEffect-cc93b088.js",
-      "_axiosAPI-136eead3.js",
-      "_Input-737cfbf8.js",
-      "_useQuery-488400ec.js"
+      "_LoadingEffect-90c490c8.js",
+      "_axiosAPI-869fad9a.js",
+      "_Input-4b2a9bff.js",
+      "_useQuery-8fc8d292.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/beginner-projects/Todos/index.tsx"
   },
   "src/pages/beginner-projects/Weather/index.tsx": {
-    "file": "assets/js/index-8fe905f5.js",
+    "file": "assets/js/index-182315b6.js",
     "imports": [
       "index.html",
-      "_Table-22a6a938.js",
-      "_Input-737cfbf8.js"
+      "_Table-ca534cf5.js",
+      "_Input-4b2a9bff.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/beginner-projects/Weather/index.tsx"
   },
   "src/pages/main/index.tsx": {
-    "file": "assets/js/index-42f35a68.js",
+    "file": "assets/js/index-b5488464.js",
     "imports": [
       "index.html",
-      "_Modal-15b6066f.js"
+      "_Modal-43ad24cf.js"
     ],
     "isDynamicEntry": true,
     "src": "src/pages/main/index.tsx"

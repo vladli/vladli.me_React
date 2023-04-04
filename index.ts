@@ -17,9 +17,7 @@ const dirname = path.resolve();
 
 app.use("/", express.static(path.join(dirname, "/front/dist")));
 app.get("/*", function (req, res) {
-  res
-    .set({ "Content-Type": "text/html" })
-    .sendFile(path.join(dirname, "/front/dist/", "index.html"));
+  res.sendFile(path.join(dirname, "/front/dist/", "index.html"));
 });
 /** Server */
 

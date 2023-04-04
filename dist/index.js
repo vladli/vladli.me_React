@@ -18,9 +18,7 @@ app.use("/api", verifyToken_1.default, index_1.default);
 const dirname = path_1.default.resolve();
 app.use("/", express_1.default.static(path_1.default.join(dirname, "/front/dist")));
 app.get("/*", function (req, res) {
-    res
-        .set({ "Content-Type": "text/html" })
-        .sendFile(path_1.default.join(dirname, "/front/dist/", "index.html"));
+    res.sendFile(path_1.default.join(dirname, "/front/dist/", "index.html"));
 });
 /** Server */
 const PORT = process.env.PORT ?? 4000;

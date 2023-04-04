@@ -1,0 +1,112 @@
+{
+	"errors": {
+		"custom": "",
+		"invalid_arguments": "",
+		"invalid_date": "",
+		"invalid_enum_value": "",
+		"invalid_intersection_types": "",
+		"invalid_literal": "",
+		"invalid_return_type": "",
+		"invalid_string": {
+			"cuid": "",
+			"datetime": "",
+			"email": "",
+			"endsWith": "",
+			"regex": "",
+			"startsWith": "",
+			"url": "",
+			"uuid": ""
+		},
+		"invalid_type": "",
+		"invalid_type_received_undefined": "",
+		"invalid_union": "",
+		"invalid_union_discriminator": "",
+		"not_finite": "",
+		"not_multiple_of": "",
+		"too_big": {
+			"array": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"date": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"number": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"set": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"string": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			}
+		},
+		"too_small": {
+			"array": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"date": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"number": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"set": {
+				"exact": "",
+				"inclusive": "",
+				"not_inclusive": ""
+			},
+			"string": {
+				"exact": "",
+				"inclusive": "문자열은 최소한 {{minimum}} 개의 문자를 포함해야 합니다",
+				"not_inclusive": "문자열은 {{minimum}} 자를 초과해야 합니다"
+			}
+		},
+		"unrecognized_keys": ""
+	},
+	"types": {
+		"array": "",
+		"bigint": "",
+		"boolean": "",
+		"date": "",
+		"float": "",
+		"function": "",
+		"integer": "",
+		"map": "",
+		"nan": "",
+		"never": "",
+		"null": "",
+		"number": "",
+		"object": "",
+		"promise": "",
+		"set": "",
+		"string": "",
+		"symbol": "",
+		"undefined": "",
+		"unknown": "",
+		"void": ""
+	},
+	"validations": {
+		"cuid": "",
+		"datetime": "",
+		"email": "",
+		"regex": "",
+		"url": "",
+		"uuid": ""
+	}
+}

@@ -1,6 +1,7 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
+import { z } from "zod";
+import { makeZodI18nMap } from "zod-i18n-map";
 import Backend from "i18next-http-backend";
 
 if (localStorage.getItem("lang") === null) {
@@ -12,7 +13,7 @@ i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     debug: false,
-    ns: ["admin", "auth", "beginnerProjects", "main"],
+    ns: ["admin", "auth", "beginnerProjects", "main", "zod"],
     load: "languageOnly",
     fallbackLng: "en",
     lng: localStorage.getItem("lang")!,
@@ -23,5 +24,5 @@ i18n
       useSuspense: true,
     },
   });
-
+z.setErrorMap(makeZodI18nMap({ ns: ["zod"] }));
 export default i18n;
